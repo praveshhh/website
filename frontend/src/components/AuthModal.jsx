@@ -42,16 +42,10 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess, backendUrl }
       const data = response.data; // { token, id, email, verified, role }
       
       if (!data.verified) {
-        // Redirect to OTP verification
         setMessage("Your account is not verified yet. A verification code has been sent.");
-        // Request resend code just in case
         await axios.post(`${backendUrl}/api/auth/resend-otp?email=${email}`);
         setMode('otp');
       } else {
-        // Success login - prompt for E2EE master password
-        // (For simplicity we assume master password matches login password for initial setup,
-        // or prompt them to enter their master password to decrypt their data).
-        // Let's ask them for the Master Password to activate E2EE:
         setMode('setup_pass');
         setPassword(password); // Keep it to sign in after
         setMessage("Enter your Master Password to unlock your E2EE Vault.");
@@ -64,79 +58,6 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess, backendUrl }
   };
 
   // Sign Up Flow - Step 1: Submit Email & Register
-  const handleRegisterSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setError(null);
-
-    try {
-      const response = await axios.post(`${backendUrl}/api/auth/signup`, { email, password: 'TemporaryPassword123!' }); // Temp password, will set real one in step 3
-      setMessage(response.data.message);
-      setMode('otp');
-    } catch (err) {
-      setError(err.response?.data?.message || 'Registration failed.');
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  // Sign Up Flow - Step 2: Verify OTP
-  const handleVerifyOtp = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setError(null);
-
-    try {
-      await axios.post(`${backendUrl}/api/auth/verify`, { email, code: otpCode });
-      setMessage("Email verified successfully! Now let's set up your account password and E2EE Vault.");
-      setMode('setup_pass');
-    } catch (err) {
-      setError(err.response?.data?.message || 'Invalid or expired OTP code.');
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  // Sign Up Flow - Step 3: Set Password & Master Key
-  const handleFinalSetup = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setError(null);
-
-    try {
-      if (mode === 'setup_pass' && password !== 'TemporaryPassword123!' && password !== '') {
-        // Logging in with existing verified user - unlock vault
-        onAuthSuccess({
-          email,
-          token: localStorage.getItem('token') || '', // Set during actual signin redirect
-          id: 0, // Placeholder, will re-authenticate
-          verified: true
-        }, masterPassword);
-        handleClose();
-      } else {
-        // Registering a brand new user
-        // We delete the temporary user record and register with the final password, or we update it.
-        // Wait, to make signup simple, we register the user with their final password here:
-        // We delete the temporary account or update the password.
-        // Wait, in our UserService.java, we support registering if already unverified.
-        // Let's call authenticate with the final password!
-        // Wait, to set the final password on the backend, let's make sure the backend user gets the final password.
-        // Since we registered with "TemporaryPassword123!", we can call a password reset endpoint or
-        // let's register the user directly. Wait! To make this extremely robust:
-        // The frontend registers with the email and the chosen password directly at step 1!
-        // Yes! That is much cleaner. Let's adjust the state sequence:
-        // Enter Email & Password -> Click Register -> Sends OTP -> Enter OTP -> Verified -> Log in!
-        // That avoids any temporary password issues!
-        // Let's rewrite the submission sequence below to be extremely clean and simple.
-      }
-    } catch (err) {
-      setError("Setup failed: " + err.message);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  // Simplified robust sequence
   const handleSignupSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -153,6 +74,7 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess, backendUrl }
     }
   };
 
+  // Sign Up Flow - Step 2: Verify OTP
   const handleVerifyOtpSimple = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -177,7 +99,6 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess, backendUrl }
 
   const handleUnlockVault = (e) => {
     e.preventDefault();
-    // Re-authenticate and verify master password
     setLoading(true);
     axios.post(`${backendUrl}/api/auth/signin`, { email, password })
       .then(res => {
@@ -194,9 +115,9 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess, backendUrl }
     <div style={{
       position: 'fixed',
       inset: 0,
-      background: 'rgba(0, 0, 0, 0.85)',
-      backdropFilter: 'blur(15px)',
-      WebkitBackdropFilter: 'blur(15px)',
+      background: 'rgba(94, 92, 230, 0.08)',
+      backdropFilter: 'blur(16px)',
+      WebkitBackdropFilter: 'blur(16px)',
       zIndex: 200,
       display: 'flex',
       alignItems: 'center',
@@ -208,8 +129,8 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess, backendUrl }
         width: '100%',
         position: 'relative',
         border: '1px solid var(--border-primary)',
-        background: 'var(--bg-secondary)',
-        boxShadow: '0 30px 60px rgba(0,0,0,0.9)',
+        background: 'rgba(255, 255, 255, 0.85)',
+        boxShadow: '0 30px 60px rgba(94, 92, 230, 0.12)',
         padding: '32px'
       }}>
         {/* Close Button */}
@@ -219,8 +140,8 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess, backendUrl }
             position: 'absolute',
             top: '20px',
             right: '20px',
-            background: 'rgba(255,255,255,0.03)',
-            border: '1px solid rgba(255,255,255,0.05)',
+            background: 'rgba(0, 0, 0, 0.03)',
+            border: '1px solid rgba(0, 0, 0, 0.05)',
             color: 'var(--text-secondary)',
             width: '32px',
             height: '32px',
@@ -231,8 +152,8 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess, backendUrl }
             justifyContent: 'center',
             transition: 'all 0.2s'
           }}
-          onMouseOver={(e) => { e.target.style.color = '#fff'; e.target.style.background = 'rgba(255,255,255,0.08)'; }}
-          onMouseOut={(e) => { e.target.style.color = 'var(--text-secondary)'; e.target.style.background = 'rgba(255,255,255,0.03)'; }}
+          onMouseOver={(e) => { e.target.style.color = 'var(--text-primary)'; e.target.style.background = 'rgba(0, 0, 0, 0.08)'; }}
+          onMouseOut={(e) => { e.target.style.color = 'var(--text-secondary)'; e.target.style.background = 'rgba(0, 0, 0, 0.03)'; }}
         >
           <X size={16} />
         </button>
@@ -243,17 +164,17 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess, backendUrl }
             width: '40px',
             height: '40px',
             borderRadius: '10px',
-            background: 'rgba(212, 175, 55, 0.04)',
-            border: '1px solid rgba(212, 175, 55, 0.15)',
+            background: 'rgba(94, 92, 230, 0.05)',
+            border: '1px solid rgba(94, 92, 230, 0.15)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             margin: '0 auto 12px'
           }}>
-            <Key size={18} color="var(--accent-gold)" />
+            <Key size={18} color="var(--accent-periwinkle)" />
           </div>
           
-          <h2 style={{ fontSize: '24px', fontWeight: 800 }}>
+          <h2 style={{ fontSize: '24px', fontWeight: 800, color: 'var(--text-primary)' }}>
             {mode === 'login' && 'Unlock Account'}
             {mode === 'signup' && 'Create Account'}
             {mode === 'otp' && 'Verify OTP'}
@@ -270,8 +191,8 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess, backendUrl }
         {/* Error / Success Messages */}
         {error && (
           <div style={{
-            background: 'rgba(255, 72, 72, 0.08)',
-            border: '1px solid rgba(255, 72, 72, 0.3)',
+            background: 'rgba(255, 72, 72, 0.04)',
+            border: '1px solid rgba(255, 72, 72, 0.12)',
             borderRadius: '8px',
             color: '#ff4d4d',
             fontSize: '13px',
@@ -287,8 +208,8 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess, backendUrl }
         )}
         {message && (
           <div style={{
-            background: 'rgba(0, 230, 118, 0.08)',
-            border: '1px solid rgba(0, 230, 118, 0.3)',
+            background: 'rgba(36, 178, 99, 0.04)',
+            border: '1px solid rgba(36, 178, 99, 0.12)',
             borderRadius: '8px',
             color: 'var(--accent-green)',
             fontSize: '13px',
@@ -343,7 +264,7 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess, backendUrl }
               <button 
                 type="button" 
                 onClick={() => { setMode('signup'); setError(null); setMessage(null); }}
-                style={{ background: 'transparent', border: 'none', color: 'var(--accent-gold)', fontWeight: 600, cursor: 'pointer' }}
+                style={{ background: 'transparent', border: 'none', color: 'var(--accent-periwinkle)', fontWeight: 600, cursor: 'pointer' }}
               >
                 Sign Up
               </button>
@@ -389,7 +310,7 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess, backendUrl }
               <button 
                 type="button" 
                 onClick={() => { setMode('login'); setError(null); setMessage(null); }}
-                style={{ background: 'transparent', border: 'none', color: 'var(--accent-gold)', fontWeight: 600, cursor: 'pointer' }}
+                style={{ background: 'transparent', border: 'none', color: 'var(--accent-periwinkle)', fontWeight: 600, cursor: 'pointer' }}
               >
                 Log In
               </button>
@@ -463,7 +384,7 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess, backendUrl }
                 onChange={(e) => setMasterPassword(e.target.value)}
                 required 
               />
-              <p style={{ fontSize: '10.5px', color: 'var(--text-secondary)', marginTop: '8px', lineHeight: '1.4' }}>
+              <p style={{ fontSize: '11.5px', color: 'var(--text-secondary)', marginTop: '8px', lineHeight: '1.4' }}>
                 This password is used to decrypt your vault items in the browser. It is never stored on the server.
               </p>
             </div>

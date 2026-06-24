@@ -147,15 +147,15 @@ export default function Dashboard({ user, masterPassword, backendUrl }) {
       justifyContent: 'flex-start',
       padding: '12px 18px',
       gap: '12px',
-      background: isActive ? 'rgba(255, 255, 255, 0.03)' : 'transparent',
-      color: isActive ? '#FFFFFF' : 'var(--text-secondary)',
+      background: isActive ? 'rgba(94, 92, 230, 0.05)' : 'transparent',
+      color: isActive ? 'var(--accent-periwinkle)' : 'var(--text-secondary)',
       border: 'none',
-      borderLeft: isActive ? '2px solid var(--accent-gold)' : '2px solid transparent',
+      borderLeft: isActive ? '3px solid var(--accent-periwinkle)' : '3px solid transparent',
       borderRadius: '0px',
       cursor: 'pointer',
       fontFamily: 'var(--font-display)',
       fontSize: '13.5px',
-      fontWeight: isActive ? 600 : 500,
+      fontWeight: isActive ? 700 : 500,
       display: 'flex',
       alignItems: 'center',
       transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
@@ -177,15 +177,15 @@ export default function Dashboard({ user, masterPassword, backendUrl }) {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        borderBottom: '1px solid var(--border-primary)',
+        borderBottom: '1px solid rgba(0, 0, 0, 0.05)',
         paddingBottom: '24px',
         marginBottom: '40px'
       }}>
         <div>
-          <span style={{ fontSize: '10px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--text-muted)' }}>
+          <span style={{ fontSize: '10px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--text-muted)' }}>
             verified merchant portal
           </span>
-          <h2 style={{ fontSize: '32px', color: '#fff', marginTop: '6px', fontWeight: 800 }}>Merchant Dashboard</h2>
+          <h2 style={{ fontSize: '32px', color: 'var(--text-primary)', marginTop: '6px', fontWeight: 800 }}>Merchant Dashboard</h2>
         </div>
         
         {/* Connection state */}
@@ -193,13 +193,14 @@ export default function Dashboard({ user, masterPassword, backendUrl }) {
           display: 'flex',
           alignItems: 'center',
           gap: '10px',
-          background: 'rgba(255, 255, 255, 0.02)',
-          border: '1px solid var(--border-primary)',
+          background: '#FFFFFF',
+          border: '1px solid rgba(0, 0, 0, 0.05)',
           padding: '8px 16px',
-          borderRadius: '8px'
+          borderRadius: '50px',
+          boxShadow: '0 4px 12px rgba(94, 92, 230, 0.03)'
         }}>
-          <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--accent-gold)', boxShadow: '0 0 10px var(--accent-gold)' }} />
-          <span style={{ fontSize: '11.5px', color: '#fff', fontWeight: 600 }}>E2EE Session Active</span>
+          <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--accent-periwinkle)', boxShadow: '0 0 10px var(--accent-periwinkle)' }} />
+          <span style={{ fontSize: '11.5px', color: 'var(--text-primary)', fontWeight: 700 }}>E2EE Session Active</span>
         </div>
       </div>
 
@@ -215,7 +216,7 @@ export default function Dashboard({ user, masterPassword, backendUrl }) {
         <div style={{
           display: 'flex',
           flexDirection: 'column',
-          borderRight: '1px solid var(--border-primary)',
+          borderRight: '1px solid rgba(0, 0, 0, 0.05)',
           paddingRight: '16px'
         }}>
           <button onClick={() => setActiveTab('vault')} style={getTabStyle('vault')}>
@@ -230,16 +231,16 @@ export default function Dashboard({ user, masterPassword, backendUrl }) {
         </div>
 
         {/* Right Workspace Panel */}
-        <div className="card-cred" style={{ minHeight: '520px', padding: '32px' }}>
+        <div className="card-cred" style={{ minHeight: '520px', padding: '32px', background: '#FFFFFF' }}>
           
           {/* Action Messages */}
           {error && (
-            <div style={{ background: 'rgba(255,72,72,0.04)', border: '1px solid rgba(255,72,72,0.15)', padding: '12px 16px', borderRadius: '8px', color: '#ff4d4d', fontSize: '13px', marginBottom: '24px' }}>
+            <div style={{ background: 'rgba(255,72,72,0.04)', border: '1px solid rgba(255,72,72,0.12)', padding: '12px 16px', borderRadius: '8px', color: '#ff4d4d', fontSize: '13px', marginBottom: '24px' }}>
               {error}
             </div>
           )}
           {success && (
-            <div style={{ background: 'rgba(0,242,159,0.04)', border: '1px solid rgba(0,242,159,0.15)', padding: '12px 16px', borderRadius: '8px', color: 'var(--accent-green)', fontSize: '13px', marginBottom: '24px' }}>
+            <div style={{ background: 'rgba(36,178,99,0.04)', border: '1px solid rgba(36,178,99,0.12)', padding: '12px 16px', borderRadius: '8px', color: 'var(--accent-green)', fontSize: '13px', marginBottom: '24px' }}>
               {success}
             </div>
           )}
@@ -248,22 +249,22 @@ export default function Dashboard({ user, masterPassword, backendUrl }) {
           {activeTab === 'vault' && (
             <div>
               <div style={{ marginBottom: '28px' }}>
-                <h3 style={{ fontSize: '20px', color: '#fff', fontWeight: 800 }}>Credentials Cryptographic Vault</h3>
-                <p style={{ fontSize: '13px', color: 'var(--text-secondary)', marginTop: '4px' }}>
+                <h3 style={{ fontSize: '20px', color: 'var(--text-primary)', fontWeight: 800 }}>Credentials Cryptographic Vault</h3>
+                <p style={{ fontSize: '13.5px', color: 'var(--text-secondary)', marginTop: '4px' }}>
                   Secure payment credentials, webhook secrets, and standard API keys client-side. The plain key derived standards ensure zero-knowledge server storage.
                 </p>
               </div>
 
               {/* Add New Item Form */}
               <form onSubmit={handleSaveItem} style={{
-                background: 'rgba(255,255,255,0.01)',
-                border: '1px solid var(--border-primary)',
+                background: 'rgba(94, 92, 230, 0.01)',
+                border: '1px solid rgba(94, 92, 230, 0.08)',
                 padding: '24px',
                 borderRadius: '12px',
                 marginBottom: '32px'
               }}>
-                <h4 style={{ fontSize: '13.5px', color: '#fff', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '6px', fontWeight: 700 }}>
-                  <Plus size={15} color="var(--accent-gold)" /> Add Secure Vault Item
+                <h4 style={{ fontSize: '13.5px', color: 'var(--text-primary)', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '6px', fontWeight: 800 }}>
+                  <Plus size={15} color="var(--accent-periwinkle)" /> Add Secure Vault Item
                 </h4>
                 
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.5fr', gap: '16px' }}>
@@ -291,14 +292,14 @@ export default function Dashboard({ user, masterPassword, backendUrl }) {
                 </div>
                 
                 <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '20px' }}>
-                  <button type="submit" className="btn-cred" style={{ padding: '8px 18px', fontSize: '12px' }}>
+                  <button type="submit" className="btn-cred-neon" style={{ padding: '8px 20px', fontSize: '12px' }}>
                     Encrypt & Save
                   </button>
                 </div>
               </form>
 
               {/* Secrets Table Ledger */}
-              <h4 style={{ fontSize: '13.5px', color: '#fff', marginBottom: '14px', fontWeight: 700 }}>Vault Entries</h4>
+              <h4 style={{ fontSize: '13.5px', color: 'var(--text-primary)', marginBottom: '14px', fontWeight: 800 }}>Vault Entries</h4>
               
               {loading ? (
                 <div className="skeleton" style={{ height: '140px', borderRadius: '8px' }} />
@@ -306,7 +307,7 @@ export default function Dashboard({ user, masterPassword, backendUrl }) {
                 <div style={{
                   textAlign: 'center',
                   padding: '48px 0',
-                  border: '1px dashed var(--border-primary)',
+                  border: '1px dashed rgba(0, 0, 0, 0.08)',
                   borderRadius: '12px',
                   color: 'var(--text-muted)',
                   fontSize: '13.5px'
@@ -314,17 +315,17 @@ export default function Dashboard({ user, masterPassword, backendUrl }) {
                   No secure credentials stored yet. Add an entry above.
                 </div>
               ) : (
-                <div style={{ border: '1px solid var(--border-primary)', borderRadius: '8px', overflow: 'hidden' }}>
+                <div style={{ border: '1px solid rgba(0, 0, 0, 0.06)', borderRadius: '8px', overflow: 'hidden' }}>
                   {/* Ledger Header */}
                   <div style={{
                     display: 'grid',
                     gridTemplateColumns: '1.2fr 2fr 1fr',
                     padding: '12px 20px',
-                    borderBottom: '1px solid var(--border-primary)',
-                    background: 'rgba(255, 255, 255, 0.01)',
+                    borderBottom: '1px solid rgba(0, 0, 0, 0.06)',
+                    background: 'rgba(0, 0, 0, 0.01)',
                     color: 'var(--text-muted)',
                     fontSize: '10.5px',
-                    fontWeight: 700,
+                    fontWeight: 800,
                     textTransform: 'uppercase',
                     letterSpacing: '0.05em'
                   }}>
@@ -339,15 +340,15 @@ export default function Dashboard({ user, masterPassword, backendUrl }) {
                       display: 'grid',
                       gridTemplateColumns: '1.2fr 2fr 1fr',
                       padding: '16px 20px',
-                      borderBottom: '1px solid rgba(255, 255, 255, 0.02)',
+                      borderBottom: '1px solid rgba(0, 0, 0, 0.04)',
                       alignItems: 'center',
-                      background: 'rgba(3, 3, 3, 0.3)',
+                      background: '#FFFFFF',
                       transition: 'background-color 0.2s'
                     }}
-                    onMouseOver={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.01)'}
-                    onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'rgba(3, 3, 3, 0.3)'}
+                    onMouseOver={(e) => e.currentTarget.style.backgroundColor = 'rgba(94, 92, 230, 0.01)'}
+                    onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#FFFFFF'}
                     >
-                      <div style={{ fontWeight: 600, fontSize: '13px', color: '#fff' }}>
+                      <div style={{ fontWeight: 700, fontSize: '13px', color: 'var(--text-primary)' }}>
                         {item.itemName}
                       </div>
 
@@ -415,20 +416,20 @@ export default function Dashboard({ user, masterPassword, backendUrl }) {
           {/* TAB 2: PAYOUTS SIMULATOR */}
           {activeTab === 'payouts' && (
             <div>
-              <h3 style={{ fontSize: '20px', color: '#fff', marginBottom: '6px', fontWeight: 800 }}>Payout Simulator Node</h3>
-              <p style={{ fontSize: '13px', color: 'var(--text-secondary)', marginBottom: '28px' }}>
+              <h3 style={{ fontSize: '20px', color: 'var(--text-primary)', marginBottom: '6px', fontWeight: 800 }}>Payout Simulator Node</h3>
+              <p style={{ fontSize: '13.5px', color: 'var(--text-secondary)', marginBottom: '28px' }}>
                 Simulate bulk money transfers and payment gateway checkouts using our virtual IMPS routing engine.
               </p>
 
               {/* Simulator Form */}
               <form onSubmit={handleCreateMockPayout} style={{
-                background: 'rgba(255,255,255,0.01)',
-                border: '1px solid var(--border-primary)',
+                background: 'rgba(94, 92, 230, 0.01)',
+                border: '1px solid rgba(94, 92, 230, 0.08)',
                 padding: '24px',
                 borderRadius: '12px',
                 marginBottom: '32px'
               }}>
-                <h4 style={{ fontSize: '13.5px', color: '#fff', marginBottom: '16px', fontWeight: 700 }}>Trigger Mock IMPS Payout</h4>
+                <h4 style={{ fontSize: '13.5px', color: 'var(--text-primary)', marginBottom: '16px', fontWeight: 800 }}>Trigger Mock IMPS Payout</h4>
                 
                 <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '16px' }}>
                   <div className="form-group-cred" style={{ marginBottom: 0 }}>
@@ -457,25 +458,25 @@ export default function Dashboard({ user, masterPassword, backendUrl }) {
                 </div>
                 
                 <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '20px' }}>
-                  <button type="submit" className="btn-cred" style={{ padding: '8px 18px', fontSize: '12px' }}>
+                  <button type="submit" className="btn-cred-neon" style={{ padding: '8px 18px', fontSize: '12px' }}>
                     Process Instantly
                   </button>
                 </div>
               </form>
 
               {/* Transactions Ledger Table */}
-              <h4 style={{ fontSize: '13.5px', color: '#fff', marginBottom: '14px', fontWeight: 700 }}>Simulation Transaction Log</h4>
-              <div style={{ border: '1px solid var(--border-primary)', borderRadius: '8px', overflow: 'hidden' }}>
+              <h4 style={{ fontSize: '13.5px', color: 'var(--text-primary)', marginBottom: '14px', fontWeight: 800 }}>Simulation Transaction Log</h4>
+              <div style={{ border: '1px solid rgba(0, 0, 0, 0.06)', borderRadius: '8px', overflow: 'hidden' }}>
                 {/* Ledger Header */}
                 <div style={{
                   display: 'grid',
                   gridTemplateColumns: '1.5fr 1.5fr 1fr 1fr',
                   padding: '12px 18px',
-                  borderBottom: '1px solid var(--border-primary)',
-                  background: 'rgba(255, 255, 255, 0.01)',
+                  borderBottom: '1px solid rgba(0, 0, 0, 0.06)',
+                  background: 'rgba(0, 0, 0, 0.01)',
                   color: 'var(--text-muted)',
                   fontSize: '10.5px',
-                  fontWeight: 700,
+                  fontWeight: 800,
                   textTransform: 'uppercase',
                   letterSpacing: '0.05em'
                 }}>
@@ -491,14 +492,14 @@ export default function Dashboard({ user, masterPassword, backendUrl }) {
                     display: 'grid',
                     gridTemplateColumns: '1.5fr 1.5fr 1fr 1fr',
                     padding: '14px 18px',
-                    borderBottom: '1px solid rgba(255, 255, 255, 0.02)',
+                    borderBottom: '1px solid rgba(0, 0, 0, 0.04)',
                     alignItems: 'center',
                     fontSize: '13px',
-                    background: 'rgba(3, 3, 3, 0.3)'
+                    background: '#FFFFFF'
                   }}>
-                    <div style={{ fontWeight: 600, color: '#fff' }}>{tx.target}</div>
+                    <div style={{ fontWeight: 700, color: 'var(--text-primary)' }}>{tx.target}</div>
                     <div style={{ fontFamily: 'var(--font-mono)', color: 'var(--text-secondary)', fontSize: '12px' }}>{tx.id}</div>
-                    <div style={{ fontFamily: 'var(--font-mono)', fontWeight: 700, color: tx.type === 'PAYOUT' ? '#fff' : 'var(--accent-green)' }}>
+                    <div style={{ fontFamily: 'var(--font-mono)', fontWeight: 700, color: tx.type === 'PAYOUT' ? 'var(--text-primary)' : 'var(--accent-green)' }}>
                       {tx.type === 'PAYOUT' ? '-' : '+'}{tx.amount}
                     </div>
                     <div style={{ textAlign: 'right' }}>
@@ -507,8 +508,8 @@ export default function Dashboard({ user, masterPassword, backendUrl }) {
                         fontSize: '9px',
                         fontWeight: 700,
                         color: 'var(--accent-green)',
-                        background: 'rgba(0, 242, 159, 0.05)',
-                        border: '1px solid rgba(0, 242, 159, 0.15)',
+                        background: 'rgba(36, 178, 99, 0.05)',
+                        border: '1px solid rgba(36, 178, 99, 0.15)',
                         padding: '2px 8px',
                         borderRadius: '4px'
                       }}>
@@ -524,56 +525,56 @@ export default function Dashboard({ user, masterPassword, backendUrl }) {
           {/* TAB 3: PROFILE SETTINGS */}
           {activeTab === 'settings' && (
             <div>
-              <h3 style={{ fontSize: '20px', color: '#fff', marginBottom: '24px', fontWeight: 800 }}>Account Node Profile</h3>
+              <h3 style={{ fontSize: '20px', color: 'var(--text-primary)', marginBottom: '24px', fontWeight: 800 }}>Account Node Profile</h3>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
                 <div style={{
-                  borderBottom: '1px solid var(--border-primary)',
+                  borderBottom: '1px solid rgba(0, 0, 0, 0.05)',
                   paddingBottom: '16px'
                 }}>
-                  <span style={{ fontSize: '10px', color: 'var(--text-muted)', textTransform: 'uppercase', fontWeight: 600 }}>Merchant Account ID</span>
-                  <p style={{ fontSize: '13.5px', color: '#fff', marginTop: '4px', fontFamily: 'var(--font-mono)' }}>merchant_usr_{user.id || '9834'}</p>
+                  <span style={{ fontSize: '10px', color: 'var(--text-muted)', textTransform: 'uppercase', fontWeight: 700 }}>Merchant Account ID</span>
+                  <p style={{ fontSize: '13.5px', color: 'var(--text-primary)', marginTop: '4px', fontFamily: 'var(--font-mono)' }}>merchant_usr_{user.id || '9834'}</p>
                 </div>
 
                 <div style={{
-                  borderBottom: '1px solid var(--border-primary)',
+                  borderBottom: '1px solid rgba(0, 0, 0, 0.05)',
                   paddingBottom: '16px'
                 }}>
-                  <span style={{ fontSize: '10px', color: 'var(--text-muted)', textTransform: 'uppercase', fontWeight: 600 }}>Login Username (Email)</span>
-                  <p style={{ fontSize: '13.5px', color: '#fff', marginTop: '4px' }}>{user.email}</p>
+                  <span style={{ fontSize: '10px', color: 'var(--text-muted)', textTransform: 'uppercase', fontWeight: 700 }}>Login Username (Email)</span>
+                  <p style={{ fontSize: '13.5px', color: 'var(--text-primary)', marginTop: '4px' }}>{user.email}</p>
                 </div>
 
                 <div style={{
-                  borderBottom: '1px solid var(--border-primary)',
+                  borderBottom: '1px solid rgba(0, 0, 0, 0.05)',
                   paddingBottom: '16px'
                 }}>
-                  <span style={{ fontSize: '10px', color: 'var(--text-muted)', textTransform: 'uppercase', fontWeight: 600 }}>Access Authorization Role</span>
-                  <p style={{ fontSize: '13.5px', color: 'var(--accent-gold)', marginTop: '4px', fontWeight: 600 }}>{user.role || 'ROLE_USER'}</p>
+                  <span style={{ fontSize: '10px', color: 'var(--text-muted)', textTransform: 'uppercase', fontWeight: 700 }}>Access Authorization Role</span>
+                  <p style={{ fontSize: '13.5px', color: 'var(--accent-periwinkle)', marginTop: '4px', fontWeight: 700 }}>{user.role || 'ROLE_USER'}</p>
                 </div>
 
                 <div>
-                  <span style={{ fontSize: '10px', color: 'var(--text-muted)', textTransform: 'uppercase', fontWeight: 600 }}>Client Security Context</span>
+                  <span style={{ fontSize: '10px', color: 'var(--text-muted)', textTransform: 'uppercase', fontWeight: 700 }}>Client Security Context</span>
                   <div style={{ display: 'flex', gap: '12px', marginTop: '8px' }}>
                     <div style={{
-                      background: 'rgba(255, 255, 255, 0.01)',
-                      border: '1px solid var(--border-primary)',
+                      background: 'rgba(0, 0, 0, 0.01)',
+                      border: '1px solid rgba(0, 0, 0, 0.05)',
                       padding: '12px 18px',
                       borderRadius: '8px',
                       flex: 1
                     }}>
                       <span style={{ fontSize: '9px', color: 'var(--text-muted)', display: 'block' }}>Key Agreement</span>
-                      <span style={{ fontSize: '12.5px', fontWeight: 700, color: '#fff', marginTop: '2px', display: 'block', fontFamily: 'var(--font-mono)' }}>PBKDF2 SHA-256</span>
+                      <span style={{ fontSize: '12.5px', fontWeight: 700, color: 'var(--text-primary)', marginTop: '2px', display: 'block', fontFamily: 'var(--font-mono)' }}>PBKDF2 SHA-256</span>
                     </div>
 
                     <div style={{
-                      background: 'rgba(255, 255, 255, 0.01)',
-                      border: '1px solid var(--border-primary)',
+                      background: 'rgba(0, 0, 0, 0.01)',
+                      border: '1px solid rgba(0, 0, 0, 0.05)',
                       padding: '12px 18px',
                       borderRadius: '8px',
                       flex: 1
                     }}>
                       <span style={{ fontSize: '9px', color: 'var(--text-muted)', display: 'block' }}>Encryption Standard</span>
-                      <span style={{ fontSize: '12.5px', fontWeight: 700, color: '#fff', marginTop: '2px', display: 'block', fontFamily: 'var(--font-mono)' }}>AES-GCM-256</span>
+                      <span style={{ fontSize: '12.5px', fontWeight: 700, color: 'var(--text-primary)', marginTop: '2px', display: 'block', fontFamily: 'var(--font-mono)' }}>AES-GCM-256</span>
                     </div>
                   </div>
                 </div>

@@ -52,29 +52,31 @@ export default function App() {
   };
 
   return (
-    <div style={{ backgroundColor: 'var(--bg-primary)', minHeight: '100vh', color: '#fff' }}>
-      {/* Floating Navbar */}
-      <Navbar 
-        user={user} 
-        activeTab={activeTab}
-        onOpenAuth={() => setIsAuthOpen(true)} 
-        onLogout={handleLogout}
-        onNavigate={handleNavigate}
-      />
-
-      {/* Main Content Layout */}
-      {activeTab === 'home' ? (
-        <Hero 
-          onOpenAuth={() => setIsAuthOpen(true)} 
-          backendUrl={BACKEND_URL}
-        />
-      ) : (
-        <Dashboard 
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', color: 'var(--text-primary)' }}>
+      <div className="app-frame">
+        {/* Floating Navbar */}
+        <Navbar 
           user={user} 
-          masterPassword={masterPassword} 
-          backendUrl={BACKEND_URL}
+          activeTab={activeTab}
+          onOpenAuth={() => setIsAuthOpen(true)} 
+          onLogout={handleLogout}
+          onNavigate={handleNavigate}
         />
-      )}
+
+        {/* Main Content Layout */}
+        {activeTab === 'home' ? (
+          <Hero 
+            onOpenAuth={() => setIsAuthOpen(true)} 
+            backendUrl={BACKEND_URL}
+          />
+        ) : (
+          <Dashboard 
+            user={user} 
+            masterPassword={masterPassword} 
+            backendUrl={BACKEND_URL}
+          />
+        )}
+      </div>
 
       {/* Auth Modal Portal */}
       <AuthModal 

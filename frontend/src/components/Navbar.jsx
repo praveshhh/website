@@ -4,15 +4,15 @@ import { Shield, LayoutDashboard, LogOut } from 'lucide-react';
 export default function Navbar({ user, onOpenAuth, onLogout, onNavigate, activeTab }) {
   return (
     <nav style={{
-      position: 'fixed',
+      position: 'absolute', // Sits inside the app-frame container relative space
       top: 0,
       left: 0,
       right: 0,
       height: '80px',
       zIndex: 100,
-      background: 'rgba(3, 3, 3, 0.75)',
-      backdropFilter: 'blur(24px)',
-      WebkitBackdropFilter: 'blur(24px)',
+      background: 'rgba(255, 255, 255, 0.25)',
+      backdropFilter: 'blur(20px)',
+      WebkitBackdropFilter: 'blur(20px)',
       borderBottom: '1px solid var(--border-primary)',
       display: 'flex',
       alignItems: 'center',
@@ -33,24 +33,22 @@ export default function Navbar({ user, onOpenAuth, onLogout, onNavigate, activeT
           width: '32px',
           height: '32px',
           borderRadius: '8px',
-          background: 'linear-gradient(135deg, #FFE082, #D4AF37)',
+          background: 'linear-gradient(135deg, #7F7DF4, #5E5CE6)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          boxShadow: '0 4px 12px rgba(212, 175, 55, 0.15)'
+          boxShadow: '0 4px 12px rgba(94, 92, 230, 0.15)'
         }}>
-          <Shield size={18} color="#000" strokeWidth={2.5} />
+          <Shield size={18} color="#FFF" strokeWidth={2.5} />
         </div>
         <span style={{
           fontFamily: "var(--font-display)",
           fontWeight: 800,
           fontSize: '19px',
           letterSpacing: '-0.02em',
-          background: 'linear-gradient(135deg, #fff, #bbb)',
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent'
+          color: 'var(--text-primary)'
         }}>
-          BillsPay<span style={{ color: 'var(--accent-gold)', WebkitTextFillColor: 'initial' }}>24X7</span>
+          BillsPay<span style={{ color: 'var(--accent-periwinkle)' }}>24X7</span>
         </span>
       </div>
 
@@ -62,10 +60,10 @@ export default function Navbar({ user, onOpenAuth, onLogout, onNavigate, activeT
       }}>
         {activeTab === 'home' && (
           <>
-            <a href="#solutions" style={{ fontSize: '11px', fontWeight: 600, color: 'var(--text-secondary)', transition: 'color 0.2s', letterSpacing: '0.08em', textTransform: 'uppercase' }} onMouseOver={(e) => e.target.style.color = '#fff'} onMouseOut={(e) => e.target.style.color = 'var(--text-secondary)'}>Solutions</a>
-            <a href="#how-it-works" style={{ fontSize: '11px', fontWeight: 600, color: 'var(--text-secondary)', transition: 'color 0.2s', letterSpacing: '0.08em', textTransform: 'uppercase' }} onMouseOver={(e) => e.target.style.color = '#fff'} onMouseOut={(e) => e.target.style.color = 'var(--text-secondary)'}>How it works</a>
-            <a href="#why-us" style={{ fontSize: '11px', fontWeight: 600, color: 'var(--text-secondary)', transition: 'color 0.2s', letterSpacing: '0.08em', textTransform: 'uppercase' }} onMouseOver={(e) => e.target.style.color = '#fff'} onMouseOut={(e) => e.target.style.color = 'var(--text-secondary)'}>Security</a>
-            <a href="#contact" style={{ fontSize: '11px', fontWeight: 600, color: 'var(--text-secondary)', transition: 'color 0.2s', letterSpacing: '0.08em', textTransform: 'uppercase' }} onMouseOver={(e) => e.target.style.color = '#fff'} onMouseOut={(e) => e.target.style.color = 'var(--text-secondary)'}>Contact</a>
+            <a href="#solutions" style={{ fontSize: '11.5px', fontWeight: 700, color: 'var(--text-secondary)', transition: 'color 0.2s', letterSpacing: '0.05em', textTransform: 'uppercase' }} onMouseOver={(e) => e.target.style.color = 'var(--text-primary)'} onMouseOut={(e) => e.target.style.color = 'var(--text-secondary)'}>Solutions</a>
+            <a href="#how-it-works" style={{ fontSize: '11.5px', fontWeight: 700, color: 'var(--text-secondary)', transition: 'color 0.2s', letterSpacing: '0.05em', textTransform: 'uppercase' }} onMouseOver={(e) => e.target.style.color = 'var(--text-primary)'} onMouseOut={(e) => e.target.style.color = 'var(--text-secondary)'}>How it works</a>
+            <a href="#why-us" style={{ fontSize: '11.5px', fontWeight: 700, color: 'var(--text-secondary)', transition: 'color 0.2s', letterSpacing: '0.05em', textTransform: 'uppercase' }} onMouseOver={(e) => e.target.style.color = 'var(--text-primary)'} onMouseOut={(e) => e.target.style.color = 'var(--text-secondary)'}>Security</a>
+            <a href="#contact" style={{ fontSize: '11.5px', fontWeight: 700, color: 'var(--text-secondary)', transition: 'color 0.2s', letterSpacing: '0.05em', textTransform: 'uppercase' }} onMouseOver={(e) => e.target.style.color = 'var(--text-primary)'} onMouseOut={(e) => e.target.style.color = 'var(--text-secondary)'}>Contact</a>
           </>
         )}
       </div>
@@ -95,8 +93,8 @@ export default function Navbar({ user, onOpenAuth, onLogout, onNavigate, activeT
             <button 
               onClick={onLogout}
               className="btn-cred-outline"
-              style={{ padding: '8px 18px', fontSize: '11.5px', border: '1px solid rgba(255, 72, 72, 0.2)', color: '#ff7272' }}
-              onMouseOver={(e) => { e.target.style.background = 'rgba(255, 72, 72, 0.04)'; e.target.style.borderColor = '#ff7272'; }}
+              style={{ padding: '8px 18px', fontSize: '11.5px', border: '1px solid rgba(255, 72, 72, 0.2)', color: '#ff4d4d' }}
+              onMouseOver={(e) => { e.target.style.background = 'rgba(255, 72, 72, 0.04)'; e.target.style.borderColor = '#ff4d4d'; }}
               onMouseOut={(e) => { e.target.style.background = 'transparent'; e.target.style.borderColor = 'rgba(255, 72, 72, 0.2)'; }}
             >
               <LogOut size={13} style={{ marginRight: '4px', verticalAlign: 'middle' }} />

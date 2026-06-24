@@ -1,0 +1,53 @@
+server:
+  port: ${PORT:8082}
+
+spring:
+  application:
+    name: billspay-backend
+  
+  # Database Configuration: Defaults to a local file-based H2 database for persistence in dev
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:h2:./data/billspaydb;DB_CLOSE_ON_EXIT=FALSE}
+    driver-class-name: ${SPRING_DATASOURCE_DRIVER:org.h2.Driver}
+    username: ${SPRING_DATASOURCE_USERNAME:sa}
+    password: ${SPRING_DATASOURCE_PASSWORD:password}
+  
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      settings:
+        web-allow-others: true
+
+  jpa:
+    database-platform: ${SPRING_JPA_DIALECT:org.hibernate.dialect.H2Dialect}
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+
+  # Email Configuration (Gmail SMTP)
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${GMAIL_USERNAME:dummy@gmail.com}
+    password: ${GMAIL_APP_PASSWORD:dummypassword}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+
+# Security & JWT Configuration
+app:
+  jwt:
+    # 256-bit secret key base64-encoded (Change in production!)
+    secret: ${JWT_SECRET:d2Vic2l0ZS1jcmVkLXVpLWVuZC10by1lbmQtZW5jcnlwdGlvbi1zZWNyZXQta2V5LTI1Ni1iaXQtY29kZQ==}
+    expirationMs: 86400000 # 24 hours
+  # Verification configuration
+  auth:
+    otpExpiryMinutes: 10

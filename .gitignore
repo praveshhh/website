@@ -1,0 +1,33 @@
+# IDE / OS Cache
+.idea/
+.vscode/
+*.suo
+*.ntvsca
+*.njsproj
+*.sln
+*.sw?
+.DS_Store
+Thumbs.db
+
+# Backend Build & Data
+backend/target/
+backend/data/
+backend/bin/
+backend/*.log
+backend/out/
+backend/.mvn/wrapper/maven-wrapper.jar
+
+# Frontend Build & Dependencies
+frontend/node_modules/
+frontend/dist/
+frontend/build/
+frontend/*.log
+
+# Environment Files / Secrets
+.env
+.env.local
+.env.production
+.env.development
+.env.development.local
+.env.local.production
+.env.local.development

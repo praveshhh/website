@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: billspay-db
+    restart: always
+    environment:
+      POSTGRES_DB: billspaydb
+      POSTGRES_USER: sa
+      POSTGRES_PASSWORD: password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - billspay-net
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: billspay-backend
+    restart: always
+    ports:
+      - "8082:8082"
+    environment:
+      - PORT=8082
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/billspaydb
+      - SPRING_DATASOURCE_USERNAME=sa
+      - SPRING_DATASOURCE_PASSWORD=password
+      - SPRING_JPA_DIALECT=org.hibernate.dialect.PostgreSQLDialect
+      - GMAIL_USERNAME=${GMAIL_USERNAME}
+      - GMAIL_APP_PASSWORD=${GMAIL_APP_PASSWORD}
+      - JWT_SECRET=${JWT_SECRET}
+    depends_on:
+      - db
+    networks:
+      - billspay-net
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: billspay-frontend
+    restart: always
+    ports:
+      - "8080:80"
+    networks:
+      - billspay-net
+
+volumes:
+  postgres_data:
+
+networks:
+  billspay-net:

@@ -25,6 +25,7 @@ services:
     environment:
       - PORT=8082
       - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/billspaydb
+      - SPRING_DATASOURCE_DRIVER=org.postgresql.Driver
       - SPRING_DATASOURCE_USERNAME=sa
       - SPRING_DATASOURCE_PASSWORD=password
       - SPRING_JPA_DIALECT=org.hibernate.dialect.PostgreSQLDialect

@@ -1,11 +1,14 @@
 import React, { useState, useRef } from 'react';
-import { Shield, Sparkles, Zap, Smartphone, CheckCircle, Send, ArrowRight, ArrowLeftRight, CreditCard, Globe, Lightbulb } from 'lucide-react';
+import { Shield, Sparkles, Zap, Smartphone, CheckCircle, Send, ArrowRight, ArrowLeftRight } from 'lucide-react';
 import axios from 'axios';
 
 export default function Hero({ onOpenAuth, backendUrl }) {
   // Contact form state
   const [contactData, setContactData] = useState({ name: '', email: '', subject: 'Payment Gateway Integration', message: '' });
   const [contactStatus, setContactStatus] = useState({ success: false, error: null, loading: false });
+
+  // Solutions tabs state
+  const [activeTab, setActiveTab] = useState('merchants');
 
   // 3D Card Hover / Mouse position state
   const [isHovered, setIsHovered] = useState(false);
@@ -74,16 +77,29 @@ export default function Hero({ onOpenAuth, backendUrl }) {
     }
   };
 
+  const solutions = {
+    merchants: [
+      { title: 'Payment Gateway', desc: 'Secure online payment collection with 100+ payment options including Credit/Debit Cards, NetBanking, and UPI.', icon: <Zap size={20} color="var(--accent-periwinkle)" /> },
+      { title: 'Payouts API', desc: 'Automate bulk transfers to vendors, partners, and customers instantly 24x7 via IMPS, NEFT, or UPI.', icon: <ArrowLeftRight size={20} color="var(--accent-periwinkle)" /> },
+      { title: 'BBPS Services', desc: 'Integrated Bharat Bill Payment System for electricity, water, gas, DTH, and mobile recharges.', icon: <Smartphone size={20} color="var(--accent-periwinkle)" /> }
+    ],
+    enterprise: [
+      { title: 'Custom Software', desc: 'Fully customized enterprise fintech portals, banking integration nodes, and ledger architectures.', icon: <Shield size={20} color="var(--accent-periwinkle)" /> },
+      { title: 'AEPS & DMT', desc: 'Aadhaar Enabled Payment System and Domestic Money Transfer nodes for agent networks and retail outlets.', icon: <Sparkles size={20} color="var(--accent-periwinkle)" /> },
+      { title: 'Travel API', desc: 'Integrate flight, hotel, and bus bookings with automated wallets and instant settlement rails.', icon: <Zap size={20} color="var(--accent-periwinkle)" /> }
+    ]
+  };
+
   return (
     <div style={{ paddingTop: '80px', overflowX: 'hidden' }}>
       
       {/* 1. HERO SECTION */}
       <section style={{
         position: 'relative',
-        minHeight: '85vh',
+        minHeight: '90vh',
         display: 'flex',
         alignItems: 'center',
-        padding: '60px 8%',
+        padding: '80px 8%',
         background: 'radial-gradient(circle at 10% 20%, rgba(94, 92, 230, 0.03) 0%, transparent 60%), radial-gradient(circle at 95% 85%, rgba(0, 122, 255, 0.02) 0%, transparent 60%)',
         borderBottom: '1px solid rgba(0, 0, 0, 0.04)'
       }}>
@@ -102,79 +118,81 @@ export default function Hero({ onOpenAuth, backendUrl }) {
         }}>
           {/* Left Hero Content */}
           <div>
-            <h1 style={{
-              fontSize: 'clamp(42px, 5.5vw, 68px)',
-              lineHeight: '1.02',
-              letterSpacing: '-0.04em',
-              marginBottom: '20px',
+            <div style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              border: '1px solid rgba(94, 92, 230, 0.15)',
+              background: 'rgba(94, 92, 230, 0.04)',
+              padding: '6px 16px',
+              borderRadius: '50px',
+              marginBottom: '28px',
+              fontSize: '11px',
+              fontFamily: 'var(--font-display)',
               fontWeight: 800,
+              letterSpacing: '0.15em',
+              textTransform: 'uppercase',
+              color: 'var(--accent-periwinkle)'
+            }}>
+              <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--accent-periwinkle)', display: 'inline-block' }} />
+              End-to-End Encrypted Fintech Platform
+            </div>
+
+            <h1 style={{
+              fontSize: 'clamp(40px, 5.5vw, 68px)',
+              lineHeight: '1.02',
+              letterSpacing: '-0.03em',
+              marginBottom: '24px',
+              fontWeight: 900,
               color: 'var(--text-primary)'
             }}>
-              Revolutionizing <br />
-              Payments, <br />
-              <span className="text-gradient-blue" style={{ fontStyle: 'italic', fontWeight: 700 }}>One Card</span> <span style={{ fontWeight: 800 }}>at a Time</span>
+              payments <br />
+              <span className="text-gradient-green">designed for </span> <br />
+              <span className="text-gradient-blue">the future.</span>
             </h1>
 
             <p style={{
-              fontSize: '15px',
+              fontSize: '16px',
               color: 'var(--text-secondary)',
-              lineHeight: '1.7',
-              maxWidth: '460px',
-              marginBottom: '32px',
+              lineHeight: '1.8',
+              maxWidth: '520px',
+              marginBottom: '38px',
               fontWeight: 400
             }}>
-              Enjoy instant transactions, smart budgeting tools, and global access—all with the convenience of a single card. BillsPay24X7 enables next-generation zero trust E2EE credentials vaulting.
+              BillsPay24X7 enables next-generation transactions with zero trust E2EE credentials storage, T+1 settlement rails, BBPS systems, and developer-centric payout APIs.
             </p>
 
-            {/* Pill Search / Input Bar */}
-            <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              background: '#FFFFFF',
-              border: '1px solid rgba(0, 0, 0, 0.08)',
-              padding: '6px 6px 6px 20px',
-              borderRadius: '50px',
-              maxWidth: '420px',
-              boxShadow: '0 12px 30px rgba(94, 92, 230, 0.04)',
-              marginBottom: '38px',
-              position: 'relative'
-            }}>
-              <input 
-                type="text" 
-                placeholder="Start spending smarter today..." 
-                style={{
-                  border: 'none',
-                  outline: 'none',
-                  background: 'transparent',
-                  fontSize: '13.5px',
-                  color: 'var(--text-primary)',
-                  flex: 1,
-                  fontFamily: 'var(--font-body)'
-                }}
-                disabled
-              />
-              <button 
-                onClick={onOpenAuth} 
-                className="btn-cred" 
-                style={{ 
-                  padding: '10px 24px', 
-                  fontSize: '12.5px',
-                  background: '#1A1D20',
-                  color: '#FFF'
-                }}
-              >
-                Go!
-              </button>
-            </div>
-
-            {/* Direct CTAs */}
             <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-              <button onClick={onOpenAuth} className="btn-cred-neon">
-                Get Your Card Now <ArrowRight size={14} style={{ marginLeft: '8px' }} />
+              <button onClick={onOpenAuth} className="btn-cred">
+                Get Started Now <ArrowRight size={14} style={{ marginLeft: '8px' }} />
               </button>
               <a href="#solutions" className="btn-cred-outline">
                 Explore Services
               </a>
+            </div>
+
+            {/* Statistics Row */}
+            <div style={{
+              marginTop: '56px',
+              display: 'grid',
+              gridTemplateColumns: 'repeat(3, 1fr)',
+              gap: '20px',
+              maxWidth: '480px',
+              borderTop: '1px solid rgba(0, 0, 0, 0.05)',
+              paddingTop: '28px'
+            }}>
+              <div>
+                <h3 style={{ fontSize: '28px', color: 'var(--text-primary)', fontWeight: 800, fontFamily: 'var(--font-mono)' }}>T+1</h3>
+                <p style={{ fontSize: '11px', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em', marginTop: '4px' }}>Settlements</p>
+              </div>
+              <div>
+                <h3 style={{ fontSize: '28px', color: 'var(--accent-periwinkle)', fontWeight: 800, fontFamily: 'var(--font-mono)' }}>99.9%</h3>
+                <p style={{ fontSize: '11px', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em', marginTop: '4px' }}>Uptime API</p>
+              </div>
+              <div>
+                <h3 style={{ fontSize: '28px', color: 'var(--text-primary)', fontWeight: 800, fontFamily: 'var(--font-mono)' }}>100%</h3>
+                <p style={{ fontSize: '11px', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em', marginTop: '4px' }}>E2E Encrypted</p>
+              </div>
             </div>
           </div>
 
@@ -201,7 +219,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
               }}
             >
               
-              {/* Backplate Card 1 (Angled Diagonal Glass) */}
+              {/* Backplate Card 1 */}
               <div 
                 className="backplate-card"
                 style={{
@@ -220,7 +238,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
                 }}
               />
 
-              {/* Backplate Card 2 (Angled Diagonal Glass) */}
+              {/* Backplate Card 2 */}
               <div 
                 className="backplate-card"
                 style={{
@@ -239,7 +257,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
                 }}
               />
 
-              {/* Backplate Card 3 (Angled Diagonal Glass) */}
+              {/* Backplate Card 3 */}
               <div 
                 className="backplate-card"
                 style={{
@@ -258,7 +276,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
                 }}
               />
 
-              {/* Periwinkle 3D Card (Main floating/interactive element) */}
+              {/* Periwinkle 3D Card */}
               <div 
                 ref={cardRef}
                 className={`card-3d ${!isHovered ? 'card-idle-float' : ''}`}
@@ -295,38 +313,49 @@ export default function Hero({ onOpenAuth, backendUrl }) {
 
                 {/* Card Top Details */}
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', transform: 'translateZ(30px)' }}>
-                  <svg width="34" height="28" viewBox="0 0 34 28" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ opacity: 0.9 }}>
-                    <rect width="34" height="28" rx="5" fill="#FFF" opacity="0.15" />
-                    <rect x="5" y="5" width="8" height="7" rx="1.5" stroke="#FFF" strokeWidth="0.8" />
-                    <rect x="21" y="5" width="8" height="7" rx="1.5" stroke="#FFF" strokeWidth="0.8" />
-                    <rect x="5" y="16" width="8" height="7" rx="1.5" stroke="#FFF" strokeWidth="0.8" />
-                    <rect x="21" y="16" width="8" height="7" rx="1.5" stroke="#FFF" strokeWidth="0.8" />
-                    <path d="M13 9H21M13 19H21M17 5V23" stroke="#FFF" strokeWidth="0.8" />
-                  </svg>
-                  
-                  {/* Contactless waves */}
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.8 }}>
-                    <path d="M5 12h.01M9 9a5 5 0 0 1 0 6M13 6a9 9 0 0 1 0 12M17 3a13 13 0 0 1 0 18" />
+                  <span style={{ fontSize: '10px', fontWeight: 800, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#FFF', opacity: 0.8 }}>
+                    security node
+                  </span>
+                  <Shield size={20} color="#FFFFFF" style={{ opacity: 0.9 }} />
+                </div>
+
+                {/* Parallax Microchip */}
+                <div style={{ transform: 'translateZ(50px)', alignSelf: 'flex-start', margin: '20px 0' }}>
+                  <svg width="40" height="32" viewBox="0 0 40 32" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ opacity: 0.9 }}>
+                    <rect width="40" height="32" rx="6" fill="url(#chip-grad)" stroke="#D4AF37" strokeWidth="0.5" />
+                    <rect x="6" y="6" width="10" height="8" rx="2" stroke="#D4AF37" strokeWidth="0.5" />
+                    <rect x="24" y="6" width="10" height="8" rx="2" stroke="#D4AF37" strokeWidth="0.5" />
+                    <rect x="6" y="18" width="10" height="8" rx="2" stroke="#D4AF37" strokeWidth="0.5" />
+                    <rect x="24" y="18" width="10" height="8" rx="2" stroke="#D4AF37" strokeWidth="0.5" />
+                    <path d="M16 10H24M16 22H24M20 6V26" stroke="#D4AF37" strokeWidth="0.5" />
+                    <defs>
+                      <linearGradient id="chip-grad" x1="0" y1="0" x2="40" y2="32" gradientUnits="userSpaceOnUse">
+                        <stop stopColor="#FFE082" />
+                        <stop offset="0.5" stopColor="#FFC107" />
+                        <stop offset="1" stopColor="#FFA000" />
+                      </linearGradient>
+                    </defs>
                   </svg>
                 </div>
 
                 {/* Card credentials */}
                 <div style={{ transform: 'translateZ(40px)', color: '#FFFFFF' }}>
                   <p style={{ fontSize: '9px', color: 'rgba(255,255,255,0.6)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '8px' }}>
-                    vault credit node
+                    vault credentials status
                   </p>
-                  <h4 style={{ fontSize: '20px', fontFamily: 'var(--font-mono)', fontWeight: 600, letterSpacing: '1px', marginBottom: '18px' }}>
-                    1253 5432 3521 3090
+                  <h4 style={{ fontSize: '18px', fontFamily: 'var(--font-mono)', fontWeight: 600, letterSpacing: '1.5px', marginBottom: '18px' }}>
+                    •••• •••• •••• 9823
                   </h4>
                   
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
                     <div>
-                      <span style={{ fontSize: '8px', color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', display: 'block', marginBottom: '2px' }}>cardholder</span>
-                      <span style={{ fontSize: '11px', fontWeight: 600, color: '#fff' }}>Preston Langley</span>
+                      <span style={{ fontSize: '8px', color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', display: 'block', marginBottom: '2px' }}>active encryption</span>
+                      <span style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', fontWeight: 700, color: '#fff' }}>AES-GCM-256</span>
                     </div>
                     
                     <div style={{ textAlign: 'right' }}>
-                      <span style={{ fontSize: '12px', fontWeight: 800, color: '#fff', fontStyle: 'italic', letterSpacing: '1px' }}>VISA</span>
+                      <span style={{ fontSize: '8px', color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', display: 'block', marginBottom: '2px' }}>key status</span>
+                      <span style={{ fontSize: '11px', fontWeight: 700, color: '#FFF' }}>CLIENT STORED</span>
                     </div>
                   </div>
                 </div>
@@ -350,115 +379,43 @@ export default function Hero({ onOpenAuth, backendUrl }) {
         </div>
       </section>
 
-      {/* 2. STATS & THREE FEATURE COLUMNS ROW */}
+      {/* 2. TRUST TICKER BAR */}
       <section style={{
-        padding: '60px 8% 80px',
         background: '#FFFFFF',
-        borderBottom: '1px solid rgba(0, 0, 0, 0.03)'
+        borderTop: '1px solid rgba(0, 0, 0, 0.04)',
+        borderBottom: '1px solid rgba(0, 0, 0, 0.04)',
+        padding: '20px 0',
+        overflow: 'hidden'
       }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          
-          {/* Stat & Description Row */}
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: '1.2fr 0.8fr 2fr',
-            gap: '40px',
-            alignItems: 'center',
-            marginBottom: '64px',
-            borderBottom: '1px solid rgba(0, 0, 0, 0.05)',
-            paddingBottom: '48px'
-          }}>
-            {/* Stat */}
-            <div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '4px', marginBottom: '8px' }}>
-                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" style={{ width: '28px', height: '28px', borderRadius: '50%', border: '2px solid #FFF', marginRight: '-10px', objectFit: 'cover' }} alt="Avatar 1" />
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" style={{ width: '28px', height: '28px', borderRadius: '50%', border: '2px solid #FFF', marginRight: '-10px', objectFit: 'cover' }} alt="Avatar 2" />
-                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80" style={{ width: '28px', height: '28px', borderRadius: '50%', border: '2px solid #FFF', objectFit: 'cover' }} alt="Avatar 3" />
+        <div className="ticker-wrap">
+          <div className="ticker-content">
+            {[1, 2].map((groupIndex) => (
+              <div key={groupIndex} style={{ display: 'inline-flex', gap: '60px', alignItems: 'center', paddingRight: '60px' }}>
+                <span style={{ fontSize: '11px', color: 'var(--text-secondary)', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '8px', letterSpacing: '0.05em' }}>
+                  <CheckCircle size={12} color="var(--accent-periwinkle)" /> INTEGRATED PAYMENT GATEWAY
+                </span>
+                <span style={{ fontSize: '11px', color: 'var(--text-secondary)', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '8px', letterSpacing: '0.05em' }}>
+                  <CheckCircle size={12} color="var(--accent-periwinkle)" /> BBPS BILL SERVICES
+                </span>
+                <span style={{ fontSize: '11px', color: 'var(--text-secondary)', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '8px', letterSpacing: '0.05em' }}>
+                  <CheckCircle size={12} color="var(--accent-periwinkle)" /> AEPS ADHAAR CASH-OUT
+                </span>
+                <span style={{ fontSize: '11px', color: 'var(--text-secondary)', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '8px', letterSpacing: '0.05em' }}>
+                  <CheckCircle size={12} color="var(--accent-periwinkle)" /> INSTANT PAYOUTS RAIL
+                </span>
+                <span style={{ fontSize: '11px', color: 'var(--text-secondary)', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '8px', letterSpacing: '0.05em' }}>
+                  <CheckCircle size={12} color="var(--accent-periwinkle)" /> JIO PAYMENTS PARTNER
+                </span>
+                <span style={{ fontSize: '11px', color: 'var(--text-secondary)', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '8px', letterSpacing: '0.05em' }}>
+                  <CheckCircle size={12} color="var(--accent-periwinkle)" /> CASHFREE POWERED
+                </span>
               </div>
-              <h2 style={{ fontSize: '56px', fontWeight: 900, color: 'var(--text-primary)', lineHeight: '1', fontFamily: 'var(--font-display)' }}>10M</h2>
-              <span style={{ fontSize: '11px', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.15em', fontWeight: 800 }}>users worldwide</span>
-            </div>
-
-            {/* Spacer/Divider */}
-            <div style={{ height: '80px', borderRight: '1px solid rgba(0, 0, 0, 0.08)', justifySelf: 'center' }} />
-
-            {/* Description */}
-            <p style={{ fontSize: '14.5px', color: 'var(--text-secondary)', lineHeight: '1.7' }}>
-              Whether you're shopping, traveling, or managing expenses, enjoy a smarter, faster, and more rewarding way to pay—anytime, anywhere. BillsPay24X7 secures your keys locally while providing global transactional convenience.
-            </p>
+            ))}
           </div>
-
-          {/* Three Feature Columns */}
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(3, 1fr)',
-            gap: '40px'
-          }}>
-            <div>
-              <div style={{
-                width: '36px',
-                height: '36px',
-                borderRadius: '8px',
-                background: 'rgba(94, 92, 230, 0.04)',
-                border: '1px solid rgba(94, 92, 230, 0.1)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                marginBottom: '16px'
-              }}>
-                <CreditCard size={18} color="var(--accent-periwinkle)" />
-              </div>
-              <h3 style={{ fontSize: '16px', fontWeight: 800, marginBottom: '8px', color: 'var(--text-primary)' }}>Secure Payments</h3>
-              <p style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: '1.6' }}>
-                Use contactless, chip, or virtual payment options for seamless E2EE secure transactions.
-              </p>
-            </div>
-
-            <div>
-              <div style={{
-                width: '36px',
-                height: '36px',
-                borderRadius: '8px',
-                background: 'rgba(94, 92, 230, 0.04)',
-                border: '1px solid rgba(94, 92, 230, 0.1)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                marginBottom: '16px'
-              }}>
-                <Globe size={18} color="var(--accent-periwinkle)" />
-              </div>
-              <h3 style={{ fontSize: '16px', fontWeight: 800, marginBottom: '8px', color: 'var(--text-primary)' }}>Global Accessibility</h3>
-              <p style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: '1.6' }}>
-                Enjoy transparent processing with zero international transaction fees or unnecessary hidden charges.
-              </p>
-            </div>
-
-            <div>
-              <div style={{
-                width: '36px',
-                height: '36px',
-                borderRadius: '8px',
-                background: 'rgba(94, 92, 230, 0.04)',
-                border: '1px solid rgba(94, 92, 230, 0.1)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                marginBottom: '16px'
-              }}>
-                <Lightbulb size={18} color="var(--accent-periwinkle)" />
-              </div>
-              <h3 style={{ fontSize: '16px', fontWeight: 800, marginBottom: '8px', color: 'var(--text-primary)' }}>Smart Budgeting Tools</h3>
-              <p style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: '1.6' }}>
-                Set spending limits, categorize expenses, and automate vault parameters for perfect control.
-              </p>
-            </div>
-          </div>
-
         </div>
       </section>
 
-      {/* 3. BENTO SOLUTIONS SECTION */}
+      {/* 3. SOLUTIONS SECTION */}
       <section id="solutions" style={{
         padding: '100px 8%',
         background: 'rgba(255,255,255,0.2)'
@@ -466,134 +423,84 @@ export default function Hero({ onOpenAuth, backendUrl }) {
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '56px' }}>
             <span style={{ fontSize: '11px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--accent-periwinkle)' }}>
-              platform capabilities
+              our solutions
             </span>
-            <h2 style={{ fontSize: '38px', marginTop: '12px', fontWeight: 800 }}>Fintech infrastructure nodes</h2>
+            <h2 style={{ fontSize: '38px', marginTop: '12px', fontWeight: 800, color: 'var(--text-primary)' }}>Fintech tools for scale</h2>
             <p style={{ color: 'var(--text-secondary)', fontSize: '14.5px', marginTop: '12px', maxWidth: '480px', margin: '12px auto 0' }}>
-              Deploy modular payment and banking nodes with clean client-side encryption profiles.
+              Choose your solution area. We provide full REST integrations and dashboard controls.
             </p>
+
+            {/* Toggle Buttons */}
+            <div style={{
+              display: 'inline-flex',
+              padding: '5px',
+              background: 'rgba(0, 0, 0, 0.03)',
+              borderRadius: '50px',
+              border: '1px solid rgba(0,0,0,0.05)',
+              marginTop: '32px'
+            }}>
+              <button 
+                onClick={() => setActiveTab('merchants')}
+                style={{
+                  padding: '10px 28px',
+                  background: activeTab === 'merchants' ? '#FFFFFF' : 'transparent',
+                  color: activeTab === 'merchants' ? 'var(--text-primary)' : 'var(--text-secondary)',
+                  border: 'none',
+                  borderRadius: '50px',
+                  fontSize: '13px',
+                  fontWeight: 700,
+                  cursor: 'pointer',
+                  transition: 'all 0.2s',
+                  boxShadow: activeTab === 'merchants' ? '0 4px 12px rgba(0,0,0,0.04)' : 'none'
+                }}
+              >
+                Merchants & Payouts
+              </button>
+              <button 
+                onClick={() => setActiveTab('enterprise')}
+                style={{
+                  padding: '10px 28px',
+                  background: activeTab === 'enterprise' ? '#FFFFFF' : 'transparent',
+                  color: activeTab === 'enterprise' ? 'var(--text-primary)' : 'var(--text-secondary)',
+                  border: 'none',
+                  borderRadius: '50px',
+                  fontSize: '13px',
+                  fontWeight: 700,
+                  cursor: 'pointer',
+                  transition: 'all 0.2s',
+                  boxShadow: activeTab === 'enterprise' ? '0 4px 12px rgba(0,0,0,0.04)' : 'none'
+                }}
+              >
+                Enterprise & APIs
+              </button>
+            </div>
           </div>
 
-          <div className="bento-grid">
-            {/* Bento Grid Item 1: Payment Gateway */}
-            <div className="bento-item bento-col-2">
-              <div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
-                  <div style={{ width: '36px', height: '36px', borderRadius: '8px', background: 'rgba(94, 92, 230, 0.04)', display: 'flex', alignItems: 'center', justify: 'center' }}>
-                    <Zap size={16} color="var(--accent-periwinkle)" />
-                  </div>
-                  <h3 style={{ fontSize: '18px', fontWeight: 800 }}>Payment Gateway Node</h3>
+          {/* Solutions Grid */}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gap: '30px'
+          }}>
+            {solutions[activeTab].map((sol, index) => (
+              <div key={index} className="card-cred">
+                <div style={{
+                  width: '46px',
+                  height: '46px',
+                  borderRadius: '10px',
+                  background: 'rgba(94, 92, 230, 0.04)',
+                  border: '1px solid rgba(94, 92, 230, 0.1)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  marginBottom: '20px'
+                }}>
+                  {sol.icon}
                 </div>
-                <p style={{ fontSize: '13.5px', color: 'var(--text-secondary)', lineHeight: '1.6', maxWidth: '540px' }}>
-                  Integrate online payment collection supporting Cards, NetBanking, and UPI. Designed for reliability under peak transactional loads with automated routing rails.
-                </p>
+                <h3 style={{ fontSize: '18px', color: 'var(--text-primary)', marginBottom: '10px', fontWeight: 800 }}>{sol.title}</h3>
+                <p style={{ fontSize: '13.5px', color: 'var(--text-secondary)', lineHeight: '1.6' }}>{sol.desc}</p>
               </div>
-              
-              <div style={{ display: 'flex', gap: '10px', marginTop: '24px', flexWrap: 'wrap' }}>
-                {['Credit Cards', 'UPI Routing', 'NetBanking Node', 'BBPS Integration'].map((method, index) => (
-                  <div key={index} style={{
-                    background: '#FFFFFF',
-                    border: '1px solid rgba(0, 0, 0, 0.05)',
-                    padding: '8px 16px',
-                    borderRadius: '50px',
-                    fontSize: '11px',
-                    fontFamily: 'var(--font-mono)',
-                    color: 'var(--text-primary)',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '6px',
-                    boxShadow: '0 2px 6px rgba(0,0,0,0.02)'
-                  }}>
-                    <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--accent-periwinkle)' }} />
-                    {method}
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Bento Grid Item 2: Payouts API */}
-            <div className="bento-item">
-              <div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
-                  <div style={{ width: '36px', height: '36px', borderRadius: '8px', background: 'rgba(94, 92, 230, 0.04)', display: 'flex', alignItems: 'center', justify: 'center' }}>
-                    <ArrowLeftRight size={16} color="var(--accent-periwinkle)" />
-                  </div>
-                  <h3 style={{ fontSize: '18px', fontWeight: 800 }}>Payouts API</h3>
-                </div>
-                <p style={{ fontSize: '13.5px', color: 'var(--text-secondary)', lineHeight: '1.6' }}>
-                  Automate transactions to vendor accounts instantly 24x7 via IMPS, NEFT, or UPI endpoints.
-                </p>
-              </div>
-
-              <div style={{
-                background: '#FFFFFF',
-                border: '1px solid rgba(0, 0, 0, 0.05)',
-                borderRadius: '8px',
-                padding: '12px 14px',
-                fontFamily: 'var(--font-mono)',
-                fontSize: '11px',
-                color: 'var(--text-secondary)',
-                marginTop: '20px',
-                boxShadow: '0 2px 6px rgba(0,0,0,0.01)'
-              }}>
-                <span style={{ color: 'var(--accent-periwinkle)' }}>POST</span> /api/payouts<br />
-                <span style={{ color: 'var(--text-muted)' }}>{`{ amount: 24500, upi: 'pay@node' }`}</span>
-              </div>
-            </div>
-
-            {/* Bento Grid Item 3: BBPS Nodes */}
-            <div className="bento-item">
-              <div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
-                  <div style={{ width: '36px', height: '36px', borderRadius: '8px', background: 'rgba(94, 92, 230, 0.04)', display: 'flex', alignItems: 'center', justify: 'center' }}>
-                    <Smartphone size={16} color="var(--accent-periwinkle)" />
-                  </div>
-                  <h3 style={{ fontSize: '18px', fontWeight: 800 }}>BBPS Biller Nodes</h3>
-                </div>
-                <p style={{ fontSize: '13.5px', color: 'var(--text-secondary)', lineHeight: '1.6' }}>
-                  Direct access to electricity, gas, water, and telecom bill payments via BBPS certified routing.
-                </p>
-              </div>
-
-              <div style={{ display: 'flex', gap: '8px', marginTop: '20px' }}>
-                <span style={{ fontSize: '10px', background: 'rgba(255,255,255,0.6)', border: '1px solid rgba(0,0,0,0.05)', padding: '4px 10px', borderRadius: '50px', color: 'var(--text-secondary)' }}>Utility API</span>
-                <span style={{ fontSize: '10px', background: 'rgba(255,255,255,0.6)', border: '1px solid rgba(0,0,0,0.05)', padding: '4px 10px', borderRadius: '50px', color: 'var(--accent-periwinkle)' }}>Authorized</span>
-              </div>
-            </div>
-
-            {/* Bento Grid Item 4: E2EE Vault */}
-            <div className="bento-item bento-col-2">
-              <div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
-                  <div style={{ width: '36px', height: '36px', borderRadius: '8px', background: 'rgba(94, 92, 230, 0.04)', display: 'flex', alignItems: 'center', justify: 'center' }}>
-                    <Shield size={16} color="var(--accent-periwinkle)" />
-                  </div>
-                  <h3 style={{ fontSize: '18px', fontWeight: 800 }}>E2EE Secure Vault</h3>
-                </div>
-                <p style={{ fontSize: '13.5px', color: 'var(--text-secondary)', lineHeight: '1.6', maxWidth: '540px' }}>
-                  Sensitive credentials like API passwords, bank routes, and keys are encrypted client-side using PBKDF2 key derivation. The plain keys never leave your browser window.
-                </p>
-              </div>
-
-              <div style={{
-                background: '#FFFFFF',
-                border: '1px solid rgba(0, 0, 0, 0.05)',
-                borderRadius: '8px',
-                padding: '14px 18px',
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                fontFamily: 'var(--font-mono)',
-                fontSize: '11px',
-                marginTop: '20px',
-                boxShadow: '0 2px 6px rgba(0,0,0,0.01)'
-              }}>
-                <span style={{ color: 'var(--text-muted)' }}>plaintext: "stripe_key_123"</span>
-                <span style={{ color: 'var(--accent-periwinkle)' }}>→ PBKDF2 →</span>
-                <span style={{ color: 'var(--accent-green)' }}>ciphertext: "7e9b04f...aes256"</span>
-              </div>
-            </div>
-
+            ))}
           </div>
         </div>
       </section>
@@ -609,7 +516,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
             <span style={{ fontSize: '11px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--accent-periwinkle)' }}>
               integration workflow
             </span>
-            <h2 style={{ fontSize: '38px', marginTop: '12px', fontWeight: 800 }}>Three steps to E2EE security</h2>
+            <h2 style={{ fontSize: '38px', marginTop: '12px', fontWeight: 800 }}>Three steps to full E2EE security</h2>
           </div>
 
           <div style={{
@@ -623,25 +530,25 @@ export default function Hero({ onOpenAuth, backendUrl }) {
               <div style={{ fontSize: '48px', fontWeight: 900, fontFamily: 'var(--font-display)', color: 'rgba(94,92,230,0.05)', position: 'absolute', top: '-30px', left: 0 }}>01</div>
               <h3 style={{ fontSize: '16px', color: 'var(--text-primary)', marginTop: '20px', marginBottom: '10px', fontWeight: 800 }}>Register & Authenticate</h3>
               <p style={{ fontSize: '13.5px', color: 'var(--text-secondary)', lineHeight: '1.6' }}>
-                Create your merchant portal account. Instantly authenticate with an OTP passcode delivered via SMTP service.
+                Create your merchant account. Get validated instantly with a secure verification OTP sent via Gmail.
               </p>
             </div>
 
             {/* Step 2 */}
             <div style={{ position: 'relative' }}>
               <div style={{ fontSize: '48px', fontWeight: 900, fontFamily: 'var(--font-display)', color: 'rgba(94,92,230,0.05)', position: 'absolute', top: '-30px', left: 0 }}>02</div>
-              <h3 style={{ fontSize: '16px', color: 'var(--accent-periwinkle)', marginTop: '20px', marginBottom: '10px', fontWeight: 800 }}>Derive Encryption Key</h3>
+              <h3 style={{ fontSize: '16px', color: 'var(--accent-periwinkle)', marginTop: '20px', marginBottom: '10px', fontWeight: 800 }}>Initialize Master Key</h3>
               <p style={{ fontSize: '13.5px', color: 'var(--text-secondary)', lineHeight: '1.6' }}>
-                Derive a 256-bit AES master key locally in your browser window from your master passphrase (PBKDF2, 100k rounds).
+                Set up your client-side encryption Master Password. This derives a 256-bit AES key locally in your browser.
               </p>
             </div>
 
             {/* Step 3 */}
             <div style={{ position: 'relative' }}>
               <div style={{ fontSize: '48px', fontWeight: 900, fontFamily: 'var(--font-display)', color: 'rgba(94,92,230,0.05)', position: 'absolute', top: '-30px', left: 0 }}>03</div>
-              <h3 style={{ fontSize: '16px', color: 'var(--text-primary)', marginTop: '20px', marginBottom: '10px', fontWeight: 800 }}>Save Encrypted Vault</h3>
+              <h3 style={{ fontSize: '16px', color: 'var(--text-primary)', marginTop: '20px', marginBottom: '10px', fontWeight: 800 }}>Secure Your Credentials</h3>
               <p style={{ fontSize: '13.5px', color: 'var(--text-secondary)', lineHeight: '1.6' }}>
-                Store payment nodes and bank integration credentials encrypted. Our AWS server only holds base64 ciphertext.
+                Save API secrets and bank nodes. Payload gets encrypted before transmission, storing only ciphertext in the database.
               </p>
             </div>
           </div>
@@ -670,9 +577,9 @@ export default function Hero({ onOpenAuth, backendUrl }) {
               Your keys.<br />Your credentials.<br />No exceptions.
             </h2>
             <p style={{ color: 'var(--text-secondary)', fontSize: '14.5px', lineHeight: '1.7', marginTop: '20px' }}>
-              Traditional servers store banking credentials in plaintext or using centralized database KMS systems. If the central server is breached, database secrets are exposed.
+              Traditional servers store credentials in plain text or using server-side keys. If the server is breached, database secrets are exposed.
               <br /><br />
-              With BillsPay24X7's E2EE vault, encryption happens directly in your browser. Even if the database is accessed, no one can read your credentials without your local Master Password.
+              With BillsPay24X7's **E2EE secure vault**, encryption happens entirely on the client. Even if our AWS database is inspected, no one can read your secure payload without your Master Password, which is never transmitted to our backend.
             </p>
             <div style={{ marginTop: '36px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '14px' }}>
@@ -681,11 +588,11 @@ export default function Hero({ onOpenAuth, backendUrl }) {
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '14px' }}>
                 <CheckCircle size={16} color="var(--accent-periwinkle)" />
-                <span style={{ fontSize: '13.5px', fontWeight: 600 }}>AES-GCM 256-bit encryption standards</span>
+                <span style={{ fontSize: '13.5px', fontWeight: 600 }}>AES-GCM 256-bit Encryption standard</span>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                 <CheckCircle size={16} color="var(--accent-periwinkle)" />
-                <span style={{ fontSize: '13.5px', fontWeight: 600 }}>Zero server logs of plain text master passwords</span>
+                <span style={{ fontSize: '13.5px', fontWeight: 600 }}>Zero Master Password server logs</span>
               </div>
             </div>
           </div>
@@ -700,7 +607,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
               <p style={{ fontSize: '12.5px', color: 'var(--text-secondary)', lineHeight: '1.5' }}>Standard payouts settlements processed in T+1 directly to linked merchant bank accounts.</p>
             </div>
             <div className="card-cred" style={{ padding: '24px' }}>
-              <h4 style={{ fontSize: '14.5px', color: 'var(--text-primary)', marginBottom: '8px', fontWeight: 800 }}>BBPS Integration</h4>
+              <h4 style={{ fontSize: '14.5px', color: 'var(--text-primary)', marginBottom: '8px', fontWeight: 800 }}>BBPS Integrations</h4>
               <p style={{ fontSize: '12.5px', color: 'var(--text-secondary)', lineHeight: '1.5' }}>Full access to utility bills, recharges, and subscription payout routes instantly.</p>
             </div>
             <div className="card-cred" style={{ padding: '24px' }}>
@@ -708,7 +615,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
               <p style={{ fontSize: '12.5px', color: 'var(--text-secondary)', lineHeight: '1.5' }}>Support Aadhaar cash withdrawal terminals, biometric transactions, and agent nodes.</p>
             </div>
             <div className="card-cred" style={{ padding: '24px' }}>
-              <h4 style={{ fontSize: '14.5px', color: 'var(--text-primary)', marginBottom: '8px', fontWeight: 800 }}>Audit Logs</h4>
+              <h4 style={{ fontSize: '14.5px', color: 'var(--text-primary)', marginBottom: '8px', fontWeight: 800 }}>Security Audit Log</h4>
               <p style={{ fontSize: '12.5px', color: 'var(--text-secondary)', lineHeight: '1.5' }}>Immutable history logs for all client-authorized credential modifications.</p>
             </div>
           </div>

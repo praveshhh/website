@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Shield, Key, Eye, EyeOff, Plus, Trash2, Edit3, ArrowLeftRight, Settings, Check, Copy } from 'lucide-react';
+import { Shield, Key, Eye, EyeOff, Plus, Trash2, ArrowLeftRight, Settings, Copy } from 'lucide-react';
 import axios from 'axios';
 import { encryptData, decryptData } from '../utils/cryptoHelper';
 
@@ -19,8 +19,8 @@ export default function Dashboard({ user, masterPassword, backendUrl }) {
 
   // Mock transactions state
   const [transactions, setTransactions] = useState([
-    { id: 'tx_1', target: 'pay_vendor_abc', amount: '₹14,500.00', type: 'PAYOUT', status: 'SUCCESS', date: '2026-06-23 20:30' },
-    { id: 'tx_2', target: 'charge_user_123', amount: '₹2,499.00', type: 'INCOMING', status: 'SUCCESS', date: '2026-06-23 18:15' }
+    { id: 'tx_839f28', target: 'pay_vendor_node_abc', amount: '₹14,500.00', type: 'PAYOUT', status: 'SUCCESS', date: '2026-06-23 20:30' },
+    { id: 'tx_120d93', target: 'charge_subscriber_123', amount: '₹2,499.00', type: 'INCOMING', status: 'SUCCESS', date: '2026-06-23 18:15' }
   ]);
   const [mockAmount, setMockAmount] = useState('');
   const [mockTarget, setMockTarget] = useState('');
@@ -85,7 +85,6 @@ export default function Dashboard({ user, masterPassword, backendUrl }) {
   // Decrypt an item in memory
   const handleDecryptItem = async (item) => {
     if (decryptedValues[item.id]) {
-      // Toggle visibility off
       const updated = { ...decryptedValues };
       delete updated[item.id];
       setDecryptedValues(updated);
@@ -100,7 +99,7 @@ export default function Dashboard({ user, masterPassword, backendUrl }) {
         [item.id]: plaintext
       });
     } catch (err) {
-      alert("Decryption failed. Please verify your Master Key session is active. " + err.message);
+      alert("Decryption failed. " + err.message);
     }
   };
 
@@ -126,7 +125,7 @@ export default function Dashboard({ user, masterPassword, backendUrl }) {
     if (!mockAmount || !mockTarget) return;
 
     const newTx = {
-      id: 'tx_' + Math.random().toString(36).substr(2, 9),
+      id: 'tx_' + Math.random().toString(36).substr(2, 6),
       target: mockTarget,
       amount: '₹' + parseFloat(mockAmount).toLocaleString('en-IN', { minimumFractionDigits: 2 }),
       type: 'PAYOUT',
@@ -137,7 +136,32 @@ export default function Dashboard({ user, masterPassword, backendUrl }) {
     setTransactions([newTx, ...transactions]);
     setMockAmount('');
     setMockTarget('');
-    alert("Mock Payout completed successfully via IMPS routing node!");
+    alert("Payout simulation completed successfully via virtual IMPS node!");
+  };
+
+  // Left vertical navigation styles
+  const getTabStyle = (tab) => {
+    const isActive = activeTab === tab;
+    return {
+      width: '100%',
+      justifyContent: 'flex-start',
+      padding: '12px 18px',
+      gap: '12px',
+      background: isActive ? 'rgba(255, 255, 255, 0.03)' : 'transparent',
+      color: isActive ? '#FFFFFF' : 'var(--text-secondary)',
+      border: 'none',
+      borderLeft: isActive ? '2px solid var(--accent-gold)' : '2px solid transparent',
+      borderRadius: '0px',
+      cursor: 'pointer',
+      fontFamily: 'var(--font-display)',
+      fontSize: '13.5px',
+      fontWeight: isActive ? 600 : 500,
+      display: 'flex',
+      alignItems: 'center',
+      transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
+      textAlign: 'left',
+      userSelect: 'none'
+    };
   };
 
   return (
@@ -148,112 +172,103 @@ export default function Dashboard({ user, masterPassword, backendUrl }) {
       minHeight: '85vh'
     }}>
       
-      {/* Upper header */}
+      {/* Upper Header */}
       <div style={{
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        borderBottom: '1px solid rgba(255, 255, 255, 0.05)',
+        borderBottom: '1px solid var(--border-primary)',
         paddingBottom: '24px',
         marginBottom: '40px'
       }}>
         <div>
-          <span style={{ fontSize: '11px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--accent-green)' }}>
+          <span style={{ fontSize: '10px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--text-muted)' }}>
             verified merchant portal
           </span>
-          <h2 style={{ fontSize: '32px', color: '#fff', marginTop: '6px' }}>Dashboard</h2>
+          <h2 style={{ fontSize: '32px', color: '#fff', marginTop: '6px', fontWeight: 800 }}>Merchant Dashboard</h2>
         </div>
         
         {/* Connection state */}
         <div style={{
           display: 'flex',
           alignItems: 'center',
-          gap: '12px',
-          background: 'rgba(255, 255, 255, 0.03)',
-          border: '1px solid rgba(255, 255, 255, 0.05)',
+          gap: '10px',
+          background: 'rgba(255, 255, 255, 0.02)',
+          border: '1px solid var(--border-primary)',
           padding: '8px 16px',
-          borderRadius: '10px'
+          borderRadius: '8px'
         }}>
-          <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--accent-green)', boxShadow: '0 0 10px var(--accent-green)' }} />
-          <span style={{ fontSize: '12px', color: '#fff' }}>Session Key Active (E2EE unlocked)</span>
+          <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--accent-gold)', boxShadow: '0 0 10px var(--accent-gold)' }} />
+          <span style={{ fontSize: '11.5px', color: '#fff', fontWeight: 600 }}>E2EE Session Active</span>
         </div>
       </div>
 
       {/* Grid Layout: Left Sidebar tabs, Right Workspace */}
       <div style={{
         display: 'grid',
-        gridTemplateColumns: '260px 1fr',
+        gridTemplateColumns: '240px 1fr',
         gap: '40px',
         alignItems: 'start'
       }}>
         
-        {/* Left Sidebar */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-          <button 
-            onClick={() => setActiveTab('vault')}
-            className={activeTab === 'vault' ? "btn-cred" : "btn-cred-outline"}
-            style={{ width: '100%', justifyContent: 'flex-start', padding: '12px 20px', gap: '10px', textTransform: 'none', letterSpacing: 'normal' }}
-          >
-            <Key size={16} /> Secure E2EE Vault
+        {/* Left Sidebar Navigation */}
+        <div style={{
+          display: 'flex',
+          flexDirection: 'column',
+          borderRight: '1px solid var(--border-primary)',
+          paddingRight: '16px'
+        }}>
+          <button onClick={() => setActiveTab('vault')} style={getTabStyle('vault')}>
+            <Key size={15} /> Cryptographic Vault
           </button>
-          <button 
-            onClick={() => setActiveTab('payouts')}
-            className={activeTab === 'payouts' ? "btn-cred" : "btn-cred-outline"}
-            style={{ width: '100%', justifyContent: 'flex-start', padding: '12px 20px', gap: '10px', textTransform: 'none', letterSpacing: 'normal' }}
-          >
-            <ArrowLeftRight size={16} /> Payouts Simulator
+          <button onClick={() => setActiveTab('payouts')} style={getTabStyle('payouts')}>
+            <ArrowLeftRight size={15} /> Payouts Simulator
           </button>
-          <button 
-            onClick={() => setActiveTab('settings')}
-            className={activeTab === 'settings' ? "btn-cred" : "btn-cred-outline"}
-            style={{ width: '100%', justifyContent: 'flex-start', padding: '12px 20px', gap: '10px', textTransform: 'none', letterSpacing: 'normal' }}
-          >
-            <Settings size={16} /> Profile & Settings
+          <button onClick={() => setActiveTab('settings')} style={getTabStyle('settings')}>
+            <Settings size={15} /> Account Settings
           </button>
         </div>
 
-        {/* Right Workspace */}
-        <div className="card-cred" style={{ minHeight: '500px', position: 'relative' }}>
+        {/* Right Workspace Panel */}
+        <div className="card-cred" style={{ minHeight: '520px', padding: '32px' }}>
           
-          {/* Messages */}
+          {/* Action Messages */}
           {error && (
-            <div style={{ background: 'rgba(255,72,72,0.08)', border: '1px solid rgba(255,72,72,0.2)', padding: '12px', borderRadius: '8px', color: '#ff4d4d', fontSize: '13px', marginBottom: '20px' }}>
+            <div style={{ background: 'rgba(255,72,72,0.04)', border: '1px solid rgba(255,72,72,0.15)', padding: '12px 16px', borderRadius: '8px', color: '#ff4d4d', fontSize: '13px', marginBottom: '24px' }}>
               {error}
             </div>
           )}
           {success && (
-            <div style={{ background: 'rgba(0,230,118,0.08)', border: '1px solid rgba(0,230,118,0.2)', padding: '12px', borderRadius: '8px', color: 'var(--accent-green)', fontSize: '13px', marginBottom: '20px' }}>
+            <div style={{ background: 'rgba(0,242,159,0.04)', border: '1px solid rgba(0,242,159,0.15)', padding: '12px 16px', borderRadius: '8px', color: 'var(--accent-green)', fontSize: '13px', marginBottom: '24px' }}>
               {success}
             </div>
           )}
 
-          {/* TAB 1: SECURE VAULT */}
+          {/* TAB 1: SECURE CRYPTO VAULT */}
           {activeTab === 'vault' && (
             <div>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '28px' }}>
-                <div>
-                  <h3 style={{ fontSize: '20px', color: '#fff' }}>E2EE Credentials Vault</h3>
-                  <p style={{ fontSize: '12.5px', color: 'var(--text-secondary)', marginTop: '4px' }}>
-                    Encrypt API keys, access secrets, and webhook tokens client-side. The server stores only ciphertext.
-                  </p>
-                </div>
+              <div style={{ marginBottom: '28px' }}>
+                <h3 style={{ fontSize: '20px', color: '#fff', fontWeight: 800 }}>Credentials Cryptographic Vault</h3>
+                <p style={{ fontSize: '13px', color: 'var(--text-secondary)', marginTop: '4px' }}>
+                  Secure payment credentials, webhook secrets, and standard API keys client-side. The plain key derived standards ensure zero-knowledge server storage.
+                </p>
               </div>
 
               {/* Add New Item Form */}
               <form onSubmit={handleSaveItem} style={{
-                background: 'rgba(255,255,255,0.02)',
-                border: '1px solid rgba(255,255,255,0.05)',
+                background: 'rgba(255,255,255,0.01)',
+                border: '1px solid var(--border-primary)',
                 padding: '24px',
                 borderRadius: '12px',
                 marginBottom: '32px'
               }}>
-                <h4 style={{ fontSize: '14px', color: '#fff', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <Plus size={16} color="var(--accent-green)" /> Add Secure Item
+                <h4 style={{ fontSize: '13.5px', color: '#fff', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '6px', fontWeight: 700 }}>
+                  <Plus size={15} color="var(--accent-gold)" /> Add Secure Vault Item
                 </h4>
                 
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.5fr', gap: '16px' }}>
                   <div className="form-group-cred" style={{ marginBottom: 0 }}>
-                    <label>Item Name / Label</label>
+                    <label>Label / Name</label>
                     <input 
                       type="text" 
                       placeholder="e.g. Stripe Sandbox Key"
@@ -266,8 +281,8 @@ export default function Dashboard({ user, masterPassword, backendUrl }) {
                   <div className="form-group-cred" style={{ marginBottom: 0 }}>
                     <label>Secret Value</label>
                     <input 
-                      type="text" 
-                      placeholder="e.g. sk_test_51Nz..."
+                      type="password" 
+                      placeholder="e.g. sk_test_..."
                       className="form-control-cred"
                       value={newItemValue}
                       onChange={(e) => setNewItemValue(e.target.value)}
@@ -276,74 +291,86 @@ export default function Dashboard({ user, masterPassword, backendUrl }) {
                 </div>
                 
                 <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '20px' }}>
-                  <button type="submit" className="btn-cred" style={{ padding: '8px 20px', fontSize: '12px' }}>
+                  <button type="submit" className="btn-cred" style={{ padding: '8px 18px', fontSize: '12px' }}>
                     Encrypt & Save
                   </button>
                 </div>
               </form>
 
-              {/* Items List */}
-              <h4 style={{ fontSize: '14px', color: '#fff', marginBottom: '14px' }}>Stored Secrets</h4>
+              {/* Secrets Table Ledger */}
+              <h4 style={{ fontSize: '13.5px', color: '#fff', marginBottom: '14px', fontWeight: 700 }}>Vault Entries</h4>
+              
               {loading ? (
-                <div className="skeleton" style={{ height: '120px', borderRadius: '8px' }} />
+                <div className="skeleton" style={{ height: '140px', borderRadius: '8px' }} />
               ) : vaultItems.length === 0 ? (
                 <div style={{
                   textAlign: 'center',
                   padding: '48px 0',
-                  border: '1px dashed rgba(255,255,255,0.05)',
+                  border: '1px dashed var(--border-primary)',
                   borderRadius: '12px',
-                  color: 'var(--text-secondary)',
+                  color: 'var(--text-muted)',
                   fontSize: '13.5px'
                 }}>
-                  No secure credentials stored yet. Add one above.
+                  No secure credentials stored yet. Add an entry above.
                 </div>
               ) : (
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                <div style={{ border: '1px solid var(--border-primary)', borderRadius: '8px', overflow: 'hidden' }}>
+                  {/* Ledger Header */}
+                  <div style={{
+                    display: 'grid',
+                    gridTemplateColumns: '1.2fr 2fr 1fr',
+                    padding: '12px 20px',
+                    borderBottom: '1px solid var(--border-primary)',
+                    background: 'rgba(255, 255, 255, 0.01)',
+                    color: 'var(--text-muted)',
+                    fontSize: '10.5px',
+                    fontWeight: 700,
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.05em'
+                  }}>
+                    <div>Label / Name</div>
+                    <div>Decrypted Secret Payload</div>
+                    <div style={{ textAlign: 'right' }}>Actions</div>
+                  </div>
+
+                  {/* Ledger Rows */}
                   {vaultItems.map((item) => (
                     <div key={item.id} style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'space-between',
-                      background: 'rgba(255,255,255,0.01)',
-                      border: '1px solid rgba(255,255,255,0.04)',
+                      display: 'grid',
+                      gridTemplateColumns: '1.2fr 2fr 1fr',
                       padding: '16px 20px',
-                      borderRadius: '10px',
-                      transition: 'border-color 0.2s'
+                      borderBottom: '1px solid rgba(255, 255, 255, 0.02)',
+                      alignItems: 'center',
+                      background: 'rgba(3, 3, 3, 0.3)',
+                      transition: 'background-color 0.2s'
                     }}
-                    onMouseOver={(e) => e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'}
-                    onMouseOut={(e) => e.currentTarget.style.borderColor = 'rgba(255,255,255,0.04)'}
+                    onMouseOver={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.01)'}
+                    onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'rgba(3, 3, 3, 0.3)'}
                     >
-                      <div>
-                        <span style={{ fontSize: '14px', fontWeight: 700, color: '#fff', display: 'block' }}>{item.itemName}</span>
-                        <div style={{
-                          fontFamily: 'monospace',
-                          fontSize: '12.5px',
-                          color: decryptedValues[item.id] ? 'var(--accent-green)' : 'var(--text-muted)',
-                          marginTop: '6px',
-                          display: 'flex',
-                          alignItems: 'center',
-                          gap: '8px'
-                        }}>
-                          {decryptedValues[item.id] ? (
-                            <>
-                              <span>{decryptedValues[item.id]}</span>
-                              <button 
-                                onClick={() => {
-                                  navigator.clipboard.writeText(decryptedValues[item.id]);
-                                  alert("Secret copied to clipboard!");
-                                }}
-                                style={{ background: 'transparent', border: 'none', color: 'var(--text-secondary)', cursor: 'pointer', display: 'inline-flex' }}
-                              >
-                                <Copy size={12} />
-                              </button>
-                            </>
-                          ) : (
-                            <span>••••••••••••••••••••••••••••</span>
-                          )}
-                        </div>
+                      <div style={{ fontWeight: 600, fontSize: '13px', color: '#fff' }}>
+                        {item.itemName}
                       </div>
 
-                      <div style={{ display: 'flex', gap: '8px' }}>
+                      <div style={{ fontFamily: 'var(--font-mono)', fontSize: '12.5px' }}>
+                        {decryptedValues[item.id] ? (
+                          <span style={{ color: 'var(--accent-green)', display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+                            {decryptedValues[item.id]}
+                            <button 
+                              onClick={() => {
+                                navigator.clipboard.writeText(decryptedValues[item.id]);
+                                alert("Credential copied to clipboard!");
+                              }}
+                              style={{ background: 'transparent', border: 'none', color: 'var(--text-secondary)', cursor: 'pointer', padding: 0 }}
+                            >
+                              <Copy size={12} />
+                            </button>
+                          </span>
+                        ) : (
+                          <span style={{ color: 'var(--text-muted)' }}>••••••••••••••••••••••••••••</span>
+                        )}
+                      </div>
+
+                      <div style={{ display: 'flex', gap: '8px', justifyContent: 'flex-end' }}>
                         <button 
                           onClick={() => handleDecryptItem(item)}
                           className="btn-cred-outline"
@@ -355,24 +382,24 @@ export default function Dashboard({ user, masterPassword, backendUrl }) {
                             gap: '4px'
                           }}
                         >
-                          {decryptedValues[item.id] ? <EyeOff size={12} /> : <Eye size={12} />}
+                          {decryptedValues[item.id] ? <EyeOff size={11} /> : <Eye size={11} />}
                           {decryptedValues[item.id] ? 'Hide' : 'Decrypt'}
                         </button>
                         <button 
                           onClick={() => handleDeleteItem(item.id)}
                           style={{
                             background: 'transparent',
-                            border: '1px solid rgba(255, 72, 72, 0.2)',
+                            border: '1px solid rgba(255, 72, 72, 0.15)',
                             color: '#ff4848',
-                            borderRadius: '8px',
-                            width: '28px',
-                            height: '28px',
+                            borderRadius: '6px',
+                            width: '26px',
+                            height: '26px',
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
                             cursor: 'pointer'
                           }}
-                          onMouseOver={(e) => { e.currentTarget.style.background = 'rgba(255,72,72,0.1)'; }}
+                          onMouseOver={(e) => { e.currentTarget.style.background = 'rgba(255,72,72,0.05)'; }}
                           onMouseOut={(e) => { e.currentTarget.style.background = 'transparent'; }}
                         >
                           <Trash2 size={12} />
@@ -385,30 +412,30 @@ export default function Dashboard({ user, masterPassword, backendUrl }) {
             </div>
           )}
 
-          {/* TAB 2: MOCK PAYOUTS */}
+          {/* TAB 2: PAYOUTS SIMULATOR */}
           {activeTab === 'payouts' && (
             <div>
-              <h3 style={{ fontSize: '20px', color: '#fff', marginBottom: '6px' }}>Mock Payout Simulator</h3>
-              <p style={{ fontSize: '12.5px', color: 'var(--text-secondary)', marginBottom: '28px' }}>
+              <h3 style={{ fontSize: '20px', color: '#fff', marginBottom: '6px', fontWeight: 800 }}>Payout Simulator Node</h3>
+              <p style={{ fontSize: '13px', color: 'var(--text-secondary)', marginBottom: '28px' }}>
                 Simulate bulk money transfers and payment gateway checkouts using our virtual IMPS routing engine.
               </p>
 
               {/* Simulator Form */}
               <form onSubmit={handleCreateMockPayout} style={{
-                background: 'rgba(255,255,255,0.02)',
-                border: '1px solid rgba(255,255,255,0.05)',
+                background: 'rgba(255,255,255,0.01)',
+                border: '1px solid var(--border-primary)',
                 padding: '24px',
                 borderRadius: '12px',
                 marginBottom: '32px'
               }}>
-                <h4 style={{ fontSize: '14px', color: '#fff', marginBottom: '16px' }}>Trigger Virtual IMPS Payout</h4>
+                <h4 style={{ fontSize: '13.5px', color: '#fff', marginBottom: '16px', fontWeight: 700 }}>Trigger Mock IMPS Payout</h4>
                 
                 <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '16px' }}>
                   <div className="form-group-cred" style={{ marginBottom: 0 }}>
-                    <label>Target Account / UPI ID</label>
+                    <label>Recipient UPI ID / Bank Node</label>
                     <input 
                       type="text" 
-                      placeholder="e.g. vendor@okaxis or 9988776655@upi"
+                      placeholder="e.g. merchant@okaxis"
                       className="form-control-cred"
                       value={mockTarget}
                       onChange={(e) => setMockTarget(e.target.value)}
@@ -430,45 +457,60 @@ export default function Dashboard({ user, masterPassword, backendUrl }) {
                 </div>
                 
                 <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '20px' }}>
-                  <button type="submit" className="btn-cred" style={{ padding: '8px 20px', fontSize: '12px' }}>
+                  <button type="submit" className="btn-cred" style={{ padding: '8px 18px', fontSize: '12px' }}>
                     Process Instantly
                   </button>
                 </div>
               </form>
 
-              {/* Transactions Log */}
-              <h4 style={{ fontSize: '14px', color: '#fff', marginBottom: '14px' }}>Transaction Log</h4>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+              {/* Transactions Ledger Table */}
+              <h4 style={{ fontSize: '13.5px', color: '#fff', marginBottom: '14px', fontWeight: 700 }}>Simulation Transaction Log</h4>
+              <div style={{ border: '1px solid var(--border-primary)', borderRadius: '8px', overflow: 'hidden' }}>
+                {/* Ledger Header */}
+                <div style={{
+                  display: 'grid',
+                  gridTemplateColumns: '1.5fr 1.5fr 1fr 1fr',
+                  padding: '12px 18px',
+                  borderBottom: '1px solid var(--border-primary)',
+                  background: 'rgba(255, 255, 255, 0.01)',
+                  color: 'var(--text-muted)',
+                  fontSize: '10.5px',
+                  fontWeight: 700,
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.05em'
+                }}>
+                  <div>Target Account</div>
+                  <div>Transaction ID</div>
+                  <div>Amount</div>
+                  <div style={{ textAlign: 'right' }}>Status</div>
+                </div>
+
+                {/* Ledger Rows */}
                 {transactions.map((tx) => (
                   <div key={tx.id} style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    background: 'rgba(255,255,255,0.01)',
-                    border: '1px solid rgba(255,255,255,0.04)',
+                    display: 'grid',
+                    gridTemplateColumns: '1.5fr 1.5fr 1fr 1fr',
                     padding: '14px 18px',
-                    borderRadius: '8px'
+                    borderBottom: '1px solid rgba(255, 255, 255, 0.02)',
+                    alignItems: 'center',
+                    fontSize: '13px',
+                    background: 'rgba(3, 3, 3, 0.3)'
                   }}>
-                    <div>
-                      <span style={{ fontSize: '13px', fontWeight: 700, color: '#fff' }}>{tx.target}</span>
-                      <span style={{ fontSize: '10px', color: 'var(--text-secondary)', display: 'block', marginTop: '3px' }}>{tx.date} | ID: {tx.id}</span>
+                    <div style={{ fontWeight: 600, color: '#fff' }}>{tx.target}</div>
+                    <div style={{ fontFamily: 'var(--font-mono)', color: 'var(--text-secondary)', fontSize: '12px' }}>{tx.id}</div>
+                    <div style={{ fontFamily: 'var(--font-mono)', fontWeight: 700, color: tx.type === 'PAYOUT' ? '#fff' : 'var(--accent-green)' }}>
+                      {tx.type === 'PAYOUT' ? '-' : '+'}{tx.amount}
                     </div>
-
                     <div style={{ textAlign: 'right' }}>
-                      <span style={{ fontSize: '14px', fontWeight: 800, color: tx.type === 'PAYOUT' ? '#fff' : 'var(--accent-green)' }}>
-                        {tx.type === 'PAYOUT' ? '-' : '+'}{tx.amount}
-                      </span>
                       <span style={{
-                        display: 'block',
+                        display: 'inline-block',
                         fontSize: '9px',
                         fontWeight: 700,
                         color: 'var(--accent-green)',
-                        background: 'rgba(0, 230, 118, 0.08)',
-                        border: '1px solid rgba(0, 230, 118, 0.2)',
-                        padding: '1px 6px',
-                        borderRadius: '4px',
-                        marginTop: '3px',
-                        textAlign: 'center'
+                        background: 'rgba(0, 242, 159, 0.05)',
+                        border: '1px solid rgba(0, 242, 159, 0.15)',
+                        padding: '2px 8px',
+                        borderRadius: '4px'
                       }}>
                         {tx.status}
                       </span>
@@ -479,59 +521,59 @@ export default function Dashboard({ user, masterPassword, backendUrl }) {
             </div>
           )}
 
-          {/* TAB 3: SETTINGS */}
+          {/* TAB 3: PROFILE SETTINGS */}
           {activeTab === 'settings' && (
             <div>
-              <h3 style={{ fontSize: '20px', color: '#fff', marginBottom: '24px' }}>Profile & Security Settings</h3>
+              <h3 style={{ fontSize: '20px', color: '#fff', marginBottom: '24px', fontWeight: 800 }}>Account Node Profile</h3>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
                 <div style={{
-                  borderBottom: '1px solid rgba(255,255,255,0.05)',
+                  borderBottom: '1px solid var(--border-primary)',
                   paddingBottom: '16px'
                 }}>
-                  <span style={{ fontSize: '11px', color: 'var(--text-secondary)', textTransform: 'uppercase' }}>Merchant Account ID</span>
-                  <p style={{ fontSize: '14px', color: '#fff', marginTop: '4px', fontFamily: 'monospace' }}>merchant_usr_{user.id || '9834'}</p>
+                  <span style={{ fontSize: '10px', color: 'var(--text-muted)', textTransform: 'uppercase', fontWeight: 600 }}>Merchant Account ID</span>
+                  <p style={{ fontSize: '13.5px', color: '#fff', marginTop: '4px', fontFamily: 'var(--font-mono)' }}>merchant_usr_{user.id || '9834'}</p>
                 </div>
 
                 <div style={{
-                  borderBottom: '1px solid rgba(255,255,255,0.05)',
+                  borderBottom: '1px solid var(--border-primary)',
                   paddingBottom: '16px'
                 }}>
-                  <span style={{ fontSize: '11px', color: 'var(--text-secondary)', textTransform: 'uppercase' }}>Login Username (Email)</span>
-                  <p style={{ fontSize: '14px', color: '#fff', marginTop: '4px' }}>{user.email}</p>
+                  <span style={{ fontSize: '10px', color: 'var(--text-muted)', textTransform: 'uppercase', fontWeight: 600 }}>Login Username (Email)</span>
+                  <p style={{ fontSize: '13.5px', color: '#fff', marginTop: '4px' }}>{user.email}</p>
                 </div>
 
                 <div style={{
-                  borderBottom: '1px solid rgba(255,255,255,0.05)',
+                  borderBottom: '1px solid var(--border-primary)',
                   paddingBottom: '16px'
                 }}>
-                  <span style={{ fontSize: '11px', color: 'var(--text-secondary)', textTransform: 'uppercase' }}>Access Token Role</span>
-                  <p style={{ fontSize: '14px', color: '#fff', marginTop: '4px', color: 'var(--accent-green)' }}>{user.role || 'ROLE_USER'}</p>
+                  <span style={{ fontSize: '10px', color: 'var(--text-muted)', textTransform: 'uppercase', fontWeight: 600 }}>Access Authorization Role</span>
+                  <p style={{ fontSize: '13.5px', color: 'var(--accent-gold)', marginTop: '4px', fontWeight: 600 }}>{user.role || 'ROLE_USER'}</p>
                 </div>
 
                 <div>
-                  <span style={{ fontSize: '11px', color: 'var(--text-secondary)', textTransform: 'uppercase' }}>Browser Security State</span>
-                  <div style={{ display: 'flex', gap: '10px', marginTop: '8px' }}>
+                  <span style={{ fontSize: '10px', color: 'var(--text-muted)', textTransform: 'uppercase', fontWeight: 600 }}>Client Security Context</span>
+                  <div style={{ display: 'flex', gap: '12px', marginTop: '8px' }}>
                     <div style={{
-                      background: 'rgba(0, 230, 118, 0.05)',
-                      border: '1px solid rgba(0, 230, 118, 0.2)',
+                      background: 'rgba(255, 255, 255, 0.01)',
+                      border: '1px solid var(--border-primary)',
                       padding: '12px 18px',
                       borderRadius: '8px',
                       flex: 1
                     }}>
-                      <span style={{ fontSize: '10px', color: 'var(--text-secondary)', display: 'block' }}>Key Agreement Type</span>
-                      <span style={{ fontSize: '13px', fontWeight: 700, color: '#fff', marginTop: '2px', display: 'block' }}>PBKDF2 SHA-256</span>
+                      <span style={{ fontSize: '9px', color: 'var(--text-muted)', display: 'block' }}>Key Agreement</span>
+                      <span style={{ fontSize: '12.5px', fontWeight: 700, color: '#fff', marginTop: '2px', display: 'block', fontFamily: 'var(--font-mono)' }}>PBKDF2 SHA-256</span>
                     </div>
 
                     <div style={{
-                      background: 'rgba(0, 176, 255, 0.05)',
-                      border: '1px solid rgba(0, 176, 255, 0.2)',
+                      background: 'rgba(255, 255, 255, 0.01)',
+                      border: '1px solid var(--border-primary)',
                       padding: '12px 18px',
                       borderRadius: '8px',
                       flex: 1
                     }}>
-                      <span style={{ fontSize: '10px', color: 'var(--text-secondary)', display: 'block' }}>Encryption Standard</span>
-                      <span style={{ fontSize: '13px', fontWeight: 700, color: '#fff', marginTop: '2px', display: 'block' }}>AES-GCM-256</span>
+                      <span style={{ fontSize: '9px', color: 'var(--text-muted)', display: 'block' }}>Encryption Standard</span>
+                      <span style={{ fontSize: '12.5px', fontWeight: 700, color: '#fff', marginTop: '2px', display: 'block', fontFamily: 'var(--font-mono)' }}>AES-GCM-256</span>
                     </div>
                   </div>
                 </div>

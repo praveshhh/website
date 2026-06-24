@@ -204,12 +204,13 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess, backendUrl }
       padding: '16px'
     }}>
       <div className="card-cred" style={{
-        maxWidth: '460px',
+        maxWidth: '440px',
         width: '100%',
         position: 'relative',
-        border: '1px solid rgba(255, 255, 255, 0.08)',
-        background: '#050505',
-        boxShadow: '0 20px 50px rgba(0,0,0,0.9)'
+        border: '1px solid var(--border-primary)',
+        background: 'var(--bg-secondary)',
+        boxShadow: '0 30px 60px rgba(0,0,0,0.9)',
+        padding: '32px'
       }}>
         {/* Close Button */}
         <button 
@@ -242,14 +243,14 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess, backendUrl }
             width: '40px',
             height: '40px',
             borderRadius: '10px',
-            background: 'rgba(0, 230, 118, 0.08)',
-            border: '1px solid rgba(0, 230, 118, 0.2)',
+            background: 'rgba(212, 175, 55, 0.04)',
+            border: '1px solid rgba(212, 175, 55, 0.15)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             margin: '0 auto 12px'
           }}>
-            <Key size={18} color="var(--accent-green)" />
+            <Key size={18} color="var(--accent-gold)" />
           </div>
           
           <h2 style={{ fontSize: '24px', fontWeight: 800 }}>
@@ -342,7 +343,7 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess, backendUrl }
               <button 
                 type="button" 
                 onClick={() => { setMode('signup'); setError(null); setMessage(null); }}
-                style={{ background: 'transparent', border: 'none', color: 'var(--accent-green)', fontWeight: 700, cursor: 'pointer' }}
+                style={{ background: 'transparent', border: 'none', color: 'var(--accent-gold)', fontWeight: 600, cursor: 'pointer' }}
               >
                 Sign Up
               </button>
@@ -388,7 +389,7 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess, backendUrl }
               <button 
                 type="button" 
                 onClick={() => { setMode('login'); setError(null); setMessage(null); }}
-                style={{ background: 'transparent', border: 'none', color: 'var(--accent-green)', fontWeight: 700, cursor: 'pointer' }}
+                style={{ background: 'transparent', border: 'none', color: 'var(--accent-gold)', fontWeight: 600, cursor: 'pointer' }}
               >
                 Log In
               </button>

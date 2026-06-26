@@ -48,7 +48,7 @@ export default function Navbar({ user, onOpenAuth, onLogout, onNavigate, activeT
           letterSpacing: '-0.02em',
           color: 'var(--text-primary)'
         }}>
-          BillsPay<span style={{ color: 'var(--accent-periwinkle)' }}>24X7</span>
+          BillsPay<span style={{ color: 'var(--accent-periwinkle)' }}>24X7</span>✓
         </span>
       </div>
 

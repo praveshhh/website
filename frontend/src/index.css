@@ -481,3 +481,54 @@ a {
 .skeleton {
   animation: skeleton-loading 1.8s infinite ease-in-out;
 }
+
+/* Responsive Helper Grids for Landing Page */
+@media (max-width: 968px) {
+  .grid-responsive-hero {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+    text-align: center;
+  }
+  .grid-responsive-hero > div:first-child {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .grid-responsive-hero p {
+    margin: 0 auto 32px !important;
+  }
+  .grid-responsive-stats {
+    margin: 40px auto 0 !important;
+    max-width: 100% !important;
+  }
+  .grid-responsive-subbanner {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+  .grid-responsive-process {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+  .grid-responsive-contact {
+    grid-template-columns: 1fr !important;
+    gap: 48px !important;
+  }
+  .grid-responsive-footer {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 32px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .grid-responsive-footer {
+    grid-template-columns: 1fr !important;
+  }
+  .grid-responsive-stats {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px !important;
+  }
+  .floating-hero-metrics {
+    display: none !important;
+  }
+}
+

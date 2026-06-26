@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap');
 
+/* Stripe-inspired animation tokens */
+
 :root {
   /* Light Glassmorphism & Periwinkle Theme */
   --bg-primary: #ECEFF6;       /* Soft light blue/grey base */
@@ -37,6 +39,10 @@
   --r-large: 24px;
   --r-medium: 16px;
   --r-small: 8px;
+
+  /* Motion easing */
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out: cubic-bezier(0.0, 0, 0.2, 1);
 }
 
 * {
@@ -529,6 +535,87 @@ a {
   }
   .floating-hero-metrics {
     display: none !important;
+  }
+}
+
+/* ─── Stripe-inspired extra animations ─────────────────────────────────────── */
+
+/* Gradient beam sweep (hero card shimmer) */
+@keyframes beamSweep {
+  0% { transform: translateX(-120%) skewX(-18deg); }
+  100% { transform: translateX(220%) skewX(-18deg); }
+}
+
+.beam-sweep::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.18) 50%, transparent 100%);
+  width: 60%;
+  animation: beamSweep 3.5s var(--ease-out) infinite;
+  pointer-events: none;
+  border-radius: inherit;
+  overflow: hidden;
+}
+
+/* Subtle pulsing glow on accent items */
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(94, 92, 230, 0.08); }
+  50% { box-shadow: 0 0 0 8px rgba(94, 92, 230, 0); }
+}
+
+.pulse-glow {
+  animation: pulseGlow 2.4s ease-in-out infinite;
+}
+
+/* Soft entrance shimmer for cards */
+@keyframes shimmerIn {
+  from { opacity: 0; filter: blur(4px); transform: translateY(16px); }
+  to   { opacity: 1; filter: blur(0px); transform: translateY(0); }
+}
+
+/* Step connector line animated fill */
+@keyframes lineFill {
+  from { height: 0; }
+  to   { height: 100%; }
+}
+
+/* Hover lift override for all interactive cards */
+.card-cred {
+  transition: transform 0.3s var(--ease-spring), box-shadow 0.3s var(--ease-spring), border-color 0.3s ease, background 0.3s ease;
+}
+
+/* Tab button active indicator underline */
+.tab-btn.active {
+  position: relative;
+}
+
+/* Floating shortcuts bounce pulse */
+@keyframes bouncePulse {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-4px); }
+}
+
+.floating-shortcuts-buttons a {
+  animation: bouncePulse 2.8s ease-in-out infinite;
+}
+
+.floating-shortcuts-buttons a:last-child {
+  animation-delay: 0.5s;
+}
+
+/* ─── Respect user motion preferences ──────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .card-idle-float {
+    animation: none !important;
+  }
+  .ticker-content {
+    animation: none !important;
   }
 }
 

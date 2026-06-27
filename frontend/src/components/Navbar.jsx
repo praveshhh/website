@@ -1,5 +1,5 @@
 import React from 'react';
-import { Shield, LayoutDashboard, LogOut } from 'lucide-react';
+import { LayoutDashboard, LogOut } from 'lucide-react';
 
 export default function Navbar({ user, onOpenAuth, onLogout, onNavigate, activeTab }) {
   return (
@@ -19,36 +19,42 @@ export default function Navbar({ user, onOpenAuth, onLogout, onNavigate, activeT
       justifyContent: 'space-between',
       padding: '0 8%'
     }}>
-      {/* Logo */}
+      {/* Logo — actual company logo image */}
       <div 
         onClick={() => onNavigate('home')}
         style={{
           display: 'flex',
           alignItems: 'center',
-          gap: '10px',
           cursor: 'pointer'
         }}
       >
-        <div style={{
-          width: '32px',
-          height: '32px',
-          borderRadius: '8px',
-          background: 'linear-gradient(135deg, #7F7DF4, #5E5CE6)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          boxShadow: '0 4px 12px rgba(94, 92, 230, 0.15)'
-        }}>
-          <Shield size={18} color="#FFF" strokeWidth={2.5} />
-        </div>
+        <img
+          src="/logo.png"
+          alt="BillsPay24X7 — Smart Payments. Secure Growth."
+          style={{
+            height: '48px',
+            width: 'auto',
+            objectFit: 'contain',
+            display: 'block'
+          }}
+          onError={(e) => {
+            // Fallback: hide img and show text logo if file not found
+            e.target.style.display = 'none';
+            e.target.nextSibling.style.display = 'flex';
+          }}
+        />
+        {/* Text fallback (hidden when logo loads) */}
         <span style={{
+          display: 'none',
+          alignItems: 'center',
+          gap: '8px',
           fontFamily: "var(--font-display)",
           fontWeight: 800,
           fontSize: '19px',
           letterSpacing: '-0.02em',
-          color: 'var(--text-primary)'
+          color: '#1B2D6B'
         }}>
-          BillsPay<span style={{ color: 'var(--accent-periwinkle)' }}>24X7</span>✓
+          BillsPay<span style={{ color: '#22C55E' }}>24X7</span>✓
         </span>
       </div>
 

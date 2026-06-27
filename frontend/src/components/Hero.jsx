@@ -1871,11 +1871,25 @@ export default function Hero({ onOpenAuth, backendUrl }) {
           borderBottom: '1px solid rgba(0, 0, 0, 0.03)'
         }} className="grid-responsive-footer">
           <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
-              <div style={{ width: '28px', height: '28px', borderRadius: '6px', background: 'var(--accent-periwinkle)', display: 'flex', alignItems: 'center', justify: 'center' }}>
-                <Shield size={16} color="#FFF" strokeWidth={2.5} />
-              </div>
-              <span style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '18px' }}>BillsPay24X7✓</span>
+            <div style={{ marginBottom: '16px' }}>
+              <img
+                src="/logo.png"
+                alt="BillsPay24X7 — Smart Payments. Secure Growth."
+                style={{
+                  height: '44px',
+                  width: 'auto',
+                  objectFit: 'contain',
+                  display: 'block'
+                }}
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                  e.target.nextSibling.style.display = 'block';
+                }}
+              />
+              {/* Fallback text if logo.png missing */}
+              <span style={{ display: 'none', fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '18px', color: '#1B2D6B' }}>
+                BillsPay<span style={{ color: '#22C55E' }}>24X7</span>✓
+              </span>
             </div>
             <p style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: '1.6', marginBottom: '16px' }}>
               BILLSPAY TECHNOLOGIES PRIVATE LIMITED · CIN: U63999UP2026PTC245490 · India's complete fintech, IT software & travel platform — payment infrastructure, banking APIs, travel booking & custom software all under one brand.

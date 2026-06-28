@@ -1873,14 +1873,13 @@ export default function Hero({ onOpenAuth, backendUrl }) {
           <div>
             <div style={{ marginBottom: '16px' }}>
               <img
-                src="/logo.png"
+                src="/logo.svg"
                 alt="BillsPay24X7 — Smart Payments. Secure Growth."
                 style={{
                   height: '44px',
                   width: 'auto',
                   objectFit: 'contain',
-                  display: 'block',
-                  mixBlendMode: 'multiply'
+                  display: 'block'
                 }}
                 onError={(e) => {
                   e.target.style.display = 'none';

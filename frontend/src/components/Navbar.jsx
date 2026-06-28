@@ -29,14 +29,13 @@ export default function Navbar({ user, onOpenAuth, onLogout, onNavigate, activeT
         }}
       >
         <img
-          src="/logo.png"
+          src="/logo.svg"
           alt="BillsPay24X7 — Smart Payments. Secure Growth."
           style={{
             height: '48px',
             width: 'auto',
             objectFit: 'contain',
-            display: 'block',
-            mixBlendMode: 'multiply'
+            display: 'block'
           }}
           onError={(e) => {
             // Fallback: hide img and show text logo if file not found

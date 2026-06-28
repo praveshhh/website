@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 120" fill="none">
+
+  <!-- Everything in ONE text element so browser handles all spacing -->
+  <text
+    x="8"
+    y="80"
+    font-family="'Arial Black', 'Arial Bold', Arial, sans-serif"
+    font-weight="900"
+    font-size="68"
+  ><tspan fill="#1B3068">BillsPay</tspan><tspan fill="#1A9C3E">24X7</tspan><tspan fill="#1A9C3E" font-size="38" dy="-24">✓</tspan></text>
+
+  <!-- Tagline -->
+  <text
+    x="260"
+    y="108"
+    text-anchor="middle"
+    font-family="Arial, sans-serif"
+    font-weight="700"
+    font-size="12"
+    fill="#1B3068"
+    letter-spacing="3"
+  >SMART PAYMENTS. SECURE GROWTH.</text>
+
+</svg>

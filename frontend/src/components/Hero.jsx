@@ -1879,7 +1879,8 @@ export default function Hero({ onOpenAuth, backendUrl }) {
                   height: '44px',
                   width: 'auto',
                   objectFit: 'contain',
-                  display: 'block'
+                  display: 'block',
+                  mixBlendMode: 'multiply'
                 }}
                 onError={(e) => {
                   e.target.style.display = 'none';

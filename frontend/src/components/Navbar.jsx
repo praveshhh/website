@@ -35,7 +35,8 @@ export default function Navbar({ user, onOpenAuth, onLogout, onNavigate, activeT
             height: '48px',
             width: 'auto',
             objectFit: 'contain',
-            display: 'block'
+            display: 'block',
+            mixBlendMode: 'multiply'
           }}
           onError={(e) => {
             // Fallback: hide img and show text logo if file not found

@@ -30,7 +30,7 @@ export default function Navbar({ user, onOpenAuth, onLogout, onNavigate, activeT
       >
         <img
           src="/logo.svg"
-          alt="BillsPay24X7 — Smart Payments. Secure Growth."
+          alt="BillsPay24X7: Smart Payments. Secure Growth."
           style={{
             height: '48px',
             width: 'auto',

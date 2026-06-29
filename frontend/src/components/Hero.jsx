@@ -242,7 +242,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
   // Solutions data structure mapping 4 tabs
   const tabInfo = {
     fintech: {
-      title: 'BillsPay24X7✓ — Payment Infrastructure',
+      title: 'BillsPay24X7✓: Payment Infrastructure',
       chip: '💳 Fintech & Payment Solutions',
       desc: 'Accept payments via UPI, Cards, Netbanking & Wallets. T+1 settlement. 0.17% MDR. 80+ bank partners. White-label checkout. REST API ready.',
       stats: [
@@ -257,10 +257,10 @@ export default function Hero({ onOpenAuth, backendUrl }) {
           tag: 'Full-Stack',
           desc: 'Accept UPI, credit/debit cards, netbanking & wallets. T+1 settlement, 0.17% MDR, white-label checkout, SDK & REST API. Powered by Jio Payment & Cashfree.',
           feats: [
-            'UPI Collection — 0.17% MDR (best rate in India)',
-            'Cards — Visa, Mastercard, RuPay, Amex',
-            'Netbanking — 80+ bank partners',
-            'Wallets — Paytm, PhonePe, Amazon Pay',
+            'UPI Collection: 0.17% MDR (best rate in India)',
+            'Cards: Visa, Mastercard, RuPay, Amex',
+            'Netbanking: 80+ bank partners',
+            'Wallets: Paytm, PhonePe, Amazon Pay',
             'T+1 settlement (next business day)',
             'White-label checkout page & REST API SDK'
           ]
@@ -268,11 +268,11 @@ export default function Hero({ onOpenAuth, backendUrl }) {
         {
           title: 'UPI Collections',
           tag: 'Instant Credit',
-          desc: 'Dynamic QR, payment links, UPI AutoPay mandates & intent flow. India\'s fastest growing payment method — own your complete UPI stack with BillsPay24X7✓.',
+          desc: 'Dynamic QR, payment links, UPI AutoPay mandates & intent flow. India\'s fastest growing payment method to own your complete UPI stack with BillsPay24X7✓.',
           feats: [
             'Dynamic QR code generated per transaction',
             'UPI payment links via WhatsApp / SMS',
-            'UPI AutoPay — recurring mandate management',
+            'UPI AutoPay: recurring mandate management',
             'Intent flow for mobile-first checkout',
             'Real-time webhook payment notifications',
             'Reconciliation dashboard + CSV export'
@@ -284,7 +284,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
           desc: 'Dedicated virtual bank accounts per merchant or per transaction. Auto fund routing, real-time credit detection via IMPS/NEFT/RTGS & regulatory segregation.',
           feats: [
             'Dedicated IFSC + account per merchant',
-            'Auto credit detection — IMPS/NEFT/RTGS',
+            'Auto credit detection: IMPS/NEFT/RTGS',
             'Real-time webhook on every fund credit',
             'Bulk virtual account creation via API',
             'RBI-compliant fund segregation',
@@ -294,12 +294,12 @@ export default function Hero({ onOpenAuth, backendUrl }) {
         {
           title: 'Payout API',
           tag: 'Real-time 24×7',
-          desc: 'Send money to any bank account, UPI ID, or wallet instantly. Bulk payouts for salary, vendors, cashbacks & refunds — all via BillsPay24X7✓ REST API.',
+          desc: 'Send money to any bank account, UPI ID, or wallet instantly. Bulk payouts for salary, vendors, cashbacks & refunds are all processed via BillsPay24X7✓ REST API.',
           feats: [
-            'Bank transfer — IMPS/NEFT/RTGS via API',
-            'UPI Payout — send to any UPI ID instantly',
+            'Bank transfer: IMPS/NEFT/RTGS via API',
+            'UPI Payout: send to any UPI ID instantly',
             'Bulk payout via CSV upload or API batch',
-            'Wallet credit — Paytm, PhonePe & more',
+            'Wallet credit: Paytm, PhonePe & more',
             '24×7 real-time payout processing',
             'Status webhooks & full reconciliation report'
           ]
@@ -307,9 +307,9 @@ export default function Hero({ onOpenAuth, backendUrl }) {
       ]
     },
     banking: {
-      title: 'BillsPay24X7✓ — Financial Inclusion Services',
+      title: 'BillsPay24X7✓: Financial Inclusion Services',
       chip: '🏦 Banking & Financial Inclusion',
-      desc: 'BBPS (220+ billers) · AEPS (Aadhaar banking) · DMT (money transfer) · Mobile Recharge — complete last-mile banking for India\'s 1.4 billion people.',
+      desc: 'BBPS (220+ billers), AEPS (Aadhaar banking), DMT (money transfer), and Mobile Recharge provide complete last-mile banking for India\'s 1.4 billion people.',
       stats: [
         { label: 'BBPS Billers', val: '220+' },
         { label: 'Certified', val: 'NPCI' },
@@ -318,14 +318,14 @@ export default function Hero({ onOpenAuth, backendUrl }) {
       ],
       cards: [
         {
-          title: 'BBPS — Bill Payments',
+          title: 'BBPS: Bill Payments',
           tag: '220+ Billers',
           desc: 'Bharat Bill Payment System via BillsPay24X7✓. Pay electricity, gas, water, broadband, insurance, DTH & loan EMIs in one click with instant confirmation.',
           feats: [
-            'Electricity — UPPCL, MSEDCL, BESCOM & 80+ boards',
+            'Electricity: UPPCL, MSEDCL, BESCOM & 80+ boards',
             'Gas (PNG) & Water utility bills',
-            'DTH & Cable — Tata Play, Airtel, Dish TV',
-            'Loan EMI payments — NBFCs & MFIs',
+            'DTH & Cable: Tata Play, Airtel, Dish TV',
+            'Loan EMI payments: NBFCs & MFIs',
             'Insurance premium payments',
             'Instant biller fetch & bill confirmation'
           ]
@@ -333,24 +333,24 @@ export default function Hero({ onOpenAuth, backendUrl }) {
         {
           title: 'AEPS Services',
           tag: 'Last-Mile Banking',
-          desc: 'Aadhaar Enabled Payment System — cash withdrawal, balance inquiry & fund transfer using only fingerprint. No card, no PIN needed. Enable last-mile banking.',
+          desc: 'Aadhaar Enabled Payment System: cash withdrawal, balance inquiry & fund transfer using only fingerprint. No card, no PIN needed. Enable last-mile banking.',
           feats: [
             'Cash Withdrawal up to ₹10,000/day via Aadhaar',
-            'Balance Inquiry — real-time bank balance check',
-            'Mini Statement — last 5 transactions',
+            'Balance Inquiry: real-time bank balance check',
+            'Mini Statement: last 5 transactions',
             'Aadhaar to Aadhaar fund transfer',
-            'Biometric devices — Morpho, Mantra, Startek',
+            'Biometric devices: Morpho, Mantra, Startek',
             'Commission per transaction for CSP agents'
           ]
         },
         {
-          title: 'DMT — Money Transfer',
+          title: 'DMT: Money Transfer',
           tag: 'Instant Transfer',
           desc: 'Domestic Money Transfer for migrant workers & rural customers. Cash-in at any BillsPay24X7✓ agent, instant IMPS credit to any bank account across India 24×7.',
           feats: [
             'Send up to ₹25,000/transaction · ₹1L/month',
             'Sender KYC via Aadhaar OTP verification',
-            'Beneficiary management — save & reuse',
+            'Beneficiary management: save & reuse',
             'IMPS real-time credit 24×7 all year',
             'RBI-compliant transaction limits',
             'Distributor → Retailer hierarchy & commission'
@@ -361,9 +361,9 @@ export default function Hero({ onOpenAuth, backendUrl }) {
           tag: 'Instant Commission',
           desc: 'Instant mobile & DTH recharge for all Indian telecom operators via BillsPay24X7✓. Earn retailer margin on every prepaid, postpaid, DTH, FASTag & data card transaction.',
           feats: [
-            'Prepaid — Jio, Airtel, Vi, BSNL, MTNL',
+            'Prepaid: Jio, Airtel, Vi, BSNL, MTNL',
             'Postpaid bill payment with e-receipt',
-            'DTH — Tata Play, Airtel, Dish, Sun Direct',
+            'DTH: Tata Play, Airtel, Dish, Sun Direct',
             'Data card & FASTag recharge',
             'Operator plan fetch with offers & validity',
             'Instant commission credit per transaction'
@@ -372,9 +372,9 @@ export default function Hero({ onOpenAuth, backendUrl }) {
       ]
     },
     travel: {
-      title: 'BillsPay24X7✓ — Flight · Hotel · Bus · Train',
-      chip: '✈️ Travel Booking Solutions',
-      desc: 'GDS-powered flights (500+ airlines) · 1M+ hotels globally · 1000+ bus operators · IRCTC trains — complete B2B white-label travel booking with markup engine.',
+      title: 'Travel Solutions & APIs',
+      chip: '🌍 Complete Travel Stack',
+      desc: 'Flights, Hotels, Buses, Trains & Holiday Packages. B2B travel APIs + consumer portal. 500+ airlines, 1M+ hotels.',
       stats: [
         { label: 'Airlines', val: '500+' },
         { label: 'Hotels', val: '1M+' },
@@ -385,118 +385,170 @@ export default function Hero({ onOpenAuth, backendUrl }) {
         {
           title: 'Flight Booking',
           tag: '500+ Airlines',
-          desc: 'Full-stack flight engine for travel agents & OTAs via BillsPay24X7✓. Real-time availability, competitive fares, instant PNR confirmation & B2B markup engine.',
+          desc: 'Domestic & International flights. 500+ airlines, lowest fares, group bookings, charter & cargo support.',
           feats: [
-            'Domestic flights — all major Indian carriers',
-            'International — 500+ global airlines via GDS',
-            'Low-cost carriers with ancillary upsells',
-            'Multi-city & round-trip booking support',
-            'PNR management & seat selection API',
-            'B2B markup engine — set your own margins'
+            'Domestic flights across all major Indian carriers',
+            'International coverage via 500+ global airlines',
+            'Lowest fare guarantee with real-time pricing',
+            'Group bookings, charter & cargo support',
+            'Instant PNR confirmation & seat selection',
+            'B2B markup engine for agent commission'
           ]
         },
         {
           title: 'Hotel Booking',
-          tag: 'Best Rate',
-          desc: 'Access 1 million+ hotel properties across India & worldwide via BillsPay24X7✓. Instant confirmation, best-rate guarantee, flexible cancellation & B2B markup engine.',
+          tag: '1M+ Hotels',
+          desc: '1M+ hotels globally from budget to luxury. Instant confirmation, free cancellation, B2B wholesale rates.',
           feats: [
-            '1M+ properties in 190+ countries',
-            'Best Rate Guarantee — always competitive',
-            'Instant or Request-based confirmation',
-            'Room type filters, amenities & star rating',
-            'B2B markup engine for agent commission',
-            'Flexible cancellation & amendment support'
+            '1M+ properties across 190+ countries',
+            'Budget to luxury with star rating filters',
+            'Instant confirmation & free cancellation options',
+            'B2B wholesale rates for travel agents',
+            'Room type, amenity & location filters',
+            'Best rate guarantee on every booking'
           ]
         },
         {
-          title: 'Bus Booking',
-          tag: 'Live Tracking',
-          desc: '1000+ bus operators across India via BillsPay24X7✓. Seat maps, live GPS tracking, M-Ticket (no print needed) & boarding point selection — all in your branded portal.',
+          title: 'Bus Tickets',
+          tag: '1000+ Operators',
+          desc: '1000+ operators, real-time seat inventory, AC/sleeper/semi-sleeper, multi-city routes and live tracking.',
           feats: [
-            '1000+ operators — AC, Sleeper, Semi-sleeper',
-            'Real-time seat availability & selection',
-            'Live GPS bus tracking for booked journeys',
-            'M-Ticket (mobile ticket) — no print needed',
-            'Boarding & dropping point selection',
-            'B2B commission per booking, multi-level'
+            '1000+ operators across all Indian routes',
+            'AC, Sleeper & Semi-sleeper options',
+            'Real-time seat inventory & selection',
+            'Live GPS tracking for booked journeys',
+            'Multi-city routes with boarding point selection',
+            'M-Ticket (mobile ticket) support'
           ]
         },
         {
           title: 'Train Booking',
-          tag: 'IRCTC Integrated',
-          desc: 'IRCTC-integrated train booking via BillsPay24X7✓. Real-time seat availability, PNR status, Tatkal booking & e-ticket generation — full Indian Railways.',
+          tag: 'IRCTC API',
+          desc: 'IRCTC integrated. Tatkal, general and premium class tickets with live PNR and waitlist alerts.',
           feats: [
-            'IRCTC API — all train types & routes',
-            'Real-time seat availability across all classes',
+            'IRCTC API integration for all train types',
             'Tatkal & Premium Tatkal booking support',
-            'Live PNR status & passenger records',
-            'E-ticket generation — print & mobile view',
+            'General, Sleeper, AC & Premium classes',
+            'Live PNR status & waitlist alerts',
+            'E-ticket generation with mobile view',
             'Cancellation & refund automation'
+          ]
+        },
+        {
+          title: 'Holiday Packages',
+          tag: 'White Label',
+          desc: 'Curated domestic & international packages. White-label your travel brand on our booking engine.',
+          feats: [
+            'Curated domestic & international packages',
+            'Flights + Hotels + Transfers bundled',
+            'White-label your travel brand',
+            'Customizable itineraries & pricing',
+            'B2B & B2C booking engine support',
+            'Commission management for agents'
+          ]
+        },
+        {
+          title: 'Travel Portal',
+          tag: 'Book Now',
+          desc: 'Book flights, hotels, buses, trains and holiday packages at the best prices on our consumer travel platform.',
+          feats: [
+            'Consumer-facing travel booking platform',
+            'Best prices across flights, hotels & buses',
+            'Trains & holiday packages included',
+            'Instant e-tickets & hotel vouchers',
+            'Easy cancellation & refund process',
+            '24x7 WhatsApp, phone & email support'
           ]
         }
       ]
     },
     it: {
-      title: 'BillsPay24X7✓ — Complete IT Software Solutions',
-      chip: '💻 IT Software Development',
-      desc: 'Web Development · Mobile Apps · AI Automation · Cloud & DevOps · FinTech Platforms · CMS · Custom Software — 500+ merchants · 15+ countries · 10+ years of excellence.',
+      title: 'IT Software & Solutions',
+      chip: '🛠️ Custom Development',
+      desc: 'Fintech portals, travel engines, mobile apps, ERP, CRM, B2B SaaS platforms. 120+ projects shipped, 50+ clients, 6-week average delivery.',
       stats: [
-        { label: 'Years', val: '10+' },
-        { label: 'Clients', val: '500+' },
-        { label: 'Deployments', val: '1000+' },
-        { label: 'Countries', val: '15+' }
+        { label: 'Projects', val: '120+' },
+        { label: 'Clients', val: '50+' },
+        { label: 'Avg Delivery', val: '6 Wks' },
+        { label: 'Retention', val: '99%' }
       ],
       cards: [
         {
+          title: 'Fintech & Payment Portals',
+          tag: 'RBI Compliant',
+          desc: 'AEPS dashboards, BBPS portals, DMT panels, payout systems and agent networks built RBI-compliant and PCI-DSS secure.',
+          feats: [
+            'BBPS API, AEPS, DMT & UPI integration',
+            'Multi-tier agent hierarchy dashboard',
+            'PCI-DSS & RBI compliant architecture',
+            'Real-time transaction monitoring',
+            'T+1 settlement engine',
+            'Portals processing Rs 50L+ daily'
+          ]
+        },
+        {
           title: 'Web Development',
           tag: 'Full-Stack',
-          desc: 'Modern, production-grade web apps by BillsPay24X7✓ — from fintech portals to complex SaaS platforms. Clean architecture, SSR/SSG, REST & GraphQL APIs.',
+          desc: 'React, Next.js, Node.js high-performance portals, SaaS platforms and progressive web apps handling 10,000 concurrent users.',
           feats: [
-            'React.js & Next.js (SSR/SSG) frontend',
-            'Node.js, Python (Django/FastAPI) backend',
-            'Progressive Web Apps (PWA) with offline support',
+            'React, Next.js & Node.js stack',
+            'High-performance SaaS platforms',
+            'Progressive Web Apps with offline support',
+            'PostgreSQL, MongoDB & Redis integration',
             'REST & GraphQL API architecture',
-            'PostgreSQL, MongoDB, Redis integration',
-            'Payment gateway & banking API integration'
+            'Handles 10,000+ concurrent users'
           ]
         },
         {
-          title: 'Mobile App Dev',
+          title: 'Mobile App Development',
           tag: 'iOS & Android',
-          desc: 'Cross-platform native-feel mobile apps by BillsPay24X7✓. Fintech-grade UI/UX, biometric auth, payment integration, push notifications & App / Play Store publishing.',
+          desc: 'iOS and Android from one Flutter or React Native codebase. Fintech apps, travel booking and field-agent apps with offline sync.',
           feats: [
-            'Flutter — single codebase, native performance',
-            'React Native for web-first teams',
-            'Biometric login — fingerprint & Face ID',
-            'UPI, payment gateway & BBPS integration',
-            'Push notifications & in-app messaging',
-            'App Store & Play Store publishing support'
-          ]
-        },
-        {
-          title: 'FinTech Platforms',
-          tag: 'White-Label',
-          desc: 'Launch your branded fintech platform in 72 hours via BillsPay24X7✓. Multi-level distributor hierarchy, automated commission engine & real-time transaction dashboard.',
-          feats: [
-            'White-label — your brand, your domain',
-            'Admin → Distributor → Retailer hierarchy',
-            'Automated commission & incentive engine',
-            'Merchant onboarding & KYC workflow',
-            'Real-time transaction dashboard & reports',
-            'BBPS, AEPS, DMT, Recharge all bundled'
+            'Flutter & React Native cross-platform',
+            'Fintech, travel & commerce apps',
+            'Biometric login with Face ID support',
+            'Offline sync for field-agent apps',
+            'Published on App Store & Play Store',
+            'Zero-crash rate guarantee'
           ]
         },
         {
           title: 'Cloud & DevOps',
-          tag: '99.9% Uptime SLA',
-          desc: 'Enterprise cloud infrastructure by BillsPay24X7✓ — AWS, Azure or GCP. CI/CD pipelines, Docker & Kubernetes, auto-scaling, 24×7 monitoring & disaster recovery.',
+          tag: '99.9% Uptime',
+          desc: 'AWS, Azure and GCP architecture, Docker containers, Kubernetes orchestration, CI/CD pipelines with zero-downtime deployments.',
           feats: [
-            'AWS, Azure & GCP setup & management',
-            'Docker & Kubernetes containerization',
-            'CI/CD — GitHub Actions, Jenkins pipelines',
+            'AWS, Azure & GCP architecture',
+            'Docker & Kubernetes orchestration',
+            'CI/CD pipelines for zero-downtime',
             'Auto-scaling for traffic spikes',
-            '24×7 uptime monitoring & alerting',
-            'Database backup, DR & security audits'
+            '24x7 monitoring & alerting',
+            'Disaster recovery & security audits'
+          ]
+        },
+        {
+          title: 'E-Commerce Solutions',
+          tag: 'B2B & B2C',
+          desc: 'B2B and B2C stores with integrated payment gateway, inventory management, GST billing, logistics APIs and real-time analytics.',
+          feats: [
+            'Shopify, WooCommerce & custom builds',
+            'Integrated payment gateway & payouts',
+            'GST-compliant billing & invoicing',
+            'Inventory management system',
+            'Logistics API integration',
+            'Real-time sales analytics'
+          ]
+        },
+        {
+          title: 'Travel Tech Platform',
+          tag: 'White Label',
+          desc: 'White-label B2B & B2C flight, hotel, bus and train booking engines with IRCTC API, GDS integration and commission management.',
+          feats: [
+            'GDS API & IRCTC integration',
+            'White-label B2B & B2C portals',
+            'Flight, hotel, bus & train engines',
+            'B2B agent portal with commission mgmt',
+            'Real-time availability & pricing',
+            'Branded booking experience'
           ]
         }
       ]
@@ -508,43 +560,43 @@ export default function Hero({ onOpenAuth, backendUrl }) {
     {
       n: '01',
       t: 'Requirement Analysis',
-      d: 'We understand your business model, target customers, transaction volume, and service requirements through a free, no-pressure discovery call. We match you to the right BillsPay24X7✓ solutions — not generic bundles.',
+      d: 'We understand your business model, target customers, transaction volume, and service requirements through a free, no-pressure discovery call. We match you to the right BillsPay24X7✓ solutions instead of generic bundles.',
       tags: ['Fintech Startups', 'E-commerce', 'Travel Companies', 'Aggregators', 'Enterprises']
     },
     {
       n: '02',
       t: 'Solution Design',
-      d: 'Based on your requirements, we design the best combination of BillsPay24X7✓ payment, banking, travel, and IT solutions. Every decision is deliberate — tailored to your market, your model, and your users.',
+      d: 'Based on your requirements, we design the best combination of BillsPay24X7✓ payment, banking, travel, and IT solutions. Every decision is deliberate and tailored to your market, model, and users.',
       tags: ['Payment Gateway', 'Banking APIs', 'Travel Engine', 'IT Software', 'Custom Platform']
     },
     {
       n: '03',
       t: 'Documentation & Compliance',
-      d: 'Our team handles the entire compliance journey — business KYC, merchant onboarding, bank verification, and regulatory review. You focus on building; we handle the paperwork.',
+      d: 'Our team handles the entire compliance journey, covering business KYC, merchant onboarding, bank verification, and regulatory review. You focus on building; we handle the paperwork.',
       tags: ['Business KYC', 'Merchant Onboarding', 'Bank Verification', 'Compliance Review']
     },
     {
       n: '04',
       t: 'Technology Setup',
-      d: 'We configure your complete technical infrastructure: API keys, sandbox environment, merchant dashboard, banking integrations, reporting panel, and user management — all production-ready.',
+      d: 'We configure your complete technical infrastructure: API keys, sandbox environment, merchant dashboard, banking integrations, reporting panel, and user management, which are all production-ready.',
       tags: ['API Keys & Sandbox', 'Merchant Dashboard', 'Banking Integration', 'Reporting Panel']
     },
     {
       n: '05',
       t: 'Integration & Development',
-      d: 'Our BillsPay24X7✓ developers integrate every solution into your existing website, mobile app, or platform using your preferred tech stack — clean code, full documentation, knowledge transfer.',
+      d: 'Our BillsPay24X7✓ developers integrate every solution into your existing website, mobile app, or platform using your preferred tech stack, delivering clean code, full documentation, and knowledge transfer.',
       tags: ['Website Integration', 'Mobile App', 'Fintech Portal', 'SaaS Platform']
     },
     {
       n: '06',
       t: 'Testing & UAT',
-      d: 'Complete end-to-end testing across every service in sandbox. Pay-in, payouts, BBPS, recharge, travel booking, and verification flows — all validated before a single real rupee moves.',
+      d: 'Complete end-to-end testing across every service in sandbox. Pay-in, payouts, BBPS, recharge, travel booking, and verification flows, which are all validated before a single real rupee moves.',
       tags: ['Payment Flow Testing', 'Payout Validation', 'BBPS Testing', 'Travel API UAT']
     },
     {
       n: '07',
       t: 'Go Live & Scale',
-      d: 'Your platform is live — accepting real payments, processing payouts, and serving customers via BillsPay24X7✓. We stay as your 24×7 growth partner with monitoring and roadmap planning.',
+      d: 'Your platform is live, accepting real payments, processing payouts, and serving customers via BillsPay24X7✓. We stay as your 24×7 growth partner with monitoring and roadmap planning.',
       tags: ['Accept Payments', 'Process Payouts', 'Travel Bookings', 'Scale Operations']
     }
   ];
@@ -553,10 +605,10 @@ export default function Hero({ onOpenAuth, backendUrl }) {
   const whyUs = [
     { icon: '⚡', title: 'T+1 Settlement', desc: 'Next-day settlements powered by Jio Payment & Cashfree. Your cash flow accelerated every business day.' },
     { icon: '🔐', title: 'Bank-Grade Security', desc: 'PCI-DSS Level 1, 256-bit SSL encryption, 2FA & full RBI-compliant infrastructure always active.' },
-    { icon: '🛠️', title: 'Full-Stack IT', desc: 'Payment APIs → mobile apps → cloud DevOps → travel engines — BillsPay24X7✓ delivers it all.' },
+    { icon: '🛠️', title: 'Full-Stack IT', desc: 'Payment APIs, mobile apps, cloud DevOps, and travel engines. BillsPay24X7✓ delivers it all.' },
     { icon: '📊', title: 'Real-Time Analytics', desc: 'Live dashboards with transaction insights, reconciliation tools & business intelligence reports.' },
     { icon: '🤝', title: '24×7 Dedicated Support', desc: 'WhatsApp, phone & email support. Your dedicated account manager always reachable, always accountable.' },
-    { icon: '🚀', title: 'Rapid Deployment', desc: 'Go live in days, not months. Sandbox-to-production in as little as 72 hours — guaranteed.' }
+    { icon: '🚀', title: 'Rapid Deployment', desc: 'Go live in days, not months. Sandbox-to-production in as little as 72 hours, guaranteed.' }
   ];
 
   // Business Models
@@ -564,7 +616,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
     { icon: '🏪', title: 'Retail & Kirana', desc: 'AEPS, BBPS, DMT & recharge for neighbourhood payment outlets across India.' },
     { icon: '🏢', title: 'B2B Aggregators', desc: 'White-label platforms with multi-level retailer & distributor hierarchy.' },
     { icon: '🛒', title: 'E-commerce', desc: 'Payment gateway + payout + GST invoicing for online retail businesses.' },
-    { icon: '✈️', title: 'Travel Agencies', desc: 'Complete travel booking — flight, hotel, bus & train with B2B markup.' },
+    { icon: '✈️', title: 'Travel Agencies', desc: 'Complete travel booking, offering flight, hotel, bus, and train services with B2B markup.' },
     { icon: '💊', title: 'Healthcare', desc: 'Patient billing, subscription plans & insurance payment management.' },
     { icon: '🎓', title: 'Education', desc: 'Fee collection, instalment billing & automated payment reminders.' },
     { icon: '🏗️', title: 'SaaS Startups', desc: 'Recurring billing, usage-based pricing & developer-friendly APIs.' },
@@ -575,14 +627,14 @@ export default function Hero({ onOpenAuth, backendUrl }) {
   const testimonials = [
     {
       stars: '★★★★★',
-      quote: '"BillsPay24X7✓ helped us integrate UPI, BBPS, and our payment gateway within days. Their tech team is exceptional and 24×7 support actually means it — always available, always responsive."',
+      quote: '"BillsPay24X7✓ helped us integrate UPI, BBPS, and our payment gateway within days. Their tech team is exceptional and 24×7 support actually means it, being always available and highly responsive."',
       initials: 'RK',
       name: 'Rahul Kumar',
       role: 'Founder, PayEasy Fintech · Lucknow'
     },
     {
       stars: '★★★★★',
-      quote: '"We launched our complete travel booking platform — flight, hotel & bus — in under 2 weeks via BillsPay24X7✓. The integration is seamless and the commission management system is exactly what we needed."',
+      quote: '"We launched our complete travel booking platform, covering flight, hotel, and bus services, in under 2 weeks via BillsPay24X7✓. The integration is seamless and the commission management system is exactly what we needed."',
       initials: 'PS',
       name: 'Priya Sharma',
       role: 'CEO, TravelNow India · Delhi'
@@ -700,7 +752,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
                 fontWeight: 400
               }}
             >
-              Payment Gateway · BBPS · AEPS · DMT · UPI · Payout API · Flight · Hotel · Bus · Train · Custom Software · Cloud & DevOps — India's complete business platform. T+1 Settlement. RBI Compliant.
+              Payment Gateway · BBPS · AEPS · DMT · UPI · Payout API · Flight · Hotel · Bus · Train · Custom Software · Cloud & DevOps. India's complete business platform with T+1 Settlement and RBI compliance.
             </motion.p>
 
             <motion.div
@@ -984,7 +1036,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
             {[1, 2].map((groupIndex) => (
               <div key={groupIndex} style={{ display: 'inline-flex', gap: '48px', alignItems: 'center', paddingRight: '48px' }}>
                 <span style={{ fontSize: '11px', color: 'var(--text-secondary)', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '6px', letterSpacing: '0.03em' }}>
-                  <CheckCircle size={13} color="var(--accent-periwinkle)" /> NPCI Certified — BBPS & AEPS
+                  <CheckCircle size={13} color="var(--accent-periwinkle)" /> NPCI Certified: BBPS & AEPS
                 </span>
                 <span style={{ fontSize: '11px', color: 'var(--text-secondary)', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '6px', letterSpacing: '0.03em' }}>
                   <CheckCircle size={13} color="var(--accent-periwinkle)" /> RBI Registered Entity
@@ -1037,7 +1089,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
           <SectionHeading
             eyebrow="our solutions"
             title="Everything Your Business Needs"
-            subtitle="Fintech payments · Banking services · Travel booking · IT software — India's most complete business platform with T+1 settlement & 24×7 support."
+            subtitle="Fintech payments · Banking services · Travel booking · IT software. India's most complete business platform with T+1 settlement and 24×7 support."
           />
 
           {/* Toggle Buttons */}
@@ -1162,10 +1214,12 @@ export default function Hero({ onOpenAuth, backendUrl }) {
                       gap: '20px'
                     }}>
                       {[
-                        { title: 'Fintech Payment Platform', tag: 'Fintech · Development', fallback: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=320&h=160&fit=crop&q=70' },
-                        { title: 'Smart KYC & Identity Platform', tag: 'KYC · Verification', fallback: 'https://images.unsplash.com/photo-1633265486064-086b219458ec?w=320&h=160&fit=crop&q=70' },
-                        { title: 'Automated Server Deployment', tag: 'Automation · DevOps', fallback: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=320&h=160&fit=crop&q=70' },
-                        { title: 'ATM & Kiosk Software System', tag: 'ATM · Security', fallback: 'https://images.unsplash.com/photo-1556742111-a301076d9d18?w=320&h=160&fit=crop&q=70' }
+                        { title: 'BillsPay24X7 Agent Portal', tag: 'Fintech · Payment Portal', fallback: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=320&h=160&fit=crop&q=70' },
+                        { title: 'Travel & Booking Super App', tag: 'Flutter · iOS & Android', fallback: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=320&h=160&fit=crop&q=70' },
+                        { title: 'Multi-Vendor FMCG Platform', tag: 'E-Commerce · B2B Marketplace', fallback: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=320&h=160&fit=crop&q=70' },
+                        { title: 'GST Reconciliation Dashboard', tag: 'Analytics · React · Python', fallback: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=320&h=160&fit=crop&q=70' },
+                        { title: '200-Bed Hospital Management', tag: 'Healthcare · Full-Stack HMS', fallback: 'https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=320&h=160&fit=crop&q=70' },
+                        { title: 'Online Learning Platform', tag: 'EdTech · LMS · AWS', fallback: 'https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=320&h=160&fit=crop&q=70' }
                       ].map((item, idx) => (
                         <StaggerCard key={idx} className="card-cred" style={{ padding: 0, height: '160px', borderRadius: '16px', position: 'relative', cursor: 'default' }}>
                           <img src={item.fallback} alt={item.title} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '16px' }} />
@@ -1198,15 +1252,18 @@ export default function Hero({ onOpenAuth, backendUrl }) {
                       gap: '16px'
                     }}>
                       {[
-                        { icon: '⚙️', name: 'Platform Engineering', sub: 'Web apps, backend APIs, domain-driven architecture, microservices' },
-                        { icon: '📱', name: 'Mobile App Studio', sub: 'Flutter & React Native — iOS & Android, native-feel performance' },
-                        { icon: '🤖', name: 'AI Automation Lab', sub: 'Intelligent workflows, ML models, recommendation engines' },
-                        { icon: '☁️', name: 'Cloud & DevOps', sub: 'AWS/Azure/GCP, Docker, Kubernetes, CI/CD, 99.9% SLA' },
-                        { icon: '💳', name: 'FinTech Platforms', sub: 'Payment gateways, billing systems, mobile banking, KYC' },
-                        { icon: '🖥️', name: 'CMS Development', sub: 'WordPress, Shopify, Webflow, Drupal, Headless CMS' },
-                        { icon: '🔐', name: 'Cybersecurity', sub: 'Security audits, penetration testing, PCI-DSS compliance' },
-                        { icon: '📊', name: 'Data Engineering', sub: 'PostgreSQL, MongoDB, Redis, real-time analytics pipelines' },
-                        { icon: '🧪', name: 'Product Prototyping', sub: 'Rapid MVPs, UX wireframes, technical blueprints, discovery sprints' }
+                        { icon: '💳', name: 'Fintech & Payment Portals', sub: 'AEPS, BBPS, DMT, UPI, payout systems, agent networks, PCI-DSS & RBI compliant' },
+                        { icon: '⚙️', name: 'Web Development', sub: 'React, Next.js, Node.js portals, SaaS platforms, progressive web apps' },
+                        { icon: '📱', name: 'Mobile App Development', sub: 'Flutter & React Native, iOS & Android, fintech & travel apps, offline sync' },
+                        { icon: '🛒', name: 'E-Commerce Solutions', sub: 'B2B & B2C stores, payment gateway, GST billing, logistics APIs, analytics' },
+                        { icon: '☁️', name: 'Cloud & DevOps', sub: 'AWS, Azure, GCP, Docker, Kubernetes, CI/CD, zero-downtime deployments' },
+                        { icon: '🎨', name: 'UI/UX Design', sub: 'Figma wireframes, interactive prototypes, design systems, user testing' },
+                        { icon: '✈️', name: 'Travel Tech Platform', sub: 'White-label B2B & B2C booking engines, GDS API, IRCTC, commission management' },
+                        { icon: '🏢', name: 'ERP & CRM Systems', sub: 'Custom HR, inventory, accounting & customer management platforms' },
+                        { icon: '🤖', name: 'AI & Data Analytics', sub: 'Fraud detection, BI dashboards, recommendation engines, ML models' },
+                        { icon: '📈', name: 'Digital Marketing & SEO', sub: 'Google Ads, Meta Ads, SEO audits, content strategy, live analytics' },
+                        { icon: '🔗', name: 'API Development & Integration', sub: 'REST, GraphQL, payment gateways, government APIs, microservices' },
+                        { icon: '🔐', name: 'Cybersecurity & Compliance', sub: 'VAPT audits, OWASP hardening, ISO 27001, RBI compliance review' }
                       ].map((svc, idx) => (
                         <StaggerCard key={idx} className="card-cred" style={{ padding: '20px', display: 'flex', gap: '14px', alignItems: 'flex-start', minHeight: 'auto' }}>
                           <span style={{ fontSize: '24px' }}>{svc.icon}</span>
@@ -1280,7 +1337,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
           <SectionHeading
             eyebrow="our process"
             title="How We Onboard You"
-            subtitle="A structured, transparent process — from discovery call to live platform in days, not months."
+            subtitle="A structured, transparent process going from discovery call to live platform in days, not months."
           />
 
           <div style={{
@@ -1444,7 +1501,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
           <SectionHeading
             eyebrow="business models"
             title="Who We Build For"
-            subtitle="BillsPay24X7✓ adapts to every business model — startup, aggregator, or enterprise scaling across India."
+            subtitle="BillsPay24X7✓ adapts to every business model, whether it is a startup, aggregator, or enterprise scaling across India."
           />
 
           <StaggerGrid style={{
@@ -1583,7 +1640,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
             <h2 style={{ fontSize: '38px', marginTop: '12px', fontWeight: 800, marginBottom: '16px' }}>Let's Build Something Great Together</h2>
             <div style={{ width: '40px', height: '3px', background: 'var(--accent-periwinkle)', marginBottom: '24px', borderRadius: '2px' }} />
             <p style={{ color: 'var(--text-secondary)', fontSize: '15px', lineHeight: '1.8', marginBottom: '36px' }}>
-              Whether you need a payment gateway, fintech platform, mobile app, travel engine or complete IT software — BillsPay24X7✓ is ready to turn your vision into reality.
+              Whether you need a payment gateway, fintech platform, mobile app, travel engine, or complete IT software, BillsPay24X7✓ is ready to turn your vision into reality.
             </p>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
@@ -1620,7 +1677,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
                   <h4 style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--text-muted)', marginBottom: '4px' }}>Registered Office</h4>
                   <p style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: '1.6' }}>
                     PLOT NO-02, KHASRA NO-122, GRAM FARIDIPUR DUBAGGA,<br />
-                    Lucknow Chowk, Lucknow, UP — 226003<br />
+                    Lucknow Chowk, Lucknow, UP 226003<br />
                     <span style={{ fontSize: '11px', color: 'var(--text-muted)', display: 'block', marginTop: '4px' }}>Mon–Sat: 9 AM – 7 PM IST</span>
                   </p>
                 </div>
@@ -1874,7 +1931,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
             <div style={{ marginBottom: '16px' }}>
               <img
                 src="/logo.svg"
-                alt="BillsPay24X7 — Smart Payments. Secure Growth."
+                alt="BillsPay24X7: Smart Payments. Secure Growth."
                 style={{
                   height: '44px',
                   width: 'auto',
@@ -1892,7 +1949,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
               </span>
             </div>
             <p style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: '1.6', marginBottom: '16px' }}>
-              BILLSPAY TECHNOLOGIES PRIVATE LIMITED · CIN: U63999UP2026PTC245490 · India's complete fintech, IT software & travel platform — payment infrastructure, banking APIs, travel booking & custom software all under one brand.
+              BILLSPAY TECHNOLOGIES PRIVATE LIMITED · CIN: U63999UP2026PTC245490 · India's complete fintech, IT software & travel platform, bundling payment infrastructure, banking APIs, travel booking & custom software all under one brand.
             </p>
           </div>
           <div>
@@ -1915,7 +1972,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
             <h4 style={{ fontSize: '11px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--text-primary)', marginBottom: '16px' }}>Registered Office</h4>
             <p style={{ fontSize: '12px', color: 'var(--text-secondary)', lineHeight: '1.6' }}>
               PLOT NO-02, KHASRA NO-122, GRAM FARIDIPUR DUBAGGA,<br />
-              Lucknow Chowk, Lucknow, UP — 226003<br /><br />
+              Lucknow Chowk, Lucknow, UP 226003<br /><br />
               <strong>CIN:</strong> U63999UP2026PTC245490<br />
               <strong>Support:</strong> support@billspay24x7.com
             </p>

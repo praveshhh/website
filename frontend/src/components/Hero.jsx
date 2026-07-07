@@ -1856,11 +1856,78 @@ export default function Hero({ onOpenAuth, backendUrl }) {
         </div>
       </section>
 
+
+      {/* 8. CLIENT LOGOS MARQUEE */}
+      <section style={{ padding: '40px 0', background: 'rgba(255,255,255,0.4)', borderTop: '1px solid var(--border-primary)', borderBottom: '1px solid var(--border-primary)', overflow: 'hidden' }}>
+        <div style={{ display: 'flex', width: '200%', gap: '48px', animation: 'marquee 25s linear infinite' }} className="ticker-content">
+          {['State Bank of India', 'ICICI Bank', 'NPCI Certified', 'RBI Regulated', 'AWS Cloud Partner', 'IRCTC Rail Booking', 'MakeMyTrip API', 'Visa Card Net', 'MasterCard Net', 'Jio Payments'].map((logo, idx) => (
+            <div key={idx} style={{ flex: 1, textAlign: 'center', fontSize: '15px', fontWeight: 800, color: 'var(--text-muted)', opacity: 0.6, minWidth: '150px', whiteSpace: 'nowrap' }}>
+              {logo}
+            </div>
+          ))}
+          {/* Duplicate for infinite effect */}
+          {['State Bank of India', 'ICICI Bank', 'NPCI Certified', 'RBI Regulated', 'AWS Cloud Partner', 'IRCTC Rail Booking', 'MakeMyTrip API', 'Visa Card Net', 'MasterCard Net', 'Jio Payments'].map((logo, idx) => (
+            <div key={idx + '-dup'} style={{ flex: 1, textAlign: 'center', fontSize: '15px', fontWeight: 800, color: 'var(--text-muted)', opacity: 0.6, minWidth: '150px', whiteSpace: 'nowrap' }}>
+              {logo}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 9. CASE STUDIES */}
+      <section style={{ padding: '80px 8%', background: 'var(--surf-1)' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', marginBottom: '48px' }}>
+            <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '28px', fontWeight: 800 }}>Success Stories</h2>
+            <p style={{ fontSize: '14.5px', color: 'var(--text-secondary)', marginTop: '8px' }}>How Indian merchants use BillsPay24X7 to scale daily transactions</p>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px' }}>
+            {[
+              { t: 'Lucknow Retail Agent Network', s: 'Fintech Portal', d: 'An agent network deployed our AEPS & BBPS platform to serve 25,000+ rural customers. Daily volumes scaled to ₹15L with zero settlement delays.', res: '✓ 250+ Active Agents' },
+              { t: 'TravelGoa B2C Booking Portal', s: 'White-Label travel API', d: 'Integrated our Flight & Hotel B2B APIs with custom booking workflows, achieving 180ms page loads and 42% search-to-book conversions.', res: '✓ 180ms Search API response' },
+              { t: 'Arogya Hospital HMS CRM', s: 'Enterprise software', d: 'Custom-engineered a 200-bed HMS connecting billing, laboratory records, and OPD schedules securely hosted on AWS Cloud.', res: '✓ 99.99% AWS Uptime SLA' }
+            ].map((cs, idx) => (
+              <div key={idx} style={{ background: 'var(--white)', border: '1px solid var(--border-primary)', borderRadius: '20px', padding: '28px', display: 'flex', flexDirection: 'column' }}>
+                <span style={{ fontSize: '10px', fontWeight: 700, color: 'var(--accent-periwinkle)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '8px' }}>{cs.s}</span>
+                <h3 style={{ fontSize: '16px', fontWeight: 800, marginBottom: '8px', color: 'var(--text-primary)' }}>{cs.t}</h3>
+                <p style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: '1.6', flex: 1, marginBottom: '16px' }}>{cs.d}</p>
+                <div style={{ fontSize: '12px', fontWeight: 700, color: '#2DB84B' }}>{cs.res}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 10. FAQ SECTION */}
+      <FAQSection />
+
+      {/* 11. NEWSLETTER */}
+      <section style={{ padding: '60px 8%', background: 'linear-gradient(135deg, #1B2A6B 0%, #243080 100%)', color: '#fff', textAlign: 'center' }}>
+        <div style={{ maxWidth: '600px', margin: '0 auto' }}>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '26px', fontWeight: 800, marginBottom: '8px' }}>Subscribe to our Newsletter</h2>
+          <p style={{ fontSize: '13.5px', color: 'rgba(255,255,255,0.7)', marginBottom: '24px' }}>Get the latest updates on fintech APIs, travel technology trends, and Lucknow IT developments.</p>
+          <div style={{ display: 'flex', gap: '10px', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <input 
+              type="email" 
+              placeholder="Enter your email" 
+              style={{ padding: '12px 18px', borderRadius: '8px', border: 'none', width: '280px', fontSize: '13px', outline: 'none', color: '#1B2A6B' }} 
+            />
+            <button 
+              onClick={() => window.open('https://wa.me/919278403522?text=Subscribe%20to%20Newsletter', '_blank')}
+              className="btn-cred-neon" 
+              style={{ padding: '12px 24px', fontSize: '13px' }}
+            >
+              Subscribe →
+            </button>
+          </div>
+        </div>
+      </section>
+
       {/* FLOAT SHORTCUTS (WhatsApp & Phone) */}
       <div style={{
         position: 'fixed',
         bottom: '24px',
-        right: '24px',
+        left: '24px',
         display: 'flex',
         flexDirection: 'column',
         gap: '10px',
@@ -1911,89 +1978,47 @@ export default function Hero({ onOpenAuth, backendUrl }) {
           📞
         </motion.a>
       </div>
-
-      {/* 10. FOOTER */}
-      <footer style={{
-        background: 'rgba(255,255,255,0.4)',
-        borderTop: '1px solid rgba(0, 0, 0, 0.03)',
-        padding: '64px 8% 24px'
-      }}>
-        <div style={{
-          maxWidth: '1200px',
-          margin: '0 auto',
-          display: 'grid',
-          gridTemplateColumns: '1.8fr 1fr 1fr 1.2fr',
-          gap: '40px',
-          paddingBottom: '40px',
-          borderBottom: '1px solid rgba(0, 0, 0, 0.03)'
-        }} className="grid-responsive-footer">
-          <div>
-            <div style={{ marginBottom: '16px' }}>
-              <img
-                src="/logo.svg"
-                alt="BillsPay24X7: Smart Payments. Secure Growth."
-                style={{
-                  height: '44px',
-                  width: 'auto',
-                  objectFit: 'contain',
-                  display: 'block'
-                }}
-                onError={(e) => {
-                  e.target.style.display = 'none';
-                  e.target.nextSibling.style.display = 'block';
-                }}
-              />
-              {/* Fallback text if logo.png missing */}
-              <span style={{ display: 'none', fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '18px', color: '#1B2D6B' }}>
-                BillsPay<span style={{ color: '#22C55E' }}>24X7</span>✓
-              </span>
-            </div>
-            <p style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: '1.6', marginBottom: '16px' }}>
-              BILLSPAY TECHNOLOGIES PRIVATE LIMITED · CIN: U63999UP2026PTC245490 · India's complete fintech, IT software & travel platform, bundling payment infrastructure, banking APIs, travel booking & custom software all under one brand.
-            </p>
-          </div>
-          <div>
-            <h4 style={{ fontSize: '11px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--text-primary)', marginBottom: '16px' }}>Fintech Services</h4>
-            <a onClick={() => { setActiveTab('fintech'); scrollToId('solutions'); }} style={{ display: 'block', fontSize: '13px', color: 'var(--text-secondary)', marginBottom: '10px', cursor: 'pointer' }}>Payment Gateway</a>
-            <a onClick={() => { setActiveTab('fintech'); scrollToId('solutions'); }} style={{ display: 'block', fontSize: '13px', color: 'var(--text-secondary)', marginBottom: '10px', cursor: 'pointer' }}>UPI Collection</a>
-            <a onClick={() => { setActiveTab('banking'); scrollToId('solutions'); }} style={{ display: 'block', fontSize: '13px', color: 'var(--text-secondary)', marginBottom: '10px', cursor: 'pointer' }}>BBPS Bill Pay</a>
-            <a onClick={() => { setActiveTab('banking'); scrollToId('solutions'); }} style={{ display: 'block', fontSize: '13px', color: 'var(--text-secondary)', marginBottom: '10px', cursor: 'pointer' }}>AEPS Services</a>
-            <a onClick={() => { setActiveTab('banking'); scrollToId('solutions'); }} style={{ display: 'block', fontSize: '13px', color: 'var(--text-secondary)', cursor: 'pointer' }}>DMT Transfer</a>
-          </div>
-          <div>
-            <h4 style={{ fontSize: '11px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--text-primary)', marginBottom: '16px' }}>IT & Travel</h4>
-            <a onClick={() => { setActiveTab('it'); scrollToId('solutions'); }} style={{ display: 'block', fontSize: '13px', color: 'var(--text-secondary)', marginBottom: '10px', cursor: 'pointer' }}>Web Development</a>
-            <a onClick={() => { setActiveTab('it'); scrollToId('solutions'); }} style={{ display: 'block', fontSize: '13px', color: 'var(--text-secondary)', marginBottom: '10px', cursor: 'pointer' }}>Mobile Apps</a>
-            <a onClick={() => { setActiveTab('it'); scrollToId('solutions'); }} style={{ display: 'block', fontSize: '13px', color: 'var(--text-secondary)', marginBottom: '10px', cursor: 'pointer' }}>FinTech Platforms</a>
-            <a onClick={() => { setActiveTab('it'); scrollToId('solutions'); }} style={{ display: 'block', fontSize: '13px', color: 'var(--text-secondary)', marginBottom: '10px', cursor: 'pointer' }}>Cloud & DevOps</a>
-            <a onClick={() => { setActiveTab('travel'); scrollToId('solutions'); }} style={{ display: 'block', fontSize: '13px', color: 'var(--text-secondary)', cursor: 'pointer' }}>Travel Booking</a>
-          </div>
-          <div>
-            <h4 style={{ fontSize: '11px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--text-primary)', marginBottom: '16px' }}>Registered Office</h4>
-            <p style={{ fontSize: '12px', color: 'var(--text-secondary)', lineHeight: '1.6' }}>
-              PLOT NO-02, KHASRA NO-122, GRAM FARIDIPUR DUBAGGA,<br />
-              Lucknow Chowk, Lucknow, UP 226003<br /><br />
-              <strong>CIN:</strong> U63999UP2026PTC245490<br />
-              <strong>Support:</strong> support@billspay24x7.com
-            </p>
-          </div>
-        </div>
-
-        <div style={{
-          maxWidth: '1200px',
-          margin: '18px auto 0',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          fontSize: '11px',
-          color: 'var(--text-muted)',
-          flexWrap: 'wrap',
-          gap: '10px'
-        }}>
-          <p>© 2026 BILLSPAY TECHNOLOGIES PRIVATE LIMITED. All rights reserved. Brand: BillsPay24X7✓</p>
-          <p style={{ fontSize: '9px', opacity: 0.7 }}>RBI Registered · PCI-DSS Level 1 · ISO 27001 Certified</p>
-        </div>
-      </footer>
     </div>
   );
 }
+
+// ─── FAQ Section Component ──────────────────────────────────────────────────
+function FAQSection() {
+  const [openIdx, setOpenIdx] = useState(null);
+  const faqs = [
+    { q: 'How long does it take to activate a merchant account?', a: 'Standard payment gateway accounts are activated within 48 hours of completing online KYC verification.' },
+    { q: 'What is the transaction settlement cycle?', a: 'Settlement is processed on a T+1 basis (next working day) for domestic payments directly to your registered bank account.' },
+    { q: 'Are your APIs RBI regulated?', a: 'Yes, our banking portal integrations and payouts run on NPCI approved protocols and comply with RBI Guidelines.' },
+    { q: 'Do you offer white-label travel portals?', a: 'Yes, we provide fully branded white-label travel booking engines for flights, hotels, and buses under your own brand name.' },
+    { q: 'Can we build custom features on the IT side?', a: 'Absolutely. We specialize in custom web apps, mobile apps, CRM systems, and database integrations tailored to your business needs.' },
+    { q: 'Who handles customer support?', a: 'We provide dedicated 24×7 customer support via WhatsApp, phone, and email to assist you with any transaction or API issues.' }
+  ];
+  return (
+    <section style={{ padding: '80px 8%', background: '#fff' }}>
+      <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+        <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '28px', fontWeight: 800 }}>Frequently Asked Questions</h2>
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+          {faqs.map((faq, idx) => (
+            <div key={idx} style={{ border: '1px solid var(--border-primary)', borderRadius: '12px', overflow: 'hidden' }}>
+              <button 
+                onClick={() => setOpenIdx(openIdx === idx ? null : idx)}
+                style={{ width: '100%', padding: '18px 24px', background: 'var(--surf-1)', border: 'none', textAlign: 'left', fontWeight: 700, fontSize: '14px', cursor: 'pointer', display: 'flex', justifyContent: 'space-between', alignItems: 'center', color: 'var(--text-primary)' }}
+              >
+                <span>{faq.q}</span>
+                <span style={{ fontSize: '18px' }}>{openIdx === idx ? '−' : '+'}</span>
+              </button>
+              {openIdx === idx && (
+                <div style={{ padding: '18px 24px', background: '#fff', fontSize: '13px', color: 'var(--text-secondary)', lineHeight: '1.6', borderTop: '1px solid var(--border-primary)' }}>
+                  {faq.a}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+

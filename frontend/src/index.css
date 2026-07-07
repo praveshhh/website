@@ -619,3 +619,124 @@ a {
   }
 }
 
+/* ─── Premium UI Extensions & Dark Mode ────────────────────────────────────── */
+
+/* Dark Theme Variables */
+[data-theme="dark"] {
+  --bg-primary: #0A0D1A;
+  --bg-mesh-1: rgba(27, 24, 76, 0.4);
+  --bg-mesh-2: rgba(14, 40, 60, 0.3);
+  
+  --bg-frame: rgba(20, 24, 44, 0.65);
+  --bg-card: rgba(26, 32, 58, 0.7);
+  --bg-card-hover: rgba(34, 42, 74, 0.95);
+  
+  --border-primary: rgba(255, 255, 255, 0.08);
+  --border-secondary: rgba(255, 255, 255, 0.12);
+  --border-dark: rgba(94, 92, 230, 0.25);
+  
+  --text-primary: #ECEFF6;
+  --text-secondary: #94A3B8;
+  --text-muted: #64748B;
+  
+  --surf-1: #0D1127;
+  --surf-2: #161D3A;
+  --white: #12182F;
+}
+
+/* Base values */
+:root {
+  --orange: #EA580C;
+  --white: #FFFFFF;
+  --surf-1: #F8FAFF;
+  --surf-2: #EEF2FB;
+  --g-brand: linear-gradient(135deg, #1B2A6B 0%, #243080 50%, #2DB84B 100%);
+  --g-navy: linear-gradient(135deg, #0D1638 0%, #1B2A6B 100%);
+  --navy-deep: #090E26;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+  --shadow-lg: 0 12px 36px rgba(0,0,0,0.12);
+  --shadow-xl: 0 24px 64px rgba(27,42,107,0.18);
+}
+
+/* Global Loader filler animation */
+@keyframes loadfill {
+  0%   { transform: translateX(-100%); }
+  50%  { transform: translateX(0); }
+  100% { transform: translateX(100%); }
+}
+
+/* Custom CSS Responsive Helpers */
+.nav-links-desktop {
+  display: flex !important;
+}
+.nav-cta-desktop {
+  display: inline-block !important;
+}
+.nav-mobile-hamburger {
+  display: none !important;
+}
+
+@media (max-width: 1023px) {
+  .nav-links-desktop {
+    display: none !important;
+  }
+  .nav-cta-desktop {
+    display: none !important;
+  }
+  .nav-mobile-hamburger {
+    display: block !important;
+  }
+}
+
+.grid-responsive-process {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.grid-responsive-ithero {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 40px;
+}
+
+@media (max-width: 900px) {
+  .grid-responsive-ithero {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+  .ithero-visual {
+    height: 400px !important;
+  }
+}
+
+/* Sub-page responsive items */
+@media (max-width: 768px) {
+  .grid-responsive-process {
+    grid-template-columns: 1fr !important;
+  }
+  .grid-responsive-ithero {
+    grid-template-columns: 1fr !important;
+  }
+  .t-hero-tag {
+    font-size: 8.5px !important;
+    padding: 4px 12px !important;
+  }
+  .search-box {
+    margin: 20px 0 0 0 !important;
+    border-radius: 12px !important;
+  }
+  .s-tabs button {
+    padding: 12px 16px !important;
+    font-size: 11.5px !important;
+  }
+  .sf {
+    padding: 8px 12px !important;
+  }
+  .sf-inp {
+    font-size: 12.5px !important;
+  }
+}
+
+

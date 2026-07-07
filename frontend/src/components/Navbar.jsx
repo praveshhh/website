@@ -1,10 +1,27 @@
-import React from 'react';
-import { LayoutDashboard, LogOut } from 'lucide-react';
+import React, { useState } from 'react';
+import { LayoutDashboard, LogOut, Menu, X } from 'lucide-react';
 
-export default function Navbar({ user, onOpenAuth, onLogout, onNavigate, activeTab }) {
+export default function Navbar({ user, onOpenAuth, onLogout, onNavigate, activeTab, onOpenModal }) {
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
+
+  const handleLinkClick = (tab) => {
+    onNavigate(tab);
+    setIsMobileOpen(false);
+  };
+
+  const openEnquire = () => {
+    onOpenModal('enquire');
+    setIsMobileOpen(false);
+  };
+
+  const openSignup = () => {
+    onOpenModal('signup');
+    setIsMobileOpen(false);
+  };
+
   return (
     <nav style={{
-      position: 'absolute', // Sits inside the app-frame container relative space
+      position: 'absolute',
       top: 0,
       left: 0,
       right: 0,
@@ -19,9 +36,9 @@ export default function Navbar({ user, onOpenAuth, onLogout, onNavigate, activeT
       justifyContent: 'space-between',
       padding: '0 8%'
     }}>
-      {/* Logo — actual company logo image */}
+      {/* Logo */}
       <div 
-        onClick={() => onNavigate('home')}
+        onClick={() => handleLinkClick('home')}
         style={{
           display: 'flex',
           alignItems: 'center',
@@ -38,12 +55,10 @@ export default function Navbar({ user, onOpenAuth, onLogout, onNavigate, activeT
             display: 'block'
           }}
           onError={(e) => {
-            // Fallback: hide img and show text logo if file not found
             e.target.style.display = 'none';
             e.target.nextSibling.style.display = 'flex';
           }}
         />
-        {/* Text fallback (hidden when logo loads) */}
         <span style={{
           display: 'none',
           alignItems: 'center',
@@ -58,40 +73,54 @@ export default function Navbar({ user, onOpenAuth, onLogout, onNavigate, activeT
         </span>
       </div>
 
-      {/* Nav Links */}
-      <div style={{
+      {/* Desktop Links */}
+      <div className="nav-links-desktop" style={{
         display: 'flex',
         alignItems: 'center',
-        gap: '32px'
+        gap: '24px'
       }}>
-        {activeTab === 'home' && (
+        {activeTab !== 'dashboard' && (
           <>
-            <a href="#solutions" style={{ fontSize: '11.5px', fontWeight: 700, color: 'var(--text-secondary)', transition: 'color 0.2s', letterSpacing: '0.05em', textTransform: 'uppercase' }} onMouseOver={(e) => e.target.style.color = 'var(--text-primary)'} onMouseOut={(e) => e.target.style.color = 'var(--text-secondary)'}>Solutions</a>
-            <a href="#how-it-works" style={{ fontSize: '11.5px', fontWeight: 700, color: 'var(--text-secondary)', transition: 'color 0.2s', letterSpacing: '0.05em', textTransform: 'uppercase' }} onMouseOver={(e) => e.target.style.color = 'var(--text-primary)'} onMouseOut={(e) => e.target.style.color = 'var(--text-secondary)'}>How it works</a>
-            <a href="#why-us" style={{ fontSize: '11.5px', fontWeight: 700, color: 'var(--text-secondary)', transition: 'color 0.2s', letterSpacing: '0.05em', textTransform: 'uppercase' }} onMouseOver={(e) => e.target.style.color = 'var(--text-primary)'} onMouseOut={(e) => e.target.style.color = 'var(--text-secondary)'}>Security</a>
-            <a href="#contact" style={{ fontSize: '11.5px', fontWeight: 700, color: 'var(--text-secondary)', transition: 'color 0.2s', letterSpacing: '0.05em', textTransform: 'uppercase' }} onMouseOver={(e) => e.target.style.color = 'var(--text-primary)'} onMouseOut={(e) => e.target.style.color = 'var(--text-secondary)'}>Contact</a>
+            <a onClick={() => handleLinkClick('home')} style={{ fontSize: '11px', fontWeight: 700, color: activeTab === 'home' ? '#1B2D6B' : 'var(--text-secondary)', transition: 'color 0.2s', letterSpacing: '0.05em', textTransform: 'uppercase', cursor: 'pointer' }}>Home</a>
+            <a onClick={() => handleLinkClick('travel')} style={{ fontSize: '11px', fontWeight: 700, color: activeTab === 'travel' ? '#1B2D6B' : 'var(--text-secondary)', transition: 'color 0.2s', letterSpacing: '0.05em', textTransform: 'uppercase', cursor: 'pointer' }}>✈️ Travel</a>
+            <a onClick={() => handleLinkClick('it')} style={{ fontSize: '11px', fontWeight: 700, color: activeTab === 'it' ? '#1B2D6B' : 'var(--text-secondary)', transition: 'color 0.2s', letterSpacing: '0.05em', textTransform: 'uppercase', cursor: 'pointer' }}>💻 IT Software</a>
+            <a onClick={() => handleLinkClick('about')} style={{ fontSize: '11px', fontWeight: 700, color: activeTab === 'about' ? '#1B2D6B' : 'var(--text-secondary)', transition: 'color 0.2s', letterSpacing: '0.05em', textTransform: 'uppercase', cursor: 'pointer' }}>About</a>
+            <a onClick={() => handleLinkClick('pricing')} style={{ fontSize: '11px', fontWeight: 700, color: activeTab === 'pricing' ? '#1B2D6B' : 'var(--text-secondary)', transition: 'color 0.2s', letterSpacing: '0.05em', textTransform: 'uppercase', cursor: 'pointer' }}>Pricing</a>
+            <a onClick={() => handleLinkClick('blog')} style={{ fontSize: '11px', fontWeight: 700, color: activeTab === 'blog' ? '#1B2D6B' : 'var(--text-secondary)', transition: 'color 0.2s', letterSpacing: '0.05em', textTransform: 'uppercase', cursor: 'pointer' }}>Blog</a>
+            <a onClick={openEnquire} style={{ fontSize: '11px', fontWeight: 700, color: 'var(--text-secondary)', transition: 'color 0.2s', letterSpacing: '0.05em', textTransform: 'uppercase', cursor: 'pointer' }}>Enquire</a>
           </>
         )}
       </div>
 
-      {/* Auth Actions */}
+      {/* Auth Actions & Mobile Menu trigger */}
       <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+        {/* Enquire button on desktop */}
+        {activeTab !== 'dashboard' && (
+          <button 
+            onClick={openSignup} 
+            className="btn-cred-outline nav-cta-desktop" 
+            style={{ padding: '8px 16px', fontSize: '11px', fontWeight: 700, textTransform: 'uppercase' }}
+          >
+            Get Started
+          </button>
+        )}
+
         {user ? (
           <>
-            {activeTab === 'home' ? (
+            {activeTab === 'home' || activeTab !== 'dashboard' ? (
               <button 
-                onClick={() => onNavigate('dashboard')}
+                onClick={() => handleLinkClick('dashboard')}
                 className="btn-cred-neon"
-                style={{ padding: '8px 18px', fontSize: '11.5px', display: 'flex', alignItems: 'center', gap: '6px' }}
+                style={{ padding: '8px 16px', fontSize: '11px', display: 'flex', alignItems: 'center', gap: '6px' }}
               >
-                <LayoutDashboard size={13} />
+                <LayoutDashboard size={12} />
                 Dashboard
               </button>
             ) : (
               <button 
-                onClick={() => onNavigate('home')}
+                onClick={() => handleLinkClick('home')}
                 className="btn-cred-outline"
-                style={{ padding: '8px 18px', fontSize: '11.5px' }}
+                style={{ padding: '8px 16px', fontSize: '11px' }}
               >
                 Back to Home
               </button>
@@ -99,11 +128,9 @@ export default function Navbar({ user, onOpenAuth, onLogout, onNavigate, activeT
             <button 
               onClick={onLogout}
               className="btn-cred-outline"
-              style={{ padding: '8px 18px', fontSize: '11.5px', border: '1px solid rgba(255, 72, 72, 0.2)', color: '#ff4d4d' }}
-              onMouseOver={(e) => { e.target.style.background = 'rgba(255, 72, 72, 0.04)'; e.target.style.borderColor = '#ff4d4d'; }}
-              onMouseOut={(e) => { e.target.style.background = 'transparent'; e.target.style.borderColor = 'rgba(255, 72, 72, 0.2)'; }}
+              style={{ padding: '8px 16px', fontSize: '11px', border: '1px solid rgba(255, 72, 72, 0.2)', color: '#ff4d4d' }}
             >
-              <LogOut size={13} style={{ marginRight: '4px', verticalAlign: 'middle' }} />
+              <LogOut size={12} style={{ marginRight: '4px', verticalAlign: 'middle' }} />
               Log Out
             </button>
           </>
@@ -111,12 +138,58 @@ export default function Navbar({ user, onOpenAuth, onLogout, onNavigate, activeT
           <button 
             onClick={onOpenAuth}
             className="btn-cred"
-            style={{ padding: '8px 18px', fontSize: '11.5px' }}
+            style={{ padding: '8px 16px', fontSize: '11px' }}
           >
             Sign In
           </button>
         )}
+
+        {/* Mobile menu trigger */}
+        <button 
+          onClick={() => setIsMobileOpen(!isMobileOpen)} 
+          className="nav-mobile-hamburger"
+          style={{
+            background: 'none',
+            border: 'none',
+            cursor: 'pointer',
+            padding: '4px',
+            color: 'var(--text-primary)'
+          }}
+        >
+          {isMobileOpen ? <X size={20} /> : <Menu size={20} />}
+        </button>
       </div>
+
+      {/* Mobile Drawer Menu */}
+      {isMobileOpen && (
+        <div style={{
+          position: 'fixed',
+          top: '80px',
+          left: 0,
+          right: 0,
+          background: 'var(--white)',
+          borderBottom: '1px solid var(--border-primary)',
+          boxShadow: 'var(--shadow-md)',
+          padding: '24px 8%',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '16px',
+          zIndex: 99
+        }}>
+          {activeTab !== 'dashboard' && (
+            <>
+              <a onClick={() => handleLinkClick('home')} style={{ fontSize: '13px', fontWeight: 700, color: 'var(--text-secondary)' }}>Home</a>
+              <a onClick={() => handleLinkClick('travel')} style={{ fontSize: '13px', fontWeight: 700, color: 'var(--text-secondary)' }}>✈️ Travel Booking</a>
+              <a onClick={() => handleLinkClick('it')} style={{ fontSize: '13px', fontWeight: 700, color: 'var(--text-secondary)' }}>💻 IT Software Services</a>
+              <a onClick={() => handleLinkClick('about')} style={{ fontSize: '13px', fontWeight: 700, color: 'var(--text-secondary)' }}>About Us</a>
+              <a onClick={() => handleLinkClick('pricing')} style={{ fontSize: '13px', fontWeight: 700, color: 'var(--text-secondary)' }}>Pricing Plans</a>
+              <a onClick={() => handleLinkClick('blog')} style={{ fontSize: '13px', fontWeight: 700, color: 'var(--text-secondary)' }}>Blog Insights</a>
+              <a onClick={openEnquire} style={{ fontSize: '13px', fontWeight: 700, color: 'var(--text-secondary)' }}>Get Quote</a>
+              <button onClick={openSignup} className="btn-cred-neon" style={{ padding: '10px', fontSize: '12px', width: '100%' }}>Get Started</button>
+            </>
+          )}
+        </div>
+      )}
     </nav>
   );
 }

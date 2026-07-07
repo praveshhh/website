@@ -159,6 +159,29 @@ export default function Hero({ onOpenAuth, backendUrl }) {
 
   // Solutions active tab ('fintech', 'banking', 'travel', 'it')
   const [activeTab, setActiveTab] = useState('fintech');
+  const [slideshowPaused, setSlideshowPaused] = useState(false);
+
+  // Solutions automatic autoplay slideshow loop
+  useEffect(() => {
+    if (slideshowPaused) return;
+    const interval = setInterval(() => {
+      setActiveTab((prev) => {
+        const order = ['fintech', 'banking', 'travel', 'it'];
+        const nextIdx = (order.indexOf(prev) + 1) % order.length;
+        return order[nextIdx];
+      });
+    }, 6000);
+    return () => clearInterval(interval);
+  }, [slideshowPaused]);
+
+  const handleTabClick = (tabKey) => {
+    setActiveTab(tabKey);
+    // Temporarily trigger state refresh to reset the interval
+    setSlideshowPaused(true);
+    setTimeout(() => {
+      setSlideshowPaused(false);
+    }, 50);
+  };
 
   // How it works active step (0 to 6)
   const [activeStep, setActiveStep] = useState(0);
@@ -661,14 +684,16 @@ export default function Hero({ onOpenAuth, backendUrl }) {
     <div style={{ paddingTop: '80px', overflowX: 'hidden' }}>
       
       {/* 1. HERO SECTION */}
-      <section style={{
+      <section className="hero-sec" style={{
         position: 'relative',
-        minHeight: '92vh',
+        height: 'calc(100vh - 124px)',
+        minHeight: '520px',
         display: 'flex',
         alignItems: 'center',
-        padding: '60px 8%',
+        padding: '20px 8%',
         background: 'radial-gradient(circle at 10% 20%, rgba(94, 92, 230, 0.03) 0%, transparent 60%), radial-gradient(circle at 95% 85%, rgba(0, 122, 255, 0.02) 0%, transparent 60%)',
-        borderBottom: '1px solid rgba(0, 0, 0, 0.04)'
+        borderBottom: '1px solid rgba(0, 0, 0, 0.04)',
+        boxSizing: 'border-box'
       }}>
         {/* Animated ambient blobs */}
         <motion.div
@@ -749,7 +774,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
                 color: 'var(--text-secondary)',
                 lineHeight: '1.8',
                 maxWidth: '560px',
-                marginBottom: '38px',
+                marginBottom: '24px',
                 fontWeight: 400
               }}
             >
@@ -776,7 +801,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.65, ease: [0.16, 1, 0.3, 1] }}
               style={{
-                marginTop: '56px',
+                marginTop: '36px',
                 display: 'grid',
                 gridTemplateColumns: 'repeat(4, 1fr)',
                 gap: '16px',
@@ -1025,11 +1050,14 @@ export default function Hero({ onOpenAuth, backendUrl }) {
       </section>
 
       {/* 2. INFINITE TICKER BAR */}
-      <section style={{
+      <section className="ticker-sec" style={{
         background: '#FFFFFF',
         borderTop: '1px solid rgba(0, 0, 0, 0.04)',
         borderBottom: '1px solid rgba(0, 0, 0, 0.04)',
-        padding: '20px 0',
+        height: '44px',
+        padding: 0,
+        display: 'flex',
+        alignItems: 'center',
         overflow: 'hidden'
       }}>
         <div className="ticker-wrap">
@@ -1082,10 +1110,15 @@ export default function Hero({ onOpenAuth, backendUrl }) {
       </section>
 
       {/* 3. SOLUTIONS TAB SECTION */}
-      <section id="solutions" style={{
-        padding: '100px 8%',
-        background: 'rgba(255,255,255,0.2)'
-      }}>
+      <section 
+        id="solutions" 
+        onMouseEnter={() => setSlideshowPaused(true)}
+        onMouseLeave={() => setSlideshowPaused(false)}
+        style={{
+          padding: '40px 8%',
+          background: 'rgba(255,255,255,0.2)'
+        }}
+      >
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <SectionHeading
             eyebrow="our solutions"
@@ -1114,7 +1147,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
               ].map((tab) => (
                 <motion.button 
                   key={tab.key}
-                  onClick={() => setActiveTab(tab.key)}
+                  onClick={() => handleTabClick(tab.key)}
                   style={{
                     padding: '10px 24px',
                     background: activeTab === tab.key ? '#FFFFFF' : 'transparent',
@@ -1138,15 +1171,24 @@ export default function Hero({ onOpenAuth, backendUrl }) {
           </FadeUp>
 
           {/* Active Tab Panel */}
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeTab}
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.38, ease: [0.16, 1, 0.3, 1] }}
-              style={{ marginTop: '20px' }}
-            >
+          <div style={{ perspective: '1500px', width: '100%', position: 'relative' }}>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeTab}
+                initial={{ opacity: 0, scale: 0.92, transformOrigin: 'center center' }}
+                animate={{ 
+                  opacity: 1, 
+                  scale: 1, 
+                  transition: { delay: 0.1, duration: 0.3, ease: [0.16, 1, 0.3, 1] } 
+                }}
+                exit={{ 
+                  opacity: 0, 
+                  scale: 1.08,
+                  transformOrigin: 'center center',
+                  transition: { duration: 0.25, ease: 'easeOut' } 
+                }}
+                style={{ marginTop: '20px', backfaceVisibility: 'hidden', width: '100%' }}
+              >
               {/* Tab Header sub-banner */}
               <div className="card-cred" style={{
                 padding: '40px',
@@ -1326,6 +1368,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
               </StaggerGrid>
             </motion.div>
           </AnimatePresence>
+        </div>
 
         </div>
       </section>

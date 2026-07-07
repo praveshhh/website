@@ -621,28 +621,6 @@ a {
 
 /* ─── Premium UI Extensions & Dark Mode ────────────────────────────────────── */
 
-/* Dark Theme Variables */
-[data-theme="dark"] {
-  --bg-primary: #0A0D1A;
-  --bg-mesh-1: rgba(27, 24, 76, 0.4);
-  --bg-mesh-2: rgba(14, 40, 60, 0.3);
-  
-  --bg-frame: rgba(20, 24, 44, 0.65);
-  --bg-card: rgba(26, 32, 58, 0.7);
-  --bg-card-hover: rgba(34, 42, 74, 0.95);
-  
-  --border-primary: rgba(255, 255, 255, 0.08);
-  --border-secondary: rgba(255, 255, 255, 0.12);
-  --border-dark: rgba(94, 92, 230, 0.25);
-  
-  --text-primary: #ECEFF6;
-  --text-secondary: #94A3B8;
-  --text-muted: #64748B;
-  
-  --surf-1: #0D1127;
-  --surf-2: #161D3A;
-  --white: #12182F;
-}
 
 /* Base values */
 :root {

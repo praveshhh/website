@@ -28,7 +28,6 @@ export default function App() {
 
   // Global UI states
   const [activeModal, setActiveModal] = useState(null);
-  const [theme, setTheme] = useState('light');
   const [loading, setLoading] = useState(true);
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [chatMessages, setChatMessages] = useState([
@@ -37,7 +36,7 @@ export default function App() {
   ]);
   const [chatInput, setChatInput] = useState('');
 
-  // Restore user session token & theme on load
+  // Restore user session token on load
   useEffect(() => {
     const savedUser = localStorage.getItem('user');
     if (savedUser) {
@@ -49,13 +48,8 @@ export default function App() {
       }
     }
 
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    setTheme(savedTheme);
-    if (savedTheme === 'dark') {
-      document.documentElement.setAttribute('data-theme', 'dark');
-    } else {
-      document.documentElement.removeAttribute('data-theme');
-    }
+    // Force light mode on load
+    document.documentElement.removeAttribute('data-theme');
 
     // Global loading screen simulator
     const timer = setTimeout(() => {
@@ -88,16 +82,6 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const toggleTheme = () => {
-    const nextTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(nextTheme);
-    localStorage.setItem('theme', nextTheme);
-    if (nextTheme === 'dark') {
-      document.documentElement.setAttribute('data-theme', 'dark');
-    } else {
-      document.documentElement.removeAttribute('data-theme');
-    }
-  };
 
   const handleSendChat = (e) => {
     if (e && e.key !== 'Enter') return;
@@ -267,31 +251,6 @@ export default function App() {
         )}
       </div>
 
-      {/* 2. Global Dark Mode Toggle */}
-      <button 
-        onClick={toggleTheme} 
-        style={{
-          position: 'fixed',
-          bottom: '24px',
-          right: '24px',
-          zIndex: 999,
-          width: '48px',
-          height: '48px',
-          borderRadius: '50%',
-          background: 'linear-gradient(135deg, #1B2A6B 0%, #2DB84B 100%)',
-          color: '#fff',
-          border: 'none',
-          boxShadow: 'var(--shadow-lg)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          fontSize: '1.2rem',
-          cursor: 'pointer'
-        }}
-        aria-label="Toggle dark mode"
-      >
-        {theme === 'dark' ? '☀️' : '🌙'}
-      </button>
 
       {/* 3. Global Live Chat Support Bot */}
       <button 

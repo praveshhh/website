@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion, useInView, useAnimation, AnimatePresence, useMotionValue, useTransform, useSpring } from 'framer-motion';
 import { Shield, Sparkles, Zap, Smartphone, CheckCircle, Send, ArrowRight, ArrowLeftRight, Phone, Mail, MapPin, Globe, Star, Laptop, Plane, Building, DollarSign, Calendar, MessageSquare } from 'lucide-react';
 import axios from 'axios';
+import TiltCard from './TiltCard';
 
 // ─── Reusable animated section wrapper ───────────────────────────────────────
 function FadeUp({ children, delay = 0, className = '', style = {} }) {
@@ -1285,7 +1286,8 @@ export default function Hero({ onOpenAuth, backendUrl }) {
                 gap: '24px'
               }}>
                 {tabInfo[activeTab].cards.map((sol, index) => (
-                  <StaggerCard key={index} className="card-cred" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                  <TiltCard key={index} style={{ height: '100%' }}>
+                    <StaggerCard className="card-cred" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '100%', width: '100%' }}>
                     <div>
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
                         <span style={{ fontSize: '18px', color: 'var(--text-primary)', fontWeight: 800 }}>{sol.title}</span>
@@ -1319,7 +1321,8 @@ export default function Hero({ onOpenAuth, backendUrl }) {
                       </button>
                     </div>
                   </StaggerCard>
-                ))}
+                </TiltCard>
+              ))}
               </StaggerGrid>
             </motion.div>
           </AnimatePresence>
@@ -1475,7 +1478,8 @@ export default function Hero({ onOpenAuth, backendUrl }) {
             gap: '24px'
           }}>
             {whyUs.map((w, idx) => (
-              <StaggerCard key={idx} className="card-cred" style={{ padding: '32px' }}>
+              <TiltCard key={idx} style={{ height: '100%' }}>
+                <StaggerCard className="card-cred" style={{ padding: '32px', height: '100%', width: '100%' }}>
                 <motion.span
                   style={{ fontSize: '28px', display: 'block', marginBottom: '16px' }}
                   whileHover={{ scale: 1.2, rotate: 8 }}
@@ -1485,7 +1489,8 @@ export default function Hero({ onOpenAuth, backendUrl }) {
                 </motion.span>
                 <h4 style={{ fontSize: '16px', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '10px' }}>{w.title}</h4>
                 <p style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: '1.6' }}>{w.desc}</p>
-              </StaggerCard>
+                </StaggerCard>
+              </TiltCard>
             ))}
           </StaggerGrid>
         </div>
@@ -1510,7 +1515,8 @@ export default function Hero({ onOpenAuth, backendUrl }) {
             gap: '20px'
           }}>
             {businessModels.map((m, idx) => (
-              <StaggerCard key={idx} className="card-cred" style={{ padding: '24px', display: 'flex', flexDirection: 'column', gap: '12px', minHeight: '180px' }}>
+              <TiltCard key={idx} style={{ height: '100%' }}>
+                <StaggerCard className="card-cred" style={{ padding: '24px', display: 'flex', flexDirection: 'column', gap: '12px', minHeight: '180px', height: '100%', width: '100%' }}>
                 <motion.span
                   style={{ fontSize: '24px' }}
                   whileHover={{ scale: 1.25, rotate: -5 }}
@@ -1522,7 +1528,8 @@ export default function Hero({ onOpenAuth, backendUrl }) {
                   <h4 style={{ fontSize: '15px', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '6px' }}>{m.title}</h4>
                   <p style={{ fontSize: '12.5px', color: 'var(--text-secondary)', lineHeight: '1.5' }}>{m.desc}</p>
                 </div>
-              </StaggerCard>
+                </StaggerCard>
+              </TiltCard>
             ))}
           </StaggerGrid>
         </div>
@@ -1887,12 +1894,14 @@ export default function Hero({ onOpenAuth, backendUrl }) {
               { t: 'TravelGoa B2C Booking Portal', s: 'White-Label travel API', d: 'Integrated our Flight & Hotel B2B APIs with custom booking workflows, achieving 180ms page loads and 42% search-to-book conversions.', res: '✓ 180ms Search API response' },
               { t: 'Arogya Hospital HMS CRM', s: 'Enterprise software', d: 'Custom-engineered a 200-bed HMS connecting billing, laboratory records, and OPD schedules securely hosted on AWS Cloud.', res: '✓ 99.99% AWS Uptime SLA' }
             ].map((cs, idx) => (
-              <div key={idx} style={{ background: 'var(--white)', border: '1px solid var(--border-primary)', borderRadius: '20px', padding: '28px', display: 'flex', flexDirection: 'column' }}>
-                <span style={{ fontSize: '10px', fontWeight: 700, color: 'var(--accent-periwinkle)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '8px' }}>{cs.s}</span>
-                <h3 style={{ fontSize: '16px', fontWeight: 800, marginBottom: '8px', color: 'var(--text-primary)' }}>{cs.t}</h3>
-                <p style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: '1.6', flex: 1, marginBottom: '16px' }}>{cs.d}</p>
-                <div style={{ fontSize: '12px', fontWeight: 700, color: '#2DB84B' }}>{cs.res}</div>
-              </div>
+              <TiltCard key={idx} style={{ height: '100%' }}>
+                <div className="card-cs" style={{ background: 'var(--white)', border: '1px solid var(--border-primary)', borderRadius: '20px', padding: '28px', display: 'flex', flexDirection: 'column', height: '100%', width: '100%' }}>
+                  <span style={{ fontSize: '10px', fontWeight: 700, color: 'var(--accent-periwinkle)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '8px' }}>{cs.s}</span>
+                  <h3 style={{ fontSize: '16px', fontWeight: 800, marginBottom: '8px', color: 'var(--text-primary)' }}>{cs.t}</h3>
+                  <p style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: '1.6', flex: 1, marginBottom: '16px' }}>{cs.d}</p>
+                  <div style={{ fontSize: '12px', fontWeight: 700, color: '#2DB84B' }}>{cs.res}</div>
+                </div>
+              </TiltCard>
             ))}
           </div>
         </div>

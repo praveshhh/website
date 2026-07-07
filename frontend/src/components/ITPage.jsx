@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Server, Code, Tablet, ShieldAlert, Cpu, Database, Play, CheckCircle, Send, Check } from 'lucide-react';
+import TiltCard from './TiltCard';
 
 export default function ITPage({ onOpenModal }) {
   // B2B estimation form state
@@ -201,13 +202,16 @@ export default function ITPage({ onOpenModal }) {
               { t: 'Cloud & DevOps', d: 'AWS, Azure, GCP architecture, Docker, Kubernetes, CI/CD pipelines, Terraform and managed cloud services with 99.99% uptime.', tags: ['AWS', 'Kubernetes', 'Terraform', 'Docker'], icon: <Database /> },
               { t: 'AI & Analytics', d: 'Fraud detection models, BI dashboards, predictive analytics, recommendation engines and custom ML pipelines.', tags: ['TensorFlow', 'Power BI', 'OpenAI'], icon: <ShieldAlert /> }
             ].map((svc, idx) => (
-              <div key={idx} className="it-svc-card" style={{
-                background: '#FFFFFF',
-                border: '1.5px solid rgba(27,42,107,0.1)',
-                borderRadius: '20px',
-                padding: '24px',
-                transition: 'all 0.3s'
-              }}>
+              <TiltCard key={idx} style={{ display: 'flex', height: '100%' }}>
+                <div className="it-svc-card" style={{
+                  background: '#FFFFFF',
+                  border: '1.5px solid rgba(27,42,107,0.1)',
+                  borderRadius: '20px',
+                  padding: '24px',
+                  transition: 'all 0.3s',
+                  height: '100%',
+                  width: '100%'
+                }}>
                 <div style={{ width: '44px', height: '44px', borderRadius: '10px', background: 'rgba(27,42,107,0.06)', display: 'flex', alignItems: 'center', justify: 'center', color: '#1B2A6B', marginBottom: '18px' }}>{svc.icon}</div>
                 <h3 style={{ fontSize: '16px', fontWeight: 800, marginBottom: '8px' }}>{svc.t}</h3>
                 <p style={{ fontSize: '12.5px', color: '#4A5878', lineHeight: '1.6', marginBottom: '16px' }}>{svc.d}</p>
@@ -217,7 +221,8 @@ export default function ITPage({ onOpenModal }) {
                   ))}
                 </div>
               </div>
-            ))}
+            </TiltCard>
+          ))}
           </div>
         </div>
       </section>
@@ -249,7 +254,8 @@ export default function ITPage({ onOpenModal }) {
           </div>
 
           <div>
-            <div style={{ background: '#fff', border: '1px solid rgba(27,42,107,0.12)', borderRadius: '20px', padding: '24px' }}>
+            <TiltCard style={{ width: '100%', height: '100%' }}>
+              <div style={{ background: '#fff', border: '1px solid rgba(27,42,107,0.12)', borderRadius: '20px', padding: '24px', width: '100%', height: '100%' }}>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '24px' }}>
                 <div style={{ background: '#F8FAFF', borderRadius: '12px', padding: '16px', textAlign: 'center' }}><div style={{ fontSize: '26px', fontWeight: 900, color: '#1B2A6B' }}>120+</div><div style={{ fontSize: '9px', color: '#6B7DB3' }}>Projects Shipped</div></div>
                 <div style={{ background: '#F8FAFF', borderRadius: '12px', padding: '16px', textAlign: 'center' }}><div style={{ fontSize: '26px', fontWeight: 900, color: '#1B2A6B' }}>50+</div><div style={{ fontSize: '9px', color: '#6B7DB3' }}>Happy Clients</div></div>
@@ -268,6 +274,7 @@ export default function ITPage({ onOpenModal }) {
                 <p style={{ fontSize: '11.5px', color: '#6B7DB3', lineHeight: '1.6' }}>We scope your project, estimate effort honestly, and send a fixed-price quote. If we cannot build it well, we will tell you upfront.</p>
               </div>
             </div>
+          </TiltCard>
           </div>
         </div>
       </section>
@@ -288,12 +295,14 @@ export default function ITPage({ onOpenModal }) {
               { step: 'Phase 04', t: 'QA & Security', d: 'Automated tests, manual QA, performance load testing, security scan. Nothing ships without hitting our quality gates.' },
               { step: 'Phase 05', t: 'Launch & Scale', d: 'Production deployment with monitoring, alerting, auto-scaling. Full handover. Support from ₹9,999/month.' }
             ].map((p, idx) => (
-              <div key={idx} style={{ textAlign: 'center', padding: '16px', background: '#F8FAFF', borderRadius: '16px', border: '1px solid rgba(27,42,107,0.06)' }}>
+              <TiltCard key={idx} style={{ height: '100%' }}>
+                <div style={{ textAlign: 'center', padding: '16px', background: '#F8FAFF', borderRadius: '16px', border: '1px solid rgba(27,42,107,0.06)', height: '100%', width: '100%' }}>
                 <div style={{ width: '48px', height: '48px', borderRadius: '50%', background: '#1B2A6B', color: '#fff', display: 'flex', alignItems: 'center', justify: 'center', margin: '0 auto 16px', fontWeight: 'bold' }}>{idx + 1}</div>
                 <div style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', fontWeight: 700, color: '#2DB84B', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '6px' }}>{p.step}</div>
                 <h4 style={{ fontWeight: 800, fontSize: '14.5px', marginBottom: '6px' }}>{p.t}</h4>
                 <p style={{ fontSize: '12px', color: '#4A5878', lineHeight: '1.6' }}>{p.d}</p>
-              </div>
+                </div>
+              </TiltCard>
             ))}
           </div>
         </div>
@@ -342,13 +351,16 @@ export default function ITPage({ onOpenModal }) {
               { t: 'Grocers24X7 Marketplace', tag: 'RETAIL APP', p: 'Progressive Web App for a hyperlocal grocery delivery platform. Instant search, local store inventory mapping, route-optimized delivery partner dispatch.', kpis: ['10K+ monthly active', '99.98% runtime'], bg: 'linear-gradient(135deg, #2DB84B, #0D3018)' },
               { t: 'BillsPay24X7 Travel Engine', tag: 'TRAVEL PLATFORM', p: 'Comprehensive travel B2B API gateway. Merges flight, hotel and bus inventories from multiple global suppliers into one search/payout layer.', kpis: ['180ms search avg', '15+ suppliers'], bg: 'linear-gradient(135deg, #3B4E9E, #243080)' }
             ].map((port, idx) => (
-              <div key={idx} style={{
-                background: '#FFFFFF',
-                border: '1px solid rgba(27,42,107,0.1)',
-                borderRadius: '20px',
-                overflow: 'hidden',
-                transition: 'all 0.3s'
-              }}>
+              <TiltCard key={idx} style={{ height: '100%' }}>
+                <div style={{
+                  background: '#FFFFFF',
+                  border: '1px solid rgba(27,42,107,0.1)',
+                  borderRadius: '20px',
+                  overflow: 'hidden',
+                  transition: 'all 0.3s',
+                  height: '100%',
+                  width: '100%'
+                }}>
                 <div style={{ height: '140px', background: port.bg, display: 'flex', alignItems: 'center', justify: 'center', fontSize: '44px' }}>💻</div>
                 <div style={{ padding: '24px' }}>
                   <span style={{ fontSize: '9px', background: '#F0F4FF', color: '#1B2A6B', padding: '3px 10px', borderRadius: '50px', fontWeight: 700, letterSpacing: '1px' }}>{port.tag}</span>
@@ -361,7 +373,8 @@ export default function ITPage({ onOpenModal }) {
                   </div>
                 </div>
               </div>
-            ))}
+            </TiltCard>
+          ))}
           </div>
         </div>
       </section>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Dashboard from './components/Dashboard';
@@ -7,6 +8,12 @@ import TravelPage from './components/TravelPage';
 import ITPage from './components/ITPage';
 import { AboutPage, PricingPage, BlogPage, PartnersPage } from './components/StaticPages';
 import Modals from './components/Modals';
+
+const pageVariants = {
+  initial: { opacity: 0, rotateY: -6, x: 50, scale: 0.98 },
+  animate: { opacity: 1, rotateY: 0, x: 0, scale: 1, transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } },
+  exit: { opacity: 0, rotateY: 6, x: -50, scale: 0.98, transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] } }
+};
 
 // Backend URL selection (configurable via env, defaults to relative path in prod and localhost:8082 in dev)
 const BACKEND_URL = import.meta.env.VITE_API_URL !== undefined 
@@ -156,46 +163,57 @@ export default function App() {
         />
 
         {/* Multi-page Routing render */}
-        <div style={{ flex: 1 }}>
-          {activeTab === 'home' && (
-            <Hero 
-              onOpenAuth={() => setIsAuthOpen(true)} 
-              backendUrl={BACKEND_URL}
-              onOpenModal={setActiveModal}
-            />
-          )}
+        <div style={{ flex: 1, perspective: 1200, overflowX: 'hidden' }}>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeTab}
+              variants={pageVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              style={{ width: '100%' }}
+            >
+              {activeTab === 'home' && (
+                <Hero 
+                  onOpenAuth={() => setIsAuthOpen(true)} 
+                  backendUrl={BACKEND_URL}
+                  onOpenModal={setActiveModal}
+                />
+              )}
 
-          {activeTab === 'travel' && (
-            <TravelPage onOpenModal={setActiveModal} />
-          )}
+              {activeTab === 'travel' && (
+                <TravelPage onOpenModal={setActiveModal} />
+              )}
 
-          {activeTab === 'it' && (
-            <ITPage onOpenModal={setActiveModal} />
-          )}
+              {activeTab === 'it' && (
+                <ITPage onOpenModal={setActiveModal} />
+              )}
 
-          {activeTab === 'about' && (
-            <AboutPage />
-          )}
+              {activeTab === 'about' && (
+                <AboutPage />
+              )}
 
-          {activeTab === 'pricing' && (
-            <PricingPage />
-          )}
+              {activeTab === 'pricing' && (
+                <PricingPage />
+              )}
 
-          {activeTab === 'blog' && (
-            <BlogPage />
-          )}
+              {activeTab === 'blog' && (
+                <BlogPage />
+              )}
 
-          {activeTab === 'partners' && (
-            <PartnersPage />
-          )}
+              {activeTab === 'partners' && (
+                <PartnersPage />
+              )}
 
-          {activeTab === 'dashboard' && (
-            <Dashboard 
-              user={user} 
-              masterPassword={masterPassword} 
-              backendUrl={BACKEND_URL}
-            />
-          )}
+              {activeTab === 'dashboard' && (
+                <Dashboard 
+                  user={user} 
+                  masterPassword={masterPassword} 
+                  backendUrl={BACKEND_URL}
+                />
+              )}
+            </motion.div>
+          </AnimatePresence>
         </div>
 
         {/* Global Footer (shows on marketing pages only) */}

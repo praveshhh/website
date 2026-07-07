@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, Users, Search, CheckCircle, Phone, ArrowRight, Heart } from 'lucide-react';
+import TiltCard from './TiltCard';
 
 export default function TravelPage({ onOpenModal }) {
   const [activeSearchTab, setActiveSearchTab] = useState(0);
@@ -425,14 +426,17 @@ export default function TravelPage({ onOpenModal }) {
               { route: 'BLR → COK', info: 'Bengaluru to Kochi · Daily', price: '₹2,499', old: '₹4,100', save: 'Save 39%', bg: 'linear-gradient(135deg, #15803D, #2DB84B)' },
               { route: 'DEL → DXB', info: 'Delhi to Dubai · 3x Weekly', price: '₹18,500', old: '₹28,000', save: 'Save 34%', bg: 'linear-gradient(135deg, #D97706, #F59E0B)' }
             ].map((deal, idx) => (
-              <div key={idx} onClick={() => onOpenModal('booking')} className="deal-card" style={{
-                background: 'var(--white)',
-                border: '1px solid var(--border-primary)',
-                borderRadius: '16px',
-                overflow: 'hidden',
-                cursor: 'pointer',
-                transition: 'all 0.3s'
-              }}>
+              <TiltCard key={idx} style={{ height: '100%' }}>
+                <div onClick={() => onOpenModal('booking')} className="deal-card" style={{
+                  background: 'var(--white)',
+                  border: '1px solid var(--border-primary)',
+                  borderRadius: '16px',
+                  overflow: 'hidden',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s',
+                  height: '100%',
+                  width: '100%'
+                }}>
                 <div style={{ height: '110px', background: deal.bg, display: 'flex', alignItems: 'center', justify: 'center', fontSize: '32px' }}>✈️</div>
                 <div style={{ padding: '16px' }}>
                   <div style={{ fontWeight: 800, fontSize: '15px' }}>{deal.route}</div>
@@ -444,7 +448,8 @@ export default function TravelPage({ onOpenModal }) {
                   <span style={{ display: 'inline-block', marginTop: '8px', fontSize: '9.5px', fontWeight: 700, color: '#1E9438', background: 'rgba(45,184,75,0.08)', padding: '2px 8px', borderRadius: '50px' }}>{deal.save}</span>
                 </div>
               </div>
-            ))}
+            </TiltCard>
+          ))}
           </div>
 
           {/* Featured Hotels */}
@@ -464,14 +469,17 @@ export default function TravelPage({ onOpenModal }) {
               { name: 'Kumarakom Lake Resort', loc: 'Kerala, India', stars: '★★★★★', price: '₹8,200', bg: 'linear-gradient(135deg, #065F46, #059669)' },
               { name: 'Rambagh Palace', loc: 'Jaipur, Rajasthan', stars: '★★★★★', price: '₹14,800', bg: 'linear-gradient(135deg, #B91C1C, #DC2626)' }
             ].map((hotel, idx) => (
-              <div key={idx} onClick={() => onOpenModal('booking')} className="hotel-card" style={{
-                background: 'var(--white)',
-                border: '1px solid var(--border-primary)',
-                borderRadius: '16px',
-                overflow: 'hidden',
-                cursor: 'pointer',
-                transition: 'all 0.3s'
-              }}>
+              <TiltCard key={idx} style={{ height: '100%' }}>
+                <div onClick={() => onOpenModal('booking')} className="hotel-card" style={{
+                  background: 'var(--white)',
+                  border: '1px solid var(--border-primary)',
+                  borderRadius: '16px',
+                  overflow: 'hidden',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s',
+                  height: '100%',
+                  width: '100%'
+                }}>
                 <div style={{ height: '140px', background: hotel.bg, display: 'flex', alignItems: 'center', justify: 'center', fontSize: '40px' }}>🏨</div>
                 <div style={{ padding: '18px' }}>
                   <div style={{ fontWeight: 800, fontSize: '16px' }}>{hotel.name}</div>
@@ -483,7 +491,8 @@ export default function TravelPage({ onOpenModal }) {
                   </div>
                 </div>
               </div>
-            ))}
+            </TiltCard>
+          ))}
           </div>
 
           {/* Holiday Packages */}
@@ -503,15 +512,18 @@ export default function TravelPage({ onOpenModal }) {
               { name: 'Kerala Backwaters', label: 'TRENDING', tags: ['✈️ Flights', '🏨 5 Nights', '🚤 Houseboat'], price: '₹21,500', bg: 'linear-gradient(135deg, #15803D, #2DB84B)' },
               { name: 'Dubai City & Desert', label: 'INTERNATIONAL', tags: ['✈️ Flights', '🏨 4 Nights', '🏛️ Tours'], price: '₹45,000', bg: 'linear-gradient(135deg, #D97706, #F59E0B)' }
             ].map((pkg, idx) => (
-              <div key={idx} onClick={() => onOpenModal('booking')} className="pkg-card" style={{
-                background: 'var(--white)',
-                border: '1px solid var(--border-primary)',
-                borderRadius: '16px',
-                overflow: 'hidden',
-                cursor: 'pointer',
-                transition: 'all 0.3s',
-                position: 'relative'
-              }}>
+              <TiltCard key={idx} style={{ height: '100%' }}>
+                <div onClick={() => onOpenModal('booking')} className="pkg-card" style={{
+                  background: 'var(--white)',
+                  border: '1px solid var(--border-primary)',
+                  borderRadius: '16px',
+                  overflow: 'hidden',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s',
+                  position: 'relative',
+                  height: '100%',
+                  width: '100%'
+                }}>
                 <div style={{ position: 'absolute', top: '12px', left: '12px', background: 'var(--orange)', color: '#fff', fontSize: '9px', fontWeight: 700, padding: '4px 10px', borderRadius: '50px', zIndex: 1 }}>{pkg.label}</div>
                 <div style={{ height: '150px', background: pkg.bg, display: 'flex', alignItems: 'center', justify: 'center', fontSize: '44px' }}>🏖️</div>
                 <div style={{ padding: '18px' }}>
@@ -527,7 +539,8 @@ export default function TravelPage({ onOpenModal }) {
                   </div>
                 </div>
               </div>
-            ))}
+            </TiltCard>
+          ))}
           </div>
 
           {/* Why Book section */}
@@ -546,18 +559,22 @@ export default function TravelPage({ onOpenModal }) {
               { t: 'Easy Cancellations', d: 'Hassle-free cancellations and refunds per airline/hotel policy.', icon: '🔄', bg: 'rgba(27,42,107,0.05)' },
               { t: '24×7 Travel Support', d: 'WhatsApp, phone and email support round the clock, every day.', icon: '📞', bg: 'rgba(94,92,230,0.05)' }
             ].map((feat, idx) => (
-              <div key={idx} style={{
-                background: 'var(--white)',
-                border: '1px solid var(--border-primary)',
-                borderRadius: '16px',
-                padding: '24px',
-                textAlign: 'center',
-                transition: 'all 0.3s'
-              }}>
+              <TiltCard key={idx} style={{ height: '100%' }}>
+                <div style={{
+                  background: 'var(--white)',
+                  border: '1px solid var(--border-primary)',
+                  borderRadius: '16px',
+                  padding: '24px',
+                  textAlign: 'center',
+                  transition: 'all 0.3s',
+                  height: '100%',
+                  width: '100%'
+                }}>
                 <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: feat.bg, display: 'flex', alignItems: 'center', justify: 'center', fontSize: '22px', margin: '0 auto 16px' }}>{feat.icon}</div>
                 <h4 style={{ fontSize: '14.5px', fontWeight: 800, marginBottom: '6px' }}>{feat.t}</h4>
                 <p style={{ fontSize: '12.5px', color: 'var(--text-secondary)', lineHeight: '1.6' }}>{feat.d}</p>
-              </div>
+                </div>
+              </TiltCard>
             ))}
           </div>
 

@@ -739,4 +739,26 @@ a {
   }
 }
 
+/* UI De-congestion & breathing room overrides */
+section, .it-sec, .section {
+  padding: 120px 8% !important; /* Increase section padding to 120px for breathing room */
+}
+
+/* Increase grid gaps for card collections */
+.t-content > div > div[style*="display: grid"],
+.it-sec > div > div[style*="display: grid"],
+section > div > div[style*="display: grid"] {
+  gap: 32px !important; /* Increase card gap to 32px to reduce congestion */
+}
+
+/* Add custom class styling for 3D card tilt reflection glare */
+.tilt-card {
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.tilt-card:hover {
+  box-shadow: 0 32px 80px rgba(27,42,107,0.18) !important;
+  border-color: rgba(94, 92, 230, 0.2) !important;
+}
+
+
 

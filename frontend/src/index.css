@@ -743,5 +743,23 @@ section > div > div[style*="display: grid"] {
   border-color: rgba(94, 92, 230, 0.2) !important;
 }
 
+/* Hide travel visual columns on smaller screens to prevent layout crowding */
+@media (max-width: 1240px) {
+  .t-hero-visual-left,
+  .t-hero-visual-right {
+    display: none !important;
+  }
+}
+
+/* SVG Orbit animation for Travel page airplane */
+@keyframes svg-orbit {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+.orbit-plane-group {
+  transform-origin: 0px 0px;
+  animation: svg-orbit 14s linear infinite;
+}
+
 
 

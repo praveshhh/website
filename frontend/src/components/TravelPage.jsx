@@ -897,40 +897,189 @@ export default function TravelPage({ onOpenModal }) {
 
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))',
             gap: '20px',
             marginBottom: '60px'
           }}>
             {[
-              { route: 'DEL → BOM', info: 'Delhi to Mumbai · Mon, Thu, Sat', price: '₹3,299', old: '₹5,499', save: 'Save 40%', bg: 'linear-gradient(135deg, #1B2A6B, #243080)' },
-              { route: 'DEL → GOA', info: 'Delhi to Goa · Daily flights', price: '₹4,199', old: '₹7,200', save: 'Save 42%', bg: 'linear-gradient(135deg, #1E9438, #2DB84B)' },
-              { route: 'BLR → COK', info: 'Bengaluru to Kochi · Daily', price: '₹2,499', old: '₹4,100', save: 'Save 39%', bg: 'linear-gradient(135deg, #15803D, #2DB84B)' },
-              { route: 'DEL → DXB', info: 'Delhi to Dubai · 3x Weekly', price: '₹18,500', old: '₹28,000', save: 'Save 34%', bg: 'linear-gradient(135deg, #D97706, #F59E0B)' }
+              {
+                route: 'DEL → GOA',
+                from: 'Delhi',
+                to: 'Goa',
+                info: 'Daily flights · IndiGo, Air India',
+                price: '₹4,199',
+                old: '₹7,200',
+                save: '42% off',
+                nights: '3N/4D',
+                img: 'https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=480&h=280&fit=crop&q=80',
+                tag: 'BEACH'
+              },
+              {
+                route: 'DEL → BOM',
+                from: 'Delhi',
+                to: 'Mumbai',
+                info: 'Mon, Thu, Sat · IndiGo',
+                price: '₹3,299',
+                old: '₹5,499',
+                save: '40% off',
+                nights: '2N/3D',
+                img: 'https://images.unsplash.com/photo-1567157577867-05ccb1388e66?w=480&h=280&fit=crop&q=80',
+                tag: 'METRO'
+              },
+              {
+                route: 'BLR → JKT',
+                from: 'Bengaluru',
+                to: 'Jaipur',
+                info: 'Daily · SpiceJet, IndiGo',
+                price: '₹3,899',
+                old: '₹6,400',
+                save: '39% off',
+                nights: '3N/4D',
+                img: 'https://images.unsplash.com/photo-1477587458883-47145ed94c7b?w=480&h=280&fit=crop&q=80',
+                tag: 'HERITAGE'
+              },
+              {
+                route: 'BOM → KEL',
+                from: 'Mumbai',
+                to: 'Kerala',
+                info: 'Daily · Air India, Vistara',
+                price: '₹2,899',
+                old: '₹4,900',
+                save: '41% off',
+                nights: '4N/5D',
+                img: 'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=480&h=280&fit=crop&q=80',
+                tag: 'NATURE'
+              },
+              {
+                route: 'DEL → DXB',
+                from: 'Delhi',
+                to: 'Dubai',
+                info: '3x Weekly · Emirates, Air India',
+                price: '₹18,500',
+                old: '₹28,000',
+                save: '34% off',
+                nights: '5N/6D',
+                img: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=480&h=280&fit=crop&q=80',
+                tag: 'INTERNATIONAL'
+              },
+              {
+                route: 'DEL → MNL',
+                from: 'Delhi',
+                to: 'Manali',
+                info: 'Fly + Stay package',
+                price: '₹8,999',
+                old: '₹14,500',
+                save: '38% off',
+                nights: '4N/5D',
+                img: 'https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=480&h=280&fit=crop&q=80',
+                tag: 'MOUNTAINS'
+              }
             ].map((deal, idx) => (
               <TiltCard key={idx} style={{ height: '100%' }}>
-                <div onClick={() => onOpenModal('booking')} className="deal-card" style={{
-                  background: 'var(--white)',
-                  border: '1px solid var(--border-primary)',
-                  borderRadius: '16px',
-                  overflow: 'hidden',
-                  cursor: 'pointer',
-                  transition: 'all 0.3s',
-                  height: '100%',
-                  width: '100%'
-                }}>
-                <div style={{ height: '110px', background: deal.bg, display: 'flex', alignItems: 'center', justify: 'center', fontSize: '32px' }}>✈️</div>
-                <div style={{ padding: '16px' }}>
-                  <div style={{ fontWeight: 800, fontSize: '15px' }}>{deal.route}</div>
-                  <div style={{ fontSize: '11.5px', color: 'var(--text-secondary)', margin: '4px 0 10px' }}>{deal.info}</div>
-                  <div style={{ display: 'flex', alignItems: 'baseline', gap: '6px' }}>
-                    <span style={{ fontWeight: 800, fontSize: '18px', color: 'var(--accent-periwinkle)' }}>{deal.price}</span>
-                    <span style={{ fontSize: '11px', color: 'var(--text-secondary)', textDecoration: 'line-through' }}>{deal.old}</span>
+                <div
+                  onClick={() => onOpenModal('booking')}
+                  className="deal-card"
+                  style={{
+                    background: 'var(--white)',
+                    border: '1px solid var(--border-primary)',
+                    borderRadius: '16px',
+                    overflow: 'hidden',
+                    cursor: 'pointer',
+                    transition: 'transform 0.25s, box-shadow 0.25s',
+                    height: '100%',
+                    width: '100%',
+                    display: 'flex',
+                    flexDirection: 'column'
+                  }}
+                >
+                  {/* Destination Photo with gradient overlay */}
+                  <div style={{ position: 'relative', height: '150px', overflow: 'hidden', flexShrink: 0 }}>
+                    <img
+                      src={deal.img}
+                      alt={deal.to}
+                      loading="lazy"
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        display: 'block',
+                        transition: 'transform 0.4s ease'
+                      }}
+                      onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.06)'}
+                      onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
+                    />
+                    {/* Dark gradient overlay for text readability */}
+                    <div style={{
+                      position: 'absolute', inset: 0,
+                      background: 'linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.1) 55%, transparent 100%)'
+                    }} />
+                    {/* Category tag - top left */}
+                    <span style={{
+                      position: 'absolute', top: '10px', left: '10px',
+                      fontSize: '8px', fontWeight: 800, letterSpacing: '0.12em',
+                      background: 'rgba(255,255,255,0.22)', backdropFilter: 'blur(6px)',
+                      color: '#fff', padding: '3px 9px', borderRadius: '50px',
+                      border: '1px solid rgba(255,255,255,0.25)'
+                    }}>
+                      {deal.tag}
+                    </span>
+                    {/* Nights badge - top right */}
+                    <span style={{
+                      position: 'absolute', top: '10px', right: '10px',
+                      fontSize: '8px', fontWeight: 800,
+                      background: 'var(--accent-periwinkle)', color: '#fff',
+                      padding: '3px 9px', borderRadius: '50px'
+                    }}>
+                      {deal.nights}
+                    </span>
+                    {/* Destination name overlay - bottom of photo */}
+                    <div style={{ position: 'absolute', bottom: '10px', left: '12px', right: '12px' }}>
+                      <div style={{ fontSize: '18px', fontWeight: 900, color: '#fff', lineHeight: 1.1, textShadow: '0 1px 4px rgba(0,0,0,0.4)' }}>
+                        {deal.to}
+                      </div>
+                      <div style={{ fontSize: '10px', color: 'rgba(255,255,255,0.85)', fontWeight: 600, marginTop: '2px' }}>
+                        {deal.route}
+                      </div>
+                    </div>
                   </div>
-                  <span style={{ display: 'inline-block', marginTop: '8px', fontSize: '9.5px', fontWeight: 700, color: '#1E9438', background: 'rgba(45,184,75,0.08)', padding: '2px 8px', borderRadius: '50px' }}>{deal.save}</span>
+
+                  {/* Card Body */}
+                  <div style={{ padding: '14px 16px 16px', flex: 1, display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                    {/* Airline & schedule info */}
+                    <div style={{ fontSize: '11px', color: 'var(--text-secondary)', lineHeight: 1.4 }}>
+                      ✈️ {deal.info}
+                    </div>
+
+                    {/* Price row */}
+                    <div style={{ display: 'flex', alignItems: 'baseline', gap: '6px', marginTop: '2px' }}>
+                      <span style={{ fontWeight: 900, fontSize: '20px', color: 'var(--accent-periwinkle)', fontFamily: 'var(--font-mono)' }}>
+                        {deal.price}
+                      </span>
+                      <span style={{ fontSize: '11.5px', color: 'var(--text-muted)', textDecoration: 'line-through' }}>
+                        {deal.old}
+                      </span>
+                    </div>
+
+                    {/* Savings + Book Now row */}
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: 'auto' }}>
+                      <span style={{
+                        fontSize: '9.5px', fontWeight: 800, color: '#1E9438',
+                        background: 'rgba(45,184,75,0.08)', padding: '3px 10px', borderRadius: '50px',
+                        border: '1px solid rgba(45,184,75,0.15)'
+                      }}>
+                        🏷️ {deal.save}
+                      </span>
+                      <span style={{
+                        fontSize: '10px', fontWeight: 700, color: 'var(--accent-periwinkle)',
+                        cursor: 'pointer', letterSpacing: '0.04em'
+                      }}>
+                        Book Now →
+                      </span>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </TiltCard>
-          ))}
+              </TiltCard>
+            ))}
           </div>
 
           {/* Featured Hotels */}

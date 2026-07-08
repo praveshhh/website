@@ -1148,7 +1148,7 @@ export default function TravelPage({ onOpenModal }) {
                 price: '₹16,200',
                 tag: 'URBAN LUXURY',
                 amenities: ['🥂 Lounge', '🏋️ Gym', '🍽️ Multi-cuisine'],
-                img: 'https://images.unsplash.com/photo-1551882547-ff40c4a49f5e?w=560&h=320&fit=crop&q=80'
+                img: 'https://images.unsplash.com/photo-1590073242678-70ee3fc28e8e?w=560&h=320&fit=crop&q=80'
               },
               {
                 name: 'Ananda in the Himalayas',

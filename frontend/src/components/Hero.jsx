@@ -829,6 +829,19 @@ export default function Hero({ onOpenAuth, backendUrl }) {
             </motion.div>
           </div>
 
+          {/* Mobile-only Compact Card — shown at ≤968px instead of 3D stack */}
+          <div className="hero-mobile-card">
+            <div className="hero-mobile-card-chip" />
+            <div className="hero-mobile-card-info">
+              <span className="hero-mobile-card-title">BillsPay24X7✓</span>
+              <span className="hero-mobile-card-num">•••• •••• 24X7</span>
+            </div>
+            <div className="hero-mobile-card-badges">
+              <span className="hero-mobile-card-badge">T+1 Payouts</span>
+              <span className="hero-mobile-card-badge">0.17% UPI</span>
+            </div>
+          </div>
+
           {/* Right Hero Visual: 3D stacked cards */}
           <motion.div
             initial={{ opacity: 0, scale: 0.92, x: 30 }}

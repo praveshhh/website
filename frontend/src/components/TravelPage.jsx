@@ -935,7 +935,7 @@ export default function TravelPage({ onOpenModal }) {
                 old: '₹6,400',
                 save: '39% off',
                 nights: '3N/4D',
-                img: 'https://images.unsplash.com/photo-1477587458883-47145ed94c7b?w=480&h=280&fit=crop&q=80',
+                img: 'https://images.unsplash.com/photo-1599661046289-e31897846e41?w=480&h=280&fit=crop&q=80',
                 tag: 'HERITAGE'
               },
               {
@@ -1090,39 +1090,173 @@ export default function TravelPage({ onOpenModal }) {
 
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
             gap: '20px',
             marginBottom: '60px'
           }}>
             {[
-              { name: 'Taj Mahal Palace', loc: 'Mumbai, India', stars: '★★★★★', price: '₹12,500', bg: 'linear-gradient(135deg, #1B2A6B, #243080)' },
-              { name: 'Kumarakom Lake Resort', loc: 'Kerala, India', stars: '★★★★★', price: '₹8,200', bg: 'linear-gradient(135deg, #065F46, #059669)' },
-              { name: 'Rambagh Palace', loc: 'Jaipur, Rajasthan', stars: '★★★★★', price: '₹14,800', bg: 'linear-gradient(135deg, #B91C1C, #DC2626)' }
+              {
+                name: 'Taj Mahal Palace',
+                loc: 'Mumbai, Maharashtra',
+                stars: 5,
+                rating: '4.9',
+                reviews: '2.1k reviews',
+                price: '₹12,500',
+                tag: 'LUXURY',
+                amenities: ['🏊 Pool', '🍽️ Restaurant', '🧖 Spa'],
+                img: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=560&h=320&fit=crop&q=80'
+              },
+              {
+                name: 'Kumarakom Lake Resort',
+                loc: 'Kerala Backwaters',
+                stars: 5,
+                rating: '4.8',
+                reviews: '1.4k reviews',
+                price: '₹8,200',
+                tag: 'NATURE',
+                amenities: ['🚤 Boating', '🌿 Ayurveda', '🍽️ Restaurant'],
+                img: 'https://images.unsplash.com/photo-1540541338287-41700207dee6?w=560&h=320&fit=crop&q=80'
+              },
+              {
+                name: 'Rambagh Palace',
+                loc: 'Jaipur, Rajasthan',
+                stars: 5,
+                rating: '4.9',
+                reviews: '987 reviews',
+                price: '₹14,800',
+                tag: 'HERITAGE',
+                amenities: ['🏰 Palace Stay', '🍽️ Fine Dining', '🐘 Safari'],
+                img: 'https://images.unsplash.com/photo-1587474260584-136574528ed5?w=560&h=320&fit=crop&q=80'
+              },
+              {
+                name: 'W Goa',
+                loc: 'Vagator Beach, Goa',
+                stars: 5,
+                rating: '4.7',
+                reviews: '1.8k reviews',
+                price: '₹9,500',
+                tag: 'BEACHFRONT',
+                amenities: ['🏖️ Private Beach', '🏊 Infinity Pool', '🎵 Nightlife'],
+                img: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=560&h=320&fit=crop&q=80'
+              },
+              {
+                name: 'The Leela Palace',
+                loc: 'New Delhi',
+                stars: 5,
+                rating: '4.9',
+                reviews: '3.2k reviews',
+                price: '₹16,200',
+                tag: 'URBAN LUXURY',
+                amenities: ['🥂 Lounge', '🏋️ Gym', '🍽️ Multi-cuisine'],
+                img: 'https://images.unsplash.com/photo-1551882547-ff40c4a49f5e?w=560&h=320&fit=crop&q=80'
+              },
+              {
+                name: 'Ananda in the Himalayas',
+                loc: 'Rishikesh, Uttarakhand',
+                stars: 5,
+                rating: '4.8',
+                reviews: '654 reviews',
+                price: '₹22,000',
+                tag: 'WELLNESS',
+                amenities: ['🧘 Yoga', '♨️ Hot Springs', '🌲 Forest View'],
+                img: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=560&h=320&fit=crop&q=80'
+              }
             ].map((hotel, idx) => (
               <TiltCard key={idx} style={{ height: '100%' }}>
-                <div onClick={() => onOpenModal('booking')} className="hotel-card" style={{
-                  background: 'var(--white)',
-                  border: '1px solid var(--border-primary)',
-                  borderRadius: '16px',
-                  overflow: 'hidden',
-                  cursor: 'pointer',
-                  transition: 'all 0.3s',
-                  height: '100%',
-                  width: '100%'
-                }}>
-                <div style={{ height: '140px', background: hotel.bg, display: 'flex', alignItems: 'center', justify: 'center', fontSize: '40px' }}>🏨</div>
-                <div style={{ padding: '18px' }}>
-                  <div style={{ fontWeight: 800, fontSize: '16px' }}>{hotel.name}</div>
-                  <div style={{ fontSize: '12px', color: 'var(--text-secondary)', margin: '4px 0 8px' }}>📍 {hotel.loc}</div>
-                  <div style={{ color: '#F59E0B', fontSize: '13px', marginBottom: '8px' }}>{hotel.stars}</div>
-                  <div>
-                    <span style={{ fontWeight: 800, fontSize: '18px', color: 'var(--accent-periwinkle)' }}>{hotel.price}</span>
-                    <span style={{ fontSize: '11px', color: 'var(--text-secondary)', marginLeft: '4px' }}>/ night</span>
+                <div
+                  onClick={() => onOpenModal('booking')}
+                  className="hotel-card"
+                  style={{
+                    background: 'var(--white)',
+                    border: '1px solid var(--border-primary)',
+                    borderRadius: '16px',
+                    overflow: 'hidden',
+                    cursor: 'pointer',
+                    transition: 'transform 0.25s, box-shadow 0.25s',
+                    height: '100%',
+                    width: '100%',
+                    display: 'flex',
+                    flexDirection: 'column'
+                  }}
+                >
+                  {/* Hotel Photo */}
+                  <div style={{ position: 'relative', height: '190px', overflow: 'hidden', flexShrink: 0 }}>
+                    <img
+                      src={hotel.img}
+                      alt={hotel.name}
+                      loading="lazy"
+                      style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', transition: 'transform 0.4s ease' }}
+                      onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.06)'}
+                      onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
+                    />
+                    {/* Gradient overlay */}
+                    <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 55%)' }} />
+                    {/* Category tag */}
+                    <span style={{
+                      position: 'absolute', top: '10px', left: '10px',
+                      fontSize: '8px', fontWeight: 800, letterSpacing: '0.1em',
+                      background: 'rgba(255,255,255,0.2)', backdropFilter: 'blur(6px)',
+                      color: '#fff', padding: '3px 9px', borderRadius: '50px',
+                      border: '1px solid rgba(255,255,255,0.3)'
+                    }}>
+                      {hotel.tag}
+                    </span>
+                    {/* Heart / Save — Airbnb style */}
+                    <button
+                      onClick={e => { e.stopPropagation(); }}
+                      style={{
+                        position: 'absolute', top: '10px', right: '10px',
+                        background: 'rgba(255,255,255,0.85)', border: 'none',
+                        borderRadius: '50%', width: '30px', height: '30px',
+                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                        cursor: 'pointer', fontSize: '14px', boxShadow: '0 2px 8px rgba(0,0,0,0.15)'
+                      }}
+                    >
+                      ♡
+                    </button>
+                    {/* Hotel name on photo */}
+                    <div style={{ position: 'absolute', bottom: '10px', left: '12px', right: '12px' }}>
+                      <div style={{ fontSize: '16px', fontWeight: 900, color: '#fff', textShadow: '0 1px 4px rgba(0,0,0,0.4)', lineHeight: 1.1 }}>
+                        {hotel.name}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Card body — Airbnb style */}
+                  <div style={{ padding: '14px 16px 16px', flex: 1, display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                    {/* Location + Rating row */}
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                      <span style={{ fontSize: '11.5px', color: 'var(--text-secondary)' }}>📍 {hotel.loc}</span>
+                      <span style={{ fontSize: '11px', fontWeight: 700, color: '#1E293B' }}>
+                        ⭐ {hotel.rating} <span style={{ fontWeight: 400, color: 'var(--text-muted)', fontSize: '10px' }}>({hotel.reviews})</span>
+                      </span>
+                    </div>
+                    {/* Stars */}
+                    <div style={{ color: '#F59E0B', fontSize: '12px', letterSpacing: '1px' }}>
+                      {'★'.repeat(hotel.stars)}
+                    </div>
+                    {/* Amenities */}
+                    <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', marginTop: '2px' }}>
+                      {hotel.amenities.map((a, ai) => (
+                        <span key={ai} style={{
+                          fontSize: '9.5px', background: 'rgba(94,92,230,0.06)',
+                          border: '1px solid rgba(94,92,230,0.12)',
+                          color: 'var(--text-secondary)', padding: '2px 8px', borderRadius: '50px'
+                        }}>{a}</span>
+                      ))}
+                    </div>
+                    {/* Price + Book row */}
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 'auto', paddingTop: '8px', borderTop: '1px solid var(--border-primary)' }}>
+                      <div>
+                        <span style={{ fontWeight: 900, fontSize: '19px', color: 'var(--accent-periwinkle)', fontFamily: 'var(--font-mono)' }}>{hotel.price}</span>
+                        <span style={{ fontSize: '10.5px', color: 'var(--text-muted)', marginLeft: '4px' }}>/night</span>
+                      </div>
+                      <span style={{ fontSize: '10px', fontWeight: 700, color: 'var(--accent-periwinkle)' }}>Book Now →</span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </TiltCard>
-          ))}
+              </TiltCard>
+            ))}
           </div>
 
           {/* Holiday Packages */}
@@ -1133,44 +1267,176 @@ export default function TravelPage({ onOpenModal }) {
 
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
             gap: '20px',
             marginBottom: '60px'
           }}>
             {[
-              { name: 'Goa Beach Getaway', label: 'BEST SELLER', tags: ['✈️ Flights', '🏨 4 Nights', '🚕 Transfers'], price: '₹15,999', bg: 'linear-gradient(135deg, #1E9438, #2DB84B)' },
-              { name: 'Kerala Backwaters', label: 'TRENDING', tags: ['✈️ Flights', '🏨 5 Nights', '🚤 Houseboat'], price: '₹21,500', bg: 'linear-gradient(135deg, #15803D, #2DB84B)' },
-              { name: 'Dubai City & Desert', label: 'INTERNATIONAL', tags: ['✈️ Flights', '🏨 4 Nights', '🏛️ Tours'], price: '₹45,000', bg: 'linear-gradient(135deg, #D97706, #F59E0B)' }
+              {
+                name: 'Goa Beach Getaway',
+                sub: 'North Goa · Calangute & Baga',
+                label: 'BEST SELLER',
+                labelColor: '#F97316',
+                tags: ['✈️ Flights', '🏨 4 Nights', '🚕 Transfers'],
+                price: '₹15,999',
+                per: '/ person',
+                rating: '4.8', reviews: '3.2k',
+                img: 'https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=560&h=320&fit=crop&q=80'
+              },
+              {
+                name: 'Kerala Backwaters',
+                sub: 'Alleppey · Munnar · Kovalam',
+                label: 'TRENDING',
+                labelColor: '#5E5CE6',
+                tags: ['✈️ Flights', '🏨 5 Nights', '🚤 Houseboat'],
+                price: '₹21,500',
+                per: '/ person',
+                rating: '4.9', reviews: '2.1k',
+                img: 'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=560&h=320&fit=crop&q=80'
+              },
+              {
+                name: 'Dubai City & Desert',
+                sub: 'Downtown · Desert Safari · Creek',
+                label: 'INTERNATIONAL',
+                labelColor: '#D97706',
+                tags: ['✈️ Flights', '🏨 4 Nights', '🏛️ Tours'],
+                price: '₹45,000',
+                per: '/ person',
+                rating: '4.7', reviews: '1.8k',
+                img: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=560&h=320&fit=crop&q=80'
+              },
+              {
+                name: 'Manali Snow Adventure',
+                sub: 'Solang Valley · Rohtang · Hadimba',
+                label: 'ADVENTURE',
+                labelColor: '#1E9438',
+                tags: ['🚌 Volvo Bus', '🏨 4 Nights', '🎿 Snow Sports'],
+                price: '₹12,499',
+                per: '/ person',
+                rating: '4.6', reviews: '4.5k',
+                img: 'https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=560&h=320&fit=crop&q=80'
+              },
+              {
+                name: 'Rajasthan Royal Tour',
+                sub: 'Jaipur · Jodhpur · Udaipur',
+                label: 'HERITAGE',
+                labelColor: '#B91C1C',
+                tags: ['✈️ Flights', '🏨 6 Nights', '🐪 Camel Safari'],
+                price: '₹28,999',
+                per: '/ person',
+                rating: '4.8', reviews: '1.2k',
+                img: 'https://images.unsplash.com/photo-1599661046289-e31897846e41?w=560&h=320&fit=crop&q=80'
+              },
+              {
+                name: 'Andaman Island Escape',
+                sub: 'Port Blair · Havelock · Neil Island',
+                label: 'ISLAND',
+                labelColor: '#0EA5E9',
+                tags: ['✈️ Flights', '🏨 5 Nights', '🤿 Scuba Diving'],
+                price: '₹32,500',
+                per: '/ person',
+                rating: '4.9', reviews: '876',
+                img: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=560&h=320&fit=crop&q=80'
+              }
             ].map((pkg, idx) => (
               <TiltCard key={idx} style={{ height: '100%' }}>
-                <div onClick={() => onOpenModal('booking')} className="pkg-card" style={{
-                  background: 'var(--white)',
-                  border: '1px solid var(--border-primary)',
-                  borderRadius: '16px',
-                  overflow: 'hidden',
-                  cursor: 'pointer',
-                  transition: 'all 0.3s',
-                  position: 'relative',
-                  height: '100%',
-                  width: '100%'
-                }}>
-                <div style={{ position: 'absolute', top: '12px', left: '12px', background: 'var(--orange)', color: '#fff', fontSize: '9px', fontWeight: 700, padding: '4px 10px', borderRadius: '50px', zIndex: 1 }}>{pkg.label}</div>
-                <div style={{ height: '150px', background: pkg.bg, display: 'flex', alignItems: 'center', justify: 'center', fontSize: '44px' }}>🏖️</div>
-                <div style={{ padding: '18px' }}>
-                  <div style={{ fontWeight: 800, fontSize: '16px', marginBottom: '8px' }}>{pkg.name}</div>
-                  <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', marginBottom: '12px' }}>
-                    {pkg.tags.map((tag, tIdx) => (
-                      <span key={tIdx} style={{ fontSize: '10px', background: 'var(--surf-1)', border: '1px solid var(--border-primary)', padding: '2px 8px', borderRadius: '50px', color: 'var(--text-secondary)' }}>{tag}</span>
-                    ))}
+                <div
+                  onClick={() => onOpenModal('booking')}
+                  className="pkg-card"
+                  style={{
+                    background: 'var(--white)',
+                    border: '1px solid var(--border-primary)',
+                    borderRadius: '16px',
+                    overflow: 'hidden',
+                    cursor: 'pointer',
+                    transition: 'transform 0.25s, box-shadow 0.25s',
+                    height: '100%',
+                    width: '100%',
+                    display: 'flex',
+                    flexDirection: 'column'
+                  }}
+                >
+                  {/* Package Photo */}
+                  <div style={{ position: 'relative', height: '180px', overflow: 'hidden', flexShrink: 0 }}>
+                    <img
+                      src={pkg.img}
+                      alt={pkg.name}
+                      loading="lazy"
+                      style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', transition: 'transform 0.4s ease' }}
+                      onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.06)'}
+                      onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
+                    />
+                    {/* Gradient overlay */}
+                    <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.08) 50%, transparent 100%)' }} />
+                    {/* Label badge */}
+                    <span style={{
+                      position: 'absolute', top: '10px', left: '10px',
+                      fontSize: '8px', fontWeight: 800, letterSpacing: '0.1em',
+                      background: pkg.labelColor, color: '#fff',
+                      padding: '3px 10px', borderRadius: '50px'
+                    }}>
+                      {pkg.label}
+                    </span>
+                    {/* Rating badge */}
+                    <span style={{
+                      position: 'absolute', top: '10px', right: '10px',
+                      fontSize: '9px', fontWeight: 800,
+                      background: 'rgba(255,255,255,0.9)', color: '#1E293B',
+                      padding: '3px 9px', borderRadius: '50px',
+                      display: 'flex', alignItems: 'center', gap: '3px'
+                    }}>
+                      ⭐ {pkg.rating}
+                    </span>
+                    {/* Package name on photo */}
+                    <div style={{ position: 'absolute', bottom: '10px', left: '12px', right: '12px' }}>
+                      <div style={{ fontSize: '17px', fontWeight: 900, color: '#fff', lineHeight: 1.1, textShadow: '0 1px 4px rgba(0,0,0,0.4)' }}>
+                        {pkg.name}
+                      </div>
+                      <div style={{ fontSize: '10px', color: 'rgba(255,255,255,0.8)', fontWeight: 500, marginTop: '3px' }}>
+                        📍 {pkg.sub}
+                      </div>
+                    </div>
                   </div>
-                  <div>
-                    <span style={{ fontWeight: 800, fontSize: '18px', color: 'var(--accent-periwinkle)' }}>{pkg.price}</span>
-                    <span style={{ fontSize: '11px', color: 'var(--text-secondary)', marginLeft: '4px' }}>/ person</span>
+
+                  {/* Card body */}
+                  <div style={{ padding: '14px 16px 16px', flex: 1, display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                    {/* Inclusions tags */}
+                    <div style={{ display: 'flex', gap: '5px', flexWrap: 'wrap' }}>
+                      {pkg.tags.map((tag, ti) => (
+                        <span key={ti} style={{
+                          fontSize: '9.5px', background: 'rgba(94,92,230,0.05)',
+                          border: '1px solid rgba(94,92,230,0.12)',
+                          color: 'var(--text-secondary)', padding: '2px 8px', borderRadius: '50px'
+                        }}>{tag}</span>
+                      ))}
+                    </div>
+                    {/* Reviews */}
+                    <div style={{ fontSize: '10.5px', color: 'var(--text-muted)' }}>
+                      {pkg.reviews} travellers rated this package
+                    </div>
+                    {/* Price + CTA */}
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 'auto', paddingTop: '8px', borderTop: '1px solid var(--border-primary)' }}>
+                      <div>
+                        <div style={{ fontSize: '9px', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Starting from</div>
+                        <span style={{ fontWeight: 900, fontSize: '19px', color: 'var(--accent-periwinkle)', fontFamily: 'var(--font-mono)' }}>{pkg.price}</span>
+                        <span style={{ fontSize: '10px', color: 'var(--text-muted)', marginLeft: '3px' }}>{pkg.per}</span>
+                      </div>
+                      <button
+                        onClick={() => onOpenModal('booking')}
+                        style={{
+                          background: 'var(--accent-periwinkle)', color: '#fff',
+                          border: 'none', borderRadius: '10px',
+                          padding: '8px 16px', fontSize: '11px', fontWeight: 700,
+                          cursor: 'pointer'
+                        }}
+                      >
+                        View Package
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </TiltCard>
-          ))}
+              </TiltCard>
+            ))}
           </div>
 
           {/* Why Book section */}

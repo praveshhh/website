@@ -543,9 +543,20 @@ a {
   .hero-mobile-card {
     display: flex !important;
   }
-  /* Ensure hero section does not bleed into ticker */
+  /* Ensure hero section does not bleed, is responsive, and does not push top content off-screen */
   .hero-sec {
+    height: auto !important;
+    min-height: unset !important;
+    padding: 40px 5% 40px !important;
     overflow: hidden !important;
+  }
+  .hero-overline {
+    font-size: 9px !important;
+    letter-spacing: 0.08em !important;
+    padding: 4px 12px !important;
+    margin-bottom: 16px !important;
+    white-space: normal !important;
+    text-align: center;
   }
 }
 

@@ -740,6 +740,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
                 textTransform: 'uppercase',
                 color: 'var(--accent-periwinkle)'
               }}
+              className="hero-overline"
             >
               <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--accent-periwinkle)', display: 'inline-block' }} />
               India's Complete Fintech · IT · Travel Platform
@@ -750,17 +751,17 @@ export default function Hero({ onOpenAuth, backendUrl }) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
               style={{
-                fontSize: 'clamp(36px, 5vw, 62px)',
-                lineHeight: '1.05',
+                fontSize: 'clamp(28px, 6vw, 62px)',
+                lineHeight: '1.1',
                 letterSpacing: '-0.03em',
-                marginBottom: '24px',
+                marginBottom: '20px',
                 fontWeight: 900,
                 color: 'var(--text-primary)'
               }}
             >
               Make Payment,<br />
               <span className="text-gradient-green">Build Growth</span><br />
-              <span style={{ fontSize: 'clamp(24px, 3.5vw, 42px)', fontWeight: 800, display: 'block', marginTop: '12px' }} className="text-gradient-blue">
+              <span style={{ fontSize: 'clamp(18px, 4vw, 42px)', fontWeight: 800, display: 'block', marginTop: '12px' }} className="text-gradient-blue">
                 Fintech · IT Software · Travel
               </span>
             </motion.h1>

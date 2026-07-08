@@ -787,8 +787,106 @@ export default function TravelPage({ onOpenModal }) {
         </div>
       </div>
 
+      {/* Mobile-only Visual Cards Strip — shown below hero on small screens */}
+      <div className="t-mobile-cards">
+        {/* Globe Card */}
+        <div className="t-mobile-card">
+          <span className="t-mobile-card-label">✈️ Flights</span>
+          <svg width="80" height="80" viewBox="0 0 150 150" fill="none">
+            <defs>
+              <clipPath id="globeMaskM">
+                <circle cx="75" cy="75" r="50" />
+              </clipPath>
+              <radialGradient id="globeGlowM" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stopColor="rgba(94,92,230,0.18)" />
+                <stop offset="100%" stopColor="rgba(255,255,255,0)" />
+              </radialGradient>
+            </defs>
+            <circle cx="75" cy="75" r="52" fill="rgba(94,92,230,0.06)" />
+            <g clipPath="url(#globeMaskM)">
+              <circle cx="75" cy="75" r="50" fill="#EEF3F9" />
+              <g fill="rgba(36,178,99,0.75)">
+                <path d="M20,25 Q30,18 45,28 T35,50 T15,35 Z" />
+                <path d="M50,20 Q60,15 70,22 T65,38 T48,30 Z" />
+                <path d="M55,55 Q65,50 75,58 T70,72 T52,64 Z" />
+                <path d="M80,30 Q90,25 100,35 T95,50 T78,42 Z" />
+                <path d="M105,75 Q120,78 115,90 T98,88 Z" />
+              </g>
+            </g>
+            <circle cx="75" cy="75" r="50" fill="none" stroke="rgba(94,92,230,0.15)" strokeWidth="1" />
+            <ellipse cx="75" cy="75" rx="70" ry="22" stroke="rgba(94,92,230,0.2)" strokeWidth="0.8" strokeDasharray="4,4" transform="rotate(-15 75 75)" />
+            <circle cx="75" cy="75" r="52" fill="url(#globeGlowM)" />
+          </svg>
+        </div>
+        {/* Beach Card */}
+        <div className="t-mobile-card">
+          <span className="t-mobile-card-label">🏖️ Goa</span>
+          <svg width="80" height="60" viewBox="0 0 120 70" fill="none">
+            <defs>
+              <linearGradient id="sunsetM" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#BAE6FD" />
+                <stop offset="55%" stopColor="#FED7AA" />
+                <stop offset="100%" stopColor="#FDE68A" />
+              </linearGradient>
+            </defs>
+            <rect width="120" height="70" fill="url(#sunsetM)" rx="8" />
+            <circle cx="60" cy="36" r="10" fill="#F97316" style={{filter:'drop-shadow(0 0 5px #F97316)'}} />
+            <path d="M5,50 Q12,30 8,10" fill="none" stroke="#64748B" strokeWidth="2.5" strokeLinecap="round" />
+            <path d="M8,10 Q2,8 -4,11 M8,10 Q14,8 20,11 M8,10 Q6,3 4,-4 M8,10 Q13,4 18,2" fill="none" stroke="#10B981" strokeWidth="2" strokeLinecap="round" transform="translate(5,0)" />
+            <path d="M0,60 Q30,57 60,60 T120,60 L120,70 L0,70 Z" fill="rgba(94,92,230,0.18)" />
+            <path d="M-5,63 Q25,60 60,63 T125,63 L125,70 L-5,70 Z" fill="rgba(0,122,255,0.18)" />
+          </svg>
+        </div>
+        {/* Train Card */}
+        <div className="t-mobile-card">
+          <span className="t-mobile-card-label">🚂 Train</span>
+          <svg width="70" height="80" viewBox="0 0 120 120" fill="none">
+            <path d="M60,10 L68,22 L68,32 L60,38 L56,46 L52,52 L45,59 L48,66 L42,72 L38,79 L48,84 L52,92 L48,102 L58,114 L60,118 L70,105 L72,95 L76,85 L80,75 L84,65 L88,58 L95,58 L98,45 L88,40 L78,45 L72,35 L75,25 L70,18 L62,15 Z"
+              fill="rgba(94,92,230,0.06)" stroke="rgba(27,42,107,0.15)" strokeWidth="1.2" />
+            <path d="M60,10 C58,35 48,65 52,90 C56,105 60,110 60,118"
+              fill="none" stroke="rgba(27,42,107,0.1)" strokeWidth="1.2" strokeDasharray="3,3" />
+            <motion.path d="M60,10 C58,35 48,65 52,90 C56,105 60,110 60,118"
+              fill="none" stroke="#5E5CE6" strokeWidth="2.5" strokeLinecap="round"
+              strokeDasharray="25 120" animate={{ strokeDashoffset: [145, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
+              style={{ filter: 'drop-shadow(0 0 4px #5E5CE6)' }} />
+          </svg>
+        </div>
+        {/* Bus Card */}
+        <div className="t-mobile-card">
+          <span className="t-mobile-card-label">🚌 Bus</span>
+          <svg width="80" height="60" viewBox="0 0 120 70" fill="none">
+            <defs>
+              <linearGradient id="daySkyM" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#E0F2FE" />
+                <stop offset="100%" stopColor="#F1F5F9" />
+              </linearGradient>
+            </defs>
+            <rect width="120" height="70" fill="url(#daySkyM)" rx="8" />
+            <g transform="translate(10,12)">
+              <rect x="0" y="8" width="18" height="30" fill="#CBD5E1" stroke="rgba(94,92,230,0.12)" strokeWidth="0.8" />
+              <polygon points="9,0 0,8 18,8" fill="#5E5CE6" />
+              <rect x="3" y="12" width="3" height="3" fill="#FBBF24" opacity="0.9" />
+              <rect x="11" y="12" width="3" height="3" fill="#FBBF24" opacity="0.5" />
+              <rect x="3" y="20" width="3" height="3" fill="#FBBF24" opacity="0.7" />
+              <rect x="11" y="20" width="3" height="3" fill="#FBBF24" opacity="1" />
+            </g>
+            <line x1="35" y1="70" x2="58" y2="40" stroke="rgba(0,0,0,0.08)" strokeWidth="1.5" />
+            <line x1="105" y1="70" x2="72" y2="40" stroke="rgba(0,0,0,0.08)" strokeWidth="1.5" />
+            <motion.g animate={{ y: [0,-1.2,0] }} transition={{ duration:1, repeat:Infinity, ease:'easeInOut' }}>
+              <rect x="44" y="44" width="28" height="13" rx="2" fill="#5E5CE6" />
+              <rect x="47" y="47" width="5" height="4" fill="rgba(255,255,255,0.9)" />
+              <rect x="55" y="47" width="5" height="4" fill="rgba(255,255,255,0.9)" />
+              <rect x="63" y="47" width="5" height="4" fill="rgba(255,255,255,0.9)" />
+              <circle cx="50" cy="57" r="2.2" fill="#334155" />
+              <circle cx="66" cy="57" r="2.2" fill="#334155" />
+            </motion.g>
+          </svg>
+        </div>
+      </div>
+
       {/* Travel Content grids */}
-      <div className="t-content" style={{ padding: '60px 8%', background: 'var(--surf-1)' }}>
+      <div className="t-content" style={{ padding: '60px 8%', background: 'var(--bg-primary)' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           
           {/* Top Flight Deals */}

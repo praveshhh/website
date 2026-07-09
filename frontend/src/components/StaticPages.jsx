@@ -1,30 +1,181 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Target, Eye, Shield, Cpu } from 'lucide-react';
+
+// 3D Geometric Node Map Animation
+function GeometricNodeMap() {
+  return (
+    <div style={{
+      position: 'relative',
+      width: '100%',
+      height: '320px',
+      background: 'linear-gradient(135deg, #0D1638 0%, #1B2A6B 100%)',
+      borderRadius: '24px',
+      overflow: 'hidden',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      boxShadow: 'var(--shadow-xl)',
+      border: '1px solid rgba(255, 255, 255, 0.08)'
+    }}>
+      {/* Decorative ambient flows */}
+      <div style={{
+        position: 'absolute',
+        inset: 0,
+        backgroundImage: 'radial-gradient(circle at 80% 20%, rgba(94, 92, 230, 0.15) 0%, transparent 50%), radial-gradient(circle at 10% 80%, rgba(45, 184, 75, 0.12) 0%, transparent 50%)',
+        zIndex: 0
+      }} />
+
+      <svg width="280" height="200" viewBox="0 0 280 200" style={{ position: 'relative', zIndex: 1 }}>
+        {/* Connection Lines */}
+        <motion.line x1="50" y1="100" x2="140" y2="40" stroke="rgba(94,92,230,0.4)" strokeWidth="2"
+          initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }} />
+        <motion.line x1="50" y1="100" x2="140" y2="160" stroke="rgba(94,92,230,0.4)" strokeWidth="2"
+          initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 2.2, repeat: Infinity, repeatType: "reverse" }} />
+        <motion.line x1="140" y1="40" x2="230" y2="100" stroke="rgba(45,184,75,0.4)" strokeWidth="2"
+          initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 1.8, repeat: Infinity, repeatType: "reverse" }} />
+        <motion.line x1="140" y1="160" x2="230" y2="100" stroke="rgba(45,184,75,0.4)" strokeWidth="2"
+          initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 2.4, repeat: Infinity, repeatType: "reverse" }} />
+        <motion.line x1="140" y1="40" x2="140" y2="160" stroke="rgba(255,255,255,0.15)" strokeWidth="1" strokeDasharray="4 4" />
+
+        {/* Center node */}
+        <motion.circle cx="140" cy="100" r="28" fill="rgba(255, 255, 255, 0.05)" stroke="rgba(255, 255, 255, 0.2)" strokeWidth="1"
+          animate={{ scale: [1, 1.05, 1] }} transition={{ duration: 3, repeat: Infinity }} />
+        <motion.circle cx="140" cy="100" r="18" fill="rgba(94, 92, 230, 0.15)" stroke="var(--accent-periwinkle)" strokeWidth="2" />
+        <text x="140" y="104" textAnchor="middle" fontSize="10" fontWeight="900" fill="#fff" fontFamily="var(--font-mono)">B2B</text>
+
+        {/* Node 1 */}
+        <motion.circle cx="50" cy="100" r="14" fill="rgba(13, 22, 56, 0.8)" stroke="var(--accent-periwinkle)" strokeWidth="2"
+          animate={{ y: [100, 95, 100] }} transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }} />
+        <text x="50" y="103" textAnchor="middle" fontSize="9" fill="var(--accent-periwinkle)" fontWeight="bold">💻</text>
+
+        {/* Node 2 */}
+        <motion.circle cx="140" cy="40" r="14" fill="rgba(13, 22, 56, 0.8)" stroke="#2DB84B" strokeWidth="2"
+          animate={{ y: [40, 44, 40] }} transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }} />
+        <text x="140" y="43" textAnchor="middle" fontSize="9" fill="#2DB84B" fontWeight="bold">💳</text>
+
+        {/* Node 3 */}
+        <motion.circle cx="230" cy="100" r="14" fill="rgba(13, 22, 56, 0.8)" stroke="var(--accent-periwinkle)" strokeWidth="2"
+          animate={{ y: [100, 105, 100] }} transition={{ duration: 3.8, repeat: Infinity, ease: 'easeInOut' }} />
+        <text x="230" y="103" textAnchor="middle" fontSize="9" fill="var(--accent-periwinkle)" fontWeight="bold">🌍</text>
+
+        {/* Node 4 */}
+        <motion.circle cx="140" cy="160" r="14" fill="rgba(13, 22, 56, 0.8)" stroke="#2DB84B" strokeWidth="2"
+          animate={{ y: [160, 156, 160] }} transition={{ duration: 3.2, repeat: Infinity, ease: 'easeInOut' }} />
+        <text x="140" y="163" textAnchor="middle" fontSize="9" fill="#2DB84B" fontWeight="bold">⚙️</text>
+      </svg>
+      
+      {/* Brand Label Overlay */}
+      <div style={{
+        position: 'absolute',
+        bottom: '20px',
+        fontSize: '11px',
+        fontWeight: 800,
+        letterSpacing: '3px',
+        color: 'rgba(255,255,255,0.7)',
+        textTransform: 'uppercase',
+        fontFamily: 'var(--font-display)'
+      }}>
+        BillsPay24X7✓
+      </div>
+    </div>
+  );
+}
 
 export function AboutPage() {
   return (
-    <div style={{ paddingTop: '100px', minHeight: '100vh', background: 'var(--surf-1)' }}>
+    <div style={{ paddingTop: '80px', minHeight: '100vh', background: 'var(--bg-primary)', color: 'var(--text-primary)' }}>
+      {/* Glow overlays */}
+      <div className="glow-overlay-green" style={{ top: '5%', left: '-5%', opacity: 0.15 }} />
+      <div className="glow-overlay-blue" style={{ top: '40%', right: '-5%', opacity: 0.15 }} />
+
       {/* Hero */}
-      <div style={{ padding: '80px 8% 40px', background: 'linear-gradient(180deg, #F0F4FF 0%, #FFFFFF 100%)', textAlign: 'center' }}>
-        <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(32px, 5vw, 52px)', fontWeight: 800, color: '#1B2A6B', marginBottom: '16px' }}>About Us</h1>
-        <p style={{ fontSize: '18px', fontWeight: 600, color: '#2DB84B', marginBottom: '8px' }}>Building India's Digital Future</p>
-        <p style={{ fontSize: '15px', color: 'var(--text-secondary)', maxWidth: '600px', margin: '0 auto', lineHeight: '1.6' }}>
-          BillsPay24X7✓ is a Lucknow-based fintech and technology company powering digital payments, travel, and enterprise software.
-        </p>
+      <div style={{
+        padding: '100px 8% 60px',
+        textAlign: 'center',
+        position: 'relative',
+        overflow: 'hidden'
+      }}>
+        {/* Grid Background */}
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          backgroundImage: 'radial-gradient(rgba(94, 92, 230, 0.08) 1.5px, transparent 1.5px)',
+          backgroundSize: '24px 24px',
+          opacity: 0.8,
+          zIndex: 0
+        }} />
+
+        <div style={{ position: 'relative', zIndex: 1 }}>
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              border: '1px solid rgba(94, 92, 230, 0.15)',
+              background: 'rgba(94, 92, 230, 0.04)',
+              padding: '6px 14px',
+              borderRadius: '50px',
+              fontFamily: 'var(--font-display)',
+              fontSize: '11px',
+              fontWeight: 800,
+              letterSpacing: '0.12em',
+              textTransform: 'uppercase',
+              color: 'var(--accent-periwinkle)',
+              marginBottom: '20px'
+            }}
+          >
+            🏢 Who We Are
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(36px, 5vw, 56px)', fontWeight: 900, color: 'var(--text-primary)', marginBottom: '16px', letterSpacing: '-0.02em' }}
+          >
+            About Us
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            style={{ fontSize: '18px', fontWeight: 700, color: '#2DB84B', marginBottom: '16px' }}
+          >
+            Building India's Digital Future
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            style={{ fontSize: '15px', color: 'var(--text-secondary)', maxWidth: '600px', margin: '0 auto', lineHeight: '1.8' }}
+          >
+            BillsPay24X7✓ is a Lucknow-based fintech and technology company powering digital payments, travel, and enterprise software.
+          </motion.p>
+        </div>
       </div>
 
       {/* Story */}
-      <div style={{ padding: '60px 8%', background: '#fff' }}>
+      <div style={{ padding: '80px 8%', background: 'var(--surf-1)', borderTop: '1px solid var(--border-primary)', borderBottom: '1px solid var(--border-primary)' }}>
         <div style={{ maxWidth: '1000px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'center' }} className="grid-responsive-process">
-          <div style={{ height: '320px', background: 'linear-gradient(135deg, #1B2A6B, #243080)', borderRadius: '24px', display: 'flex', alignItems: 'center', justify: 'center', color: '#fff', fontSize: '28px', fontWeight: 800 }}>
-            BillsPay24X7
-          </div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <GeometricNodeMap />
+          </motion.div>
           <div>
-            <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '24px', fontWeight: 800, color: '#1B2A6B', marginBottom: '14px' }}>Our Story</h2>
-            <p style={{ fontSize: '13.5px', color: 'var(--text-secondary)', lineHeight: '1.7', marginBottom: '14px' }}>
+            <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '28px', fontWeight: 900, color: 'var(--text-primary)', marginBottom: '16px' }}>Our Story</h2>
+            <p style={{ fontSize: '13.5px', color: 'var(--text-secondary)', lineHeight: '1.8', marginBottom: '16px' }}>
               Founded in 2026, BillsPay Technologies Private Limited started with a simple mission: make digital financial services accessible to every business in India. From our head office in Lucknow, we have grown into a trusted platform serving thousands of merchants, agents, and enterprises.
             </p>
-            <p style={{ fontSize: '13.5px', color: 'var(--text-secondary)', lineHeight: '1.7' }}>
+            <p style={{ fontSize: '13.5px', color: 'var(--text-secondary)', lineHeight: '1.8' }}>
               We combine deep fintech expertise with cutting-edge technology to deliver payment solutions, travel APIs, and custom software that help businesses grow faster and operate smarter.
             </p>
           </div>
@@ -32,20 +183,55 @@ export function AboutPage() {
       </div>
 
       {/* Values */}
-      <div style={{ padding: '60px 8%', background: 'var(--surf-1)' }}>
-        <div style={{ maxWidth: '1000px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '20px' }}>
-          {[
-            { icon: <Target size={20} />, t: 'Mission', d: 'Empower every business with seamless digital financial and technology services.' },
-            { icon: <Eye size={20} />, t: 'Vision', d: 'Become India\'s most trusted platform for fintech, travel, and IT solutions.' },
-            { icon: <Shield size={20} />, t: 'Integrity', d: 'We operate with transparency, security, and compliance at every level.' },
-            { icon: <Cpu size={20} />, t: 'Innovation', d: 'We constantly evolve our technology to stay ahead of market needs.' }
-          ].map((val, idx) => (
-            <div key={idx} style={{ background: '#fff', padding: '24px', borderRadius: '16px', border: '1px solid var(--border-primary)', textAlign: 'center' }}>
-              <div style={{ width: '40px', height: '40px', borderRadius: '10px', background: 'linear-gradient(135deg, #1B2A6B, #243080)', display: 'flex', alignItems: 'center', justify: 'center', color: '#fff', margin: '0 auto 16px' }}>{val.icon}</div>
-              <h4 style={{ fontWeight: 800, fontSize: '14.5px', marginBottom: '6px' }}>{val.t}</h4>
-              <p style={{ fontSize: '12px', color: 'var(--text-secondary)', lineHeight: '1.5' }}>{val.d}</p>
-            </div>
-          ))}
+      <div style={{ padding: '80px 8%', background: 'var(--bg-primary)' }}>
+        <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '24px' }}>
+            {[
+              { icon: <Target size={22} />, t: 'Mission', d: 'Empower every business with seamless digital financial and technology services.', glow: 'rgba(45,184,75,0.15)' },
+              { icon: <Eye size={22} />, t: 'Vision', d: 'Become India\'s most trusted platform for fintech, travel, and IT solutions.', glow: 'rgba(94,92,230,0.15)' },
+              { icon: <Shield size={22} />, t: 'Integrity', d: 'We operate with transparency, security, and compliance at every level.', glow: 'rgba(14,165,233,0.15)' },
+              { icon: <Cpu size={22} />, t: 'Innovation', d: 'We constantly evolve our technology to stay ahead of market needs.', glow: 'rgba(236,72,153,0.15)' }
+            ].map((val, idx) => (
+              <div
+                key={idx}
+                style={{
+                  background: 'var(--white)',
+                  padding: '30px 24px',
+                  borderRadius: '20px',
+                  border: '1.5px solid var(--border-primary)',
+                  textAlign: 'center',
+                  transition: 'all 0.3s ease',
+                  boxShadow: '0 4px 20px rgba(0,0,0,0.01)'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = 'var(--accent-periwinkle)';
+                  e.currentTarget.style.boxShadow = `0 16px 40px ${val.glow}`;
+                  e.currentTarget.style.transform = 'translateY(-4px)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = 'var(--border-primary)';
+                  e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,0,0,0.01)';
+                  e.currentTarget.style.transform = 'translateY(0)';
+                }}
+              >
+                <div style={{
+                  width: '48px',
+                  height: '48px',
+                  borderRadius: '12px',
+                  background: 'rgba(94, 92, 230, 0.06)',
+                  color: 'var(--accent-periwinkle)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  margin: '0 auto 20px'
+                }} className="pulse-glow">
+                  {val.icon}
+                </div>
+                <h4 style={{ fontWeight: 800, fontSize: '16px', marginBottom: '8px', color: 'var(--text-primary)' }}>{val.t}</h4>
+                <p style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: '1.6' }}>{val.d}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

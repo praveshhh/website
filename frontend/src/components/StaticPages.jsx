@@ -310,39 +310,228 @@ export function PricingPage() {
 }
 
 export function BlogPage() {
+  const [selectedTag, setSelectedTag] = useState('All');
+
+  const blogPosts = [
+    { tag: 'UPI', date: 'Jan 15, 2026', title: 'UPI 2.0: What\'s New for Merchants', excerpt: 'Exploring the new features in UPI 2.0 and how merchants can leverage them for better customer experience.', readTime: '5 min read', category: 'Fintech', img: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&h=320&fit=crop&q=80' },
+    { tag: 'API', date: 'Jan 10, 2026', title: 'Building Resilient Payment APIs', excerpt: 'Best practices for designing payment APIs that handle high throughput with 99.99% uptime.', readTime: '7 min read', category: 'Development', img: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&h=320&fit=crop&q=80' },
+    { tag: 'AI', date: 'Jan 5, 2026', title: 'AI in Travel: Personalization at Scale', excerpt: 'How artificial intelligence is transforming travel booking experiences and customer retention.', readTime: '6 min read', category: 'AI', img: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=600&h=320&fit=crop&q=80' },
+    { tag: 'BBPS', date: 'Dec 28, 2025', title: 'BBPS Expansion: New Bill Categories', excerpt: 'RBI\'s expanded BBPS scope now includes insurance premiums, municipal taxes, and more.', readTime: '4 min read', category: 'Fintech', img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=320&fit=crop&q=80' },
+    { tag: 'ERP', date: 'Dec 20, 2025', title: 'Custom ERP for Indian SMEs', excerpt: 'Why Indian SMEs are moving from off-the-shelf ERP to custom-built solutions tailored to local needs.', readTime: '8 min read', category: 'Development', img: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=320&fit=crop&q=80' },
+    { tag: 'Sec', date: 'Dec 15, 2025', title: 'PCI-DSS 4.0: What You Need to Know', excerpt: 'The latest PCI-DSS standards and how they affect payment gateway providers and merchants.', readTime: '6 min read', category: 'Security', img: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600&h=320&fit=crop&q=80' }
+  ];
+
+  const categories = ['All', 'Fintech', 'Development', 'AI', 'Security'];
+
+  const filteredPosts = selectedTag === 'All' 
+    ? blogPosts 
+    : blogPosts.filter(p => p.category === selectedTag);
+
   return (
-    <div style={{ paddingTop: '100px', minHeight: '100vh', background: 'var(--surf-1)' }}>
+    <div style={{ paddingTop: '80px', minHeight: '100vh', background: 'var(--bg-primary)', color: 'var(--text-primary)', overflowX: 'hidden' }}>
+      
+      {/* Glow overlays */}
+      <div className="glow-overlay-green" style={{ top: '5%', left: '-5%', opacity: 0.15 }} />
+      <div className="glow-overlay-blue" style={{ top: '40%', right: '-5%', opacity: 0.15 }} />
+
       {/* Hero */}
-      <div style={{ padding: '80px 8% 40px', background: 'linear-gradient(180deg, #F0F4FF 0%, #FFFFFF 100%)', textAlign: 'center' }}>
-        <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(32px, 5vw, 52px)', fontWeight: 800, color: '#1B2A6B', marginBottom: '16px' }}>Blog</h1>
-        <p style={{ fontSize: '18px', fontWeight: 600, color: '#2DB84B', marginBottom: '8px' }}>Insights & Updates</p>
-        <p style={{ fontSize: '15px', color: 'var(--text-secondary)', maxWidth: '600px', margin: '0 auto' }}>
-          Latest trends in fintech, travel technology, and digital transformation.
-        </p>
+      <div style={{
+        padding: '100px 8% 60px',
+        textAlign: 'center',
+        position: 'relative',
+        overflow: 'hidden'
+      }}>
+        {/* Grid Background */}
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          backgroundImage: 'radial-gradient(rgba(94, 92, 230, 0.08) 1.5px, transparent 1.5px)',
+          backgroundSize: '24px 24px',
+          opacity: 0.8,
+          zIndex: 0
+        }} />
+
+        <div style={{ position: 'relative', zIndex: 1 }}>
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              border: '1px solid rgba(94, 92, 230, 0.15)',
+              background: 'rgba(94, 92, 230, 0.04)',
+              padding: '6px 14px',
+              borderRadius: '50px',
+              fontFamily: 'var(--font-display)',
+              fontSize: '11px',
+              fontWeight: 800,
+              letterSpacing: '0.12em',
+              textTransform: 'uppercase',
+              color: 'var(--accent-periwinkle)',
+              marginBottom: '20px'
+            }}
+          >
+            📚 Knowledge Hub
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(36px, 5vw, 56px)', fontWeight: 900, color: 'var(--text-primary)', marginBottom: '16px', letterSpacing: '-0.02em' }}
+          >
+            Blog
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            style={{ fontSize: '18px', fontWeight: 700, color: '#2DB84B', marginBottom: '16px' }}
+          >
+            Insights & Updates
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            style={{ fontSize: '15px', color: 'var(--text-secondary)', maxWidth: '600px', margin: '0 auto', lineHeight: '1.8' }}
+          >
+            Latest trends in fintech, travel technology, and digital transformation.
+          </motion.p>
+        </div>
       </div>
 
-      {/* Grid */}
-      <div style={{ padding: '60px 8%', background: '#fff' }}>
-        <div style={{ maxWidth: '1000px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px' }}>
-          {[
-            { tag: 'UPI', date: 'Jan 15, 2026', title: 'UPI 2.0: What\'s New for Merchants', excerpt: 'Exploring the new features in UPI 2.0 and how merchants can leverage them for better customer experience.' },
-            { tag: 'API', date: 'Jan 10, 2026', title: 'Building Resilient Payment APIs', excerpt: 'Best practices for designing payment APIs that handle high throughput with 99.99% uptime.' },
-            { tag: 'AI', date: 'Jan 5, 2026', title: 'AI in Travel: Personalization at Scale', excerpt: 'How artificial intelligence is transforming travel booking experiences and customer retention.' },
-            { tag: 'BBPS', date: 'Dec 28, 2025', title: 'BBPS Expansion: New Bill Categories', excerpt: 'RBI\'s expanded BBPS scope now includes insurance premiums, municipal taxes, and more.' },
-            { tag: 'ERP', date: 'Dec 20, 2025', title: 'Custom ERP for Indian SMEs', excerpt: 'Why Indian SMEs are moving from off-the-shelf ERP to custom-built solutions tailored to local needs.' },
-            { tag: 'Sec', date: 'Dec 15, 2025', title: 'PCI-DSS 4.0: What You Need to Know', excerpt: 'The latest PCI-DSS standards and how they affect payment gateway providers and merchants.' }
-          ].map((post, idx) => (
-            <div key={idx} style={{ background: '#fff', border: '1px solid var(--border-primary)', borderRadius: '16px', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
-              <div style={{ height: '140px', background: 'linear-gradient(135deg, #1B2A6B, #2DB84B)', display: 'flex', alignItems: 'center', justify: 'center', color: '#fff', fontSize: '24px', fontWeight: 800 }}>
-                {post.tag}
+      {/* Category Tabs */}
+      <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', marginBottom: '40px', flexWrap: 'wrap', padding: '0 8%' }}>
+        {categories.map((cat, idx) => (
+          <button
+            key={idx}
+            onClick={() => setSelectedTag(cat)}
+            style={{
+              padding: '10px 22px',
+              borderRadius: '50px',
+              border: selectedTag === cat ? '1px solid var(--accent-periwinkle)' : '1px solid var(--border-primary)',
+              background: selectedTag === cat ? 'var(--accent-periwinkle)' : 'var(--white)',
+              color: selectedTag === cat ? '#fff' : 'var(--text-secondary)',
+              fontSize: '12px',
+              fontWeight: 700,
+              cursor: 'pointer',
+              transition: 'all 0.25s ease'
+            }}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+
+      {/* Blog Cards Grid */}
+      <div style={{ padding: '0 8% 80px' }}>
+        <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
+          
+          {/* Featured Post (Only shown when 'All' is selected) */}
+          {selectedTag === 'All' && blogPosts.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              style={{
+                background: 'var(--white)',
+                border: '1px solid var(--border-primary)',
+                borderRadius: '24px',
+                overflow: 'hidden',
+                marginBottom: '40px',
+                boxShadow: '0 10px 30px rgba(0,0,0,0.02)',
+                display: 'grid',
+                gridTemplateColumns: '1.2fr 0.8fr',
+                cursor: 'pointer'
+              }}
+              className="grid-responsive-process"
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = 'var(--accent-periwinkle)';
+                e.currentTarget.style.boxShadow = '0 16px 40px rgba(94,92,230,0.06)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = 'var(--border-primary)';
+                e.currentTarget.style.boxShadow = '0 10px 30px rgba(0,0,0,0.02)';
+              }}
+            >
+              <div style={{ height: '360px', overflow: 'hidden' }}>
+                <img src={blogPosts[0].img} alt={blogPosts[0].title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
-              <div style={{ padding: '20px', flex: 1, display: 'flex', flexDirection: 'column' }}>
-                <span style={{ fontSize: '11px', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '8px' }}>{post.date}</span>
-                <h3 style={{ fontSize: '15px', fontWeight: 800, color: '#1B2A6B', marginBottom: '8px', lineHeight: '1.3' }}>{post.title}</h3>
-                <p style={{ fontSize: '12.5px', color: 'var(--text-secondary)', lineHeight: '1.5', flex: 1 }}>{post.excerpt}</p>
+              <div style={{ padding: '36px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                <div style={{ display: 'flex', gap: '8px', alignItems: 'center', marginBottom: '14px' }}>
+                  <span style={{ fontSize: '9px', background: 'rgba(94,92,230,0.08)', color: 'var(--accent-periwinkle)', padding: '4px 10px', borderRadius: '50px', fontWeight: 800 }}>{blogPosts[0].tag}</span>
+                  <span style={{ fontSize: '11px', color: 'var(--text-muted)' }}>{blogPosts[0].date}</span>
+                </div>
+                <h2 style={{ fontSize: '22px', fontWeight: 900, marginBottom: '12px', lineHeight: '1.3', color: 'var(--text-primary)' }}>{blogPosts[0].title}</h2>
+                <p style={{ fontSize: '13.5px', color: 'var(--text-secondary)', lineHeight: '1.6', marginBottom: '24px' }}>{blogPosts[0].excerpt}</p>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid var(--border-primary)', paddingTop: '16px' }}>
+                  <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>{blogPosts[0].readTime}</span>
+                  <span style={{ fontSize: '12px', fontWeight: 700, color: 'var(--accent-periwinkle)' }}>Read Article →</span>
+                </div>
               </div>
-            </div>
-          ))}
+            </motion.div>
+          )}
+
+          {/* Grid Layout for other posts */}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(290px, 1fr))',
+            gap: '24px'
+          }}>
+            {(selectedTag === 'All' ? filteredPosts.slice(1) : filteredPosts).map((post, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: idx * 0.05 }}
+                style={{
+                  background: 'var(--white)',
+                  border: '1px solid var(--border-primary)',
+                  borderRadius: '20px',
+                  overflow: 'hidden',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  cursor: 'pointer',
+                  boxShadow: '0 4px 20px rgba(0,0,0,0.01)',
+                  transition: 'all 0.3s ease'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = 'var(--accent-periwinkle)';
+                  e.currentTarget.style.boxShadow = '0 16px 40px rgba(94,92,230,0.05)';
+                  e.currentTarget.style.transform = 'translateY(-4px)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = 'var(--border-primary)';
+                  e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,0,0,0.01)';
+                  e.currentTarget.style.transform = 'translateY(0)';
+                }}
+              >
+                <div style={{ height: '170px', overflow: 'hidden', position: 'relative' }}>
+                  <img src={post.img} alt={post.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <span style={{
+                    position: 'absolute', top: '14px', left: '14px',
+                    fontSize: '9px', background: 'rgba(27,42,107,0.8)', color: '#fff',
+                    padding: '3px 10px', borderRadius: '50px', fontWeight: 800
+                  }}>{post.tag}</span>
+                </div>
+                <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column' }}>
+                  <span style={{ fontSize: '11px', color: 'var(--text-muted)', marginBottom: '8px' }}>{post.date}</span>
+                  <h3 style={{ fontSize: '16px', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '10px', lineHeight: '1.4' }}>{post.title}</h3>
+                  <p style={{ fontSize: '12.5px', color: 'var(--text-secondary)', lineHeight: '1.6', flex: 1, marginBottom: '18px' }}>{post.excerpt}</p>
+                  
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid var(--border-primary)', paddingTop: '14px', marginTop: 'auto' }}>
+                    <span style={{ fontSize: '11.5px', color: 'var(--text-muted)' }}>{post.readTime}</span>
+                    <span style={{ fontSize: '11.5px', fontWeight: 700, color: 'var(--accent-periwinkle)' }}>Read More →</span>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

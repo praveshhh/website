@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { motion, useInView, useAnimation, AnimatePresence, useMotionValue, useTransform, useSpring } from 'framer-motion';
+import { motion, useInView, useAnimation, AnimatePresence, useMotionValue, useTransform, useSpring, useScroll } from 'framer-motion';
 import { Shield, Sparkles, Zap, Smartphone, CheckCircle, Send, ArrowRight, ArrowLeftRight, Phone, Mail, MapPin, Globe, Star, Laptop, Plane, Building, DollarSign, Calendar, MessageSquare } from 'lucide-react';
 import axios from 'axios';
 import TiltCard from './TiltCard';
@@ -144,210 +144,281 @@ function AnimatedStat({ val, label }) {
   );
 }
 
-// ─── 3D Glassmorphic Card & Pulsing Ledger Flow ───────────────────────────────
-function FintechPaymentsVisual3D() {
-  const [rotateX, setRotateX] = useState(0);
-  const [rotateY, setRotateY] = useState(0);
-  const cardRef = useRef(null);
+// ─── FintechX Premium Dashboard Mockup ─────────────────────────────────────────
+function FintechXDashboardVisual3D({ compact = false }) {
+  const containerRef = useRef(null);
+  
+  // Motion values for 3D mouse parallax tilt
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  
+  // Spring configurations for ultra smooth movements
+  const rotateX = useSpring(useTransform(y, [-0.5, 0.5], [15, -15]), { damping: 25, stiffness: 200 });
+  const rotateY = useSpring(useTransform(x, [-0.5, 0.5], [-15, 15]), { damping: 25, stiffness: 200 });
+  
+  // Scale spring
+  const scale = useSpring(1, { damping: 15, stiffness: 150 });
 
   const handleMouseMove = (e) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
     const width = rect.width;
     const height = rect.height;
     const mouseX = e.clientX - rect.left - width / 2;
     const mouseY = e.clientY - rect.top - height / 2;
-    const rX = -(mouseY / height) * 22;
-    const rY = (mouseX / width) * 22;
-    setRotateX(rX);
-    setRotateY(rY);
+    
+    // Normalize coordinates between -0.5 and 0.5
+    x.set(mouseX / width);
+    y.set(mouseY / height);
+  };
+
+  const handleMouseEnter = () => {
+    scale.set(1.03);
   };
 
   const handleMouseLeave = () => {
-    setRotateX(0);
-    setRotateY(0);
+    scale.set(1);
+    x.set(0);
+    y.set(0);
   };
 
-  const [txs, setTxs] = useState([
-    { id: 1, val: '₹10,500 via UPI', delay: 0 },
-    { id: 2, val: '₹4,200 via Card', delay: 1.2 },
-    { id: 3, val: '₹18,000 via NetBanking', delay: 2.4 }
+  // State for live simulated transactions feed
+  const [transactions, setTransactions] = useState([
+    { id: 1, type: 'Payout to Vendor', amt: '₹48,250.00', status: 'SUCCESS', time: 'Just now' },
+    { id: 2, type: 'UPI Collect QR', amt: '₹1,200.00', status: 'SUCCESS', time: '2m ago' },
+    { id: 3, type: 'Gateway Checkout', amt: '₹14,890.00', status: 'SUCCESS', time: '5m ago' }
   ]);
 
   useEffect(() => {
+    const types = ['Payout to Vendor', 'UPI Collect QR', 'Gateway Checkout', 'Virtual A/C Credit', 'AEPS Cash-Out'];
     const interval = setInterval(() => {
-      setTxs(prev => prev.map(t => {
-        const valList = ['₹1,200 via UPI', '₹28,500 via IMPS', '₹3,400 via Wallets', '₹15,000 via RuPay', '₹9,800 via Visa'];
-        return {
-          ...t,
-          val: valList[Math.floor(Math.random() * valList.length)]
-        };
-      }));
+      const randomType = types[Math.floor(Math.random() * types.length)];
+      const randomAmt = `₹${(Math.random() * 50000 + 500).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}`;
+      const newTx = {
+        id: Date.now(),
+        type: randomType,
+        amt: randomAmt,
+        status: 'SUCCESS',
+        time: 'Just now'
+      };
+      setTransactions(prev => [newTx, prev[0], prev[1]].slice(0, 3));
     }, 4500);
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <div style={{
-      position: 'relative',
-      width: '100%',
-      height: '350px',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      perspective: '1200px',
-      overflow: 'hidden',
-      borderRadius: '24px',
-      background: 'rgba(94, 92, 230, 0.02)',
-      border: '1px solid rgba(94, 92, 230, 0.08)'
-    }}>
-      <div style={{
-        position: 'absolute',
-        bottom: '0',
+    <div 
+      ref={containerRef}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      style={{
+        position: 'relative',
         width: '100%',
-        height: '100px',
-        background: 'linear-gradient(to top, rgba(94, 92, 230, 0.05), transparent)',
-        zIndex: 0
-      }} />
-
-      {txs.map((tx, idx) => (
-        <motion.div
-          key={tx.id}
-          initial={{ opacity: 0, y: 150, scale: 0.8 }}
-          animate={{
-            opacity: [0, 0.9, 0.9, 0],
-            y: [-20, -140, -180, -220],
-            scale: [0.85, 1, 1, 0.9],
-            x: idx === 0 ? [-50, -30, -50] : idx === 1 ? [0, 30, 10] : [60, 40, 50]
-          }}
-          transition={{
-            duration: 4,
-            repeat: Infinity,
-            delay: tx.delay,
-            ease: "easeInOut"
-          }}
-          style={{
-            position: 'absolute',
-            background: 'rgba(255, 255, 255, 0.9)',
-            border: '1.5px solid rgba(94, 92, 230, 0.15)',
-            boxShadow: '0 8px 24px rgba(94, 92, 230, 0.08)',
-            padding: '8px 14px',
-            borderRadius: '50px',
-            fontSize: '10px',
-            fontWeight: 800,
-            color: 'var(--text-primary)',
-            fontFamily: 'var(--font-mono)',
-            zIndex: 2,
-            display: 'flex',
-            alignItems: 'center',
-            gap: '6px'
-          }}
-        >
-          <span style={{ color: '#2DB84B' }}>⚡</span> {tx.val}
-        </motion.div>
-      ))}
-
+        maxWidth: compact ? '420px' : '520px',
+        height: compact ? '290px' : '420px',
+        margin: '0 auto',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        perspective: '1000px',
+        cursor: 'pointer'
+      }}
+    >
       <motion.div
-        ref={cardRef}
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
         style={{
-          width: '300px',
-          height: '180px',
-          borderRadius: '16px',
-          background: 'linear-gradient(135deg, rgba(27, 42, 107, 0.95) 0%, rgba(13, 22, 56, 0.98) 100%)',
-          border: '1.5px solid rgba(255, 255, 255, 0.12)',
-          boxShadow: '0 30px 60px rgba(13, 24, 64, 0.25), inset 0 1px 1px rgba(255,255,255,0.2)',
-          padding: '24px',
+          width: '100%',
+          height: '100%',
+          rotateX,
+          rotateY,
+          scale,
+          transformStyle: 'preserve-3d',
+          background: 'linear-gradient(135deg, rgba(10, 15, 38, 0.96) 0%, rgba(18, 24, 54, 0.94) 100%)',
+          backdropFilter: 'blur(20px)',
+          border: '1.5px solid rgba(94, 92, 230, 0.15)',
+          borderRadius: compact ? '24px' : '32px',
+          boxShadow: '0 40px 80px rgba(10, 15, 38, 0.35), inset 0 1px 1px rgba(255,255,255,0.05)',
+          padding: compact ? '20px' : '28px',
+          position: 'relative',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'space-between',
-          cursor: 'pointer',
-          position: 'relative',
-          zIndex: 1,
-          transformStyle: 'preserve-3d',
-          transform: `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`,
-          transition: 'transform 0.1s ease-out, box-shadow 0.3s ease'
-        }}
-        whileHover={{
-          boxShadow: '0 40px 80px rgba(94, 92, 230, 0.3), inset 0 1px 2px rgba(255,255,255,0.3)',
+          overflow: 'hidden'
         }}
       >
         <div style={{
           position: 'absolute',
           inset: 0,
-          background: 'radial-gradient(circle at 20% 30%, rgba(94, 92, 230, 0.25) 0%, transparent 60%)',
-          borderRadius: '14px',
-          pointerEvents: 'none'
+          backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.02) 1px, transparent 0)',
+          backgroundSize: '16px 16px',
+          pointerEvents: 'none',
+          zIndex: 0
+        }} />
+        
+        <div style={{
+          position: 'absolute',
+          width: compact ? '140px' : '200px',
+          height: compact ? '140px' : '200px',
+          borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(94,92,230,0.12) 0%, transparent 70%)',
+          top: '-30px',
+          right: '-30px',
+          pointerEvents: 'none',
+          zIndex: 0
         }} />
 
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', transform: 'translateZ(30px)' }}>
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <span style={{ fontSize: '12px', fontWeight: 900, letterSpacing: '1px', color: '#fff', fontFamily: 'var(--font-display)' }}>
-              BillsPay<span style={{ color: '#2DB84B' }}>24X7</span>✓
+        {/* Dashboard Header Info */}
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', position: 'relative', zIndex: 1 }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+            <span style={{ fontSize: '9px', textTransform: 'uppercase', letterSpacing: '2px', color: 'rgba(255,255,255,0.6)', fontWeight: 700, fontFamily: 'var(--font-mono)' }}>LIVE LEDGER</span>
+            <span style={{ fontSize: compact ? '17px' : '20px', fontWeight: 800, color: '#ffffff', display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+              ₹9,84,350.12 <span style={{ fontSize: '10px', color: '#2DB84B', background: 'rgba(45,184,75,0.15)', padding: '1px 5px', borderRadius: '4px', fontWeight: 700 }}>+12.4%</span>
             </span>
-            <span style={{ fontSize: '7px', textTransform: 'uppercase', letterSpacing: '2px', color: 'rgba(255,255,255,0.4)', marginTop: '2px' }}>Smart Merchant Link</span>
           </div>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M2 8a10 10 0 0 1 20 0" />
-            <path d="M5 12a7 7 0 0 1 14 0" />
-            <path d="M8 16a4 4 0 0 1 8 0" />
-          </svg>
+          <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#2DB84B', boxShadow: '0 0 8px #2DB84B' }} />
         </div>
 
-        <div style={{ display: 'flex', alignItems: 'center', gap: '14px', margin: '20px 0', transform: 'translateZ(20px)' }}>
-          <div style={{
-            width: '38px',
-            height: '28px',
-            borderRadius: '6px',
-            background: 'linear-gradient(135deg, #F3CE5E 0%, #D4AF37 50%, #B8901C 100%)',
-            border: '1px solid rgba(0,0,0,0.1)',
-            position: 'relative',
-            overflow: 'hidden'
-          }}>
-            <div style={{ position: 'absolute', top: '50%', left: 0, right: 0, height: '1px', background: 'rgba(0,0,0,0.15)' }} />
-            <div style={{ position: 'absolute', left: '33%', top: 0, bottom: 0, width: '1px', background: 'rgba(0,0,0,0.15)' }} />
-            <div style={{ position: 'absolute', left: '66%', top: 0, bottom: 0, width: '1px', background: 'rgba(0,0,0,0.15)' }} />
+        {/* Dynamic Charts row - skipped in compact mode */}
+        {!compact && (
+          <div style={{ display: 'grid', gridTemplateColumns: '1.1fr 0.9fr', gap: '20px', margin: '24px 0', position: 'relative', zIndex: 1 }}>
+            <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '16px', padding: '16px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+              <span style={{ fontSize: '11px', color: 'rgba(255,255,255,0.6)', fontWeight: 700, marginBottom: '12px', display: 'block' }}>REVENUE GROWTH</span>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', height: '80px', padding: '0 8px' }}>
+                {[60, 40, 80, 55, 95, 70, 90].map((h, i) => (
+                  <div key={i} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px' }}>
+                    <motion.div 
+                      initial={{ height: 0 }}
+                      animate={{ height: `${h}%` }}
+                      transition={{ delay: i * 0.05, duration: 0.8, ease: 'easeOut' }}
+                      style={{ 
+                        width: '12px', 
+                        borderRadius: '3px',
+                        background: i === 4 ? 'var(--accent-periwinkle)' : 'rgba(255,255,255,0.08)',
+                        boxShadow: i === 4 ? '0 0 12px var(--accent-periwinkle)' : 'none'
+                      }} 
+                    />
+                    <span style={{ fontSize: '8px', color: 'rgba(255,255,255,0.4)', fontFamily: 'var(--font-mono)' }}>M{i+1}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '16px', padding: '16px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
+              <svg width="84" height="84" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.04)" strokeWidth="12" />
+                <motion.circle 
+                  cx="50" cy="50" r="40" fill="none" stroke="var(--accent-periwinkle)" strokeWidth="12"
+                  strokeDasharray="251.2"
+                  initial={{ strokeDashoffset: 251.2 }}
+                  animate={{ strokeDashoffset: 251.2 - (251.2 * 0.55) }}
+                  transition={{ duration: 1.2, ease: 'easeOut' }}
+                  strokeLinecap="round"
+                  transform="rotate(-90 50 50)"
+                />
+                <motion.circle 
+                  cx="50" cy="50" r="40" fill="none" stroke="#2DB84B" strokeWidth="12"
+                  strokeDasharray="251.2"
+                  initial={{ strokeDashoffset: 251.2 }}
+                  animate={{ strokeDashoffset: 251.2 - (251.2 * 0.3) }}
+                  transition={{ duration: 1.2, delay: 0.2, ease: 'easeOut' }}
+                  strokeLinecap="round"
+                  transform="rotate(108 50 50)"
+                />
+              </svg>
+              <div style={{ position: 'absolute', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                <span style={{ fontSize: '12px', fontWeight: 800, color: '#ffffff' }}>55%</span>
+                <span style={{ fontSize: '7px', color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>PG VOL</span>
+              </div>
+            </div>
           </div>
-          <span style={{ fontSize: '10px', color: 'rgba(255,255,255,0.6)', fontWeight: 800, fontFamily: 'var(--font-mono)', letterSpacing: '0.5px' }}>
-            SECURE LEDGER L1
-          </span>
+        )}
+
+        {/* Live Transaction Feed List */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', position: 'relative', zIndex: 1, marginTop: compact ? '16px' : '0' }}>
+          <span style={{ fontSize: '10px', color: 'rgba(255,255,255,0.6)', fontWeight: 700, marginBottom: '2px' }}>LIVE LEDGER TRANSACTIONS</span>
+          
+          <AnimatePresence mode="popLayout">
+            {(compact ? transactions.slice(0, 2) : transactions).map((tx) => (
+              <motion.div
+                key={tx.id}
+                initial={{ opacity: 0, y: -8, scale: 0.98 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: 8, scale: 0.98 }}
+                transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                style={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                  background: 'rgba(255,255,255,0.03)',
+                  border: '1px solid rgba(255,255,255,0.06)',
+                  borderRadius: '10px',
+                  padding: compact ? '8px 12px' : '10px 16px',
+                  fontSize: '11px'
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#2DB84B' }} />
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '1px' }}>
+                    <span style={{ fontWeight: 700, color: '#ffffff' }}>{tx.type}</span>
+                    <span style={{ fontSize: '8px', color: 'rgba(255,255,255,0.4)' }}>{tx.time}</span>
+                  </div>
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'end', gap: '1px' }}>
+                  <span style={{ fontWeight: 800, color: '#ffffff', fontFamily: 'var(--font-mono)' }}>{tx.amt}</span>
+                  <span style={{ fontSize: '7px', color: '#2DB84B', fontWeight: 700, letterSpacing: '0.5px' }}>{tx.status}</span>
+                </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </div>
 
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', transform: 'translateZ(25px)' }}>
+        {/* ─── Visa Platinum Glassmorphic 3D Card ─── */}
+        <motion.div
+          style={{
+            position: 'absolute',
+            width: compact ? '160px' : '230px',
+            height: compact ? '100px' : '140px',
+            background: 'linear-gradient(135deg, rgba(94, 92, 230, 0.35) 0%, rgba(77, 60, 230, 0.2) 100%)',
+            backdropFilter: 'blur(30px)',
+            border: '1px solid rgba(255, 255, 255, 0.3)',
+            borderRadius: '12px',
+            boxShadow: '0 20px 40px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.3)',
+            padding: compact ? '12px' : '18px',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+            right: compact ? '-15px' : '-30px',
+            top: compact ? '30px' : '40px',
+            transform: compact ? 'translateZ(40px)' : 'translateZ(60px)',
+            pointerEvents: 'none',
+            zIndex: 10
+          }}
+          animate={{
+            y: [0, -6, 0],
+            rotateZ: [-2, 0, -2]
+          }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            ease: 'easeInOut'
+          }}
+        >
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start' }}>
+            <span style={{ fontSize: compact ? '9px' : '12px', fontWeight: 800, letterSpacing: '1px', color: '#ffffff', textShadow: '0 1px 2px rgba(0,0,0,0.3)' }}>BillsPay24X7</span>
+            <div style={{ width: compact ? '20px' : '28px', height: compact ? '12px' : '18px', background: 'rgba(255,255,255,0.15)', borderRadius: '3px', border: '1px solid rgba(255,255,255,0.25)' }} />
+          </div>
+          
           <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <span style={{ fontSize: '11px', color: '#fff', letterSpacing: '2.5px', fontFamily: 'var(--font-mono)' }}>•••• •••• •••• 2478</span>
-            <span style={{ fontSize: '7px', textTransform: 'uppercase', letterSpacing: '1px', color: 'rgba(255,255,255,0.5)', marginTop: '4px' }}>BILLSPAY MERCHANT</span>
+            <span style={{ fontSize: compact ? '8.5px' : '11px', color: '#ffffff', letterSpacing: '2px', fontFamily: 'var(--font-mono)', textShadow: '0 1px 2px rgba(0,0,0,0.4)', fontWeight: 600 }}>•••• •••• •••• 9843</span>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: compact ? '6px' : '12px' }}>
+              <span style={{ fontSize: '5px', color: 'rgba(255,255,255,0.7)', textTransform: 'uppercase', fontWeight: 700 }}>PLATINUM CHIP</span>
+              <div style={{ display: 'flex', position: 'relative', width: compact ? '16px' : '22px', height: compact ? '10px' : '14px' }}>
+                <div style={{ width: compact ? '10px' : '14px', height: compact ? '10px' : '14px', borderRadius: '50%', background: 'rgba(255,255,255,0.2)', position: 'absolute', left: 0 }} />
+                <div style={{ width: compact ? '10px' : '14px', height: compact ? '10px' : '14px', borderRadius: '50%', background: 'rgba(255,255,255,0.3)', position: 'absolute', right: 0 }} />
+              </div>
+            </div>
           </div>
-          <div style={{ display: 'flex', position: 'relative', width: '34px', height: '22px' }}>
-            <div style={{ width: '22px', height: '22px', borderRadius: '50%', background: 'rgba(235, 0, 27, 0.75)', position: 'absolute', left: 0 }} />
-            <div style={{ width: '22px', height: '22px', borderRadius: '50%', background: 'rgba(247, 158, 27, 0.75)', position: 'absolute', right: 0 }} />
-          </div>
-        </div>
-      </motion.div>
-
-      <motion.div
-        animate={{ y: [0, -10, 0] }}
-        transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-        style={{
-          position: 'absolute',
-          right: '25px',
-          bottom: '25px',
-          background: 'rgba(255, 255, 255, 0.1)',
-          border: '1px solid rgba(255, 255, 255, 0.2)',
-          borderRadius: '50%',
-          width: '32px',
-          height: '32px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          backdropFilter: 'blur(10px)',
-          fontSize: '12px',
-          color: '#fff',
-          zIndex: 2
-        }}
-      >
-        🛡️
+        </motion.div>
       </motion.div>
     </div>
   );
@@ -893,6 +964,14 @@ function NewsletterVisual3D() {
 
 // ─── Main export ──────────────────────────────────────────────────────────────
 export default function Hero({ onOpenAuth, backendUrl }) {
+  // Page Scroll progress
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
   // Contact form state
   const [contactData, setContactData] = useState({
     firstName: '',
@@ -1429,6 +1508,21 @@ export default function Hero({ onOpenAuth, backendUrl }) {
 
   return (
     <div style={{ paddingTop: '80px', overflowX: 'hidden' }}>
+      {/* Framer Scroll Progress Indicator */}
+      <motion.div
+        style={{
+          scaleX,
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          height: '4px',
+          background: 'linear-gradient(90deg, var(--accent-periwinkle) 0%, var(--accent-green) 100%)',
+          transformOrigin: '0%',
+          zIndex: 10000,
+          boxShadow: '0 0 8px rgba(94, 92, 230, 0.4)'
+        }}
+      />
       
       {/* 1. HERO SECTION */}
       <section className="hero-sec" style={{
@@ -1589,7 +1683,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
             </div>
           </div>
 
-          {/* Right Hero Visual: 3D stacked cards */}
+          {/* Right Hero Visual: FintechX Interactive Dashboard */}
           <motion.div
             initial={{ opacity: 0, scale: 0.92, x: 30 }}
             animate={{ opacity: 1, scale: 1, x: 0 }}
@@ -1597,214 +1691,11 @@ export default function Hero({ onOpenAuth, backendUrl }) {
             style={{
               display: 'flex',
               justifyContent: 'center',
-              position: 'relative'
+              position: 'relative',
+              width: '100%'
             }} className="hero-visual-container"
           >
-            {/* Subtle Float Metrics alongside the Card Stack */}
-            <div style={{
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '16px',
-              position: 'absolute',
-              left: '-20px',
-              top: '40px',
-              zIndex: 10
-            }} className="floating-hero-metrics">
-              {/* Metric 1 */}
-              <motion.div
-                className="card-cred"
-                style={{ padding: '12px 18px', display: 'flex', flexDirection: 'column', minHeight: 'auto', background: 'rgba(255, 255, 255, 0.75)', border: '1px solid rgba(255,255,255,0.9)', boxShadow: '0 8px 30px rgba(0,0,0,0.04)', borderRadius: '14px', width: '160px' }}
-                animate={{ y: [0, -8, 0] }}
-                transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
-              >
-                <span style={{ fontSize: '9px', color: 'var(--text-secondary)', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '0.03em' }}>Today's UPI Vol</span>
-                <span style={{ fontSize: '16px', color: 'var(--accent-green)', fontWeight: 800, fontFamily: 'var(--font-mono)', marginTop: '2px' }}>₹12.4 Lakhs</span>
-                <span style={{ fontSize: '8px', color: 'var(--text-muted)', marginTop: '2px' }}>Live Processing</span>
-              </motion.div>
-              {/* Metric 2 */}
-              <motion.div
-                className="card-cred"
-                style={{ padding: '12px 18px', display: 'flex', flexDirection: 'column', minHeight: 'auto', background: 'rgba(255, 255, 255, 0.75)', border: '1px solid rgba(255,255,255,0.9)', boxShadow: '0 8px 30px rgba(0,0,0,0.04)', borderRadius: '14px', width: '160px' }}
-                animate={{ y: [0, 8, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 0.8 }}
-              >
-                <span style={{ fontSize: '9px', color: 'var(--text-secondary)', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '0.03em' }}>Settlement Cycle</span>
-                <span style={{ fontSize: '16px', color: 'var(--accent-periwinkle)', fontWeight: 800, fontFamily: 'var(--font-mono)', marginTop: '2px' }}>T+1 Payouts</span>
-                <span style={{ fontSize: '8px', color: 'var(--text-muted)', marginTop: '2px' }}>RBI Compliant</span>
-              </motion.div>
-            </div>
-
-            <div 
-              ref={containerRef}
-              onMouseMove={handleMouseMove}
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={handleMouseLeave}
-              style={{
-                position: 'relative',
-                width: '320px',
-                height: '460px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                transformStyle: 'preserve-3d',
-                perspective: '1200px'
-              }}
-            >
-              
-              {/* Backplate Card 1 */}
-              <div 
-                className="backplate-card"
-                style={{
-                  position: 'absolute',
-                  width: '280px',
-                  height: '410px',
-                  background: 'rgba(255, 255, 255, 0.15)',
-                  border: '1px solid rgba(255, 255, 255, 0.35)',
-                  borderRadius: '20px',
-                  backdropFilter: 'blur(5px)',
-                  boxShadow: '0 10px 30px rgba(0,0,0,0.02)',
-                  transform: 'rotate(-10deg) translateZ(-45px)',
-                  transition: 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
-                  pointerEvents: 'none',
-                  zIndex: 1
-                }}
-              />
-
-              {/* Backplate Card 2 */}
-              <div 
-                className="backplate-card"
-                style={{
-                  position: 'absolute',
-                  width: '280px',
-                  height: '410px',
-                  background: 'rgba(255, 255, 255, 0.25)',
-                  border: '1px solid rgba(255, 255, 255, 0.45)',
-                  borderRadius: '20px',
-                  backdropFilter: 'blur(5px)',
-                  boxShadow: '0 10px 30px rgba(0,0,0,0.02)',
-                  transform: 'rotate(5deg) translateZ(-30px)',
-                  transition: 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
-                  pointerEvents: 'none',
-                  zIndex: 2
-                }}
-              />
-
-              {/* Backplate Card 3 */}
-              <div 
-                className="backplate-card"
-                style={{
-                  position: 'absolute',
-                  width: '280px',
-                  height: '410px',
-                  background: 'rgba(255, 255, 255, 0.35)',
-                  border: '1px solid rgba(255, 255, 255, 0.55)',
-                  borderRadius: '20px',
-                  backdropFilter: 'blur(5px)',
-                  boxShadow: '0 15px 35px rgba(0,0,0,0.03)',
-                  transform: 'rotate(-3deg) translateZ(-15px)',
-                  transition: 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
-                  pointerEvents: 'none',
-                  zIndex: 3
-                }}
-              />
-
-              {/* Periwinkle 3D Card */}
-              <div 
-                ref={cardRef}
-                className={`card-3d ${!isHovered ? 'card-idle-float' : ''}`}
-                style={{
-                  position: 'absolute',
-                  width: '280px',
-                  height: '410px',
-                  zIndex: 4,
-                  background: 'linear-gradient(135deg, #6E62F9 0%, #4D3CE6 100%)',
-                  border: '1px solid rgba(255, 255, 255, 0.2)',
-                  borderRadius: '20px',
-                  padding: '32px 24px',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
-                  boxShadow: '0 30px 60px rgba(94, 92, 230, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.3)',
-                  transition: isHovered ? 'none' : 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
-                  transformStyle: 'preserve-3d',
-                  overflow: 'hidden'
-                }}
-              >
-                <div className="card-glare" />
-
-                <div style={{
-                  position: 'absolute',
-                  inset: 0,
-                  opacity: 0.15,
-                  background: `url("data:image/svg+xml,%3Csvg width='280' height='410' viewBox='0 0 280 410' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M-50 200 C50 120, 150 280, 330 200 C330 200, 330 450, 330 450 L-50 450 Z' fill='%23FFFFFF' /%3E%3Cpath d='M-50 250 C80 180, 100 350, 330 260 L330 450 L-50 450 Z' fill='%23FFFFFF' opacity='0.5' /%3E%3C/svg%3E")`,
-                  backgroundSize: 'cover',
-                  pointerEvents: 'none'
-                }} />
-
-                {/* Card Top Details */}
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', transform: 'translateZ(30px)' }}>
-                  <span style={{ fontSize: '10px', fontWeight: 800, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#FFF', opacity: 0.8 }}>
-                    BillsPay24X7✓
-                  </span>
-                  <Shield size={20} color="#FFFFFF" style={{ opacity: 0.9 }} />
-                </div>
-
-                {/* Microchip */}
-                <div style={{ transform: 'translateZ(50px)', alignSelf: 'flex-start', margin: '20px 0' }}>
-                  <svg width="40" height="32" viewBox="0 0 40 32" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ opacity: 0.9 }}>
-                    <rect width="40" height="32" rx="6" fill="url(#chip-grad)" stroke="#D4AF37" strokeWidth="0.5" />
-                    <rect x="6" y="6" width="10" height="8" rx="2" stroke="#D4AF37" strokeWidth="0.5" />
-                    <rect x="24" y="6" width="10" height="8" rx="2" stroke="#D4AF37" strokeWidth="0.5" />
-                    <rect x="6" y="18" width="10" height="8" rx="2" stroke="#D4AF37" strokeWidth="0.5" />
-                    <rect x="24" y="18" width="10" height="8" rx="2" stroke="#D4AF37" strokeWidth="0.5" />
-                    <path d="M16 10H24M16 22H24M20 6V26" stroke="#D4AF37" strokeWidth="0.5" />
-                    <defs>
-                      <linearGradient id="chip-grad" x1="0" y1="0" x2="40" y2="32" gradientUnits="userSpaceOnUse">
-                        <stop stopColor="#FFE082" />
-                        <stop offset="0.5" stopColor="#FFC107" />
-                        <stop offset="1" stopColor="#FFA000" />
-                      </linearGradient>
-                    </defs>
-                  </svg>
-                </div>
-
-                {/* Card credentials */}
-                <div style={{ transform: 'translateZ(40px)', color: '#FFFFFF' }}>
-                  <p style={{ fontSize: '9px', color: 'rgba(255,255,255,0.6)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '8px' }}>
-                    merchant gateway status
-                  </p>
-                  <h4 style={{ fontSize: '18px', fontFamily: 'var(--font-mono)', fontWeight: 600, letterSpacing: '1.5px', marginBottom: '18px' }}>
-                    •••• •••• •••• 24X7
-                  </h4>
-                  
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
-                    <div>
-                      <span style={{ fontSize: '8px', color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', display: 'block', marginBottom: '2px' }}>settlements</span>
-                      <span style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', fontWeight: 700, color: '#fff' }}>T+1 Standard</span>
-                    </div>
-                    
-                    <div style={{ textAlign: 'right' }}>
-                      <span style={{ fontSize: '8px', color: 'rgba(255,255,255,0.5)', textTransform: 'uppercase', display: 'block', marginBottom: '2px' }}>MDR rate</span>
-                      <span style={{ fontSize: '11px', fontWeight: 700, color: '#FFF' }}>0.17% UPI</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Ambient Back Glow */}
-            <div style={{
-              position: 'absolute',
-              width: '260px',
-              height: '260px',
-              borderRadius: '50%',
-              background: 'radial-gradient(circle, rgba(94, 92, 230, 0.12) 0%, transparent 70%)',
-              top: '15%',
-              right: '-10px',
-              filter: 'blur(50px)',
-              zIndex: -1,
-              opacity: 0.8
-            }} />
+            <FintechXDashboardVisual3D />
           </motion.div>
         </div>
       </section>
@@ -1917,6 +1808,8 @@ export default function Hero({ onOpenAuth, backendUrl }) {
                     fontSize: '13px',
                     fontWeight: 700,
                     cursor: 'pointer',
+                    position: 'relative',
+                    overflow: 'hidden',
                     boxShadow: activeTab === tab.key ? '0 4px 12px rgba(0,0,0,0.04)' : 'none'
                   }}
                   className={`tab-btn ${activeTab === tab.key ? 'active' : ''}`}
@@ -1924,7 +1817,31 @@ export default function Hero({ onOpenAuth, backendUrl }) {
                   whileTap={{ scale: 0.96 }}
                   transition={{ type: 'spring', stiffness: 350, damping: 25 }}
                 >
-                  {tab.label}
+                  <span style={{ position: 'relative', zIndex: 1 }}>{tab.label}</span>
+                  {activeTab === tab.key && (
+                    <div style={{
+                      position: 'absolute',
+                      bottom: 0,
+                      left: '12%',
+                      right: '12%',
+                      height: '2px',
+                      background: 'rgba(94, 92, 230, 0.15)',
+                      borderRadius: '1px',
+                      overflow: 'hidden',
+                      zIndex: 2
+                    }}>
+                      <motion.div
+                        key={activeTab} // Resets keyframe animation when tab changes
+                        initial={{ width: '0%' }}
+                        animate={slideshowPaused ? { width: '0%' } : { width: '100%' }}
+                        transition={slideshowPaused ? { duration: 0 } : { duration: 6, ease: 'linear' }}
+                        style={{
+                          height: '100%',
+                          background: 'linear-gradient(90deg, var(--accent-periwinkle), var(--accent-green))'
+                        }}
+                      />
+                    </div>
+                  )}
                 </motion.button>
               ))}
             </div>
@@ -1993,7 +1910,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
 
                 {/* Sub-banner stats / 3D Visualizer */}
                 {activeTab === 'fintech' ? (
-                  <FintechPaymentsVisual3D />
+                  <FintechXDashboardVisual3D compact={true} />
                 ) : (
                   <div style={{
                     display: 'grid',

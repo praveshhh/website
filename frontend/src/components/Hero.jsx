@@ -824,6 +824,73 @@ function SolutionCardVisual3D({ tab, type }) {
   return null;
 }
 
+// ─── Newsletter 3D Visualizer ──────────────────────────────────────────────
+function NewsletterVisual3D() {
+  return (
+    <div style={{
+      width: '100%',
+      maxWidth: '320px',
+      height: '180px',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      position: 'relative',
+      overflow: 'hidden'
+    }}>
+      <motion.circle
+        cx="160" cy="90" r="40"
+        stroke="rgba(45,184,75,0.2)"
+        strokeWidth="1.5"
+        fill="none"
+        animate={{ scale: [1, 1.6, 1], opacity: [0.3, 0.7, 0.3] }}
+        transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+      />
+      <motion.circle
+        cx="160" cy="90" r="70"
+        stroke="rgba(94,92,230,0.15)"
+        strokeWidth="1"
+        fill="none"
+        animate={{ scale: [1, 1.4, 1], opacity: [0.1, 0.4, 0.1] }}
+        transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+      />
+      
+      <svg width="240" height="160" viewBox="0 0 240 160" style={{ position: 'relative', zIndex: 1 }}>
+        <ellipse cx="120" cy="130" rx="60" ry="12" fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth="1" />
+        <line x1="60" y1="130" x2="180" y2="130" stroke="rgba(255,255,255,0.15)" strokeWidth="1" />
+        <line x1="80" y1="124" x2="160" y2="124" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+        
+        <motion.g
+          animate={{ 
+            y: [0, -12, 0],
+            x: [0, 8, 0],
+            rotate: [0, 2, 0]
+          }}
+          transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}
+        >
+          <path d="M70 70 L 150 40 L 110 90 Z" fill="rgba(255, 255, 255, 0.15)" stroke="rgba(255, 255, 255, 0.8)" strokeWidth="2" strokeLinejoin="round" />
+          <path d="M110 90 L 150 40 L 120 100 Z" fill="rgba(255, 255, 255, 0.3)" stroke="rgba(255, 255, 255, 0.8)" strokeWidth="1.5" strokeLinejoin="round" />
+          <path d="M70 70 L 110 90 L 95 100 Z" fill="rgba(255, 255, 255, 0.08)" stroke="rgba(255, 255, 255, 0.5)" strokeWidth="1" />
+        </motion.g>
+
+        <motion.path
+          d="M130 30 Q 170 20 200 40"
+          stroke="rgba(45,184,75,0.4)"
+          strokeWidth="1.5"
+          fill="none"
+          strokeDasharray="4 4"
+        />
+        <motion.circle cx="200" cy="40" r="3" fill="#2DB84B"
+          animate={{ scale: [1, 1.5, 1] }} transition={{ duration: 1.5, repeat: Infinity }} />
+
+        <motion.circle cx="100" cy="110" r="2" fill="var(--accent-periwinkle)"
+          animate={{ y: [0, -40], opacity: [0, 1, 0] }} transition={{ duration: 2.2, repeat: Infinity }} />
+        <motion.circle cx="140" cy="115" r="2" fill="var(--accent-periwinkle)"
+          animate={{ y: [0, -35], opacity: [0, 1, 0] }} transition={{ duration: 1.8, repeat: Infinity, delay: 0.5 }} />
+      </svg>
+    </div>
+  );
+}
+
 // ─── Main export ──────────────────────────────────────────────────────────────
 export default function Hero({ onOpenAuth, backendUrl }) {
   // Contact form state
@@ -2096,7 +2163,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
 
       {/* 4. HOW IT WORKS (7 STEPS INTEGRATION) */}
       <section id="how-it-works" style={{
-        padding: '100px 8%',
+        padding: '70px 8%',
         background: 'rgba(255,255,255,0.4)',
         borderTop: '1px solid rgba(0, 0, 0, 0.03)'
       }}>
@@ -2225,7 +2292,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
 
       {/* 5. WHY US SECTION */}
       <section id="why-us" style={{
-        padding: '100px 8%',
+        padding: '70px 8%',
         background: 'rgba(255,255,255,0.2)',
         borderTop: '1px solid rgba(0, 0, 0, 0.03)'
       }}>
@@ -2262,7 +2329,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
 
       {/* 6. BUSINESS MODELS (WHO WE BUILD FOR) */}
       <section id="models" style={{
-        padding: '100px 8%',
+        padding: '70px 8%',
         background: 'rgba(255,255,255,0.4)',
         borderTop: '1px solid rgba(0, 0, 0, 0.03)'
       }}>
@@ -2301,7 +2368,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
 
       {/* 7. TESTIMONIALS SECTION */}
       <section id="testimonials" style={{
-        padding: '100px 8%',
+        padding: '70px 8%',
         background: 'rgba(255,255,255,0.2)',
         borderTop: '1px solid rgba(0, 0, 0, 0.03)'
       }}>
@@ -2391,7 +2458,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
 
       {/* 9. CONTACT US & ENQUIRY FORM */}
       <section id="contact" style={{
-        padding: '100px 8%',
+        padding: '70px 8%',
         background: 'rgba(255,255,255,0.2)'
       }}>
         <div style={{
@@ -2646,7 +2713,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
       </section>
 
       {/* 9. CASE STUDIES */}
-      <section style={{ padding: '80px 8%', background: 'var(--surf-1)' }}>
+      <section style={{ padding: '70px 8%', background: 'var(--surf-1)' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '48px' }}>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '28px', fontWeight: 800 }}>Success Stories</h2>
@@ -2675,23 +2742,60 @@ export default function Hero({ onOpenAuth, backendUrl }) {
       <FAQSection />
 
       {/* 11. NEWSLETTER */}
-      <section style={{ padding: '60px 8%', background: 'linear-gradient(135deg, #1B2A6B 0%, #243080 100%)', color: '#fff', textAlign: 'center' }}>
-        <div style={{ maxWidth: '600px', margin: '0 auto' }}>
-          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '26px', fontWeight: 800, marginBottom: '8px' }}>Subscribe to our Newsletter</h2>
-          <p style={{ fontSize: '13.5px', color: 'rgba(255,255,255,0.7)', marginBottom: '24px' }}>Get the latest updates on fintech APIs, travel technology trends, and Lucknow IT developments.</p>
-          <div style={{ display: 'flex', gap: '10px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <input 
-              type="email" 
-              placeholder="Enter your email" 
-              style={{ padding: '12px 18px', borderRadius: '8px', border: 'none', width: '280px', fontSize: '13px', outline: 'none', color: '#1B2A6B' }} 
-            />
-            <button 
-              onClick={() => window.open('https://wa.me/919278403522?text=Subscribe%20to%20Newsletter', '_blank')}
-              className="btn-cred-neon" 
-              style={{ padding: '12px 24px', fontSize: '13px' }}
-            >
-              Subscribe →
-            </button>
+      <section style={{ 
+        padding: '50px 8%', 
+        background: 'rgba(255,255,255,0.2)', 
+        borderTop: '1px solid rgba(0, 0, 0, 0.03)' 
+      }}>
+        <div style={{
+          maxWidth: '1000px',
+          margin: '0 auto',
+          background: 'linear-gradient(135deg, #1B2A6B 0%, #152055 100%)',
+          color: '#fff',
+          borderRadius: '24px',
+          padding: '48px 48px',
+          display: 'grid',
+          gridTemplateColumns: '1.2fr 0.8fr',
+          gap: '40px',
+          alignItems: 'center',
+          textAlign: 'left',
+          boxShadow: '0 20px 40px rgba(27, 42, 109, 0.15)',
+          border: '1.5px solid rgba(255, 255, 255, 0.05)'
+        }} className="grid-responsive-newsletter">
+          <div>
+            <span style={{ fontSize: '11px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.12em', color: '#2DB84B', display: 'block', marginBottom: '8px' }}>
+              stay updated
+            </span>
+            <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '28px', fontWeight: 800, marginBottom: '12px' }}>Subscribe to our Newsletter</h2>
+            <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.7)', marginBottom: '28px', lineHeight: '1.6' }}>
+              Get the latest updates on fintech APIs, travel technology trends, and Lucknow IT developments directly in your inbox.
+            </p>
+            <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+              <input 
+                type="email" 
+                placeholder="Enter your email" 
+                style={{ 
+                  padding: '14px 20px', 
+                  borderRadius: '10px', 
+                  border: '1px solid rgba(255,255,255,0.1)', 
+                  width: '280px', 
+                  fontSize: '13px', 
+                  outline: 'none', 
+                  color: '#fff',
+                  background: 'rgba(255,255,255,0.06)'
+                }} 
+              />
+              <button 
+                onClick={() => window.open('https://wa.me/919278403522?text=Subscribe%20to%20Newsletter', '_blank')}
+                className="btn-cred-neon" 
+                style={{ padding: '14px 28px', fontSize: '13px', borderRadius: '10px' }}
+              >
+                Subscribe →
+              </button>
+            </div>
+          </div>
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <NewsletterVisual3D />
           </div>
         </div>
       </section>
@@ -2767,7 +2871,7 @@ function FAQSection() {
     { q: 'Who handles customer support?', a: 'We provide dedicated 24×7 customer support via WhatsApp, phone, and email to assist you with any transaction or API issues.' }
   ];
   return (
-    <section style={{ padding: '80px 8%', background: '#fff' }}>
+    <section style={{ padding: '70px 8%', background: '#fff' }}>
       <div style={{ maxWidth: '800px', margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: '40px' }}>
           <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '28px', fontWeight: 800 }}>Frequently Asked Questions</h2>

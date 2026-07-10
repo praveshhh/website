@@ -508,6 +508,17 @@ a {
     grid-template-columns: 1fr !important;
     gap: 48px !important;
   }
+  .grid-responsive-newsletter {
+    grid-template-columns: 1fr !important;
+    text-align: center !important;
+    gap: 32px !important;
+    padding: 32px 24px !important;
+  }
+  .grid-responsive-newsletter > div:first-child {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   .grid-responsive-footer {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 32px !important;

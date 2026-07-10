@@ -353,6 +353,174 @@ function FintechPaymentsVisual3D() {
   );
 }
 
+// ─── 3D Mini Graphics for Fintech Cards ──────────────────────────────────────
+function FintechCardVisual3D({ type }) {
+  if (type === 'Payment Gateway') {
+    return (
+      <div style={{
+        width: '100%',
+        height: '110px',
+        background: 'linear-gradient(135deg, rgba(45,184,75,0.06) 0%, rgba(45,184,75,0.02) 100%)',
+        borderBottom: '1px solid rgba(45,184,75,0.1)',
+        borderRadius: '12px 12px 0 0',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: 'relative',
+        overflow: 'hidden',
+        marginBottom: '16px'
+      }}>
+        <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at center, rgba(45,184,75,0.15) 0%, transparent 60%)' }} />
+        
+        <svg width="120" height="80" viewBox="0 0 120 80" style={{ position: 'relative', zIndex: 1 }}>
+          <rect x="45" y="10" width="30" height="60" rx="4" fill="none" stroke="#2DB84B" strokeWidth="2" />
+          <line x1="55" y1="65" x2="65" y2="65" stroke="#2DB84B" strokeWidth="2" strokeLinecap="round" />
+          <rect x="50" y="16" width="20" height="42" rx="1" fill="rgba(45,184,75,0.1)" />
+          <motion.g
+            animate={{ y: [0, -6, 0], rotate: [0, -3, 0] }}
+            transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+          >
+            <rect x="20" y="24" width="45" height="28" rx="3" fill="#1B2A6B" stroke="rgba(255,255,255,0.2)" strokeWidth="1" />
+            <rect x="25" y="29" width="10" height="7" rx="1" fill="#F3CE5E" />
+            <line x1="25" y1="44" x2="45" y2="44" stroke="rgba(255,255,255,0.4)" strokeWidth="2" />
+          </motion.g>
+          <motion.circle cx="82" cy="22" r="10" fill="#2DB84B"
+            animate={{ scale: [1, 1.15, 1] }} transition={{ duration: 2, repeat: Infinity, delay: 0.5 }} />
+          <path d="M78 22l3 3 5-5" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        </svg>
+      </div>
+    );
+  }
+
+  if (type === 'UPI Collections') {
+    return (
+      <div style={{
+        width: '100%',
+        height: '110px',
+        background: 'linear-gradient(135deg, rgba(94,92,230,0.06) 0%, rgba(94,92,230,0.02) 100%)',
+        borderBottom: '1px solid rgba(94,92,230,0.1)',
+        borderRadius: '12px 12px 0 0',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: 'relative',
+        overflow: 'hidden',
+        marginBottom: '16px'
+      }}>
+        <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at center, rgba(94,92,230,0.15) 0%, transparent 60%)' }} />
+        
+        <svg width="120" height="80" viewBox="0 0 120 80" style={{ position: 'relative', zIndex: 1 }}>
+          <rect x="42" y="12" width="36" height="36" rx="3" fill="none" stroke="var(--accent-periwinkle)" strokeWidth="2" />
+          <rect x="46" y="16" width="10" height="10" fill="var(--accent-periwinkle)" />
+          <rect x="64" y="16" width="10" height="10" fill="var(--accent-periwinkle)" />
+          <rect x="46" y="34" width="10" height="10" fill="var(--accent-periwinkle)" />
+          <rect x="66" y="36" width="6" height="6" fill="var(--accent-periwinkle)" />
+          <motion.line x1="36" y1="12" x2="84" y2="12" stroke="#2DB84B" strokeWidth="2"
+            animate={{ y: [0, 36, 0] }} transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }} />
+          <motion.rect x="36" y="12" width="48" height="2" fill="rgba(45,184,75,0.4)"
+            animate={{ y: [0, 36, 0] }} transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }} />
+          <motion.path d="M18 55c5 0 9-4 9-9" stroke="var(--accent-periwinkle)" strokeWidth="2" strokeDasharray="3 3" fill="none" />
+          <motion.g
+            animate={{ x: [-20, 40], y: [60, 40], opacity: [0, 1, 0] }}
+            transition={{ duration: 2.5, repeat: Infinity }}
+          >
+            <circle cx="20" cy="55" r="3" fill="#2DB84B" />
+          </motion.g>
+          <text x="60" y="65" textAnchor="middle" fontSize="9" fontWeight="800" fill="var(--accent-periwinkle)" fontFamily="var(--font-mono)">DYNAMIC QR</text>
+        </svg>
+      </div>
+    );
+  }
+
+  if (type === 'Virtual Accounts') {
+    return (
+      <div style={{
+        width: '100%',
+        height: '110px',
+        background: 'linear-gradient(135deg, rgba(14,165,233,0.06) 0%, rgba(14,165,233,0.02) 100%)',
+        borderBottom: '1px solid rgba(14,165,233,0.1)',
+        borderRadius: '12px 12px 0 0',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: 'relative',
+        overflow: 'hidden',
+        marginBottom: '16px'
+      }}>
+        <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at center, rgba(14,165,233,0.15) 0%, transparent 60%)' }} />
+        
+        <svg width="120" height="80" viewBox="0 0 120 80" style={{ position: 'relative', zIndex: 1 }}>
+          <circle cx="60" cy="35" r="20" fill="none" stroke="#0EA5E9" strokeWidth="2" />
+          <motion.circle cx="60" cy="35" r="14" fill="none" stroke="#0EA5E9" strokeWidth="1" strokeDasharray="4 2"
+            animate={{ rotate: 360 }} transition={{ duration: 10, repeat: Infinity, ease: 'linear' }} />
+          <circle cx="60" cy="35" r="6" fill="#0EA5E9" />
+          
+          <circle cx="20" cy="20" r="6" fill="rgba(14,165,233,0.2)" stroke="#0EA5E9" strokeWidth="1.5" />
+          <circle cx="20" cy="50" r="6" fill="rgba(14,165,233,0.2)" stroke="#0EA5E9" strokeWidth="1.5" />
+          <circle cx="100" cy="20" r="6" fill="rgba(14,165,233,0.2)" stroke="#0EA5E9" strokeWidth="1.5" />
+          <circle cx="100" cy="50" r="6" fill="rgba(14,165,233,0.2)" stroke="#0EA5E9" strokeWidth="1.5" />
+
+          <line x1="26" y1="22" x2="42" y2="28" stroke="rgba(14,165,233,0.4)" strokeWidth="1.5" />
+          <line x1="26" y1="48" x2="42" y2="42" stroke="rgba(14,165,233,0.4)" strokeWidth="1.5" />
+          <line x1="94" y1="22" x2="78" y2="28" stroke="rgba(14,165,233,0.4)" strokeWidth="1.5" />
+          <line x1="94" y1="48" x2="78" y2="42" stroke="rgba(14,165,233,0.4)" strokeWidth="1.5" />
+
+          <motion.circle cx="34" cy="25" r="2" fill="#2DB84B"
+            animate={{ cx: [26, 42], cy: [22, 28] }} transition={{ duration: 2, repeat: Infinity, ease: 'linear' }} />
+          <motion.circle cx="86" cy="45" r="2" fill="#2DB84B"
+            animate={{ cx: [78, 94], cy: [42, 48] }} transition={{ duration: 2, repeat: Infinity, ease: 'linear' }} />
+            
+          <text x="60" y="68" textAnchor="middle" fontSize="9" fontWeight="800" fill="#0EA5E9" fontFamily="var(--font-mono)">AUTO ROUTING</text>
+        </svg>
+      </div>
+    );
+  }
+
+  if (type === 'Payout API') {
+    return (
+      <div style={{
+        width: '100%',
+        height: '110px',
+        background: 'linear-gradient(135deg, rgba(245,158,11,0.06) 0%, rgba(245,158,11,0.02) 100%)',
+        borderBottom: '1px solid rgba(245,158,11,0.1)',
+        borderRadius: '12px 12px 0 0',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: 'relative',
+        overflow: 'hidden',
+        marginBottom: '16px'
+      }}>
+        <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at center, rgba(245,158,11,0.15) 0%, transparent 60%)' }} />
+        
+        <svg width="120" height="80" viewBox="0 0 120 80" style={{ position: 'relative', zIndex: 1 }}>
+          <rect x="48" y="24" width="24" height="24" rx="4" fill="none" stroke="#F59E0B" strokeWidth="2" />
+          <circle cx="60" cy="36" r="4" fill="#F59E0B" />
+
+          <circle cx="15" cy="36" r="5" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="1.5" />
+          <circle cx="60" cy="10" r="5" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="1.5" />
+          <circle cx="105" cy="36" r="5" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="1.5" />
+
+          <line x1="48" y1="36" x2="20" y2="36" stroke="rgba(245,158,11,0.4)" strokeWidth="1.5" />
+          <line x1="60" y1="24" x2="60" y2="15" stroke="rgba(245,158,11,0.4)" strokeWidth="1.5" />
+          <line x1="72" y1="36" x2="100" y2="36" stroke="rgba(245,158,11,0.4)" strokeWidth="1.5" />
+
+          <motion.circle cx="48" cy="36" r="2.5" fill="#2DB84B"
+            animate={{ cx: [48, 20] }} transition={{ duration: 1.5, repeat: Infinity, ease: 'easeOut' }} />
+          <motion.circle cx="60" cy="24" r="2.5" fill="#2DB84B"
+            animate={{ cy: [24, 15] }} transition={{ duration: 1.5, repeat: Infinity, ease: 'easeOut' }} />
+          <motion.circle cx="72" cy="36" r="2.5" fill="#2DB84B"
+            animate={{ cx: [72, 100] }} transition={{ duration: 1.5, repeat: Infinity, ease: 'easeOut' }} />
+
+          <text x="60" y="65" textAnchor="middle" fontSize="9" fontWeight="800" fill="#F59E0B" fontFamily="var(--font-mono)">REALTIME 24×7</text>
+        </svg>
+      </div>
+    );
+  }
+
+  return null;
+}
+
 // ─── Main export ──────────────────────────────────────────────────────────────
 export default function Hero({ onOpenAuth, backendUrl }) {
   // Contact form state
@@ -1568,42 +1736,82 @@ export default function Hero({ onOpenAuth, backendUrl }) {
               }}>
                 {tabInfo[activeTab].cards.map((sol, index) => (
                   <TiltCard key={index} style={{ height: '100%' }}>
-                    <StaggerCard className="card-cred" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '100%', width: '100%' }}>
-                    <div>
-                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
-                        <span style={{ fontSize: '18px', color: 'var(--text-primary)', fontWeight: 800 }}>{sol.title}</span>
-                        <span className="btn-cred-outline" style={{ pointerEvents: 'none', padding: '3px 10px', fontSize: '10px', background: 'rgba(0,0,0,0.02)', color: 'var(--text-secondary)' }}>
-                          {sol.tag}
-                        </span>
-                      </div>
-                      <p style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: '1.6', marginBottom: '18px' }}>{sol.desc}</p>
-                      
-                      {/* Bullet lists */}
-                      <ul style={{ listStyle: 'none', padding: 0 }}>
-                        {sol.feats.map((feat, idx) => (
-                          <motion.li
-                            key={idx}
-                            initial={{ opacity: 0, x: -8 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: idx * 0.05, duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                            style={{ display: 'flex', gap: '8px', fontSize: '12px', color: 'var(--text-primary)', marginBottom: '8px', alignItems: 'flex-start' }}
-                          >
-                            <span style={{ color: 'var(--accent-periwinkle)', fontWeight: 'bold' }}>✓</span>
-                            <span>{feat}</span>
-                          </motion.li>
-                        ))}
-                      </ul>
-                    </div>
+                    {activeTab === 'fintech' ? (
+                      <StaggerCard className="card-cred" style={{ padding: 0, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '100%', width: '100%' }}>
+                        <div>
+                          <FintechCardVisual3D type={sol.title} />
+                          <div style={{ padding: '0 24px 24px' }}>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+                              <span style={{ fontSize: '18px', color: 'var(--text-primary)', fontWeight: 800 }}>{sol.title}</span>
+                              <span className="btn-cred-outline" style={{ pointerEvents: 'none', padding: '3px 10px', fontSize: '10px', background: 'rgba(0,0,0,0.02)', color: 'var(--text-secondary)' }}>
+                                {sol.tag}
+                              </span>
+                            </div>
+                            <p style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: '1.6', marginBottom: '18px' }}>{sol.desc}</p>
+                            
+                            <ul style={{ listStyle: 'none', padding: 0 }}>
+                              {sol.feats.map((feat, idx) => (
+                                <motion.li
+                                  key={idx}
+                                  initial={{ opacity: 0, x: -8 }}
+                                  animate={{ opacity: 1, x: 0 }}
+                                  transition={{ delay: idx * 0.05, duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                                  style={{ display: 'flex', gap: '8px', fontSize: '12px', color: 'var(--text-primary)', marginBottom: '8px', alignItems: 'flex-start' }}
+                                >
+                                  <span style={{ color: 'var(--accent-periwinkle)', fontWeight: 'bold' }}>✓</span>
+                                  <span>{feat}</span>
+                                </motion.li>
+                              ))}
+                            </ul>
+                          </div>
+                        </div>
 
-                    <div style={{ borderTop: '1px solid rgba(0,0,0,0.05)', paddingTop: '16px', marginTop: '20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                      <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600 }}>{sol.tag === 'Full-Stack' ? '0.17% MDR · T+1' : sol.tag === 'Last-Mile Banking' ? 'CSP Agent commission' : 'REST API Ready'}</span>
-                      <button onClick={() => scrollToId('contact')} style={{ background: 'none', border: 'none', color: 'var(--accent-periwinkle)', fontSize: '12px', fontWeight: 700, cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
-                        Explore <ArrowRight size={10} />
-                      </button>
-                    </div>
-                  </StaggerCard>
-                </TiltCard>
-              ))}
+                        <div style={{ padding: '0 24px 24px' }}>
+                          <div style={{ borderTop: '1px solid rgba(0,0,0,0.05)', paddingTop: '16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                            <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600 }}>{sol.tag === 'Full-Stack' ? '0.17% MDR · T+1' : 'REST API Ready'}</span>
+                            <button onClick={() => scrollToId('contact')} style={{ background: 'none', border: 'none', color: 'var(--accent-periwinkle)', fontSize: '12px', fontWeight: 700, cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                              Explore <ArrowRight size={10} />
+                            </button>
+                          </div>
+                        </div>
+                      </StaggerCard>
+                    ) : (
+                      <StaggerCard className="card-cred" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '100%', width: '100%' }}>
+                        <div>
+                          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+                            <span style={{ fontSize: '18px', color: 'var(--text-primary)', fontWeight: 800 }}>{sol.title}</span>
+                            <span className="btn-cred-outline" style={{ pointerEvents: 'none', padding: '3px 10px', fontSize: '10px', background: 'rgba(0,0,0,0.02)', color: 'var(--text-secondary)' }}>
+                              {sol.tag}
+                            </span>
+                          </div>
+                          <p style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: '1.6', marginBottom: '18px' }}>{sol.desc}</p>
+                          
+                          <ul style={{ listStyle: 'none', padding: 0 }}>
+                            {sol.feats.map((feat, idx) => (
+                              <motion.li
+                                key={idx}
+                                initial={{ opacity: 0, x: -8 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ delay: idx * 0.05, duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                                style={{ display: 'flex', gap: '8px', fontSize: '12px', color: 'var(--text-primary)', marginBottom: '8px', alignItems: 'flex-start' }}
+                              >
+                                <span style={{ color: 'var(--accent-periwinkle)', fontWeight: 'bold' }}>✓</span>
+                                <span>{feat}</span>
+                              </motion.li>
+                            ))}
+                          </ul>
+                        </div>
+
+                        <div style={{ borderTop: '1px solid rgba(0,0,0,0.05)', paddingTop: '16px', marginTop: '20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                          <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600 }}>{sol.tag === 'Full-Stack' ? '0.17% MDR · T+1' : sol.tag === 'Last-Mile Banking' ? 'CSP Agent commission' : 'REST API Ready'}</span>
+                          <button onClick={() => scrollToId('contact')} style={{ background: 'none', border: 'none', color: 'var(--accent-periwinkle)', fontSize: '12px', fontWeight: 700, cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                            Explore <ArrowRight size={10} />
+                          </button>
+                        </div>
+                      </StaggerCard>
+                    )}
+                  </TiltCard>
+                ))}
               </StaggerGrid>
             </motion.div>
           </AnimatePresence>

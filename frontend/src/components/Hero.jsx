@@ -353,15 +353,174 @@ function FintechPaymentsVisual3D() {
   );
 }
 
-// ─── 3D Mini Graphics for Fintech Cards ──────────────────────────────────────
-function FintechCardVisual3D({ type }) {
-  if (type === 'Payment Gateway') {
+// ─── 3D Mini Graphics for all Solution Cards ──────────────────────────────────
+function SolutionCardVisual3D({ tab, type }) {
+  // FINTECH TAB VISUALS
+  if (tab === 'fintech') {
+    if (type === 'Payment Gateway') {
+      return (
+        <div style={{
+          width: '100%',
+          height: '110px',
+          background: 'linear-gradient(135deg, rgba(45,184,75,0.06) 0%, rgba(45,184,75,0.02) 100%)',
+          borderBottom: '1px solid rgba(45,184,75,0.1)',
+          borderRadius: '12px 12px 0 0',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          position: 'relative',
+          overflow: 'hidden',
+          marginBottom: '16px'
+        }}>
+          <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at center, rgba(45,184,75,0.15) 0%, transparent 60%)' }} />
+          <svg width="120" height="80" viewBox="0 0 120 80" style={{ position: 'relative', zIndex: 1 }}>
+            <rect x="45" y="10" width="30" height="60" rx="4" fill="none" stroke="#2DB84B" strokeWidth="2" />
+            <line x1="55" y1="65" x2="65" y2="65" stroke="#2DB84B" strokeWidth="2" strokeLinecap="round" />
+            <rect x="50" y="16" width="20" height="42" rx="1" fill="rgba(45,184,75,0.1)" />
+            <motion.g
+              animate={{ y: [0, -6, 0], rotate: [0, -3, 0] }}
+              transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+            >
+              <rect x="20" y="24" width="45" height="28" rx="3" fill="#1B2A6B" stroke="rgba(255,255,255,0.2)" strokeWidth="1" />
+              <rect x="25" y="29" width="10" height="7" rx="1" fill="#F3CE5E" />
+              <line x1="25" y1="44" x2="45" y2="44" stroke="rgba(255,255,255,0.4)" strokeWidth="2" />
+            </motion.g>
+            <motion.circle cx="82" cy="22" r="10" fill="#2DB84B"
+              animate={{ scale: [1, 1.15, 1] }} transition={{ duration: 2, repeat: Infinity, delay: 0.5 }} />
+            <path d="M78 22l3 3 5-5" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+          </svg>
+        </div>
+      );
+    }
+    if (type === 'UPI Collections') {
+      return (
+        <div style={{
+          width: '100%',
+          height: '110px',
+          background: 'linear-gradient(135deg, rgba(94,92,230,0.06) 0%, rgba(94,92,230,0.02) 100%)',
+          borderBottom: '1px solid rgba(94,92,230,0.1)',
+          borderRadius: '12px 12px 0 0',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          position: 'relative',
+          overflow: 'hidden',
+          marginBottom: '16px'
+        }}>
+          <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at center, rgba(94,92,230,0.15) 0%, transparent 60%)' }} />
+          <svg width="120" height="80" viewBox="0 0 120 80" style={{ position: 'relative', zIndex: 1 }}>
+            <rect x="42" y="12" width="36" height="36" rx="3" fill="none" stroke="var(--accent-periwinkle)" strokeWidth="2" />
+            <rect x="46" y="16" width="10" height="10" fill="var(--accent-periwinkle)" />
+            <rect x="64" y="16" width="10" height="10" fill="var(--accent-periwinkle)" />
+            <rect x="46" y="34" width="10" height="10" fill="var(--accent-periwinkle)" />
+            <rect x="66" y="36" width="6" height="6" fill="var(--accent-periwinkle)" />
+            <motion.line x1="36" y1="12" x2="84" y2="12" stroke="#2DB84B" strokeWidth="2"
+              animate={{ y: [0, 36, 0] }} transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }} />
+            <motion.rect x="36" y="12" width="48" height="2" fill="rgba(45,184,75,0.4)"
+              animate={{ y: [0, 36, 0] }} transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }} />
+            <motion.path d="M18 55c5 0 9-4 9-9" stroke="var(--accent-periwinkle)" strokeWidth="2" strokeDasharray="3 3" fill="none" />
+            <motion.g
+              animate={{ x: [-20, 40], y: [60, 40], opacity: [0, 1, 0] }}
+              transition={{ duration: 2.5, repeat: Infinity }}
+            >
+              <circle cx="20" cy="55" r="3" fill="#2DB84B" />
+            </motion.g>
+            <text x="60" y="65" textAnchor="middle" fontSize="9" fontWeight="800" fill="var(--accent-periwinkle)" fontFamily="var(--font-mono)">DYNAMIC QR</text>
+          </svg>
+        </div>
+      );
+    }
+    if (type === 'Virtual Accounts') {
+      return (
+        <div style={{
+          width: '100%',
+          height: '110px',
+          background: 'linear-gradient(135deg, rgba(14,165,233,0.06) 0%, rgba(14,165,233,0.02) 100%)',
+          borderBottom: '1px solid rgba(14,165,233,0.1)',
+          borderRadius: '12px 12px 0 0',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          position: 'relative',
+          overflow: 'hidden',
+          marginBottom: '16px'
+        }}>
+          <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at center, rgba(14,165,233,0.15) 0%, transparent 60%)' }} />
+          <svg width="120" height="80" viewBox="0 0 120 80" style={{ position: 'relative', zIndex: 1 }}>
+            <circle cx="60" cy="35" r="20" fill="none" stroke="#0EA5E9" strokeWidth="2" />
+            <motion.circle cx="60" cy="35" r="14" fill="none" stroke="#0EA5E9" strokeWidth="1" strokeDasharray="4 2"
+              animate={{ rotate: 360 }} transition={{ duration: 10, repeat: Infinity, ease: 'linear' }} />
+            <circle cx="60" cy="35" r="6" fill="#0EA5E9" />
+            <circle cx="20" cy="20" r="6" fill="rgba(14,165,233,0.2)" stroke="#0EA5E9" strokeWidth="1.5" />
+            <circle cx="20" cy="50" r="6" fill="rgba(14,165,233,0.2)" stroke="#0EA5E9" strokeWidth="1.5" />
+            <circle cx="100" cy="20" r="6" fill="rgba(14,165,233,0.2)" stroke="#0EA5E9" strokeWidth="1.5" />
+            <circle cx="100" cy="50" r="6" fill="rgba(14,165,233,0.2)" stroke="#0EA5E9" strokeWidth="1.5" />
+            <line x1="26" y1="22" x2="42" y2="28" stroke="rgba(14,165,233,0.4)" strokeWidth="1.5" />
+            <line x1="26" y1="48" x2="42" y2="42" stroke="rgba(14,165,233,0.4)" strokeWidth="1.5" />
+            <line x1="94" y1="22" x2="78" y2="28" stroke="rgba(14,165,233,0.4)" strokeWidth="1.5" />
+            <line x1="94" y1="48" x2="78" y2="42" stroke="rgba(14,165,233,0.4)" strokeWidth="1.5" />
+            <motion.circle cx="34" cy="25" r="2" fill="#2DB84B"
+              animate={{ cx: [26, 42], cy: [22, 28] }} transition={{ duration: 2, repeat: Infinity, ease: 'linear' }} />
+            <motion.circle cx="86" cy="45" r="2" fill="#2DB84B"
+              animate={{ cx: [78, 94], cy: [42, 48] }} transition={{ duration: 2, repeat: Infinity, ease: 'linear' }} />
+            <text x="60" y="68" textAnchor="middle" fontSize="9" fontWeight="800" fill="#0EA5E9" fontFamily="var(--font-mono)">AUTO ROUTING</text>
+          </svg>
+        </div>
+      );
+    }
+    if (type === 'Payout API') {
+      return (
+        <div style={{
+          width: '100%',
+          height: '110px',
+          background: 'linear-gradient(135deg, rgba(245,158,11,0.06) 0%, rgba(245,158,11,0.02) 100%)',
+          borderBottom: '1px solid rgba(245,158,11,0.1)',
+          borderRadius: '12px 12px 0 0',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          position: 'relative',
+          overflow: 'hidden',
+          marginBottom: '16px'
+        }}>
+          <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at center, rgba(245,158,11,0.15) 0%, transparent 60%)' }} />
+          <svg width="120" height="80" viewBox="0 0 120 80" style={{ position: 'relative', zIndex: 1 }}>
+            <rect x="48" y="24" width="24" height="24" rx="4" fill="none" stroke="#F59E0B" strokeWidth="2" />
+            <circle cx="60" cy="36" r="4" fill="#F59E0B" />
+            <circle cx="15" cy="36" r="5" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="1.5" />
+            <circle cx="60" cy="10" r="5" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="1.5" />
+            <circle cx="105" cy="36" r="5" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="1.5" />
+            <line x1="48" y1="36" x2="20" y2="36" stroke="rgba(245,158,11,0.4)" strokeWidth="1.5" />
+            <line x1="60" y1="24" x2="60" y2="15" stroke="rgba(245,158,11,0.4)" strokeWidth="1.5" />
+            <line x1="72" y1="36" x2="100" y2="36" stroke="rgba(245,158,11,0.4)" strokeWidth="1.5" />
+            <motion.circle cx="48" cy="36" r="2.5" fill="#2DB84B"
+              animate={{ cx: [48, 20] }} transition={{ duration: 1.5, repeat: Infinity, ease: 'easeOut' }} />
+            <motion.circle cx="60" cy="24" r="2.5" fill="#2DB84B"
+              animate={{ cy: [24, 15] }} transition={{ duration: 1.5, repeat: Infinity, ease: 'easeOut' }} />
+            <motion.circle cx="72" cy="36" r="2.5" fill="#2DB84B"
+              animate={{ cx: [72, 100] }} transition={{ duration: 1.5, repeat: Infinity, ease: 'easeOut' }} />
+            <text x="60" y="65" textAnchor="middle" fontSize="9" fontWeight="800" fill="#F59E0B" fontFamily="var(--font-mono)">REALTIME 24×7</text>
+          </svg>
+        </div>
+      );
+    }
+  }
+
+  // BANKING TAB VISUALS
+  if (tab === 'banking') {
+    let strokeCol = '#1B2A6B';
+    let grad = 'rgba(27,42,107,0.06)';
+    if (type.includes('BBPS')) { strokeCol = '#2DB84B'; grad = 'rgba(45,184,75,0.06)'; }
+    else if (type.includes('AEPS')) { strokeCol = 'var(--accent-periwinkle)'; grad = 'rgba(94,92,230,0.06)'; }
+    else if (type.includes('DMT')) { strokeCol = '#0EA5E9'; grad = 'rgba(14,165,233,0.06)'; }
+    else { strokeCol = '#F59E0B'; grad = 'rgba(245,158,11,0.06)'; }
+
     return (
       <div style={{
         width: '100%',
         height: '110px',
-        background: 'linear-gradient(135deg, rgba(45,184,75,0.06) 0%, rgba(45,184,75,0.02) 100%)',
-        borderBottom: '1px solid rgba(45,184,75,0.1)',
+        background: `linear-gradient(135deg, ${grad} 0%, rgba(255,255,255,0.02) 100%)`,
+        borderBottom: `1px solid ${strokeCol}22`,
         borderRadius: '12px 12px 0 0',
         display: 'flex',
         alignItems: 'center',
@@ -370,35 +529,102 @@ function FintechCardVisual3D({ type }) {
         overflow: 'hidden',
         marginBottom: '16px'
       }}>
-        <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at center, rgba(45,184,75,0.15) 0%, transparent 60%)' }} />
+        <div style={{ position: 'absolute', inset: 0, background: `radial-gradient(circle at center, ${strokeCol}18 0%, transparent 60%)` }} />
         
         <svg width="120" height="80" viewBox="0 0 120 80" style={{ position: 'relative', zIndex: 1 }}>
-          <rect x="45" y="10" width="30" height="60" rx="4" fill="none" stroke="#2DB84B" strokeWidth="2" />
-          <line x1="55" y1="65" x2="65" y2="65" stroke="#2DB84B" strokeWidth="2" strokeLinecap="round" />
-          <rect x="50" y="16" width="20" height="42" rx="1" fill="rgba(45,184,75,0.1)" />
-          <motion.g
-            animate={{ y: [0, -6, 0], rotate: [0, -3, 0] }}
-            transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-          >
-            <rect x="20" y="24" width="45" height="28" rx="3" fill="#1B2A6B" stroke="rgba(255,255,255,0.2)" strokeWidth="1" />
-            <rect x="25" y="29" width="10" height="7" rx="1" fill="#F3CE5E" />
-            <line x1="25" y1="44" x2="45" y2="44" stroke="rgba(255,255,255,0.4)" strokeWidth="2" />
-          </motion.g>
-          <motion.circle cx="82" cy="22" r="10" fill="#2DB84B"
-            animate={{ scale: [1, 1.15, 1] }} transition={{ duration: 2, repeat: Infinity, delay: 0.5 }} />
-          <path d="M78 22l3 3 5-5" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+          {type.includes('BBPS') && (
+            <>
+              <circle cx="60" cy="32" r="16" fill="none" stroke="#2DB84B" strokeWidth="2" />
+              <path d="M54 36c0-5 3-8 6-8s6 3 6 8" stroke="#2DB84B" strokeWidth="2" fill="none" />
+              <line x1="58" y1="44" x2="62" y2="44" stroke="#2DB84B" strokeWidth="3" />
+              <motion.path
+                d="M30 45 L 42 35"
+                stroke="var(--accent-periwinkle)"
+                strokeWidth="2"
+                strokeDasharray="4 2"
+                animate={{ strokeDashoffset: [-10, 10] }}
+                transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
+              />
+              <motion.path
+                d="M90 45 L 78 35"
+                stroke="var(--accent-periwinkle)"
+                strokeWidth="2"
+                strokeDasharray="4 2"
+                animate={{ strokeDashoffset: [10, -10] }}
+                transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
+              />
+              <text x="60" y="65" textAnchor="middle" fontSize="8" fontWeight="800" fill="#2DB84B" fontFamily="var(--font-mono)">NPCI BBPS</text>
+            </>
+          )}
+
+          {type.includes('AEPS') && (
+            <>
+              <rect x="48" y="12" width="24" height="36" rx="4" fill="none" stroke="var(--accent-periwinkle)" strokeWidth="2" />
+              <path d="M52 24c3-3 5-3 8 0" stroke="var(--accent-periwinkle)" strokeWidth="1.5" fill="none" />
+              <path d="M50 28c5-4 9-4 14 0" stroke="var(--accent-periwinkle)" strokeWidth="1.5" fill="none" />
+              <path d="M53 33c3-2 5-2 8 0" stroke="var(--accent-periwinkle)" strokeWidth="1.5" fill="none" />
+              <motion.line x1="44" y1="18" x2="76" y2="18" stroke="#2DB84B" strokeWidth="1.5"
+                animate={{ y: [0, 24, 0] }} transition={{ duration: 2, repeat: Infinity }} />
+              <text x="60" y="65" textAnchor="middle" fontSize="8" fontWeight="800" fill="var(--accent-periwinkle)" fontFamily="var(--font-mono)">BIOMETRIC AUTH</text>
+            </>
+          )}
+
+          {type.includes('DMT') && (
+            <>
+              <circle cx="35" cy="35" r="8" fill="none" stroke="#0EA5E9" strokeWidth="2" />
+              <circle cx="85" cy="35" r="8" fill="none" stroke="#0EA5E9" strokeWidth="2" />
+              <path d="M43 35h34" stroke="#0EA5E9" strokeWidth="2" strokeDasharray="4 3" />
+              <motion.circle cx="43" cy="35" r="3" fill="#2DB84B"
+                animate={{ cx: [43, 77] }} transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }} />
+              <text x="35" y="38" textAnchor="middle" fontSize="8" fontWeight="bold" fill="#0EA5E9" fontFamily="var(--font-mono)">₹</text>
+              <text x="85" y="38" textAnchor="middle" fontSize="8" fontWeight="bold" fill="#0EA5E9" fontFamily="var(--font-mono)">✓</text>
+              <text x="60" y="62" textAnchor="middle" fontSize="8" fontWeight="800" fill="#0EA5E9" fontFamily="var(--font-mono)">DIRECT TRANSFER</text>
+            </>
+          )}
+
+          {type.includes('Recharge') && (
+            <>
+              <line x1="60" y1="50" x2="60" y2="20" stroke="#F59E0B" strokeWidth="2.5" />
+              <line x1="50" y1="50" x2="60" y2="20" stroke="#F59E0B" strokeWidth="1.5" />
+              <line x1="70" y1="50" x2="60" y2="20" stroke="#F59E0B" strokeWidth="1.5" />
+              <motion.path
+                d="M48 20a16 16 0 0 1 24 0"
+                stroke="#F59E0B"
+                strokeWidth="1.5"
+                fill="none"
+                animate={{ opacity: [0.2, 1, 0.2] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+              />
+              <motion.path
+                d="M40 14a28 28 0 0 1 40 0"
+                stroke="#F59E0B"
+                strokeWidth="1.5"
+                fill="none"
+                animate={{ opacity: [0.1, 0.8, 0.1] }}
+                transition={{ duration: 1.5, repeat: Infinity, delay: 0.3 }}
+              />
+              <text x="60" y="65" textAnchor="middle" fontSize="8" fontWeight="800" fill="#F59E0B" fontFamily="var(--font-mono)">ALL OPERATORS</text>
+            </>
+          )}
         </svg>
       </div>
     );
   }
 
-  if (type === 'UPI Collections') {
+  // TRAVEL TAB VISUALS
+  if (tab === 'travel') {
+    let strokeCol = 'var(--accent-periwinkle)';
+    let grad = 'rgba(94,92,230,0.06)';
+    if (type.includes('Flight')) { strokeCol = '#0EA5E9'; grad = 'rgba(14,165,233,0.06)'; }
+    else if (type.includes('Hotel')) { strokeCol = '#2DB84B'; grad = 'rgba(45,184,75,0.06)'; }
+    else if (type.includes('Train')) { strokeCol = '#F59E0B'; grad = 'rgba(245,158,11,0.06)'; }
+
     return (
       <div style={{
         width: '100%',
         height: '110px',
-        background: 'linear-gradient(135deg, rgba(94,92,230,0.06) 0%, rgba(94,92,230,0.02) 100%)',
-        borderBottom: '1px solid rgba(94,92,230,0.1)',
+        background: `linear-gradient(135deg, ${grad} 0%, rgba(255,255,255,0.02) 100%)`,
+        borderBottom: `1px solid ${strokeCol}22`,
         borderRadius: '12px 12px 0 0',
         display: 'flex',
         alignItems: 'center',
@@ -407,38 +633,108 @@ function FintechCardVisual3D({ type }) {
         overflow: 'hidden',
         marginBottom: '16px'
       }}>
-        <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at center, rgba(94,92,230,0.15) 0%, transparent 60%)' }} />
+        <div style={{ position: 'absolute', inset: 0, background: `radial-gradient(circle at center, ${strokeCol}18 0%, transparent 60%)` }} />
         
         <svg width="120" height="80" viewBox="0 0 120 80" style={{ position: 'relative', zIndex: 1 }}>
-          <rect x="42" y="12" width="36" height="36" rx="3" fill="none" stroke="var(--accent-periwinkle)" strokeWidth="2" />
-          <rect x="46" y="16" width="10" height="10" fill="var(--accent-periwinkle)" />
-          <rect x="64" y="16" width="10" height="10" fill="var(--accent-periwinkle)" />
-          <rect x="46" y="34" width="10" height="10" fill="var(--accent-periwinkle)" />
-          <rect x="66" y="36" width="6" height="6" fill="var(--accent-periwinkle)" />
-          <motion.line x1="36" y1="12" x2="84" y2="12" stroke="#2DB84B" strokeWidth="2"
-            animate={{ y: [0, 36, 0] }} transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }} />
-          <motion.rect x="36" y="12" width="48" height="2" fill="rgba(45,184,75,0.4)"
-            animate={{ y: [0, 36, 0] }} transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }} />
-          <motion.path d="M18 55c5 0 9-4 9-9" stroke="var(--accent-periwinkle)" strokeWidth="2" strokeDasharray="3 3" fill="none" />
-          <motion.g
-            animate={{ x: [-20, 40], y: [60, 40], opacity: [0, 1, 0] }}
-            transition={{ duration: 2.5, repeat: Infinity }}
-          >
-            <circle cx="20" cy="55" r="3" fill="#2DB84B" />
-          </motion.g>
-          <text x="60" y="65" textAnchor="middle" fontSize="9" fontWeight="800" fill="var(--accent-periwinkle)" fontFamily="var(--font-mono)">DYNAMIC QR</text>
+          {type.includes('Flight') && (
+            <motion.g
+              animate={{ y: [0, -4, 0], x: [0, 4, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+            >
+              <path d="M25 45 L 90 25 M 60 34 L 70 12 L 78 12 L 65 32 M 55 35 L 45 52 L 52 52 L 60 34 M 25 45 L 32 38 L 38 41 Z" fill="none" stroke="#0EA5E9" strokeWidth="2" strokeLinejoin="round" />
+              <motion.path d="M20 48c-10 4-15 1-15 1" stroke="rgba(14,165,233,0.3)" strokeWidth="2" strokeDasharray="3 3" />
+            </motion.g>
+          )}
+
+          {type.includes('Hotel') && (
+            <>
+              <rect x="42" y="14" width="36" height="52" rx="2" fill="none" stroke="#2DB84B" strokeWidth="2" />
+              <rect x="48" y="20" width="6" height="6" rx="1" fill="rgba(45,184,75,0.2)" />
+              <rect x="66" y="20" width="6" height="6" rx="1" fill="rgba(45,184,75,0.2)" />
+              <rect x="48" y="32" width="6" height="6" rx="1" fill="rgba(45,184,75,0.2)" />
+              <rect x="66" y="32" width="6" height="6" rx="1" fill="rgba(45,184,75,0.2)" />
+              <rect x="48" y="44" width="6" height="6" rx="1" fill="rgba(45,184,75,0.2)" />
+              <rect x="66" y="44" width="6" height="6" rx="1" fill="rgba(45,184,75,0.2)" />
+              <path d="M22 66c0-10 6-16 12-16 M20 50c3 3 8 0 8 0" stroke="#1E9438" strokeWidth="1.5" fill="none" />
+              <line x1="28" y1="66" x2="28" y2="50" stroke="#B8901C" strokeWidth="2.5" />
+            </>
+          )}
+
+          {type.includes('Bus') && (
+            <motion.g
+              animate={{ x: [-4, 4, -4] }}
+              transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
+            >
+              <rect x="30" y="22" width="60" height="32" rx="6" fill="none" stroke="var(--accent-periwinkle)" strokeWidth="2" />
+              <line x1="30" y1="42" x2="90" y2="42" stroke="var(--accent-periwinkle)" strokeWidth="1.5" />
+              <circle cx="45" cy="54" r="5" fill="none" stroke="var(--accent-periwinkle)" strokeWidth="2" />
+              <circle cx="75" cy="54" r="5" fill="none" stroke="var(--accent-periwinkle)" strokeWidth="2" />
+              <rect x="36" y="26" width="12" height="10" rx="1" fill="rgba(94,92,230,0.15)" />
+              <rect x="54" y="26" width="12" height="10" rx="1" fill="rgba(94,92,230,0.15)" />
+              <rect x="72" y="26" width="12" height="10" rx="1" fill="rgba(94,92,230,0.15)" />
+            </motion.g>
+          )}
+
+          {type.includes('Train') && (
+            <motion.g
+              animate={{ x: [4, -4, 4] }}
+              transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}
+            >
+              <path d="M20 42 L 85 42 Q 100 42 100 32 L 85 24 L 20 24 Z" fill="none" stroke="#F59E0B" strokeWidth="2" />
+              <circle cx="35" cy="42" r="3" fill="#F59E0B" />
+              <circle cx="55" cy="42" r="3" fill="#F59E0B" />
+              <circle cx="75" cy="42" r="3" fill="#F59E0B" />
+              <rect x="30" y="28" width="16" height="6" rx="1" fill="rgba(245,158,11,0.15)" />
+              <rect x="52" y="28" width="16" height="6" rx="1" fill="rgba(245,158,11,0.15)" />
+              <rect x="74" y="28" width="16" height="6" rx="1" fill="rgba(245,158,11,0.15)" />
+            </motion.g>
+          )}
+
+          {type.includes('Packages') && (
+            <>
+              <rect x="38" y="24" width="44" height="34" rx="4" fill="none" stroke="var(--accent-periwinkle)" strokeWidth="2" />
+              <path d="M50 24V16h20v8" fill="none" stroke="var(--accent-periwinkle)" strokeWidth="2" />
+              <line x1="48" y1="24" x2="48" y2="58" stroke="rgba(94,92,230,0.3)" strokeWidth="1.5" />
+              <line x1="72" y1="24" x2="72" y2="58" stroke="rgba(94,92,230,0.3)" strokeWidth="1.5" />
+              <motion.circle cx="95" cy="20" r="8" fill="#F59E0B"
+                animate={{ scale: [1, 1.1, 1] }} transition={{ duration: 2.5, repeat: Infinity }} />
+            </>
+          )}
+
+          {type.includes('Portal') && (
+            <>
+              <circle cx="50" cy="30" r="18" fill="none" stroke="var(--accent-periwinkle)" strokeWidth="1.5" />
+              <path d="M32 30h36 M50 12v36" stroke="rgba(94,92,230,0.4)" strokeWidth="1" />
+              <ellipse cx="50" cy="30" rx="8" ry="18" fill="none" stroke="rgba(94,92,230,0.4)" strokeWidth="1" />
+              <motion.g
+                animate={{ y: [0, 4, 0], x: [0, 4, 0] }}
+                transition={{ duration: 3, repeat: Infinity }}
+              >
+                <circle cx="75" cy="45" r="8" fill="none" stroke="#2DB84B" strokeWidth="2" />
+                <line x1="81" y1="51" x2="92" y2="62" stroke="#2DB84B" strokeWidth="2" />
+              </motion.g>
+            </>
+          )}
         </svg>
       </div>
     );
   }
 
-  if (type === 'Virtual Accounts') {
+  // IT TAB VISUALS
+  if (tab === 'it') {
+    let strokeCol = 'var(--accent-periwinkle)';
+    let grad = 'rgba(94,92,230,0.06)';
+    if (type.includes('Web')) { strokeCol = '#0EA5E9'; grad = 'rgba(14,165,233,0.06)'; }
+    else if (type.includes('Mobile')) { strokeCol = '#2DB84B'; grad = 'rgba(45,184,75,0.06)'; }
+    else if (type.includes('Cloud')) { strokeCol = '#F59E0B'; grad = 'rgba(245,158,11,0.06)'; }
+    else if (type.includes('UI')) { strokeCol = '#E11D48'; grad = 'rgba(225,29,72,0.06)'; }
+
     return (
       <div style={{
         width: '100%',
         height: '110px',
-        background: 'linear-gradient(135deg, rgba(14,165,233,0.06) 0%, rgba(14,165,233,0.02) 100%)',
-        borderBottom: '1px solid rgba(14,165,233,0.1)',
+        background: `linear-gradient(135deg, ${grad} 0%, rgba(255,255,255,0.02) 100%)`,
+        borderBottom: `1px solid ${strokeCol}22`,
         borderRadius: '12px 12px 0 0',
         display: 'flex',
         alignItems: 'center',
@@ -447,72 +743,79 @@ function FintechCardVisual3D({ type }) {
         overflow: 'hidden',
         marginBottom: '16px'
       }}>
-        <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at center, rgba(14,165,233,0.15) 0%, transparent 60%)' }} />
+        <div style={{ position: 'absolute', inset: 0, background: `radial-gradient(circle at center, ${strokeCol}18 0%, transparent 60%)` }} />
         
         <svg width="120" height="80" viewBox="0 0 120 80" style={{ position: 'relative', zIndex: 1 }}>
-          <circle cx="60" cy="35" r="20" fill="none" stroke="#0EA5E9" strokeWidth="2" />
-          <motion.circle cx="60" cy="35" r="14" fill="none" stroke="#0EA5E9" strokeWidth="1" strokeDasharray="4 2"
-            animate={{ rotate: 360 }} transition={{ duration: 10, repeat: Infinity, ease: 'linear' }} />
-          <circle cx="60" cy="35" r="6" fill="#0EA5E9" />
-          
-          <circle cx="20" cy="20" r="6" fill="rgba(14,165,233,0.2)" stroke="#0EA5E9" strokeWidth="1.5" />
-          <circle cx="20" cy="50" r="6" fill="rgba(14,165,233,0.2)" stroke="#0EA5E9" strokeWidth="1.5" />
-          <circle cx="100" cy="20" r="6" fill="rgba(14,165,233,0.2)" stroke="#0EA5E9" strokeWidth="1.5" />
-          <circle cx="100" cy="50" r="6" fill="rgba(14,165,233,0.2)" stroke="#0EA5E9" strokeWidth="1.5" />
+          {type.includes('Fintech') && (
+            <>
+              <circle cx="35" cy="30" r="10" fill="none" stroke="var(--accent-periwinkle)" strokeWidth="2" />
+              <circle cx="85" cy="30" r="10" fill="none" stroke="var(--accent-periwinkle)" strokeWidth="2" />
+              <path d="M45 30h30" stroke="var(--accent-periwinkle)" strokeWidth="2" strokeDasharray="3 3" />
+              <motion.circle cx="45" cy="30" r="3.5" fill="#2DB84B"
+                animate={{ cx: [45, 75] }} transition={{ duration: 2, repeat: Infinity }} />
+              <text x="35" y="33" textAnchor="middle" fontSize="8" fontWeight="bold" fill="var(--accent-periwinkle)">₹</text>
+              <text x="85" y="33" textAnchor="middle" fontSize="8" fontWeight="bold" fill="var(--accent-periwinkle)">🏦</text>
+              <text x="60" y="58" textAnchor="middle" fontSize="8" fontWeight="800" fill="var(--accent-periwinkle)" fontFamily="var(--font-mono)">SECURE GATEWAY</text>
+            </>
+          )}
 
-          <line x1="26" y1="22" x2="42" y2="28" stroke="rgba(14,165,233,0.4)" strokeWidth="1.5" />
-          <line x1="26" y1="48" x2="42" y2="42" stroke="rgba(14,165,233,0.4)" strokeWidth="1.5" />
-          <line x1="94" y1="22" x2="78" y2="28" stroke="rgba(14,165,233,0.4)" strokeWidth="1.5" />
-          <line x1="94" y1="48" x2="78" y2="42" stroke="rgba(14,165,233,0.4)" strokeWidth="1.5" />
+          {type.includes('Web') && (
+            <>
+              <rect x="36" y="16" width="48" height="36" rx="3" fill="none" stroke="#0EA5E9" strokeWidth="2" />
+              <line x1="36" y1="26" x2="84" y2="26" stroke="#0EA5E9" strokeWidth="1" />
+              <circle cx="42" cy="21" r="1.5" fill="#EF4444" />
+              <circle cx="47" cy="21" r="1.5" fill="#F59E0B" />
+              <circle cx="52" cy="21" r="1.5" fill="#10B981" />
+              <text x="60" y="44" textAnchor="middle" fontSize="13" fontWeight="900" fill="#0EA5E9" fontFamily="var(--font-mono)">{"{ }"}</text>
+            </>
+          )}
 
-          <motion.circle cx="34" cy="25" r="2" fill="#2DB84B"
-            animate={{ cx: [26, 42], cy: [22, 28] }} transition={{ duration: 2, repeat: Infinity, ease: 'linear' }} />
-          <motion.circle cx="86" cy="45" r="2" fill="#2DB84B"
-            animate={{ cx: [78, 94], cy: [42, 48] }} transition={{ duration: 2, repeat: Infinity, ease: 'linear' }} />
-            
-          <text x="60" y="68" textAnchor="middle" fontSize="9" fontWeight="800" fill="#0EA5E9" fontFamily="var(--font-mono)">AUTO ROUTING</text>
-        </svg>
-      </div>
-    );
-  }
+          {type.includes('Mobile') && (
+            <>
+              <rect x="48" y="12" width="24" height="46" rx="4" fill="none" stroke="#2DB84B" strokeWidth="2" />
+              <circle cx="60" cy="53" r="2" fill="#2DB84B" />
+              <rect x="52" y="18" width="16" height="30" rx="1" fill="rgba(45,184,75,0.1)" />
+              <motion.circle cx="60" cy="33" r="6" fill="#2DB84B"
+                animate={{ scale: [1, 1.15, 1] }} transition={{ duration: 2, repeat: Infinity }} />
+              <path d="M57 33l2 2 4-4" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+            </>
+          )}
 
-  if (type === 'Payout API') {
-    return (
-      <div style={{
-        width: '100%',
-        height: '110px',
-        background: 'linear-gradient(135deg, rgba(245,158,11,0.06) 0%, rgba(245,158,11,0.02) 100%)',
-        borderBottom: '1px solid rgba(245,158,11,0.1)',
-        borderRadius: '12px 12px 0 0',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        position: 'relative',
-        overflow: 'hidden',
-        marginBottom: '16px'
-      }}>
-        <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at center, rgba(245,158,11,0.15) 0%, transparent 60%)' }} />
-        
-        <svg width="120" height="80" viewBox="0 0 120 80" style={{ position: 'relative', zIndex: 1 }}>
-          <rect x="48" y="24" width="24" height="24" rx="4" fill="none" stroke="#F59E0B" strokeWidth="2" />
-          <circle cx="60" cy="36" r="4" fill="#F59E0B" />
+          {type.includes('E-Commerce') && (
+            <>
+              <path d="M30 20h10l8 24h24l8-16H46" fill="none" stroke="#F59E0B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              <circle cx="51" cy="52" r="4" fill="none" stroke="#F59E0B" strokeWidth="2" />
+              <circle cx="71" cy="52" r="4" fill="none" stroke="#F59E0B" strokeWidth="2" />
+              <motion.rect x="50" y="24" width="16" height="12" rx="1" fill="rgba(245,158,11,0.2)" stroke="#F59E0B" strokeWidth="1"
+                animate={{ y: [0, -3, 0] }} transition={{ duration: 2.8, repeat: Infinity }} />
+            </>
+          )}
 
-          <circle cx="15" cy="36" r="5" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="1.5" />
-          <circle cx="60" cy="10" r="5" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="1.5" />
-          <circle cx="105" cy="36" r="5" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="1.5" />
+          {type.includes('Cloud') && (
+            <>
+              <path d="M40 38 L 60 18 L 80 38 L 60 58 Z" fill="none" stroke="#F59E0B" strokeWidth="2" />
+              <circle cx="60" cy="18" r="4" fill="#F59E0B" />
+              <circle cx="40" cy="38" r="4" fill="#F59E0B" />
+              <circle cx="80" cy="38" r="4" fill="#F59E0B" />
+              <circle cx="60" cy="58" r="4" fill="#F59E0B" />
+              <circle cx="60" cy="38" r="6" fill="#1B2A6B" stroke="#F59E0B" strokeWidth="1.5" />
+            </>
+          )}
 
-          <line x1="48" y1="36" x2="20" y2="36" stroke="rgba(245,158,11,0.4)" strokeWidth="1.5" />
-          <line x1="60" y1="24" x2="60" y2="15" stroke="rgba(245,158,11,0.4)" strokeWidth="1.5" />
-          <line x1="72" y1="36" x2="100" y2="36" stroke="rgba(245,158,11,0.4)" strokeWidth="1.5" />
-
-          <motion.circle cx="48" cy="36" r="2.5" fill="#2DB84B"
-            animate={{ cx: [48, 20] }} transition={{ duration: 1.5, repeat: Infinity, ease: 'easeOut' }} />
-          <motion.circle cx="60" cy="24" r="2.5" fill="#2DB84B"
-            animate={{ cy: [24, 15] }} transition={{ duration: 1.5, repeat: Infinity, ease: 'easeOut' }} />
-          <motion.circle cx="72" cy="36" r="2.5" fill="#2DB84B"
-            animate={{ cx: [72, 100] }} transition={{ duration: 1.5, repeat: Infinity, ease: 'easeOut' }} />
-
-          <text x="60" y="65" textAnchor="middle" fontSize="9" fontWeight="800" fill="#F59E0B" fontFamily="var(--font-mono)">REALTIME 24×7</text>
+          {type.includes('Travel') && (
+            <>
+              <circle cx="50" cy="30" r="16" fill="none" stroke="var(--accent-periwinkle)" strokeWidth="1.5" />
+              <motion.path
+                d="M36 34 L 54 24 L 72 34"
+                stroke="var(--accent-periwinkle)"
+                strokeWidth="2"
+                fill="none"
+                animate={{ y: [0, -3, 0] }}
+                transition={{ duration: 3, repeat: Infinity }}
+              />
+              <text x="60" y="60" textAnchor="middle" fontSize="8" fontWeight="800" fill="var(--accent-periwinkle)" fontFamily="var(--font-mono)">GDS API ENG</text>
+            </>
+          )}
         </svg>
       </div>
     );
@@ -1731,53 +2034,20 @@ export default function Hero({ onOpenAuth, backendUrl }) {
               {/* Solutions Grid */}
               <StaggerGrid style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+                gridTemplateColumns: (activeTab === 'fintech' || activeTab === 'banking') 
+                  ? 'repeat(auto-fill, minmax(min(100%, 450px), 1fr))' 
+                  : 'repeat(auto-fill, minmax(min(100%, 320px), 1fr))',
                 gap: '24px'
               }}>
                 {tabInfo[activeTab].cards.map((sol, index) => (
                   <TiltCard key={index} style={{ height: '100%' }}>
-                    {activeTab === 'fintech' ? (
-                      <StaggerCard className="card-cred" style={{ padding: 0, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '100%', width: '100%' }}>
-                        <div>
-                          <FintechCardVisual3D type={sol.title} />
-                          <div style={{ padding: '0 24px 24px' }}>
-                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
-                              <span style={{ fontSize: '18px', color: 'var(--text-primary)', fontWeight: 800 }}>{sol.title}</span>
-                              <span className="btn-cred-outline" style={{ pointerEvents: 'none', padding: '3px 10px', fontSize: '10px', background: 'rgba(0,0,0,0.02)', color: 'var(--text-secondary)' }}>
-                                {sol.tag}
-                              </span>
-                            </div>
-                            <p style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: '1.6', marginBottom: '18px' }}>{sol.desc}</p>
-                            
-                            <ul style={{ listStyle: 'none', padding: 0 }}>
-                              {sol.feats.map((feat, idx) => (
-                                <motion.li
-                                  key={idx}
-                                  initial={{ opacity: 0, x: -8 }}
-                                  animate={{ opacity: 1, x: 0 }}
-                                  transition={{ delay: idx * 0.05, duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                                  style={{ display: 'flex', gap: '8px', fontSize: '12px', color: 'var(--text-primary)', marginBottom: '8px', alignItems: 'flex-start' }}
-                                >
-                                  <span style={{ color: 'var(--accent-periwinkle)', fontWeight: 'bold' }}>✓</span>
-                                  <span>{feat}</span>
-                                </motion.li>
-                              ))}
-                            </ul>
-                          </div>
-                        </div>
-
+                    <StaggerCard className="card-cred" style={{ padding: 0, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '100%', width: '100%' }}>
+                      <div>
+                        {/* 3D Visualizer top area */}
+                        <SolutionCardVisual3D tab={activeTab} type={sol.title} />
+                        
+                        {/* Content wrapper with standard padding */}
                         <div style={{ padding: '0 24px 24px' }}>
-                          <div style={{ borderTop: '1px solid rgba(0,0,0,0.05)', paddingTop: '16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                            <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600 }}>{sol.tag === 'Full-Stack' ? '0.17% MDR · T+1' : 'REST API Ready'}</span>
-                            <button onClick={() => scrollToId('contact')} style={{ background: 'none', border: 'none', color: 'var(--accent-periwinkle)', fontSize: '12px', fontWeight: 700, cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
-                              Explore <ArrowRight size={10} />
-                            </button>
-                          </div>
-                        </div>
-                      </StaggerCard>
-                    ) : (
-                      <StaggerCard className="card-cred" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '100%', width: '100%' }}>
-                        <div>
                           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
                             <span style={{ fontSize: '18px', color: 'var(--text-primary)', fontWeight: 800 }}>{sol.title}</span>
                             <span className="btn-cred-outline" style={{ pointerEvents: 'none', padding: '3px 10px', fontSize: '10px', background: 'rgba(0,0,0,0.02)', color: 'var(--text-secondary)' }}>
@@ -1801,15 +2071,19 @@ export default function Hero({ onOpenAuth, backendUrl }) {
                             ))}
                           </ul>
                         </div>
+                      </div>
 
-                        <div style={{ borderTop: '1px solid rgba(0,0,0,0.05)', paddingTop: '16px', marginTop: '20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                          <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600 }}>{sol.tag === 'Full-Stack' ? '0.17% MDR · T+1' : sol.tag === 'Last-Mile Banking' ? 'CSP Agent commission' : 'REST API Ready'}</span>
+                      <div style={{ padding: '0 24px 24px' }}>
+                        <div style={{ borderTop: '1px solid rgba(0,0,0,0.05)', paddingTop: '16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                          <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600 }}>
+                            {sol.tag === 'Full-Stack' ? '0.17% MDR · T+1' : sol.tag === 'Last-Mile Banking' ? 'CSP Agent commission' : 'REST API Ready'}
+                          </span>
                           <button onClick={() => scrollToId('contact')} style={{ background: 'none', border: 'none', color: 'var(--accent-periwinkle)', fontSize: '12px', fontWeight: 700, cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
                             Explore <ArrowRight size={10} />
                           </button>
                         </div>
-                      </StaggerCard>
-                    )}
+                      </div>
+                    </StaggerCard>
                   </TiltCard>
                 ))}
               </StaggerGrid>

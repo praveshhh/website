@@ -144,6 +144,215 @@ function AnimatedStat({ val, label }) {
   );
 }
 
+// ─── 3D Glassmorphic Card & Pulsing Ledger Flow ───────────────────────────────
+function FintechPaymentsVisual3D() {
+  const [rotateX, setRotateX] = useState(0);
+  const [rotateY, setRotateY] = useState(0);
+  const cardRef = useRef(null);
+
+  const handleMouseMove = (e) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    const mouseX = e.clientX - rect.left - width / 2;
+    const mouseY = e.clientY - rect.top - height / 2;
+    const rX = -(mouseY / height) * 22;
+    const rY = (mouseX / width) * 22;
+    setRotateX(rX);
+    setRotateY(rY);
+  };
+
+  const handleMouseLeave = () => {
+    setRotateX(0);
+    setRotateY(0);
+  };
+
+  const [txs, setTxs] = useState([
+    { id: 1, val: '₹10,500 via UPI', delay: 0 },
+    { id: 2, val: '₹4,200 via Card', delay: 1.2 },
+    { id: 3, val: '₹18,000 via NetBanking', delay: 2.4 }
+  ]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTxs(prev => prev.map(t => {
+        const valList = ['₹1,200 via UPI', '₹28,500 via IMPS', '₹3,400 via Wallets', '₹15,000 via RuPay', '₹9,800 via Visa'];
+        return {
+          ...t,
+          val: valList[Math.floor(Math.random() * valList.length)]
+        };
+      }));
+    }, 4500);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div style={{
+      position: 'relative',
+      width: '100%',
+      height: '350px',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      perspective: '1200px',
+      overflow: 'hidden',
+      borderRadius: '24px',
+      background: 'rgba(94, 92, 230, 0.02)',
+      border: '1px solid rgba(94, 92, 230, 0.08)'
+    }}>
+      <div style={{
+        position: 'absolute',
+        bottom: '0',
+        width: '100%',
+        height: '100px',
+        background: 'linear-gradient(to top, rgba(94, 92, 230, 0.05), transparent)',
+        zIndex: 0
+      }} />
+
+      {txs.map((tx, idx) => (
+        <motion.div
+          key={tx.id}
+          initial={{ opacity: 0, y: 150, scale: 0.8 }}
+          animate={{
+            opacity: [0, 0.9, 0.9, 0],
+            y: [-20, -140, -180, -220],
+            scale: [0.85, 1, 1, 0.9],
+            x: idx === 0 ? [-50, -30, -50] : idx === 1 ? [0, 30, 10] : [60, 40, 50]
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            delay: tx.delay,
+            ease: "easeInOut"
+          }}
+          style={{
+            position: 'absolute',
+            background: 'rgba(255, 255, 255, 0.9)',
+            border: '1.5px solid rgba(94, 92, 230, 0.15)',
+            boxShadow: '0 8px 24px rgba(94, 92, 230, 0.08)',
+            padding: '8px 14px',
+            borderRadius: '50px',
+            fontSize: '10px',
+            fontWeight: 800,
+            color: 'var(--text-primary)',
+            fontFamily: 'var(--font-mono)',
+            zIndex: 2,
+            display: 'flex',
+            alignItems: 'center',
+            gap: '6px'
+          }}
+        >
+          <span style={{ color: '#2DB84B' }}>⚡</span> {tx.val}
+        </motion.div>
+      ))}
+
+      <motion.div
+        ref={cardRef}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        style={{
+          width: '300px',
+          height: '180px',
+          borderRadius: '16px',
+          background: 'linear-gradient(135deg, rgba(27, 42, 107, 0.95) 0%, rgba(13, 22, 56, 0.98) 100%)',
+          border: '1.5px solid rgba(255, 255, 255, 0.12)',
+          boxShadow: '0 30px 60px rgba(13, 24, 64, 0.25), inset 0 1px 1px rgba(255,255,255,0.2)',
+          padding: '24px',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'space-between',
+          cursor: 'pointer',
+          position: 'relative',
+          zIndex: 1,
+          transformStyle: 'preserve-3d',
+          transform: `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`,
+          transition: 'transform 0.1s ease-out, box-shadow 0.3s ease'
+        }}
+        whileHover={{
+          boxShadow: '0 40px 80px rgba(94, 92, 230, 0.3), inset 0 1px 2px rgba(255,255,255,0.3)',
+        }}
+      >
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'radial-gradient(circle at 20% 30%, rgba(94, 92, 230, 0.25) 0%, transparent 60%)',
+          borderRadius: '14px',
+          pointerEvents: 'none'
+        }} />
+
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', transform: 'translateZ(30px)' }}>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <span style={{ fontSize: '12px', fontWeight: 900, letterSpacing: '1px', color: '#fff', fontFamily: 'var(--font-display)' }}>
+              BillsPay<span style={{ color: '#2DB84B' }}>24X7</span>✓
+            </span>
+            <span style={{ fontSize: '7px', textTransform: 'uppercase', letterSpacing: '2px', color: 'rgba(255,255,255,0.4)', marginTop: '2px' }}>Smart Merchant Link</span>
+          </div>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M2 8a10 10 0 0 1 20 0" />
+            <path d="M5 12a7 7 0 0 1 14 0" />
+            <path d="M8 16a4 4 0 0 1 8 0" />
+          </svg>
+        </div>
+
+        <div style={{ display: 'flex', alignItems: 'center', gap: '14px', margin: '20px 0', transform: 'translateZ(20px)' }}>
+          <div style={{
+            width: '38px',
+            height: '28px',
+            borderRadius: '6px',
+            background: 'linear-gradient(135deg, #F3CE5E 0%, #D4AF37 50%, #B8901C 100%)',
+            border: '1px solid rgba(0,0,0,0.1)',
+            position: 'relative',
+            overflow: 'hidden'
+          }}>
+            <div style={{ position: 'absolute', top: '50%', left: 0, right: 0, height: '1px', background: 'rgba(0,0,0,0.15)' }} />
+            <div style={{ position: 'absolute', left: '33%', top: 0, bottom: 0, width: '1px', background: 'rgba(0,0,0,0.15)' }} />
+            <div style={{ position: 'absolute', left: '66%', top: 0, bottom: 0, width: '1px', background: 'rgba(0,0,0,0.15)' }} />
+          </div>
+          <span style={{ fontSize: '10px', color: 'rgba(255,255,255,0.6)', fontWeight: 800, fontFamily: 'var(--font-mono)', letterSpacing: '0.5px' }}>
+            SECURE LEDGER L1
+          </span>
+        </div>
+
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', transform: 'translateZ(25px)' }}>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <span style={{ fontSize: '11px', color: '#fff', letterSpacing: '2.5px', fontFamily: 'var(--font-mono)' }}>•••• •••• •••• 2478</span>
+            <span style={{ fontSize: '7px', textTransform: 'uppercase', letterSpacing: '1px', color: 'rgba(255,255,255,0.5)', marginTop: '4px' }}>BILLSPAY MERCHANT</span>
+          </div>
+          <div style={{ display: 'flex', position: 'relative', width: '34px', height: '22px' }}>
+            <div style={{ width: '22px', height: '22px', borderRadius: '50%', background: 'rgba(235, 0, 27, 0.75)', position: 'absolute', left: 0 }} />
+            <div style={{ width: '22px', height: '22px', borderRadius: '50%', background: 'rgba(247, 158, 27, 0.75)', position: 'absolute', right: 0 }} />
+          </div>
+        </div>
+      </motion.div>
+
+      <motion.div
+        animate={{ y: [0, -10, 0] }}
+        transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+        style={{
+          position: 'absolute',
+          right: '25px',
+          bottom: '25px',
+          background: 'rgba(255, 255, 255, 0.1)',
+          border: '1px solid rgba(255, 255, 255, 0.2)',
+          borderRadius: '50%',
+          width: '32px',
+          height: '32px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          backdropFilter: 'blur(10px)',
+          fontSize: '12px',
+          color: '#fff',
+          zIndex: 2
+        }}
+      >
+        🛡️
+      </motion.div>
+    </div>
+  );
+}
+
 // ─── Main export ──────────────────────────────────────────────────────────────
 export default function Hero({ onOpenAuth, backendUrl }) {
   // Contact form state
@@ -686,11 +895,10 @@ export default function Hero({ onOpenAuth, backendUrl }) {
       {/* 1. HERO SECTION */}
       <section className="hero-sec" style={{
         position: 'relative',
-        height: 'calc(100vh - 124px)',
-        minHeight: '520px',
+        minHeight: 'calc(100vh - 80px)',
         display: 'flex',
         alignItems: 'center',
-        padding: '20px 8%',
+        padding: '60px 8% 40px',
         background: 'radial-gradient(circle at 10% 20%, rgba(94, 92, 230, 0.03) 0%, transparent 60%), radial-gradient(circle at 95% 85%, rgba(0, 122, 255, 0.02) 0%, transparent 60%)',
         borderBottom: '1px solid rgba(0, 0, 0, 0.04)',
         boxSizing: 'border-box'
@@ -1221,6 +1429,19 @@ export default function Hero({ onOpenAuth, backendUrl }) {
                   </span>
                   <h3 style={{ fontSize: '26px', fontWeight: 800, marginTop: '8px', marginBottom: '12px' }}>{tabInfo[activeTab].title}</h3>
                   <p style={{ fontSize: '14px', color: 'var(--text-secondary)', lineHeight: '1.6', marginBottom: '24px' }}>{tabInfo[activeTab].desc}</p>
+                  
+                  {/* Fintech horizontal stats view */}
+                  {activeTab === 'fintech' && (
+                    <div style={{ display: 'flex', gap: '20px', marginBottom: '24px', flexWrap: 'wrap' }}>
+                      {tabInfo.fintech.stats.map((stat, i) => (
+                        <div key={i} style={{ borderRight: i < 3 ? '1px solid rgba(0,0,0,0.08)' : 'none', paddingRight: '20px' }}>
+                          <span style={{ fontSize: '18px', fontWeight: 900, color: 'var(--text-primary)', fontFamily: 'var(--font-mono)' }}>{stat.val}</span>
+                          <span style={{ display: 'block', fontSize: '9px', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em', marginTop: '2px' }}>{stat.label}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
                   <motion.button
                     onClick={() => scrollToId('contact')}
                     className="btn-cred-neon"
@@ -1232,29 +1453,33 @@ export default function Hero({ onOpenAuth, backendUrl }) {
                   </motion.button>
                 </div>
 
-                {/* Sub-banner stats */}
-                <div style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(2, 1fr)',
-                  gap: '20px',
-                  background: 'rgba(255, 255, 255, 0.5)',
-                  border: '1px solid rgba(255,255,255,0.7)',
-                  borderRadius: '16px',
-                  padding: '24px'
-                }}>
-                  {tabInfo[activeTab].stats.map((stat, i) => (
-                    <motion.div
-                      key={i}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: i * 0.07, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                      style={{ textAlign: 'center' }}
-                    >
-                      <div style={{ fontSize: '24px', fontWeight: 800, color: 'var(--text-primary)', fontFamily: 'var(--font-mono)' }}>{stat.val}</div>
-                      <div style={{ fontSize: '10px', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em', marginTop: '4px' }}>{stat.label}</div>
-                    </motion.div>
-                  ))}
-                </div>
+                {/* Sub-banner stats / 3D Visualizer */}
+                {activeTab === 'fintech' ? (
+                  <FintechPaymentsVisual3D />
+                ) : (
+                  <div style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(2, 1fr)',
+                    gap: '20px',
+                    background: 'rgba(255, 255, 255, 0.5)',
+                    border: '1px solid rgba(255,255,255,0.7)',
+                    borderRadius: '16px',
+                    padding: '24px'
+                  }}>
+                    {tabInfo[activeTab].stats.map((stat, i) => (
+                      <motion.div
+                        key={i}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: i * 0.07, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                        style={{ textAlign: 'center' }}
+                      >
+                        <div style={{ fontSize: '24px', fontWeight: 800, color: 'var(--text-primary)', fontFamily: 'var(--font-mono)' }}>{stat.val}</div>
+                        <div style={{ fontSize: '10px', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em', marginTop: '4px' }}>{stat.label}</div>
+                      </motion.div>
+                    ))}
+                  </div>
+                )}
               </div>
 
               {/* Custom layout if tab is IT Software */}

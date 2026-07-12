@@ -8,6 +8,7 @@ import TravelPage from './components/TravelPage';
 import ITPage from './components/ITPage';
 import { AboutPage, PricingPage, BlogPage, PartnersPage } from './components/StaticPages';
 import Modals from './components/Modals';
+import BillsPayAIAdvisor from './components/BillsPayAIAdvisor';
 
 const pageVariants = {
   initial: { opacity: 0, rotateY: -6, x: 50, scale: 0.98 },
@@ -30,6 +31,7 @@ export default function App() {
   const [activeModal, setActiveModal] = useState(null);
   const [loading, setLoading] = useState(true);
   const [isChatOpen, setIsChatOpen] = useState(false);
+  const [isAdvisorOpen, setIsAdvisorOpen] = useState(false);
   const [chatMessages, setChatMessages] = useState([
     { text: 'Hello! Welcome to BillsPay24X7✓. How can we help you today?', isUser: false },
     { text: 'You can reach us on WhatsApp at +91 92784 03522', isUser: false }
@@ -253,30 +255,34 @@ export default function App() {
 
 
       {/* 3. Global Live Chat Support Bot */}
-      <button 
-        onClick={() => setIsChatOpen(!isChatOpen)} 
-        style={{
-          position: 'fixed',
-          bottom: '84px',
-          right: '24px',
-          zIndex: 997,
-          width: '48px',
-          height: '48px',
-          borderRadius: '50%',
-          background: '#2DB84B',
-          color: '#fff',
-          border: 'none',
-          boxShadow: '0 8px 32px rgba(45,184,75,0.25)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          fontSize: '1.2rem',
-          cursor: 'pointer'
-        }}
-        aria-label="Open chat support"
-      >
-        💬
-      </button>
+      {!isAdvisorOpen && (
+        <button 
+          onClick={() => {
+            setIsChatOpen(!isChatOpen);
+          }} 
+          style={{
+            position: 'fixed',
+            bottom: '84px',
+            right: '24px',
+            zIndex: 997,
+            width: '48px',
+            height: '48px',
+            borderRadius: '50%',
+            background: '#2DB84B',
+            color: '#fff',
+            border: 'none',
+            boxShadow: '0 8px 32px rgba(45,184,75,0.25)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontSize: '1.2rem',
+            cursor: 'pointer'
+          }}
+          aria-label="Open chat support"
+        >
+          💬
+        </button>
+      )}
 
       {isChatOpen && (
         <div style={{
@@ -344,6 +350,17 @@ export default function App() {
         onClose={() => setIsAuthOpen(false)}
         onAuthSuccess={handleAuthSuccess}
         backendUrl={BACKEND_URL}
+      />
+
+      {/* ─── AI Business Advisor Chatbot with Needs Graph ─── */}
+      <BillsPayAIAdvisor 
+        backendUrl={BACKEND_URL} 
+        isOpen={isAdvisorOpen}
+        onToggle={(val) => {
+          setIsAdvisorOpen(val);
+          if (val) setIsChatOpen(false);
+        }}
+        isChatOpen={isChatOpen}
       />
     </div>
   );

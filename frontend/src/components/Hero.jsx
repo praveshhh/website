@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, useInView, useAnimation, AnimatePresence, useMotionValue, useTransform, useSpring, useScroll } from 'framer-motion';
-import { Shield, Sparkles, Zap, Smartphone, CheckCircle, Send, ArrowRight, ArrowLeftRight, Phone, Mail, MapPin, Globe, Star, Laptop, Plane, Building, DollarSign, Calendar, MessageSquare } from 'lucide-react';
+import { Shield, Sparkles, Zap, Smartphone, CheckCircle, Send, ArrowRight, ArrowLeftRight, Phone, Mail, MapPin, Globe, Star, Laptop, Plane, Building, DollarSign, Calendar, MessageSquare, Brain, Bot } from 'lucide-react';
 import axios from 'axios';
 import TiltCard from './TiltCard';
 
@@ -961,6 +961,7 @@ function NewsletterVisual3D() {
     </div>
   );
 }
+
 
 // ─── Main export ──────────────────────────────────────────────────────────────
 export default function Hero({ onOpenAuth, backendUrl }) {
@@ -2772,6 +2773,8 @@ export default function Hero({ onOpenAuth, backendUrl }) {
           📞
         </motion.a>
       </div>
+      
+      {/* ─── AI Business Advisor Chatbot with Needs Graph ─── */}
     </div>
   );
 }

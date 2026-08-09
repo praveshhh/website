@@ -1,0 +1,15 @@
+/* Scoped to #lights on purpose. Upstream ships a bare `canvas { … }` rule,
+   which would size every canvas on the site, not just this effect's. */
+
+#lights {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+}
+
+#lights canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}

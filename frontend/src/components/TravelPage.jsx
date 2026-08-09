@@ -2,6 +2,13 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, Users, Search, CheckCircle, Phone, ArrowRight, Heart } from 'lucide-react';
 import TiltCard from './TiltCard';
+import TravelHyperspeed from './TravelHyperspeed';
+import AirportField from './AirportField';
+import TravellersField from './TravellersField';
+import { DEFAULT_TRAVELLERS, travellersLabel } from '../data/travellers';
+import { airportLabel, AIRPORTS } from '../data/airports';
+
+const TODAY = new Date().toISOString().slice(0, 10);
 
 export default function TravelPage({ onOpenModal }) {
   const [activeSearchTab, setActiveSearchTab] = useState(0);
@@ -10,11 +17,11 @@ export default function TravelPage({ onOpenModal }) {
   const [holidayPassengers, setHolidayPassengers] = useState(2);
 
   // Form states
-  const [flightFrom, setFlightFrom] = useState('Delhi (DEL)');
-  const [flightTo, setFlightTo] = useState('Mumbai (BOM)');
+  const [flightFrom, setFlightFrom] = useState('DEL');
+  const [flightTo, setFlightTo] = useState('BOM');
   const [flightDate, setFlightDate] = useState('');
   const [flightReturn, setFlightReturn] = useState('');
-  const [flightClass, setFlightClass] = useState('1 Adult, Economy');
+  const [travellers, setTravellers] = useState(DEFAULT_TRAVELLERS);
 
   const [hotelCity, setHotelCity] = useState('');
   const [hotelCheckIn, setHotelCheckIn] = useState('');
@@ -45,7 +52,14 @@ export default function TravelPage({ onOpenModal }) {
     e.preventDefault();
     let msg = '';
     if (activeSearchTab === 0) {
-      msg = `Hi BillsPay24X7 Travel!\nI want to book a Flight:\nType: ${tripType}\nFrom: ${flightFrom}\nTo: ${flightTo}\nDeparture: ${flightDate || 'N/A'}\nReturn: ${flightReturn || 'N/A'}\nClass/Pax: ${flightClass}`;
+      msg = `Hi BillsPay24X7 Travel!
+I want to book a Flight:
+Type: ${tripType}
+From: ${airportLabel(AIRPORTS.find(a => a.code === flightFrom))}
+To: ${airportLabel(AIRPORTS.find(a => a.code === flightTo))}
+Departure: ${flightDate || 'N/A'}
+Return: ${tripType === 'one-way' ? 'One way' : (flightReturn || 'N/A')}
+Travellers: ${travellersLabel(travellers)}`;
     } else if (activeSearchTab === 1) {
       msg = `Hi BillsPay24X7 Travel!\nI want to book a Hotel:\nCity/Property: ${hotelCity || 'N/A'}\nCheck-in: ${hotelCheckIn || 'N/A'}\nCheck-out: ${hotelCheckOut || 'N/A'}\nGuests: ${hotelGuests}`;
     } else if (activeSearchTab === 2) {
@@ -82,11 +96,14 @@ export default function TravelPage({ onOpenModal }) {
         position: 'relative',
         overflow: 'hidden',
         padding: '96px 8% 40px',
-        background: 'radial-gradient(circle at 12% 20%, rgba(94, 92, 230, 0.06) 0%, transparent 55%), radial-gradient(circle at 90% 80%, rgba(36, 178, 99, 0.04) 0%, transparent 55%)',
+        // Dark ground so the hyperspeed trails have something to read against.
+        // Contained to this hero: everything below it stays on the light theme.
+        background: '#0B1130',
         borderBottom: '1px solid rgba(0, 0, 0, 0.04)',
-        color: 'var(--text-primary)',
+        color: '#F2F3FF',
         textAlign: 'center'
       }}>
+        <TravelHyperspeed />
         {/* Animated ambient blobs — same as homepage */}
         <motion.div
           className="glow-overlay-green"
@@ -101,384 +118,14 @@ export default function TravelPage({ onOpenModal }) {
           transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
         />
 
-        {/* Left Travel Visuals */}
-        <div className="t-hero-visual-left" style={{
-          position: 'absolute',
-          left: '4%',
-          top: '80px',
-          zIndex: 1,
-          width: '240px',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '20px',
-          pointerEvents: 'none'
-        }}>
-          {/* 1. Globe Orbit Card */}
-          <motion.div
-            whileHover={{ y: -5, scale: 1.02 }}
-            transition={{ duration: 0.2 }}
-            style={{
-              background: 'rgba(255, 255, 255, 0.82)',
-              border: '1px solid rgba(94, 92, 230, 0.1)',
-              borderRadius: '16px',
-              padding: '14px 18px',
-              boxShadow: '0 8px 32px rgba(27, 42, 107, 0.07), inset 0 1px 0 rgba(255, 255, 255, 0.9)',
-              backdropFilter: 'blur(16px)',
-              WebkitBackdropFilter: 'blur(16px)',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              gap: '10px'
-            }}
-          >
-            <span style={{ fontSize: '9px', fontWeight: 800, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--accent-periwinkle)', opacity: 0.9 }}>
-              Global Flights
-            </span>
-            <svg width="120" height="120" viewBox="0 0 150 150" fill="none">
-              <defs>
-                <mask id="globeMask">
-                  <circle cx="75" cy="75" r="50" fill="#ffffff" />
-                </mask>
-                <radialGradient id="sphereShading" cx="30%" cy="30%" r="70%">
-                  <stop offset="0%" stopColor="transparent" />
-                  <stop offset="50%" stopColor="rgba(0,0,0,0.2)" />
-                  <stop offset="85%" stopColor="rgba(0,0,0,0.7)" />
-                  <stop offset="100%" stopColor="rgba(0,0,0,0.95)" />
-                </radialGradient>
-                <radialGradient id="globeGlow" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" stopColor="rgba(94, 92, 230, 0.18)" />
-                  <stop offset="100%" stopColor="rgba(255, 255, 255, 0)" />
-                </radialGradient>
-                <linearGradient id="glossLight" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stopColor="rgba(255,255,255,0.4)" />
-                  <stop offset="40%" stopColor="rgba(255,255,255,0.05)" />
-                  <stop offset="100%" stopColor="transparent" />
-                </linearGradient>
-              </defs>
-              {/* Outer Glow */}
-              <circle cx="75" cy="75" r="62" fill="url(#globeGlow)" />
-              
-              {/* 3D Rotating Earth Sphere */}
-              <g mask="url(#globeMask)">
-                {/* Deep ocean background — light blue */}
-                <circle cx="75" cy="75" r="50" fill="#EEF3F9" />
-                {/* Lat/Long grid background lines */}
-                <circle cx="75" cy="75" r="50" stroke="rgba(94,92,230,0.1)" strokeWidth="0.8" fill="none" />
-                
-                {/* Seamlessly Scrolling Continent landmass group */}
-                <motion.g
-                  animate={{ x: [-150, 0] }}
-                  transition={{ ease: "linear", duration: 12, repeat: Infinity }}
-                  style={{ display: 'flex' }}
-                >
-                  {/* Landmass Set 1 */}
-                  <g fill="rgba(36, 178, 99, 0.75)" opacity="1">
-                    {/* North America / Greenland */}
-                    <path d="M20,25 Q30,18 45,28 T35,50 T15,35 Z" />
-                    {/* South America */}
-                    <path d="M28,52 Q40,60 35,80 T25,95 T18,70 Z" />
-                    {/* Eurasia / Africa */}
-                    <path d="M60,20 Q80,15 100,28 T115,45 T90,75 T70,60 T60,40 Z" />
-                    {/* Australia */}
-                    <path d="M105,75 Q120,78 115,90 T98,88 Z" />
-                  </g>
-                  {/* Landmass Set 2 (Duplicate, offset by 150px) */}
-                  <g fill="rgba(36, 178, 99, 0.75)" opacity="1" transform="translate(150, 0)">
-                    {/* North America / Greenland */}
-                    <path d="M20,25 Q30,18 45,28 T35,50 T15,35 Z" />
-                    {/* South America */}
-                    <path d="M28,52 Q40,60 35,80 T25,95 T18,70 Z" />
-                    {/* Eurasia / Africa */}
-                    <path d="M60,20 Q80,15 100,28 T115,45 T90,75 T70,60 T60,40 Z" />
-                    {/* Australia */}
-                    <path d="M105,75 Q120,78 115,90 T98,88 Z" />
-                  </g>
-                </motion.g>
-
-                {/* Drifting Clouds over Earth */}
-                {/* Cloud 1 (Left to Right) */}
-                <motion.g
-                  animate={{ x: [-40, 140] }}
-                  transition={{ ease: "linear", duration: 16, repeat: Infinity }}
-                  opacity="0.55"
-                >
-                  <path d="M15,45 Q21,39 27,45 Q33,41 39,45 L39,48 L15,48 Z" fill="#ffffff" />
-                </motion.g>
-                {/* Cloud 2 (Right to Left) */}
-                <motion.g
-                  animate={{ x: [140, -40] }}
-                  transition={{ ease: "linear", duration: 20, repeat: Infinity }}
-                  opacity="0.45"
-                >
-                  <path d="M20,65 Q26,59 32,65 Q38,61 44,65 L44,68 L20,68 Z" fill="#ffffff" />
-                </motion.g>
-                
-                {/* 3D Spherical Shadow overlay */}
-                <circle cx="75" cy="75" r="50" fill="url(#sphereShading)" />
-                {/* Gloss reflection overlay */}
-                <circle cx="75" cy="75" r="50" fill="url(#glossLight)" opacity="0.3" />
-              </g>
-              
-              {/* Outer latitude/longitude decorative axis grid */}
-              <ellipse cx="75" cy="75" rx="50" ry="15" stroke="rgba(94,92,230,0.1)" strokeWidth="0.8" />
-              <ellipse cx="75" cy="75" rx="18" ry="50" stroke="rgba(94,92,230,0.1)" strokeWidth="0.8" />
-              
-              {/* Orbit track */}
-              <ellipse cx="75" cy="75" rx="70" ry="22" stroke="rgba(94,92,230,0.25)" strokeWidth="0.8" strokeDasharray="4,4" transform="rotate(-15 75 75)" />
-              
-              {/* Slanted orbit orbiting plane */}
-              <g transform="translate(75, 75) rotate(-15)">
-                <g className="orbit-plane-group">
-                  {/* Detailed 3D Airliner Vector */}
-                  <g transform="translate(70, 0) rotate(-90)">
-                    {/* Fuselage shadow */}
-                    <ellipse cx="0" cy="1.5" rx="14" ry="4" fill="rgba(0,0,0,0.35)" />
-                    {/* Fuselage body */}
-                    <ellipse cx="0" cy="0" rx="14" ry="4" fill="#ffffff" />
-                    <path d="M-14,0 Q0,4 14,0 Q0,1 -14,0" fill="#E2E8F0" />
-                    {/* Cockpit window */}
-                    <path d="M8,-2 C9,-1 11,-1 12,0 C11,1 9,1 8,2 Z" fill="#1E3A8A" opacity="0.85" />
-                    {/* Back wing (top side) — periwinkle branded */}
-                    <polygon points="-3,-3 -12,-16 -7,-16 2,-3" fill="#8B89F5" />
-                    {/* Front wing (bottom side, shaded) */}
-                    <polygon points="-3,3 -12,18 -7,18 2,3" fill="#5E5CE6" />
-                    {/* Tail fin vertical */}
-                    <polygon points="-11,0 -14,-8 -9,-8 -7,0" fill="#5E5CE6" />
-                    {/* Tail plane horizontal */}
-                    <polygon points="-10,0 -13,6 -10,6 -7,0" fill="#8B89F5" />
-                    {/* Engines */}
-                    <rect x="-6" y="6" width="5" height="2" rx="1" fill="#475569" />
-                    <rect x="-6" y="-8" width="5" height="2" rx="1" fill="#64748B" />
-                  </g>
-                </g>
-              </g>
-            </svg>
-          </motion.div>
-
-          {/* 2. Goa Beach Card */}
-          <motion.div
-            whileHover={{ y: -5, scale: 1.02 }}
-            transition={{ duration: 0.2 }}
-            style={{
-              background: 'rgba(255, 255, 255, 0.82)',
-              border: '1px solid rgba(94, 92, 230, 0.1)',
-              borderRadius: '16px',
-              padding: '14px 18px',
-              boxShadow: '0 8px 32px rgba(27, 42, 107, 0.07), inset 0 1px 0 rgba(255, 255, 255, 0.9)',
-              backdropFilter: 'blur(16px)',
-              WebkitBackdropFilter: 'blur(16px)',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              gap: '10px'
-            }}
-          >
-            <span style={{ fontSize: '9px', fontWeight: 800, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--accent-periwinkle)', opacity: 0.9 }}>
-              Goa Beach Sunset
-            </span>
-            <svg width="120" height="70" viewBox="0 0 120 70" fill="none" style={{ borderRadius: '8px', overflow: 'hidden' }}>
-              <defs>
-                <linearGradient id="sunset" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#BAE6FD" />
-                  <stop offset="55%" stopColor="#FED7AA" />
-                  <stop offset="100%" stopColor="#FDE68A" />
-                </linearGradient>
-              </defs>
-              {/* Background Pastel Sunset sky */}
-              <rect width="120" height="70" fill="url(#sunset)" />
-              
-              {/* Glowing Sun */}
-              <motion.circle 
-                cx="60" cy="38" r="10" 
-                fill="#F97316" 
-                animate={{ scale: [1, 1.07, 1], opacity: [0.85, 1, 0.85] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                style={{ filter: 'drop-shadow(0 0 6px #F97316)' }}
-              />
-              
-              {/* Swaying Palm Tree */}
-              <g transform="translate(10, 10)">
-                <path d="M5,50 Q12,30 8,10" fill="none" stroke="#64748B" strokeWidth="2.5" strokeLinecap="round" />
-                <motion.g
-                  animate={{ rotate: [-3, 3, -3] }}
-                  transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-                  transformOrigin="8px 10px"
-                >
-                  <path d="M8,10 Q2,8 -4,11 M8,10 Q14,8 20,11 M8,10 Q6,3 4,-4 M8,10 Q13,4 18,2 M8,10 Q3,15 -1,22 M8,10 Q11,15 15,22" fill="none" stroke="#10B981" strokeWidth="2" strokeLinecap="round" />
-                </motion.g>
-              </g>
-
-              {/* Rolling Waves — sea blue */}
-              <motion.path 
-                d="M0,58 Q30,55 60,58 T120,58 L120,70 L0,70 Z" 
-                fill="rgba(94, 92, 230, 0.15)" 
-                animate={{ x: [-8, 8, -8] }} 
-                transition={{ repeat: Infinity, duration: 5, ease: 'easeInOut' }} 
-              />
-              <motion.path 
-                d="M-10,61 Q25,58 60,61 T130,61 L130,70 L-10,70 Z" 
-                fill="rgba(0, 122, 255, 0.2)" 
-                animate={{ x: [8, -8, 8] }} 
-                transition={{ repeat: Infinity, duration: 4, ease: 'easeInOut' }} 
-              />
-            </svg>
-          </motion.div>
-        </div>
-
-        {/* Right Travel Visuals */}
-        <div className="t-hero-visual-right" style={{
-          position: 'absolute',
-          right: '4%',
-          top: '80px',
-          zIndex: 1,
-          width: '240px',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '20px',
-          pointerEvents: 'none'
-        }}>
-          {/* 1. Train Route Card */}
-          <motion.div
-            whileHover={{ y: -5, scale: 1.02 }}
-            transition={{ duration: 0.2 }}
-            style={{
-              background: 'rgba(255, 255, 255, 0.82)',
-              border: '1px solid rgba(94, 92, 230, 0.1)',
-              borderRadius: '16px',
-              padding: '14px 18px',
-              boxShadow: '0 8px 32px rgba(27, 42, 107, 0.07), inset 0 1px 0 rgba(255, 255, 255, 0.9)',
-              backdropFilter: 'blur(16px)',
-              WebkitBackdropFilter: 'blur(16px)',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              gap: '10px'
-            }}
-          >
-            <span style={{ fontSize: '9px', fontWeight: 800, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--accent-periwinkle)', opacity: 0.9 }}>
-              J&K to South Train
-            </span>
-            <svg width="100" height="100" viewBox="0 0 120 120" fill="none">
-              {/* Abstract India Map Outline */}
-              <path 
-                d="M60,10 L68,22 L68,32 L60,38 L56,46 L52,52 L45,59 L48,66 L42,72 L38,79 L48,84 L52,92 L48,102 L58,114 L60,118 L70,105 L72,95 L76,85 L80,75 L84,65 L88,58 L95,58 L98,45 L88,40 L78,45 L72,35 L75,25 L70,18 L62,15 Z" 
-                fill="rgba(94, 92, 230, 0.05)" 
-                stroke="rgba(27, 42, 107, 0.12)" 
-                strokeWidth="1.2" 
-              />
-              
-              {/* Track Line (Kashmir to Kanyakumari) */}
-              <path 
-                id="train-track"
-                d="M60,10 C58,35 48,65 52,90 C56,105 60,110 60,118" 
-                fill="none" 
-                stroke="rgba(27, 42, 107, 0.12)" 
-                strokeWidth="1.2" 
-                strokeDasharray="3,3" 
-              />
-              
-              {/* Animated Bullet Train — periwinkle glow */}
-              <motion.path 
-                d="M60,10 C58,35 48,65 52,90 C56,105 60,110 60,118" 
-                fill="none" 
-                stroke="#5E5CE6" 
-                strokeWidth="2.5" 
-                strokeLinecap="round"
-                strokeDasharray="25 120"
-                animate={{ strokeDashoffset: [145, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-                style={{ filter: 'drop-shadow(0 0 4px #5E5CE6)' }}
-              />
-            </svg>
-          </motion.div>
-
-          {/* 2. Highway Bus & Hotel Card */}
-          <motion.div
-            whileHover={{ y: -5, scale: 1.02 }}
-            transition={{ duration: 0.2 }}
-            style={{
-              background: 'rgba(255, 255, 255, 0.82)',
-              border: '1px solid rgba(94, 92, 230, 0.1)',
-              borderRadius: '16px',
-              padding: '14px 18px',
-              boxShadow: '0 8px 32px rgba(27, 42, 107, 0.07), inset 0 1px 0 rgba(255, 255, 255, 0.9)',
-              backdropFilter: 'blur(16px)',
-              WebkitBackdropFilter: 'blur(16px)',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              gap: '10px'
-            }}
-          >
-            <span style={{ fontSize: '9px', fontWeight: 800, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--accent-periwinkle)', opacity: 0.9 }}>
-              Highway & Hotels
-            </span>
-            <svg width="120" height="70" viewBox="0 0 120 70" fill="none" style={{ borderRadius: '8px', overflow: 'hidden' }}>
-              <defs>
-                <linearGradient id="daySky" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#E0F2FE" />
-                  <stop offset="100%" stopColor="#F1F5F9" />
-                </linearGradient>
-              </defs>
-              {/* Light day-sky background */}
-              <rect width="120" height="70" fill="url(#daySky)" />
-
-              {/* Stylized hotel silhouette — light mode */}
-              <g transform="translate(10, 12)">
-                <rect x="0" y="8" width="18" height="30" fill="#CBD5E1" stroke="rgba(94,92,230,0.12)" strokeWidth="0.8" />
-                <polygon points="9,0 0,8 18,8" fill="#5E5CE6" />
-                {/* Windows lit */}
-                <rect x="3" y="12" width="3" height="3" fill="#FBBF24" opacity="0.9" />
-                <rect x="11" y="12" width="3" height="3" fill="#FBBF24" opacity="0.4" />
-                <rect x="3" y="20" width="3" height="3" fill="#FBBF24" opacity="0.6" />
-                <rect x="11" y="20" width="3" height="3" fill="#FBBF24" opacity="1" />
-                <rect x="3" y="28" width="3" height="3" fill="#FBBF24" opacity="0.3" />
-                <rect x="11" y="28" width="3" height="3" fill="#FBBF24" opacity="0.8" />
-              </g>
-
-              {/* Perspective Road — light asphalt */}
-              <line x1="35" y1="70" x2="58" y2="40" stroke="rgba(0,0,0,0.08)" strokeWidth="1.5" />
-              <line x1="105" y1="70" x2="72" y2="40" stroke="rgba(0,0,0,0.08)" strokeWidth="1.5" />
-              <polygon points="35,70 58,40 72,40 105,70" fill="rgba(94,92,230,0.04)" />
-
-              {/* Road center dashes */}
-              <motion.line 
-                x1="65" y1="70" x2="65" y2="40" 
-                stroke="#F59E0B" 
-                strokeWidth="1" 
-                strokeDasharray="6,8"
-                animate={{ strokeDashoffset: [14, 0] }}
-                transition={{ duration: 0.8, repeat: Infinity, ease: "linear" }}
-              />
-
-              {/* Bobbing periwinkle Bus */}
-              <motion.g
-                animate={{ y: [0, -1.2, 0] }}
-                transition={{ duration: 1, repeat: Infinity, ease: 'easeInOut' }}
-                transform="translate(10, 0)"
-              >
-                <ellipse cx="58" cy="59" rx="14" ry="2.5" fill="rgba(0,0,0,0.08)" />
-                {/* Bus body — periwinkle branded */}
-                <rect x="44" y="44" width="28" height="13" rx="2" fill="#5E5CE6" />
-                <rect x="47" y="47" width="5" height="4" fill="rgba(255,255,255,0.9)" />
-                <rect x="55" y="47" width="5" height="4" fill="rgba(255,255,255,0.9)" />
-                <rect x="63" y="47" width="5" height="4" fill="rgba(255,255,255,0.9)" />
-                <circle cx="70" cy="53" r="0.8" fill="#FBBF24" />
-                <circle cx="50" cy="57" r="2.2" fill="#334155" />
-                <circle cx="66" cy="57" r="2.2" fill="#334155" />
-              </motion.g>
-            </svg>
-          </motion.div>
-        </div>
-
         <div style={{ position: 'relative', zIndex: 2, maxWidth: '640px', margin: '0 auto' }}>
           <div className="t-hero-tag" style={{
             display: 'inline-flex',
             alignItems: 'center',
             gap: '8px',
-            background: 'rgba(94, 92, 230, 0.08)',
-            border: '1px solid rgba(94, 92, 230, 0.2)',
-            color: 'var(--accent-periwinkle)',
+            background: 'rgba(255, 255, 255, 0.08)',
+            border: '1px solid rgba(185, 183, 255, 0.35)',
+            color: '#C9C7FF',
             fontFamily: 'var(--font-mono)',
             fontSize: '10px',
             fontWeight: 600,
@@ -496,13 +143,16 @@ export default function TravelPage({ onOpenModal }) {
             fontWeight: 800,
             lineHeight: 1.15,
             letterSpacing: '-0.02em',
-            marginBottom: '16px'
+            marginBottom: '16px',
+            // Set explicitly: the global `h1..h6 { color: var(--text-primary) }`
+            // rule beats inheritance from the dark hero wrapper.
+            color: '#FFFFFF'
           }}>
             Where Do You Want<br />To Go Next?
           </h1>
           <p style={{
             fontSize: '15px',
-            color: 'var(--text-secondary)',
+            color: 'rgba(226, 228, 255, 0.82)',
             marginBottom: '32px',
             maxWidth: '600px',
             margin: '0 auto 32px'
@@ -517,17 +167,17 @@ export default function TravelPage({ onOpenModal }) {
             flexWrap: 'wrap',
             marginBottom: '40px'
           }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', color: 'var(--text-secondary)' }}>
-              <CheckCircle size={14} color="#5E5CE6" /> 500+ Airlines
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', color: 'rgba(226, 228, 255, 0.82)' }}>
+              <CheckCircle size={14} color="#8EE6A8" /> 500+ Airlines
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', color: 'var(--text-secondary)' }}>
-              <CheckCircle size={14} color="#5E5CE6" /> 1M+ Hotels
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', color: 'rgba(226, 228, 255, 0.82)' }}>
+              <CheckCircle size={14} color="#8EE6A8" /> 1M+ Hotels
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', color: 'var(--text-secondary)' }}>
-              <CheckCircle size={14} color="#5E5CE6" /> 1000+ Bus Operators
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', color: 'rgba(226, 228, 255, 0.82)' }}>
+              <CheckCircle size={14} color="#8EE6A8" /> 1000+ Bus Operators
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', color: 'var(--text-secondary)' }}>
-              <CheckCircle size={14} color="#5E5CE6" /> IRCTC Integrated
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', color: 'rgba(226, 228, 255, 0.82)' }}>
+              <CheckCircle size={14} color="#8EE6A8" /> IRCTC Integrated
             </div>
           </div>
         </div>
@@ -536,15 +186,17 @@ export default function TravelPage({ onOpenModal }) {
         <div className="search-box" style={{
           background: 'var(--white)',
           borderRadius: '18px',
-          maxWidth: '1000px',
+          maxWidth: '1060px',
           margin: '0 auto',
           boxShadow: 'var(--shadow-xl)',
           color: 'var(--text-primary)',
           textAlign: 'left',
-          overflow: 'hidden'
+          // Not hidden: it clipped the airport and traveller dropdowns. The tab
+          // strip carries its own top radius so the corners still read clean.
+          overflow: 'visible'
         }}>
           {/* Tab headers */}
-          <div className="s-tabs" style={{ display: 'flex', borderBottom: '1px solid var(--border-primary)', overflowX: 'auto', background: '#F8FAFF' }}>
+          <div className="s-tabs" style={{ display: 'flex', borderBottom: '1px solid var(--border-dark)', overflowX: 'auto', background: '#F8FAFF', borderRadius: '18px 18px 0 0' }}>
             {['Flights', 'Hotels', 'Buses', 'Trains', 'Holidays'].map((tab, idx) => (
               <button
                 key={idx}
@@ -582,50 +234,103 @@ export default function TravelPage({ onOpenModal }) {
             {/* Panel: Flights */}
             {activeSearchTab === 0 && (
               <div>
-                <div style={{ display: 'flex', gap: '16px', marginBottom: '18px' }}>
-                  {['one-way', 'round-trip', 'multi-city'].map((type) => (
-                    <label key={type} style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '13px', cursor: 'pointer', fontWeight: 600, color: tripType === type ? '#1B2A6B' : 'var(--text-secondary)' }}>
-                      <input
-                        type="radio"
-                        name="tripType"
-                        value={type}
-                        checked={tripType === type}
-                        onChange={(e) => setTripType(e.target.value)}
-                        style={{ accentColor: '#1B2A6B' }}
-                      />
-                      {type === 'one-way' && 'One Way'}
-                      {type === 'round-trip' && 'Round Trip'}
-                      {type === 'multi-city' && 'Multi City'}
-                    </label>
-                  ))}
+                {/* Trip type as pills, so the current choice reads at a glance */}
+                <div style={{ display: 'flex', gap: '8px', marginBottom: '16px', flexWrap: 'wrap' }}>
+                  {[['one-way', 'One Way'], ['round-trip', 'Round Trip'], ['multi-city', 'Multi City']].map(([val, text]) => {
+                    const on = tripType === val;
+                    return (
+                      <button
+                        key={val}
+                        type="button"
+                        onClick={() => setTripType(val)}
+                        aria-pressed={on}
+                        style={{
+                          padding: '7px 16px', borderRadius: '50px', cursor: 'pointer',
+                          fontSize: '12.5px', fontWeight: 700, fontFamily: 'inherit',
+                          border: on ? '1.5px solid var(--accent-periwinkle)' : '1.5px solid var(--border-dark)',
+                          background: on ? 'rgba(94, 92, 230, 0.08)' : '#fff',
+                          color: on ? 'var(--accent-periwinkle)' : 'var(--text-secondary)',
+                          transition: 'all .15s',
+                        }}
+                      >{text}</button>
+                    );
+                  })}
                 </div>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', position: 'relative', marginBottom: '12px' }}>
-                  <div className="sf" style={{ background: '#F8FAFF', border: '1.5px solid var(--border-primary)', borderRadius: '12px', padding: '10px 16px' }}>
-                    <div className="sf-lbl" style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '4px' }}>From</div>
-                    <input className="sf-inp" type="text" value={flightFrom} onChange={(e) => setFlightFrom(e.target.value)} style={{ width: '100%', border: 'none', background: 'transparent', outline: 'none', fontWeight: 700, fontSize: '14.5px' }} />
+
+                {/* One divided bar rather than boxes in a grid. Boxed fields on a
+                    white card drew --border-primary, which is a white border, so
+                    they were invisible against the card. */}
+                <div
+                  className="flight-bar"
+                  style={{
+                    display: 'grid',
+                    // minmax(0, ...) so a long airport name cannot set a min-content floor and
+                    // blow the column wider than its share.
+                    gridTemplateColumns: 'minmax(0, 1.15fr) minmax(0, 1.15fr) minmax(0, 0.9fr) minmax(0, 0.9fr) minmax(0, 1.1fr) auto',
+                    border: '1.5px solid var(--border-dark)',
+                    borderRadius: '14px',
+                    background: '#fff',
+                    position: 'relative',
+                  }}
+                >
+                  <div style={{ position: 'relative', minWidth: 0, borderRight: '1px solid var(--border-dark)' }}>
+                    <AirportField label="From" value={flightFrom} onChange={setFlightFrom}
+                      excludeCode={flightTo} placeholder="Where from?" variant="bare" />
                   </div>
-                  <button type="button" onClick={() => swapRoute('flight')} style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', width: '32px', height: '32px', borderRadius: '50%', background: '#fff', border: '1px solid var(--border-primary)', cursor: 'pointer', zIndex: 1, display: 'flex', alignItems: 'center', justify: 'center', fontWeight: 700 }}>⇄</button>
-                  <div className="sf" style={{ background: '#F8FAFF', border: '1.5px solid var(--border-primary)', borderRadius: '12px', padding: '10px 16px' }}>
-                    <div className="sf-lbl" style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '4px' }}>To</div>
-                    <input className="sf-inp" type="text" value={flightTo} onChange={(e) => setFlightTo(e.target.value)} style={{ width: '100%', border: 'none', background: 'transparent', outline: 'none', fontWeight: 700, fontSize: '14.5px' }} />
+
+                  <div style={{ position: 'relative', minWidth: 0, borderRight: '1px solid var(--border-dark)' }}>
+                    <AirportField label="To" value={flightTo} onChange={setFlightTo}
+                      excludeCode={flightFrom} placeholder="Where to?" variant="bare" />
+                    <button
+                      type="button"
+                      onClick={() => swapRoute('flight')}
+                      aria-label="Swap origin and destination"
+                      title="Swap"
+                      style={{
+                        position: 'absolute', left: 0, top: '50%',
+                        transform: 'translate(-50%, -50%)',
+                        width: '30px', height: '30px', borderRadius: '50%',
+                        background: '#fff', border: '1.5px solid var(--border-dark)',
+                        boxShadow: '0 2px 8px rgba(27,42,107,0.12)', cursor: 'pointer',
+                        zIndex: 3, display: 'flex', alignItems: 'center', justifyContent: 'center',
+                        fontWeight: 700, color: 'var(--accent-periwinkle)', fontSize: '13px',
+                      }}
+                    >&#8646;</button>
                   </div>
-                </div>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px', marginBottom: '18px' }}>
-                  <div className="sf" style={{ background: '#F8FAFF', border: '1.5px solid var(--border-primary)', borderRadius: '12px', padding: '10px 16px' }}>
-                    <div className="sf-lbl" style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '4px' }}>Departure</div>
-                    <input className="sf-inp" type="date" value={flightDate} onChange={(e) => setFlightDate(e.target.value)} style={{ width: '100%', border: 'none', background: 'transparent', outline: 'none', fontWeight: 700 }} />
+
+                  <label style={{ display: 'block', padding: '14px 18px', minHeight: '74px', borderRight: '1px solid var(--border-dark)', cursor: 'pointer' }}>
+                    <span className="sf-lbl" style={{ display: 'block', fontFamily: 'var(--font-mono)', fontSize: '9px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '4px' }}>Departure</span>
+                    <input type="date" value={flightDate} min={TODAY} required aria-label="Departure date"
+                      onChange={(e) => setFlightDate(e.target.value)} style={{ width: '100%', border: 'none', background: 'transparent', outline: 'none', fontWeight: 700, fontSize: '13.5px', fontFamily: 'inherit', color: 'var(--text-primary)', padding: 0 }} />
+                  </label>
+
+                  <label style={{ display: 'block', padding: '14px 18px', minHeight: '74px', borderRight: '1px solid var(--border-dark)', cursor: tripType === 'one-way' ? 'not-allowed' : 'pointer', opacity: tripType === 'one-way' ? 0.45 : 1 }}>
+                    <span className="sf-lbl" style={{ display: 'block', fontFamily: 'var(--font-mono)', fontSize: '9px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '4px' }}>Return</span>
+                    <input type="date" value={flightReturn} min={flightDate || TODAY}
+                      required={tripType !== 'one-way'} disabled={tripType === 'one-way'} aria-label="Return date"
+                      onChange={(e) => setFlightReturn(e.target.value)} style={{ width: '100%', border: 'none', background: 'transparent', outline: 'none', fontWeight: 700, fontSize: '13.5px', fontFamily: 'inherit', color: 'var(--text-primary)', padding: 0 }} />
+                  </label>
+
+                  <div style={{ position: 'relative', minWidth: 0 }}>
+                    <TravellersField value={travellers} onChange={setTravellers} variant="bare" />
                   </div>
-                  <div className="sf" style={{ background: '#F8FAFF', border: '1.5px solid var(--border-primary)', borderRadius: '12px', padding: '10px 16px' }}>
-                    <div className="sf-lbl" style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '4px' }}>Return (Optional)</div>
-                    <input className="sf-inp" type="date" value={flightReturn} onChange={(e) => setFlightReturn(e.target.value)} style={{ width: '100%', border: 'none', background: 'transparent', outline: 'none', fontWeight: 700 }} disabled={tripType === 'one-way'} />
-                  </div>
-                  <div className="sf" style={{ background: '#F8FAFF', border: '1.5px solid var(--border-primary)', borderRadius: '12px', padding: '10px 16px' }}>
-                    <div className="sf-lbl" style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '4px' }}>Travellers & Class</div>
-                    <input className="sf-inp" type="text" value={flightClass} onChange={(e) => setFlightClass(e.target.value)} style={{ width: '100%', border: 'none', background: 'transparent', outline: 'none', fontWeight: 700, fontSize: '13.5px' }} />
-                  </div>
+
+                  <button
+                    type="submit"
+                    className="flight-bar-cta"
+                    style={{
+                      border: 'none', cursor: 'pointer', background: 'var(--g-brand)',
+                      color: '#fff', fontFamily: 'inherit', fontWeight: 800, fontSize: '14.5px',
+                      padding: '0 30px', borderRadius: '0 12px 12px 0',
+                      display: 'flex', alignItems: 'center', gap: '8px', whiteSpace: 'nowrap',
+                    }}
+                  >
+                    Search <span aria-hidden="true">&rarr;</span>
+                  </button>
                 </div>
               </div>
             )}
+
 
             {/* Panel: Hotels */}
             {activeSearchTab === 1 && (
@@ -765,7 +470,7 @@ export default function TravelPage({ onOpenModal }) {
               </div>
             )}
 
-            <button type="submit" className="search-cta" style={{
+            {activeSearchTab !== 0 && <button type="submit" className="search-cta" style={{
               background: 'var(--g-brand)',
               color: '#fff',
               border: 'none',
@@ -782,7 +487,7 @@ export default function TravelPage({ onOpenModal }) {
               boxShadow: '0 4px 20px rgba(27,42,107,0.2)'
             }}>
               <Search size={16} /> Search & Book via WhatsApp
-            </button>
+            </button>}
           </form>
         </div>
       </div>

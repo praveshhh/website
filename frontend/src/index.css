@@ -844,15 +844,6 @@ section > div > div[style*="display: grid"] {
   border-color: rgba(94, 92, 230, 0.2) !important;
 }
 
-/* ─── Travel Visual Side Columns ─────────────────────── */
-/* Hide on screens where they would overlap center content */
-@media (max-width: 1240px) {
-  .t-hero-visual-left,
-  .t-hero-visual-right {
-    display: none !important;
-  }
-}
-
 /* ─── Mobile Visual Cards Strip ───────────────────────── */
 /* Hidden on desktop (side columns show instead), visible on mobile */
 .t-mobile-cards {
@@ -965,3 +956,29 @@ section > div > div[style*="display: grid"] {
 
 
 
+
+/* ─── Flight search bar ───────────────────────────────── */
+/* One divided row on desktop; folds to two columns, then one, as it narrows
+   so the six cells never crush. Dividers flip from vertical to horizontal. */
+@media (max-width: 1080px) {
+  .flight-bar {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .flight-bar > * {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border-dark) !important;
+  }
+  .flight-bar > .flight-bar-cta {
+    grid-column: 1 / -1;
+    border-bottom: none !important;
+    border-radius: 0 0 12px 12px !important;
+    padding: 16px 30px !important;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .flight-bar {
+    grid-template-columns: 1fr !important;
+  }
+}

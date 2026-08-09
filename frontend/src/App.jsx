@@ -150,13 +150,21 @@ export default function App() {
 
         {/* Multi-page Routing render */}
         <div style={{ flex: 1, perspective: 1200, overflowX: 'hidden' }}>
-          <AnimatePresence mode="wait">
+          {/* popLayout, not "wait": with mode="wait" the outgoing page's exit
+              animation never completed, so AnimatePresence never mounted the
+              incoming one and every nav link left the site on a blank fade.
+              popLayout takes the outgoing page out of flow instead of blocking
+              on it. The exit variant is gone as well: Hero alone runs 35
+              `repeat: Infinity` animations, AnimatePresence waits for every
+              animation in the outgoing subtree to settle, and infinite ones
+              never do, so the old page stayed mounted forever. Pages now swap
+              on the enter animation only. */}
+          <AnimatePresence mode="popLayout">
             <motion.div
               key={activeTab}
               variants={pageVariants}
               initial="initial"
               animate="animate"
-              exit="exit"
               style={{ width: '100%' }}
             >
               {activeTab === 'home' && (

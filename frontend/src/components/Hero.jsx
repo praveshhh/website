@@ -3,6 +3,8 @@ import { motion, useInView, useAnimation, AnimatePresence, useMotionValue, useTr
 import { Shield, Sparkles, Zap, Smartphone, CheckCircle, Send, ArrowRight, ArrowLeftRight, Phone, Mail, MapPin, Globe, Star, Laptop, Plane, Building, DollarSign, Calendar, MessageSquare, Brain, Bot } from 'lucide-react';
 import axios from 'axios';
 import TiltCard from './TiltCard';
+import HeroAmbient from './HeroAmbient';
+import CapabilityCards from './CapabilityCards';
 
 // ─── Reusable animated section wrapper ───────────────────────────────────────
 function FadeUp({ children, delay = 0, className = '', style = {} }) {
@@ -1532,10 +1534,22 @@ export default function Hero({ onOpenAuth, backendUrl }) {
         display: 'flex',
         alignItems: 'center',
         padding: '60px 8% 40px',
-        background: 'radial-gradient(circle at 10% 20%, rgba(94, 92, 230, 0.03) 0%, transparent 60%), radial-gradient(circle at 95% 85%, rgba(0, 122, 255, 0.02) 0%, transparent 60%)',
+        /* Soft indigo wash instead of near-white. The ambient grid, the traces
+           and the card glow all need something to sit against: on white they
+           wash out completely. Blooms are weighted to the right, under the
+           capability cards. */
+        background: [
+          'radial-gradient(115% 85% at 76% 28%, rgba(129, 126, 255, 0.28) 0%, transparent 58%)',
+          'radial-gradient(95% 75% at 6% 76%, rgba(45, 184, 75, 0.10) 0%, transparent 55%)',
+          'radial-gradient(80% 60% at 50% 100%, rgba(94, 92, 230, 0.10) 0%, transparent 60%)',
+          'linear-gradient(158deg, #EEEFFD 0%, #E5E9FC 46%, #DFE5FA 100%)',
+        ].join(', '),
         borderBottom: '1px solid rgba(0, 0, 0, 0.04)',
         boxSizing: 'border-box'
       }}>
+        {/* Ambient background motion. Decorative only, sits behind everything. */}
+        <HeroAmbient />
+
         {/* Animated ambient blobs */}
         <motion.div
           className="glow-overlay-green"
@@ -1684,7 +1698,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
             </div>
           </div>
 
-          {/* Right Hero Visual: FintechX Interactive Dashboard */}
+          {/* Right Hero Visual: floating capability cards */}
           <motion.div
             initial={{ opacity: 0, scale: 0.92, x: 30 }}
             animate={{ opacity: 1, scale: 1, x: 0 }}
@@ -1696,7 +1710,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
               width: '100%'
             }} className="hero-visual-container"
           >
-            <FintechXDashboardVisual3D />
+            <CapabilityCards />
           </motion.div>
         </div>
       </section>

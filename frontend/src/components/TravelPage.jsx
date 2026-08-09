@@ -82,7 +82,7 @@ export default function TravelPage({ onOpenModal }) {
         position: 'relative',
         overflow: 'hidden',
         padding: '96px 8% 40px',
-        background: 'radial-gradient(circle at 12% 20%, rgba(94, 92, 230, 0.06) 0%, transparent 55%), radial-gradient(circle at 90% 80%, rgba(36, 178, 99, 0.04) 0%, transparent 55%)',
+        background: 'radial-gradient(circle at 12% 20%, rgba(27, 98, 71, 0.06) 0%, transparent 55%), radial-gradient(circle at 90% 80%, rgba(30, 104, 73, 0.04) 0%, transparent 55%)',
         borderBottom: '1px solid rgba(0, 0, 0, 0.04)',
         color: 'var(--text-primary)',
         textAlign: 'center'
@@ -119,10 +119,10 @@ export default function TravelPage({ onOpenModal }) {
             transition={{ duration: 0.2 }}
             style={{
               background: 'rgba(255, 255, 255, 0.82)',
-              border: '1px solid rgba(94, 92, 230, 0.1)',
+              border: '1px solid rgba(27, 98, 71, 0.1)',
               borderRadius: '16px',
               padding: '14px 18px',
-              boxShadow: '0 8px 32px rgba(27, 42, 107, 0.07), inset 0 1px 0 rgba(255, 255, 255, 0.9)',
+              boxShadow: '0 8px 32px rgba(15, 58, 43, 0.07), inset 0 1px 0 rgba(255, 255, 255, 0.9)',
               backdropFilter: 'blur(16px)',
               WebkitBackdropFilter: 'blur(16px)',
               display: 'flex',
@@ -146,7 +146,7 @@ export default function TravelPage({ onOpenModal }) {
                   <stop offset="100%" stopColor="rgba(0,0,0,0.95)" />
                 </radialGradient>
                 <radialGradient id="globeGlow" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" stopColor="rgba(94, 92, 230, 0.18)" />
+                  <stop offset="0%" stopColor="rgba(27, 98, 71, 0.18)" />
                   <stop offset="100%" stopColor="rgba(255, 255, 255, 0)" />
                 </radialGradient>
                 <linearGradient id="glossLight" x1="0" y1="0" x2="1" y2="1">
@@ -163,7 +163,7 @@ export default function TravelPage({ onOpenModal }) {
                 {/* Deep ocean background — light blue */}
                 <circle cx="75" cy="75" r="50" fill="#EEF3F9" />
                 {/* Lat/Long grid background lines */}
-                <circle cx="75" cy="75" r="50" stroke="rgba(94,92,230,0.1)" strokeWidth="0.8" fill="none" />
+                <circle cx="75" cy="75" r="50" stroke="rgba(27, 98, 71,0.1)" strokeWidth="0.8" fill="none" />
                 
                 {/* Seamlessly Scrolling Continent landmass group */}
                 <motion.g
@@ -172,7 +172,7 @@ export default function TravelPage({ onOpenModal }) {
                   style={{ display: 'flex' }}
                 >
                   {/* Landmass Set 1 */}
-                  <g fill="rgba(36, 178, 99, 0.75)" opacity="1">
+                  <g fill="rgba(30, 104, 73, 0.75)" opacity="1">
                     {/* North America / Greenland */}
                     <path d="M20,25 Q30,18 45,28 T35,50 T15,35 Z" />
                     {/* South America */}
@@ -183,7 +183,7 @@ export default function TravelPage({ onOpenModal }) {
                     <path d="M105,75 Q120,78 115,90 T98,88 Z" />
                   </g>
                   {/* Landmass Set 2 (Duplicate, offset by 150px) */}
-                  <g fill="rgba(36, 178, 99, 0.75)" opacity="1" transform="translate(150, 0)">
+                  <g fill="rgba(30, 104, 73, 0.75)" opacity="1" transform="translate(150, 0)">
                     {/* North America / Greenland */}
                     <path d="M20,25 Q30,18 45,28 T35,50 T15,35 Z" />
                     {/* South America */}
@@ -220,11 +220,11 @@ export default function TravelPage({ onOpenModal }) {
               </g>
               
               {/* Outer latitude/longitude decorative axis grid */}
-              <ellipse cx="75" cy="75" rx="50" ry="15" stroke="rgba(94,92,230,0.1)" strokeWidth="0.8" />
-              <ellipse cx="75" cy="75" rx="18" ry="50" stroke="rgba(94,92,230,0.1)" strokeWidth="0.8" />
+              <ellipse cx="75" cy="75" rx="50" ry="15" stroke="rgba(27, 98, 71,0.1)" strokeWidth="0.8" />
+              <ellipse cx="75" cy="75" rx="18" ry="50" stroke="rgba(27, 98, 71,0.1)" strokeWidth="0.8" />
               
               {/* Orbit track */}
-              <ellipse cx="75" cy="75" rx="70" ry="22" stroke="rgba(94,92,230,0.25)" strokeWidth="0.8" strokeDasharray="4,4" transform="rotate(-15 75 75)" />
+              <ellipse cx="75" cy="75" rx="70" ry="22" stroke="rgba(27, 98, 71,0.25)" strokeWidth="0.8" strokeDasharray="4,4" transform="rotate(-15 75 75)" />
               
               {/* Slanted orbit orbiting plane */}
               <g transform="translate(75, 75) rotate(-15)">
@@ -241,14 +241,14 @@ export default function TravelPage({ onOpenModal }) {
                     {/* Back wing (top side) — periwinkle branded */}
                     <polygon points="-3,-3 -12,-16 -7,-16 2,-3" fill="#8B89F5" />
                     {/* Front wing (bottom side, shaded) */}
-                    <polygon points="-3,3 -12,18 -7,18 2,3" fill="#5E5CE6" />
+                    <polygon points="-3,3 -12,18 -7,18 2,3" fill="#1B6247" />
                     {/* Tail fin vertical */}
-                    <polygon points="-11,0 -14,-8 -9,-8 -7,0" fill="#5E5CE6" />
+                    <polygon points="-11,0 -14,-8 -9,-8 -7,0" fill="#1B6247" />
                     {/* Tail plane horizontal */}
                     <polygon points="-10,0 -13,6 -10,6 -7,0" fill="#8B89F5" />
                     {/* Engines */}
                     <rect x="-6" y="6" width="5" height="2" rx="1" fill="#475569" />
-                    <rect x="-6" y="-8" width="5" height="2" rx="1" fill="#64748B" />
+                    <rect x="-6" y="-8" width="5" height="2" rx="1" fill="#8A9A92" />
                   </g>
                 </g>
               </g>
@@ -261,10 +261,10 @@ export default function TravelPage({ onOpenModal }) {
             transition={{ duration: 0.2 }}
             style={{
               background: 'rgba(255, 255, 255, 0.82)',
-              border: '1px solid rgba(94, 92, 230, 0.1)',
+              border: '1px solid rgba(27, 98, 71, 0.1)',
               borderRadius: '16px',
               padding: '14px 18px',
-              boxShadow: '0 8px 32px rgba(27, 42, 107, 0.07), inset 0 1px 0 rgba(255, 255, 255, 0.9)',
+              boxShadow: '0 8px 32px rgba(15, 58, 43, 0.07), inset 0 1px 0 rgba(255, 255, 255, 0.9)',
               backdropFilter: 'blur(16px)',
               WebkitBackdropFilter: 'blur(16px)',
               display: 'flex',
@@ -290,34 +290,34 @@ export default function TravelPage({ onOpenModal }) {
               {/* Glowing Sun */}
               <motion.circle 
                 cx="60" cy="38" r="10" 
-                fill="#F97316" 
+                fill="#D9A03C" 
                 animate={{ scale: [1, 1.07, 1], opacity: [0.85, 1, 0.85] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                style={{ filter: 'drop-shadow(0 0 6px #F97316)' }}
+                style={{ filter: 'drop-shadow(0 0 6px #D9A03C)' }}
               />
               
               {/* Swaying Palm Tree */}
               <g transform="translate(10, 10)">
-                <path d="M5,50 Q12,30 8,10" fill="none" stroke="#64748B" strokeWidth="2.5" strokeLinecap="round" />
+                <path d="M5,50 Q12,30 8,10" fill="none" stroke="#8A9A92" strokeWidth="2.5" strokeLinecap="round" />
                 <motion.g
                   animate={{ rotate: [-3, 3, -3] }}
                   transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
                   transformOrigin="8px 10px"
                 >
-                  <path d="M8,10 Q2,8 -4,11 M8,10 Q14,8 20,11 M8,10 Q6,3 4,-4 M8,10 Q13,4 18,2 M8,10 Q3,15 -1,22 M8,10 Q11,15 15,22" fill="none" stroke="#10B981" strokeWidth="2" strokeLinecap="round" />
+                  <path d="M8,10 Q2,8 -4,11 M8,10 Q14,8 20,11 M8,10 Q6,3 4,-4 M8,10 Q13,4 18,2 M8,10 Q3,15 -1,22 M8,10 Q11,15 15,22" fill="none" stroke="#2E9E68" strokeWidth="2" strokeLinecap="round" />
                 </motion.g>
               </g>
 
               {/* Rolling Waves — sea blue */}
               <motion.path 
                 d="M0,58 Q30,55 60,58 T120,58 L120,70 L0,70 Z" 
-                fill="rgba(94, 92, 230, 0.15)" 
+                fill="rgba(27, 98, 71, 0.15)" 
                 animate={{ x: [-8, 8, -8] }} 
                 transition={{ repeat: Infinity, duration: 5, ease: 'easeInOut' }} 
               />
               <motion.path 
                 d="M-10,61 Q25,58 60,61 T130,61 L130,70 L-10,70 Z" 
-                fill="rgba(0, 122, 255, 0.2)" 
+                fill="rgba(27, 98, 71, 0.2)" 
                 animate={{ x: [8, -8, 8] }} 
                 transition={{ repeat: Infinity, duration: 4, ease: 'easeInOut' }} 
               />
@@ -343,10 +343,10 @@ export default function TravelPage({ onOpenModal }) {
             transition={{ duration: 0.2 }}
             style={{
               background: 'rgba(255, 255, 255, 0.82)',
-              border: '1px solid rgba(94, 92, 230, 0.1)',
+              border: '1px solid rgba(27, 98, 71, 0.1)',
               borderRadius: '16px',
               padding: '14px 18px',
-              boxShadow: '0 8px 32px rgba(27, 42, 107, 0.07), inset 0 1px 0 rgba(255, 255, 255, 0.9)',
+              boxShadow: '0 8px 32px rgba(15, 58, 43, 0.07), inset 0 1px 0 rgba(255, 255, 255, 0.9)',
               backdropFilter: 'blur(16px)',
               WebkitBackdropFilter: 'blur(16px)',
               display: 'flex',
@@ -362,8 +362,8 @@ export default function TravelPage({ onOpenModal }) {
               {/* Abstract India Map Outline */}
               <path 
                 d="M60,10 L68,22 L68,32 L60,38 L56,46 L52,52 L45,59 L48,66 L42,72 L38,79 L48,84 L52,92 L48,102 L58,114 L60,118 L70,105 L72,95 L76,85 L80,75 L84,65 L88,58 L95,58 L98,45 L88,40 L78,45 L72,35 L75,25 L70,18 L62,15 Z" 
-                fill="rgba(94, 92, 230, 0.05)" 
-                stroke="rgba(27, 42, 107, 0.12)" 
+                fill="rgba(27, 98, 71, 0.05)" 
+                stroke="rgba(15, 58, 43, 0.12)" 
                 strokeWidth="1.2" 
               />
               
@@ -372,7 +372,7 @@ export default function TravelPage({ onOpenModal }) {
                 id="train-track"
                 d="M60,10 C58,35 48,65 52,90 C56,105 60,110 60,118" 
                 fill="none" 
-                stroke="rgba(27, 42, 107, 0.12)" 
+                stroke="rgba(15, 58, 43, 0.12)" 
                 strokeWidth="1.2" 
                 strokeDasharray="3,3" 
               />
@@ -381,13 +381,13 @@ export default function TravelPage({ onOpenModal }) {
               <motion.path 
                 d="M60,10 C58,35 48,65 52,90 C56,105 60,110 60,118" 
                 fill="none" 
-                stroke="#5E5CE6" 
+                stroke="#1B6247" 
                 strokeWidth="2.5" 
                 strokeLinecap="round"
                 strokeDasharray="25 120"
                 animate={{ strokeDashoffset: [145, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-                style={{ filter: 'drop-shadow(0 0 4px #5E5CE6)' }}
+                style={{ filter: 'drop-shadow(0 0 4px #1B6247)' }}
               />
             </svg>
           </motion.div>
@@ -398,10 +398,10 @@ export default function TravelPage({ onOpenModal }) {
             transition={{ duration: 0.2 }}
             style={{
               background: 'rgba(255, 255, 255, 0.82)',
-              border: '1px solid rgba(94, 92, 230, 0.1)',
+              border: '1px solid rgba(27, 98, 71, 0.1)',
               borderRadius: '16px',
               padding: '14px 18px',
-              boxShadow: '0 8px 32px rgba(27, 42, 107, 0.07), inset 0 1px 0 rgba(255, 255, 255, 0.9)',
+              boxShadow: '0 8px 32px rgba(15, 58, 43, 0.07), inset 0 1px 0 rgba(255, 255, 255, 0.9)',
               backdropFilter: 'blur(16px)',
               WebkitBackdropFilter: 'blur(16px)',
               display: 'flex',
@@ -425,26 +425,26 @@ export default function TravelPage({ onOpenModal }) {
 
               {/* Stylized hotel silhouette — light mode */}
               <g transform="translate(10, 12)">
-                <rect x="0" y="8" width="18" height="30" fill="#CBD5E1" stroke="rgba(94,92,230,0.12)" strokeWidth="0.8" />
-                <polygon points="9,0 0,8 18,8" fill="#5E5CE6" />
+                <rect x="0" y="8" width="18" height="30" fill="#CBD5E1" stroke="rgba(27, 98, 71,0.12)" strokeWidth="0.8" />
+                <polygon points="9,0 0,8 18,8" fill="#1B6247" />
                 {/* Windows lit */}
-                <rect x="3" y="12" width="3" height="3" fill="#FBBF24" opacity="0.9" />
-                <rect x="11" y="12" width="3" height="3" fill="#FBBF24" opacity="0.4" />
-                <rect x="3" y="20" width="3" height="3" fill="#FBBF24" opacity="0.6" />
-                <rect x="11" y="20" width="3" height="3" fill="#FBBF24" opacity="1" />
-                <rect x="3" y="28" width="3" height="3" fill="#FBBF24" opacity="0.3" />
-                <rect x="11" y="28" width="3" height="3" fill="#FBBF24" opacity="0.8" />
+                <rect x="3" y="12" width="3" height="3" fill="#FFC94D" opacity="0.9" />
+                <rect x="11" y="12" width="3" height="3" fill="#FFC94D" opacity="0.4" />
+                <rect x="3" y="20" width="3" height="3" fill="#FFC94D" opacity="0.6" />
+                <rect x="11" y="20" width="3" height="3" fill="#FFC94D" opacity="1" />
+                <rect x="3" y="28" width="3" height="3" fill="#FFC94D" opacity="0.3" />
+                <rect x="11" y="28" width="3" height="3" fill="#FFC94D" opacity="0.8" />
               </g>
 
               {/* Perspective Road — light asphalt */}
               <line x1="35" y1="70" x2="58" y2="40" stroke="rgba(0,0,0,0.08)" strokeWidth="1.5" />
               <line x1="105" y1="70" x2="72" y2="40" stroke="rgba(0,0,0,0.08)" strokeWidth="1.5" />
-              <polygon points="35,70 58,40 72,40 105,70" fill="rgba(94,92,230,0.04)" />
+              <polygon points="35,70 58,40 72,40 105,70" fill="rgba(27, 98, 71,0.04)" />
 
               {/* Road center dashes */}
               <motion.line 
                 x1="65" y1="70" x2="65" y2="40" 
-                stroke="#F59E0B" 
+                stroke="#E8BC55" 
                 strokeWidth="1" 
                 strokeDasharray="6,8"
                 animate={{ strokeDashoffset: [14, 0] }}
@@ -459,13 +459,13 @@ export default function TravelPage({ onOpenModal }) {
               >
                 <ellipse cx="58" cy="59" rx="14" ry="2.5" fill="rgba(0,0,0,0.08)" />
                 {/* Bus body — periwinkle branded */}
-                <rect x="44" y="44" width="28" height="13" rx="2" fill="#5E5CE6" />
+                <rect x="44" y="44" width="28" height="13" rx="2" fill="#1B6247" />
                 <rect x="47" y="47" width="5" height="4" fill="rgba(255,255,255,0.9)" />
                 <rect x="55" y="47" width="5" height="4" fill="rgba(255,255,255,0.9)" />
                 <rect x="63" y="47" width="5" height="4" fill="rgba(255,255,255,0.9)" />
-                <circle cx="70" cy="53" r="0.8" fill="#FBBF24" />
-                <circle cx="50" cy="57" r="2.2" fill="#334155" />
-                <circle cx="66" cy="57" r="2.2" fill="#334155" />
+                <circle cx="70" cy="53" r="0.8" fill="#FFC94D" />
+                <circle cx="50" cy="57" r="2.2" fill="#4E635A" />
+                <circle cx="66" cy="57" r="2.2" fill="#4E635A" />
               </motion.g>
             </svg>
           </motion.div>
@@ -476,8 +476,8 @@ export default function TravelPage({ onOpenModal }) {
             display: 'inline-flex',
             alignItems: 'center',
             gap: '8px',
-            background: 'rgba(94, 92, 230, 0.08)',
-            border: '1px solid rgba(94, 92, 230, 0.2)',
+            background: 'rgba(27, 98, 71, 0.08)',
+            border: '1px solid rgba(27, 98, 71, 0.2)',
             color: 'var(--accent-periwinkle)',
             fontFamily: 'var(--font-mono)',
             fontSize: '10px',
@@ -518,16 +518,16 @@ export default function TravelPage({ onOpenModal }) {
             marginBottom: '40px'
           }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', color: 'var(--text-secondary)' }}>
-              <CheckCircle size={14} color="#5E5CE6" /> 500+ Airlines
+              <CheckCircle size={14} color="#1B6247" /> 500+ Airlines
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', color: 'var(--text-secondary)' }}>
-              <CheckCircle size={14} color="#5E5CE6" /> 1M+ Hotels
+              <CheckCircle size={14} color="#1B6247" /> 1M+ Hotels
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', color: 'var(--text-secondary)' }}>
-              <CheckCircle size={14} color="#5E5CE6" /> 1000+ Bus Operators
+              <CheckCircle size={14} color="#1B6247" /> 1000+ Bus Operators
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', color: 'var(--text-secondary)' }}>
-              <CheckCircle size={14} color="#5E5CE6" /> IRCTC Integrated
+              <CheckCircle size={14} color="#1B6247" /> IRCTC Integrated
             </div>
           </div>
         </div>
@@ -544,7 +544,7 @@ export default function TravelPage({ onOpenModal }) {
           overflow: 'hidden'
         }}>
           {/* Tab headers */}
-          <div className="s-tabs" style={{ display: 'flex', borderBottom: '1px solid var(--border-primary)', overflowX: 'auto', background: '#F8FAFF' }}>
+          <div className="s-tabs" style={{ display: 'flex', borderBottom: '1px solid var(--border-primary)', overflowX: 'auto', background: '#F6F3E9' }}>
             {['Flights', 'Hotels', 'Buses', 'Trains', 'Holidays'].map((tab, idx) => (
               <button
                 key={idx}
@@ -584,14 +584,14 @@ export default function TravelPage({ onOpenModal }) {
               <div>
                 <div style={{ display: 'flex', gap: '16px', marginBottom: '18px' }}>
                   {['one-way', 'round-trip', 'multi-city'].map((type) => (
-                    <label key={type} style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '13px', cursor: 'pointer', fontWeight: 600, color: tripType === type ? '#1B2A6B' : 'var(--text-secondary)' }}>
+                    <label key={type} style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '13px', cursor: 'pointer', fontWeight: 600, color: tripType === type ? '#0F3A2B' : 'var(--text-secondary)' }}>
                       <input
                         type="radio"
                         name="tripType"
                         value={type}
                         checked={tripType === type}
                         onChange={(e) => setTripType(e.target.value)}
-                        style={{ accentColor: '#1B2A6B' }}
+                        style={{ accentColor: '#0F3A2B' }}
                       />
                       {type === 'one-way' && 'One Way'}
                       {type === 'round-trip' && 'Round Trip'}
@@ -600,26 +600,26 @@ export default function TravelPage({ onOpenModal }) {
                   ))}
                 </div>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', position: 'relative', marginBottom: '12px' }}>
-                  <div className="sf" style={{ background: '#F8FAFF', border: '1.5px solid var(--border-primary)', borderRadius: '12px', padding: '10px 16px' }}>
+                  <div className="sf" style={{ background: '#F6F3E9', border: '1.5px solid var(--border-primary)', borderRadius: '12px', padding: '10px 16px' }}>
                     <div className="sf-lbl" style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '4px' }}>From</div>
                     <input className="sf-inp" type="text" value={flightFrom} onChange={(e) => setFlightFrom(e.target.value)} style={{ width: '100%', border: 'none', background: 'transparent', outline: 'none', fontWeight: 700, fontSize: '14.5px' }} />
                   </div>
                   <button type="button" onClick={() => swapRoute('flight')} style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', width: '32px', height: '32px', borderRadius: '50%', background: '#fff', border: '1px solid var(--border-primary)', cursor: 'pointer', zIndex: 1, display: 'flex', alignItems: 'center', justify: 'center', fontWeight: 700 }}>⇄</button>
-                  <div className="sf" style={{ background: '#F8FAFF', border: '1.5px solid var(--border-primary)', borderRadius: '12px', padding: '10px 16px' }}>
+                  <div className="sf" style={{ background: '#F6F3E9', border: '1.5px solid var(--border-primary)', borderRadius: '12px', padding: '10px 16px' }}>
                     <div className="sf-lbl" style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '4px' }}>To</div>
                     <input className="sf-inp" type="text" value={flightTo} onChange={(e) => setFlightTo(e.target.value)} style={{ width: '100%', border: 'none', background: 'transparent', outline: 'none', fontWeight: 700, fontSize: '14.5px' }} />
                   </div>
                 </div>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px', marginBottom: '18px' }}>
-                  <div className="sf" style={{ background: '#F8FAFF', border: '1.5px solid var(--border-primary)', borderRadius: '12px', padding: '10px 16px' }}>
+                  <div className="sf" style={{ background: '#F6F3E9', border: '1.5px solid var(--border-primary)', borderRadius: '12px', padding: '10px 16px' }}>
                     <div className="sf-lbl" style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '4px' }}>Departure</div>
                     <input className="sf-inp" type="date" value={flightDate} onChange={(e) => setFlightDate(e.target.value)} style={{ width: '100%', border: 'none', background: 'transparent', outline: 'none', fontWeight: 700 }} />
                   </div>
-                  <div className="sf" style={{ background: '#F8FAFF', border: '1.5px solid var(--border-primary)', borderRadius: '12px', padding: '10px 16px' }}>
+                  <div className="sf" style={{ background: '#F6F3E9', border: '1.5px solid var(--border-primary)', borderRadius: '12px', padding: '10px 16px' }}>
                     <div className="sf-lbl" style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '4px' }}>Return (Optional)</div>
                     <input className="sf-inp" type="date" value={flightReturn} onChange={(e) => setFlightReturn(e.target.value)} style={{ width: '100%', border: 'none', background: 'transparent', outline: 'none', fontWeight: 700 }} disabled={tripType === 'one-way'} />
                   </div>
-                  <div className="sf" style={{ background: '#F8FAFF', border: '1.5px solid var(--border-primary)', borderRadius: '12px', padding: '10px 16px' }}>
+                  <div className="sf" style={{ background: '#F6F3E9', border: '1.5px solid var(--border-primary)', borderRadius: '12px', padding: '10px 16px' }}>
                     <div className="sf-lbl" style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '4px' }}>Travellers & Class</div>
                     <input className="sf-inp" type="text" value={flightClass} onChange={(e) => setFlightClass(e.target.value)} style={{ width: '100%', border: 'none', background: 'transparent', outline: 'none', fontWeight: 700, fontSize: '13.5px' }} />
                   </div>
@@ -630,20 +630,20 @@ export default function TravelPage({ onOpenModal }) {
             {/* Panel: Hotels */}
             {activeSearchTab === 1 && (
               <div>
-                <div className="sf" style={{ background: '#F8FAFF', border: '1.5px solid var(--border-primary)', borderRadius: '12px', padding: '10px 16px', marginBottom: '12px' }}>
+                <div className="sf" style={{ background: '#F6F3E9', border: '1.5px solid var(--border-primary)', borderRadius: '12px', padding: '10px 16px', marginBottom: '12px' }}>
                   <div className="sf-lbl" style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '4px' }}>City, Area or Hotel Name</div>
                   <input className="sf-inp" type="text" placeholder="e.g. Goa, Mumbai, Jaipur" value={hotelCity} onChange={(e) => setHotelCity(e.target.value)} style={{ width: '100%', border: 'none', background: 'transparent', outline: 'none', fontWeight: 700 }} />
                 </div>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px', marginBottom: '18px' }}>
-                  <div className="sf" style={{ background: '#F8FAFF', border: '1.5px solid var(--border-primary)', borderRadius: '12px', padding: '10px 16px' }}>
+                  <div className="sf" style={{ background: '#F6F3E9', border: '1.5px solid var(--border-primary)', borderRadius: '12px', padding: '10px 16px' }}>
                     <div className="sf-lbl" style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '4px' }}>Check-In</div>
                     <input className="sf-inp" type="date" value={hotelCheckIn} onChange={(e) => setHotelCheckIn(e.target.value)} style={{ width: '100%', border: 'none', background: 'transparent', outline: 'none', fontWeight: 700 }} />
                   </div>
-                  <div className="sf" style={{ background: '#F8FAFF', border: '1.5px solid var(--border-primary)', borderRadius: '12px', padding: '10px 16px' }}>
+                  <div className="sf" style={{ background: '#F6F3E9', border: '1.5px solid var(--border-primary)', borderRadius: '12px', padding: '10px 16px' }}>
                     <div className="sf-lbl" style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '4px' }}>Check-Out</div>
                     <input className="sf-inp" type="date" value={hotelCheckOut} onChange={(e) => setHotelCheckOut(e.target.value)} style={{ width: '100%', border: 'none', background: 'transparent', outline: 'none', fontWeight: 700 }} />
                   </div>
-                  <div className="sf" style={{ background: '#F8FAFF', border: '1.5px solid var(--border-primary)', borderRadius: '12px', padding: '10px 16px' }}>
+                  <div className="sf" style={{ background: '#F6F3E9', border: '1.5px solid var(--border-primary)', borderRadius: '12px', padding: '10px 16px' }}>
                     <div className="sf-lbl" style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '4px' }}>Rooms & Guests</div>
                     <input className="sf-inp" type="text" value={hotelGuests} onChange={(e) => setHotelGuests(e.target.value)} style={{ width: '100%', border: 'none', background: 'transparent', outline: 'none', fontWeight: 700, fontSize: '13.5px' }} />
                   </div>
@@ -655,27 +655,27 @@ export default function TravelPage({ onOpenModal }) {
             {activeSearchTab === 2 && (
               <div>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', position: 'relative', marginBottom: '12px' }}>
-                  <div className="sf" style={{ background: '#F8FAFF', border: '1.5px solid var(--border-primary)', borderRadius: '12px', padding: '10px 16px' }}>
+                  <div className="sf" style={{ background: '#F6F3E9', border: '1.5px solid var(--border-primary)', borderRadius: '12px', padding: '10px 16px' }}>
                     <div className="sf-lbl" style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '4px' }}>From</div>
                     <input className="sf-inp" type="text" value={busFrom} onChange={(e) => setBusFrom(e.target.value)} style={{ width: '100%', border: 'none', background: 'transparent', outline: 'none', fontWeight: 700 }} />
                   </div>
                   <button type="button" onClick={() => swapRoute('bus')} style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', width: '32px', height: '32px', borderRadius: '50%', background: '#fff', border: '1px solid var(--border-primary)', cursor: 'pointer', zIndex: 1, display: 'flex', alignItems: 'center', justify: 'center' }}>⇄</button>
-                  <div className="sf" style={{ background: '#F8FAFF', border: '1.5px solid var(--border-primary)', borderRadius: '12px', padding: '10px 16px' }}>
+                  <div className="sf" style={{ background: '#F6F3E9', border: '1.5px solid var(--border-primary)', borderRadius: '12px', padding: '10px 16px' }}>
                     <div className="sf-lbl" style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '4px' }}>To</div>
                     <input className="sf-inp" type="text" placeholder="Destination City" value={busTo} onChange={(e) => setBusTo(e.target.value)} style={{ width: '100%', border: 'none', background: 'transparent', outline: 'none', fontWeight: 700 }} />
                   </div>
                 </div>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '18px' }}>
-                  <div className="sf" style={{ background: '#F8FAFF', border: '1.5px solid var(--border-primary)', borderRadius: '12px', padding: '10px 16px' }}>
+                  <div className="sf" style={{ background: '#F6F3E9', border: '1.5px solid var(--border-primary)', borderRadius: '12px', padding: '10px 16px' }}>
                     <div className="sf-lbl" style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '4px' }}>Date of Journey</div>
                     <input className="sf-inp" type="date" value={busDate} onChange={(e) => setBusDate(e.target.value)} style={{ width: '100%', border: 'none', background: 'transparent', outline: 'none', fontWeight: 700 }} />
                   </div>
-                  <div className="sf" style={{ background: '#F8FAFF', border: '1.5px solid var(--border-primary)', borderRadius: '12px', padding: '10px 16px' }}>
+                  <div className="sf" style={{ background: '#F6F3E9', border: '1.5px solid var(--border-primary)', borderRadius: '12px', padding: '10px 16px' }}>
                     <div className="sf-lbl" style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '4px' }}>Passengers</div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginTop: '4px' }}>
-                      <button type="button" onClick={() => setBusPassengers(Math.max(1, busPassengers - 1))} style={{ width: '28px', height: '28px', borderRadius: '50%', border: '1.5px solid rgba(27,42,107,0.2)', background: '#fff', cursor: 'pointer', fontWeight: 'bold' }}>−</button>
+                      <button type="button" onClick={() => setBusPassengers(Math.max(1, busPassengers - 1))} style={{ width: '28px', height: '28px', borderRadius: '50%', border: '1.5px solid rgba(15, 58, 43,0.2)', background: '#fff', cursor: 'pointer', fontWeight: 'bold' }}>−</button>
                       <span style={{ fontSize: '15px', fontWeight: 800, minWidth: '20px', textAlign: 'center' }}>{busPassengers}</span>
-                      <button type="button" onClick={() => setBusPassengers(Math.min(9, busPassengers + 1))} style={{ width: '28px', height: '28px', borderRadius: '50%', border: '1.5px solid rgba(27,42,107,0.2)', background: '#fff', cursor: 'pointer', fontWeight: 'bold' }}>+</button>
+                      <button type="button" onClick={() => setBusPassengers(Math.min(9, busPassengers + 1))} style={{ width: '28px', height: '28px', borderRadius: '50%', border: '1.5px solid rgba(15, 58, 43,0.2)', background: '#fff', cursor: 'pointer', fontWeight: 'bold' }}>+</button>
                     </div>
                   </div>
                 </div>
@@ -686,22 +686,22 @@ export default function TravelPage({ onOpenModal }) {
             {activeSearchTab === 3 && (
               <div>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', position: 'relative', marginBottom: '12px' }}>
-                  <div className="sf" style={{ background: '#F8FAFF', border: '1.5px solid var(--border-primary)', borderRadius: '12px', padding: '10px 16px' }}>
+                  <div className="sf" style={{ background: '#F6F3E9', border: '1.5px solid var(--border-primary)', borderRadius: '12px', padding: '10px 16px' }}>
                     <div className="sf-lbl" style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '4px' }}>From Station</div>
                     <input className="sf-inp" type="text" value={trainFrom} onChange={(e) => setTrainFrom(e.target.value)} style={{ width: '100%', border: 'none', background: 'transparent', outline: 'none', fontWeight: 700 }} />
                   </div>
                   <button type="button" onClick={() => swapRoute('train')} style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', width: '32px', height: '32px', borderRadius: '50%', background: '#fff', border: '1px solid var(--border-primary)', cursor: 'pointer', zIndex: 1, display: 'flex', alignItems: 'center', justify: 'center' }}>⇄</button>
-                  <div className="sf" style={{ background: '#F8FAFF', border: '1.5px solid var(--border-primary)', borderRadius: '12px', padding: '10px 16px' }}>
+                  <div className="sf" style={{ background: '#F6F3E9', border: '1.5px solid var(--border-primary)', borderRadius: '12px', padding: '10px 16px' }}>
                     <div className="sf-lbl" style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '4px' }}>To Station</div>
                     <input className="sf-inp" type="text" placeholder="Destination Station" value={trainTo} onChange={(e) => setTrainTo(e.target.value)} style={{ width: '100%', border: 'none', background: 'transparent', outline: 'none', fontWeight: 700 }} />
                   </div>
                 </div>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px', marginBottom: '18px' }}>
-                  <div className="sf" style={{ background: '#F8FAFF', border: '1.5px solid var(--border-primary)', borderRadius: '12px', padding: '10px 16px' }}>
+                  <div className="sf" style={{ background: '#F6F3E9', border: '1.5px solid var(--border-primary)', borderRadius: '12px', padding: '10px 16px' }}>
                     <div className="sf-lbl" style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '4px' }}>Date of Journey</div>
                     <input className="sf-inp" type="date" value={trainDate} onChange={(e) => setTrainDate(e.target.value)} style={{ width: '100%', border: 'none', background: 'transparent', outline: 'none', fontWeight: 700 }} />
                   </div>
-                  <div className="sf" style={{ background: '#F8FAFF', border: '1.5px solid var(--border-primary)', borderRadius: '12px', padding: '10px 16px' }}>
+                  <div className="sf" style={{ background: '#F6F3E9', border: '1.5px solid var(--border-primary)', borderRadius: '12px', padding: '10px 16px' }}>
                     <div className="sf-lbl" style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '4px' }}>Class</div>
                     <select className="sf-inp" value={trainClass} onChange={(e) => setTrainClass(e.target.value)} style={{ width: '100%', border: 'none', background: 'transparent', outline: 'none', fontWeight: 700, fontSize: '13.5px', color: 'var(--text-primary)' }}>
                       <option>All Classes</option>
@@ -712,7 +712,7 @@ export default function TravelPage({ onOpenModal }) {
                       <option>AC Chair Car (CC)</option>
                     </select>
                   </div>
-                  <div className="sf" style={{ background: '#F8FAFF', border: '1.5px solid var(--border-primary)', borderRadius: '12px', padding: '10px 16px' }}>
+                  <div className="sf" style={{ background: '#F6F3E9', border: '1.5px solid var(--border-primary)', borderRadius: '12px', padding: '10px 16px' }}>
                     <div className="sf-lbl" style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '4px' }}>Quota</div>
                     <select className="sf-inp" value={trainQuota} onChange={(e) => setTrainQuota(e.target.value)} style={{ width: '100%', border: 'none', background: 'transparent', outline: 'none', fontWeight: 700, fontSize: '13.5px', color: 'var(--text-primary)' }}>
                       <option>General</option>
@@ -729,21 +729,21 @@ export default function TravelPage({ onOpenModal }) {
             {activeSearchTab === 4 && (
               <div>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '12px' }}>
-                  <div className="sf" style={{ background: '#F8FAFF', border: '1.5px solid var(--border-primary)', borderRadius: '12px', padding: '10px 16px' }}>
+                  <div className="sf" style={{ background: '#F6F3E9', border: '1.5px solid var(--border-primary)', borderRadius: '12px', padding: '10px 16px' }}>
                     <div className="sf-lbl" style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '4px' }}>Destination</div>
                     <input className="sf-inp" type="text" placeholder="e.g. Goa, Kerala, Dubai" value={holidayDest} onChange={(e) => setHolidayDest(e.target.value)} style={{ width: '100%', border: 'none', background: 'transparent', outline: 'none', fontWeight: 700 }} />
                   </div>
-                  <div className="sf" style={{ background: '#F8FAFF', border: '1.5px solid var(--border-primary)', borderRadius: '12px', padding: '10px 16px' }}>
+                  <div className="sf" style={{ background: '#F6F3E9', border: '1.5px solid var(--border-primary)', borderRadius: '12px', padding: '10px 16px' }}>
                     <div className="sf-lbl" style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '4px' }}>Departure City</div>
                     <input className="sf-inp" type="text" placeholder="e.g. Lucknow, Delhi" value={holidayDep} onChange={(e) => setHolidayDep(e.target.value)} style={{ width: '100%', border: 'none', background: 'transparent', outline: 'none', fontWeight: 700 }} />
                   </div>
                 </div>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px', marginBottom: '18px' }}>
-                  <div className="sf" style={{ background: '#F8FAFF', border: '1.5px solid var(--border-primary)', borderRadius: '12px', padding: '10px 16px' }}>
+                  <div className="sf" style={{ background: '#F6F3E9', border: '1.5px solid var(--border-primary)', borderRadius: '12px', padding: '10px 16px' }}>
                     <div className="sf-lbl" style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '4px' }}>Travel Date</div>
                     <input className="sf-inp" type="date" value={holidayDate} onChange={(e) => setHolidayDate(e.target.value)} style={{ width: '100%', border: 'none', background: 'transparent', outline: 'none', fontWeight: 700 }} />
                   </div>
-                  <div className="sf" style={{ background: '#F8FAFF', border: '1.5px solid var(--border-primary)', borderRadius: '12px', padding: '10px 16px' }}>
+                  <div className="sf" style={{ background: '#F6F3E9', border: '1.5px solid var(--border-primary)', borderRadius: '12px', padding: '10px 16px' }}>
                     <div className="sf-lbl" style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '4px' }}>Duration</div>
                     <select className="sf-inp" value={holidayDuration} onChange={(e) => setHolidayDuration(e.target.value)} style={{ width: '100%', border: 'none', background: 'transparent', outline: 'none', fontWeight: 700, fontSize: '13.5px', color: 'var(--text-primary)' }}>
                       <option>3–4 Days</option>
@@ -753,12 +753,12 @@ export default function TravelPage({ onOpenModal }) {
                       <option>10+ Days</option>
                     </select>
                   </div>
-                  <div className="sf" style={{ background: '#F8FAFF', border: '1.5px solid var(--border-primary)', borderRadius: '12px', padding: '10px 16px' }}>
+                  <div className="sf" style={{ background: '#F6F3E9', border: '1.5px solid var(--border-primary)', borderRadius: '12px', padding: '10px 16px' }}>
                     <div className="sf-lbl" style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '4px' }}>Adults</div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginTop: '4px' }}>
-                      <button type="button" onClick={() => setHolidayPassengers(Math.max(1, holidayPassengers - 1))} style={{ width: '28px', height: '28px', borderRadius: '50%', border: '1.5px solid rgba(27,42,107,0.2)', background: '#fff', cursor: 'pointer', fontWeight: 'bold' }}>−</button>
+                      <button type="button" onClick={() => setHolidayPassengers(Math.max(1, holidayPassengers - 1))} style={{ width: '28px', height: '28px', borderRadius: '50%', border: '1.5px solid rgba(15, 58, 43,0.2)', background: '#fff', cursor: 'pointer', fontWeight: 'bold' }}>−</button>
                       <span style={{ fontSize: '15px', fontWeight: 800, minWidth: '20px', textAlign: 'center' }}>{holidayPassengers}</span>
-                      <button type="button" onClick={() => setHolidayPassengers(Math.min(9, holidayPassengers + 1))} style={{ width: '28px', height: '28px', borderRadius: '50%', border: '1.5px solid rgba(27,42,107,0.2)', background: '#fff', cursor: 'pointer', fontWeight: 'bold' }}>+</button>
+                      <button type="button" onClick={() => setHolidayPassengers(Math.min(9, holidayPassengers + 1))} style={{ width: '28px', height: '28px', borderRadius: '50%', border: '1.5px solid rgba(15, 58, 43,0.2)', background: '#fff', cursor: 'pointer', fontWeight: 'bold' }}>+</button>
                     </div>
                   </div>
                 </div>
@@ -779,7 +779,7 @@ export default function TravelPage({ onOpenModal }) {
               alignItems: 'center',
               justifyContent: 'center',
               gap: '10px',
-              boxShadow: '0 4px 20px rgba(27,42,107,0.2)'
+              boxShadow: '0 4px 20px rgba(15, 58, 43,0.2)'
             }}>
               <Search size={16} /> Search & Book via WhatsApp
             </button>
@@ -798,14 +798,14 @@ export default function TravelPage({ onOpenModal }) {
                 <circle cx="75" cy="75" r="50" />
               </clipPath>
               <radialGradient id="globeGlowM" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stopColor="rgba(94,92,230,0.18)" />
+                <stop offset="0%" stopColor="rgba(27, 98, 71,0.18)" />
                 <stop offset="100%" stopColor="rgba(255,255,255,0)" />
               </radialGradient>
             </defs>
-            <circle cx="75" cy="75" r="52" fill="rgba(94,92,230,0.06)" />
+            <circle cx="75" cy="75" r="52" fill="rgba(27, 98, 71,0.06)" />
             <g clipPath="url(#globeMaskM)">
               <circle cx="75" cy="75" r="50" fill="#EEF3F9" />
-              <g fill="rgba(36,178,99,0.75)">
+              <g fill="rgba(30, 104, 73,0.75)">
                 <path d="M20,25 Q30,18 45,28 T35,50 T15,35 Z" />
                 <path d="M50,20 Q60,15 70,22 T65,38 T48,30 Z" />
                 <path d="M55,55 Q65,50 75,58 T70,72 T52,64 Z" />
@@ -813,8 +813,8 @@ export default function TravelPage({ onOpenModal }) {
                 <path d="M105,75 Q120,78 115,90 T98,88 Z" />
               </g>
             </g>
-            <circle cx="75" cy="75" r="50" fill="none" stroke="rgba(94,92,230,0.15)" strokeWidth="1" />
-            <ellipse cx="75" cy="75" rx="70" ry="22" stroke="rgba(94,92,230,0.2)" strokeWidth="0.8" strokeDasharray="4,4" transform="rotate(-15 75 75)" />
+            <circle cx="75" cy="75" r="50" fill="none" stroke="rgba(27, 98, 71,0.15)" strokeWidth="1" />
+            <ellipse cx="75" cy="75" rx="70" ry="22" stroke="rgba(27, 98, 71,0.2)" strokeWidth="0.8" strokeDasharray="4,4" transform="rotate(-15 75 75)" />
             <circle cx="75" cy="75" r="52" fill="url(#globeGlowM)" />
           </svg>
         </div>
@@ -830,11 +830,11 @@ export default function TravelPage({ onOpenModal }) {
               </linearGradient>
             </defs>
             <rect width="120" height="70" fill="url(#sunsetM)" rx="8" />
-            <circle cx="60" cy="36" r="10" fill="#F97316" style={{filter:'drop-shadow(0 0 5px #F97316)'}} />
-            <path d="M5,50 Q12,30 8,10" fill="none" stroke="#64748B" strokeWidth="2.5" strokeLinecap="round" />
-            <path d="M8,10 Q2,8 -4,11 M8,10 Q14,8 20,11 M8,10 Q6,3 4,-4 M8,10 Q13,4 18,2" fill="none" stroke="#10B981" strokeWidth="2" strokeLinecap="round" transform="translate(5,0)" />
-            <path d="M0,60 Q30,57 60,60 T120,60 L120,70 L0,70 Z" fill="rgba(94,92,230,0.18)" />
-            <path d="M-5,63 Q25,60 60,63 T125,63 L125,70 L-5,70 Z" fill="rgba(0,122,255,0.18)" />
+            <circle cx="60" cy="36" r="10" fill="#D9A03C" style={{filter:'drop-shadow(0 0 5px #D9A03C)'}} />
+            <path d="M5,50 Q12,30 8,10" fill="none" stroke="#8A9A92" strokeWidth="2.5" strokeLinecap="round" />
+            <path d="M8,10 Q2,8 -4,11 M8,10 Q14,8 20,11 M8,10 Q6,3 4,-4 M8,10 Q13,4 18,2" fill="none" stroke="#2E9E68" strokeWidth="2" strokeLinecap="round" transform="translate(5,0)" />
+            <path d="M0,60 Q30,57 60,60 T120,60 L120,70 L0,70 Z" fill="rgba(27, 98, 71,0.18)" />
+            <path d="M-5,63 Q25,60 60,63 T125,63 L125,70 L-5,70 Z" fill="rgba(27, 98, 71,0.18)" />
           </svg>
         </div>
         {/* Train Card */}
@@ -842,14 +842,14 @@ export default function TravelPage({ onOpenModal }) {
           <span className="t-mobile-card-label">🚂 Train</span>
           <svg width="70" height="80" viewBox="0 0 120 120" fill="none">
             <path d="M60,10 L68,22 L68,32 L60,38 L56,46 L52,52 L45,59 L48,66 L42,72 L38,79 L48,84 L52,92 L48,102 L58,114 L60,118 L70,105 L72,95 L76,85 L80,75 L84,65 L88,58 L95,58 L98,45 L88,40 L78,45 L72,35 L75,25 L70,18 L62,15 Z"
-              fill="rgba(94,92,230,0.06)" stroke="rgba(27,42,107,0.15)" strokeWidth="1.2" />
+              fill="rgba(27, 98, 71,0.06)" stroke="rgba(15, 58, 43,0.15)" strokeWidth="1.2" />
             <path d="M60,10 C58,35 48,65 52,90 C56,105 60,110 60,118"
-              fill="none" stroke="rgba(27,42,107,0.1)" strokeWidth="1.2" strokeDasharray="3,3" />
+              fill="none" stroke="rgba(15, 58, 43,0.1)" strokeWidth="1.2" strokeDasharray="3,3" />
             <motion.path d="M60,10 C58,35 48,65 52,90 C56,105 60,110 60,118"
-              fill="none" stroke="#5E5CE6" strokeWidth="2.5" strokeLinecap="round"
+              fill="none" stroke="#1B6247" strokeWidth="2.5" strokeLinecap="round"
               strokeDasharray="25 120" animate={{ strokeDashoffset: [145, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
-              style={{ filter: 'drop-shadow(0 0 4px #5E5CE6)' }} />
+              style={{ filter: 'drop-shadow(0 0 4px #1B6247)' }} />
           </svg>
         </div>
         {/* Bus Card */}
@@ -864,22 +864,22 @@ export default function TravelPage({ onOpenModal }) {
             </defs>
             <rect width="120" height="70" fill="url(#daySkyM)" rx="8" />
             <g transform="translate(10,12)">
-              <rect x="0" y="8" width="18" height="30" fill="#CBD5E1" stroke="rgba(94,92,230,0.12)" strokeWidth="0.8" />
-              <polygon points="9,0 0,8 18,8" fill="#5E5CE6" />
-              <rect x="3" y="12" width="3" height="3" fill="#FBBF24" opacity="0.9" />
-              <rect x="11" y="12" width="3" height="3" fill="#FBBF24" opacity="0.5" />
-              <rect x="3" y="20" width="3" height="3" fill="#FBBF24" opacity="0.7" />
-              <rect x="11" y="20" width="3" height="3" fill="#FBBF24" opacity="1" />
+              <rect x="0" y="8" width="18" height="30" fill="#CBD5E1" stroke="rgba(27, 98, 71,0.12)" strokeWidth="0.8" />
+              <polygon points="9,0 0,8 18,8" fill="#1B6247" />
+              <rect x="3" y="12" width="3" height="3" fill="#FFC94D" opacity="0.9" />
+              <rect x="11" y="12" width="3" height="3" fill="#FFC94D" opacity="0.5" />
+              <rect x="3" y="20" width="3" height="3" fill="#FFC94D" opacity="0.7" />
+              <rect x="11" y="20" width="3" height="3" fill="#FFC94D" opacity="1" />
             </g>
             <line x1="35" y1="70" x2="58" y2="40" stroke="rgba(0,0,0,0.08)" strokeWidth="1.5" />
             <line x1="105" y1="70" x2="72" y2="40" stroke="rgba(0,0,0,0.08)" strokeWidth="1.5" />
             <motion.g animate={{ y: [0,-1.2,0] }} transition={{ duration:1, repeat:Infinity, ease:'easeInOut' }}>
-              <rect x="44" y="44" width="28" height="13" rx="2" fill="#5E5CE6" />
+              <rect x="44" y="44" width="28" height="13" rx="2" fill="#1B6247" />
               <rect x="47" y="47" width="5" height="4" fill="rgba(255,255,255,0.9)" />
               <rect x="55" y="47" width="5" height="4" fill="rgba(255,255,255,0.9)" />
               <rect x="63" y="47" width="5" height="4" fill="rgba(255,255,255,0.9)" />
-              <circle cx="50" cy="57" r="2.2" fill="#334155" />
-              <circle cx="66" cy="57" r="2.2" fill="#334155" />
+              <circle cx="50" cy="57" r="2.2" fill="#4E635A" />
+              <circle cx="66" cy="57" r="2.2" fill="#4E635A" />
             </motion.g>
           </svg>
         </div>
@@ -1063,9 +1063,9 @@ export default function TravelPage({ onOpenModal }) {
                     {/* Savings + Book Now row */}
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: 'auto' }}>
                       <span style={{
-                        fontSize: '9.5px', fontWeight: 800, color: '#1E9438',
-                        background: 'rgba(45,184,75,0.08)', padding: '3px 10px', borderRadius: '50px',
-                        border: '1px solid rgba(45,184,75,0.15)'
+                        fontSize: '9.5px', fontWeight: 800, color: '#155440',
+                        background: 'rgba(30, 104, 73,0.08)', padding: '3px 10px', borderRadius: '50px',
+                        border: '1px solid rgba(30, 104, 73,0.15)'
                       }}>
                         🏷️ {deal.save}
                       </span>
@@ -1232,15 +1232,15 @@ export default function TravelPage({ onOpenModal }) {
                       </span>
                     </div>
                     {/* Stars */}
-                    <div style={{ color: '#F59E0B', fontSize: '12px', letterSpacing: '1px' }}>
+                    <div style={{ color: '#E8BC55', fontSize: '12px', letterSpacing: '1px' }}>
                       {'★'.repeat(hotel.stars)}
                     </div>
                     {/* Amenities */}
                     <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', marginTop: '2px' }}>
                       {hotel.amenities.map((a, ai) => (
                         <span key={ai} style={{
-                          fontSize: '9.5px', background: 'rgba(94,92,230,0.06)',
-                          border: '1px solid rgba(94,92,230,0.12)',
+                          fontSize: '9.5px', background: 'rgba(27, 98, 71,0.06)',
+                          border: '1px solid rgba(27, 98, 71,0.12)',
                           color: 'var(--text-secondary)', padding: '2px 8px', borderRadius: '50px'
                         }}>{a}</span>
                       ))}
@@ -1276,7 +1276,7 @@ export default function TravelPage({ onOpenModal }) {
                 name: 'Goa Beach Getaway',
                 sub: 'North Goa · Calangute & Baga',
                 label: 'BEST SELLER',
-                labelColor: '#F97316',
+                labelColor: '#D9A03C',
                 tags: ['✈️ Flights', '🏨 4 Nights', '🚕 Transfers'],
                 price: '₹15,999',
                 per: '/ person',
@@ -1287,7 +1287,7 @@ export default function TravelPage({ onOpenModal }) {
                 name: 'Kerala Backwaters',
                 sub: 'Alleppey · Munnar · Kovalam',
                 label: 'TRENDING',
-                labelColor: '#5E5CE6',
+                labelColor: '#1B6247',
                 tags: ['✈️ Flights', '🏨 5 Nights', '🚤 Houseboat'],
                 price: '₹21,500',
                 per: '/ person',
@@ -1309,7 +1309,7 @@ export default function TravelPage({ onOpenModal }) {
                 name: 'Manali Snow Adventure',
                 sub: 'Solang Valley · Rohtang · Hadimba',
                 label: 'ADVENTURE',
-                labelColor: '#1E9438',
+                labelColor: '#155440',
                 tags: ['🚌 Volvo Bus', '🏨 4 Nights', '🎿 Snow Sports'],
                 price: '₹12,499',
                 per: '/ person',
@@ -1331,7 +1331,7 @@ export default function TravelPage({ onOpenModal }) {
                 name: 'Andaman Island Escape',
                 sub: 'Port Blair · Havelock · Neil Island',
                 label: 'ISLAND',
-                labelColor: '#0EA5E9',
+                labelColor: '#1E6849',
                 tags: ['✈️ Flights', '🏨 5 Nights', '🤿 Scuba Diving'],
                 price: '₹32,500',
                 per: '/ person',
@@ -1404,8 +1404,8 @@ export default function TravelPage({ onOpenModal }) {
                     <div style={{ display: 'flex', gap: '5px', flexWrap: 'wrap' }}>
                       {pkg.tags.map((tag, ti) => (
                         <span key={ti} style={{
-                          fontSize: '9.5px', background: 'rgba(94,92,230,0.05)',
-                          border: '1px solid rgba(94,92,230,0.12)',
+                          fontSize: '9.5px', background: 'rgba(27, 98, 71,0.05)',
+                          border: '1px solid rgba(27, 98, 71,0.12)',
                           color: 'var(--text-secondary)', padding: '2px 8px', borderRadius: '50px'
                         }}>{tag}</span>
                       ))}
@@ -1450,10 +1450,10 @@ export default function TravelPage({ onOpenModal }) {
             marginBottom: '60px'
           }}>
             {[
-              { t: 'Best Price Guarantee', d: 'Compare across 500+ airlines & 1M+ hotels. We match or beat any price.', icon: '💰', bg: 'rgba(27,42,107,0.04)' },
-              { t: 'Instant Confirmation', d: 'E-tickets and hotel vouchers within seconds of booking completion.', icon: '⚡', bg: 'rgba(45,184,75,0.05)' },
-              { t: 'Easy Cancellations', d: 'Hassle-free cancellations and refunds per airline/hotel policy.', icon: '🔄', bg: 'rgba(27,42,107,0.05)' },
-              { t: '24×7 Travel Support', d: 'WhatsApp, phone and email support round the clock, every day.', icon: '📞', bg: 'rgba(94,92,230,0.05)' }
+              { t: 'Best Price Guarantee', d: 'Compare across 500+ airlines & 1M+ hotels. We match or beat any price.', icon: '💰', bg: 'rgba(15, 58, 43,0.04)' },
+              { t: 'Instant Confirmation', d: 'E-tickets and hotel vouchers within seconds of booking completion.', icon: '⚡', bg: 'rgba(30, 104, 73,0.05)' },
+              { t: 'Easy Cancellations', d: 'Hassle-free cancellations and refunds per airline/hotel policy.', icon: '🔄', bg: 'rgba(15, 58, 43,0.05)' },
+              { t: '24×7 Travel Support', d: 'WhatsApp, phone and email support round the clock, every day.', icon: '📞', bg: 'rgba(27, 98, 71,0.05)' }
             ].map((feat, idx) => (
               <TiltCard key={idx} style={{ height: '100%' }}>
                 <div style={{

@@ -631,7 +631,7 @@ export function pillarEmoji(pillar) {
 export function buildGraph(discussedTopicIds = [], viewSize = 340) {
   const c = viewSize / 2;
   const nodes = [
-    { id: 'billspay', label: COMPANY.brand, type: 'platform', x: c, y: c, color: '#5E5CE6', desc: COMPANY.positioning },
+    { id: 'billspay', label: COMPANY.brand, type: 'platform', x: c, y: c, color: '#1B6247', desc: COMPANY.positioning },
   ];
   const edges = [];
 
@@ -651,7 +651,7 @@ export function buildGraph(discussedTopicIds = [], viewSize = 340) {
       type: 'client',
       x: c,
       y: c + 105,
-      color: '#10B981',
+      color: '#2E9E68',
       desc: 'Ask me about a service and it will appear on this map.',
     });
     edges.push({ source: 'you', target: 'billspay', label: 'EXPLORING' });
@@ -662,7 +662,7 @@ export function buildGraph(discussedTopicIds = [], viewSize = 340) {
   const topicRadius = 148;
 
   pillarIds.forEach((pillarId, i) => {
-    const pillar = PILLARS[pillarId] || { label: pillarId, color: '#3B82F6', desc: '' };
+    const pillar = PILLARS[pillarId] || { label: pillarId, color: '#1E6849', desc: '' };
     // Start at -90° so the first pillar sits above the hub.
     const angle = (i / pillarIds.length) * Math.PI * 2 - Math.PI / 2;
     const px = c + Math.cos(angle) * pillarRadius;

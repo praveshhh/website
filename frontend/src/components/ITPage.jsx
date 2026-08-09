@@ -37,9 +37,9 @@ function IsometricArchitecture() {
             width: '100%',
             height: '64px',
             background: 'rgba(255, 255, 255, 0.45)',
-            border: '1.5px solid rgba(94, 92, 230, 0.45)',
+            border: '1.5px solid rgba(27, 98, 71, 0.45)',
             borderRadius: '16px',
-            boxShadow: '0 12px 30px rgba(94, 92, 230, 0.15), inset 0 1px 0 rgba(255,255,255,0.6)',
+            boxShadow: '0 12px 30px rgba(27, 98, 71, 0.15), inset 0 1px 0 rgba(255,255,255,0.6)',
             backdropFilter: 'blur(10px)',
             WebkitBackdropFilter: 'blur(10px)',
             transform: 'rotateX(55deg) rotateZ(-45deg) translateZ(120px)',
@@ -55,8 +55,8 @@ function IsometricArchitecture() {
             <Lock size={16} color="#fff" />
           </div>
           <div>
-            <div style={{ fontSize: '10px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.12em', color: '#0D1438' }}>Security Gate</div>
-            <div style={{ fontSize: '9px', color: '#2DB84B', fontWeight: 700 }}>✓ PCI-DSS & RBI Shield</div>
+            <div style={{ fontSize: '10px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.12em', color: '#08221A' }}>Security Gate</div>
+            <div style={{ fontSize: '9px', color: '#1E6849', fontWeight: 700 }}>✓ PCI-DSS & RBI Shield</div>
           </div>
         </motion.div>
 
@@ -86,9 +86,9 @@ function IsometricArchitecture() {
             width: '100%',
             height: '64px',
             background: 'rgba(255, 255, 255, 0.45)',
-            border: '1.5px solid rgba(45, 184, 75, 0.35)',
+            border: '1.5px solid rgba(30, 104, 73, 0.35)',
             borderRadius: '16px',
-            boxShadow: '0 12px 30px rgba(45, 184, 75, 0.1), inset 0 1px 0 rgba(255,255,255,0.6)',
+            boxShadow: '0 12px 30px rgba(30, 104, 73, 0.1), inset 0 1px 0 rgba(255,255,255,0.6)',
             backdropFilter: 'blur(10px)',
             WebkitBackdropFilter: 'blur(10px)',
             transform: 'rotateX(55deg) rotateZ(-45deg) translateZ(40px)',
@@ -100,11 +100,11 @@ function IsometricArchitecture() {
             transformStyle: 'preserve-3d'
           }}
         >
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '32px', height: '32px', borderRadius: '50%', background: 'linear-gradient(135deg, #2DB84B, #1E9438)', boxShadow: '0 4px 12px rgba(45,184,75,0.3)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '32px', height: '32px', borderRadius: '50%', background: 'linear-gradient(135deg, #1E6849, #155440)', boxShadow: '0 4px 12px rgba(30, 104, 73,0.3)' }}>
             <Cpu size={16} color="#fff" />
           </div>
           <div>
-            <div style={{ fontSize: '10px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.12em', color: '#0D1438' }}>Application Layer</div>
+            <div style={{ fontSize: '10px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.12em', color: '#08221A' }}>Application Layer</div>
             <div style={{ fontSize: '9px', color: 'var(--text-secondary)', fontWeight: 700 }}>React · Next.js · Flutter</div>
           </div>
         </motion.div>
@@ -119,8 +119,8 @@ function IsometricArchitecture() {
             width: '6px',
             height: '6px',
             borderRadius: '50%',
-            background: '#2DB84B',
-            boxShadow: '0 0 12px 3px #2DB84B',
+            background: '#1E6849',
+            boxShadow: '0 0 12px 3px #1E6849',
             transform: 'translateX(-50%)'
           }}
         />
@@ -135,9 +135,9 @@ function IsometricArchitecture() {
             width: '100%',
             height: '64px',
             background: 'rgba(255, 255, 255, 0.45)',
-            border: '1.5px solid rgba(94, 92, 230, 0.35)',
+            border: '1.5px solid rgba(27, 98, 71, 0.35)',
             borderRadius: '16px',
-            boxShadow: '0 12px 30px rgba(94, 92, 230, 0.1), inset 0 1px 0 rgba(255,255,255,0.6)',
+            boxShadow: '0 12px 30px rgba(27, 98, 71, 0.1), inset 0 1px 0 rgba(255,255,255,0.6)',
             backdropFilter: 'blur(10px)',
             WebkitBackdropFilter: 'blur(10px)',
             transform: 'rotateX(55deg) rotateZ(-45deg) translateZ(-40px)',
@@ -149,11 +149,11 @@ function IsometricArchitecture() {
             transformStyle: 'preserve-3d'
           }}
         >
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '32px', height: '32px', borderRadius: '50%', background: 'linear-gradient(135deg, #6E62F9, #4D3CE6)', boxShadow: '0 4px 12px rgba(94,92,230,0.3)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '32px', height: '32px', borderRadius: '50%', background: 'linear-gradient(135deg, #6E62F9, #144F39)', boxShadow: '0 4px 12px rgba(27, 98, 71,0.3)' }}>
             <Code size={16} color="#fff" />
           </div>
           <div>
-            <div style={{ fontSize: '10px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.12em', color: '#0D1438' }}>API Microservices</div>
+            <div style={{ fontSize: '10px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.12em', color: '#08221A' }}>API Microservices</div>
             <div style={{ fontSize: '9px', color: 'var(--text-secondary)', fontWeight: 700 }}>BBPS · AEPS · UPI Core</div>
           </div>
         </motion.div>
@@ -168,8 +168,8 @@ function IsometricArchitecture() {
             width: '6px',
             height: '6px',
             borderRadius: '50%',
-            background: '#F59E0B',
-            boxShadow: '0 0 12px 3px #F59E0B',
+            background: '#E8BC55',
+            boxShadow: '0 0 12px 3px #E8BC55',
             transform: 'translateX(-50%)'
           }}
         />
@@ -184,9 +184,9 @@ function IsometricArchitecture() {
             width: '100%',
             height: '64px',
             background: 'rgba(255, 255, 255, 0.45)',
-            border: '1.5px solid rgba(27, 42, 107, 0.25)',
+            border: '1.5px solid rgba(15, 58, 43, 0.25)',
             borderRadius: '16px',
-            boxShadow: '0 15px 35px rgba(27, 42, 107, 0.15), inset 0 1px 0 rgba(255,255,255,0.6)',
+            boxShadow: '0 15px 35px rgba(15, 58, 43, 0.15), inset 0 1px 0 rgba(255,255,255,0.6)',
             backdropFilter: 'blur(10px)',
             WebkitBackdropFilter: 'blur(10px)',
             transform: 'rotateX(55deg) rotateZ(-45deg) translateZ(-120px)',
@@ -198,11 +198,11 @@ function IsometricArchitecture() {
             transformStyle: 'preserve-3d'
           }}
         >
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '32px', height: '32px', borderRadius: '50%', background: 'linear-gradient(135deg, #1B2A6B, #3B4E9E)', boxShadow: '0 4px 12px rgba(27,42,107,0.3)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '32px', height: '32px', borderRadius: '50%', background: 'linear-gradient(135deg, #0F3A2B, #3B4E9E)', boxShadow: '0 4px 12px rgba(15, 58, 43,0.3)' }}>
             <Database size={16} color="#fff" />
           </div>
           <div>
-            <div style={{ fontSize: '10px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.12em', color: '#0D1438' }}>Data Infrastructure</div>
+            <div style={{ fontSize: '10px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.12em', color: '#08221A' }}>Data Infrastructure</div>
             <div style={{ fontSize: '9px', color: 'var(--text-secondary)', fontWeight: 700 }}>AWS · GCP · PostgreSQL</div>
           </div>
         </motion.div>
@@ -214,7 +214,7 @@ function IsometricArchitecture() {
           top: '60px',
           bottom: '80px',
           width: '2px',
-          background: 'linear-gradient(to bottom, rgba(94,92,230,0.5) 0%, rgba(45,184,75,0.5) 50%, rgba(27,42,107,0.3) 100%)',
+          background: 'linear-gradient(to bottom, rgba(27, 98, 71,0.5) 0%, rgba(30, 104, 73,0.5) 50%, rgba(15, 58, 43,0.3) 100%)',
           transform: 'translateX(-50%)',
           zIndex: -1
         }} />
@@ -278,7 +278,7 @@ export default function ITPage({ onOpenModal }) {
         <div style={{
           position: 'absolute',
           inset: 0,
-          backgroundImage: 'radial-gradient(rgba(94, 92, 230, 0.08) 1.5px, transparent 1.5px)',
+          backgroundImage: 'radial-gradient(rgba(27, 98, 71, 0.08) 1.5px, transparent 1.5px)',
           backgroundSize: '24px 24px',
           opacity: 0.9
         }} />
@@ -304,8 +304,8 @@ export default function ITPage({ onOpenModal }) {
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '8px',
-                border: '1px solid rgba(45, 184, 75, 0.2)',
-                background: 'rgba(45, 184, 75, 0.05)',
+                border: '1px solid rgba(30, 104, 73, 0.2)',
+                background: 'rgba(30, 104, 73, 0.05)',
                 padding: '6px 14px',
                 borderRadius: '50px',
                 fontFamily: 'var(--font-display)',
@@ -313,11 +313,11 @@ export default function ITPage({ onOpenModal }) {
                 fontWeight: 800,
                 letterSpacing: '0.1em',
                 textTransform: 'uppercase',
-                color: '#1E9438',
+                color: '#155440',
                 marginBottom: '24px'
               }}
             >
-              <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#2DB84B', display: 'inline-block' }} className="pulse-glow" />
+              <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#1E6849', display: 'inline-block' }} className="pulse-glow" />
               Accepting new projects — Q3 2026
             </motion.div>
             
@@ -387,7 +387,7 @@ export default function ITPage({ onOpenModal }) {
                 background: 'rgba(255, 255, 255, 0.7)',
                 border: '1px solid var(--border-primary)',
                 borderRadius: '16px',
-                boxShadow: '0 8px 32px rgba(27,42,107,0.04)',
+                boxShadow: '0 8px 32px rgba(15, 58, 43,0.04)',
                 backdropFilter: 'blur(12px)',
                 WebkitBackdropFilter: 'blur(12px)',
                 overflow: 'hidden'
@@ -441,11 +441,11 @@ export default function ITPage({ onOpenModal }) {
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: '24px' }}>
             {[
-              { t: 'Fintech & Payment Portals', d: 'AEPS dashboards, BBPS portals, DMT panels, payout systems and agent networks — built RBI-compliant and PCI-DSS secure. We have shipped portals processing Rs 50L+ in daily transactions.', tags: ['BBPS API', 'AEPS', 'DMT', 'UPI', 'PCI-DSS', 'RBI'], icon: <Server size={22} />, glow: 'rgba(45,184,75,0.18)' },
-              { t: 'Web Development', d: 'React, Next.js, Node.js — high-performance portals, SaaS platforms and progressive web apps. From a 3-page landing site to a system handling 10,000 concurrent users.', tags: ['React', 'Next.js', 'Node.js', 'PostgreSQL'], icon: <Code size={22} />, glow: 'rgba(94,92,230,0.18)' },
-              { t: 'Mobile App Dev', d: 'Flutter and React Native for iOS & Android. Cross-platform fintech, travel and retail apps with biometric auth, push notifications and offline mode.', tags: ['Flutter', 'React Native', 'Swift', 'Kotlin'], icon: <Tablet size={22} />, glow: 'rgba(14,165,233,0.18)' },
+              { t: 'Fintech & Payment Portals', d: 'AEPS dashboards, BBPS portals, DMT panels, payout systems and agent networks — built RBI-compliant and PCI-DSS secure. We have shipped portals processing Rs 50L+ in daily transactions.', tags: ['BBPS API', 'AEPS', 'DMT', 'UPI', 'PCI-DSS', 'RBI'], icon: <Server size={22} />, glow: 'rgba(30, 104, 73,0.18)' },
+              { t: 'Web Development', d: 'React, Next.js, Node.js — high-performance portals, SaaS platforms and progressive web apps. From a 3-page landing site to a system handling 10,000 concurrent users.', tags: ['React', 'Next.js', 'Node.js', 'PostgreSQL'], icon: <Code size={22} />, glow: 'rgba(27, 98, 71,0.18)' },
+              { t: 'Mobile App Dev', d: 'Flutter and React Native for iOS & Android. Cross-platform fintech, travel and retail apps with biometric auth, push notifications and offline mode.', tags: ['Flutter', 'React Native', 'Swift', 'Kotlin'], icon: <Tablet size={22} />, glow: 'rgba(30, 104, 73,0.18)' },
               { t: 'UI/UX Design', d: 'Figma-driven design systems, interactive prototypes, usability testing and conversion-optimized interfaces for web and mobile.', tags: ['Figma', 'Design System', 'User Testing'], icon: <Cpu size={22} />, glow: 'rgba(236,72,153,0.18)' },
-              { t: 'Cloud & DevOps', d: 'AWS, Azure, GCP architecture, Docker, Kubernetes, CI/CD pipelines, Terraform and managed cloud services with 99.99% uptime.', tags: ['AWS', 'Kubernetes', 'Terraform', 'Docker'], icon: <Database size={22} />, glow: 'rgba(245,158,11,0.18)' },
+              { t: 'Cloud & DevOps', d: 'AWS, Azure, GCP architecture, Docker, Kubernetes, CI/CD pipelines, Terraform and managed cloud services with 99.99% uptime.', tags: ['AWS', 'Kubernetes', 'Terraform', 'Docker'], icon: <Database size={22} />, glow: 'rgba(232, 188, 85,0.18)' },
               { t: 'AI & Analytics', d: 'Fraud detection models, BI dashboards, predictive analytics, recommendation engines and custom ML pipelines.', tags: ['TensorFlow', 'Power BI', 'OpenAI'], icon: <ShieldAlert size={22} />, glow: 'rgba(239,68,68,0.18)' }
             ].map((svc, idx) => (
               <TiltCard key={idx} style={{ display: 'flex', height: '100%' }}>
@@ -461,7 +461,7 @@ export default function ITPage({ onOpenModal }) {
                     width: '100%',
                     display: 'flex',
                     flexDirection: 'column',
-                    boxShadow: '0 4px 20px rgba(27,42,107,0.03)'
+                    boxShadow: '0 4px 20px rgba(15, 58, 43,0.03)'
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.borderColor = 'var(--accent-periwinkle)';
@@ -470,7 +470,7 @@ export default function ITPage({ onOpenModal }) {
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.borderColor = 'var(--border-primary)';
-                    e.currentTarget.style.boxShadow = '0 4px 20px rgba(27,42,107,0.03)';
+                    e.currentTarget.style.boxShadow = '0 4px 20px rgba(15, 58, 43,0.03)';
                     e.currentTarget.style.transform = 'translateY(0)';
                   }}
                 >
@@ -478,7 +478,7 @@ export default function ITPage({ onOpenModal }) {
                     width: '48px',
                     height: '48px',
                     borderRadius: '12px',
-                    background: 'rgba(94, 92, 230, 0.06)',
+                    background: 'rgba(27, 98, 71, 0.06)',
                     color: 'var(--accent-periwinkle)',
                     display: 'flex',
                     alignItems: 'center',
@@ -494,8 +494,8 @@ export default function ITPage({ onOpenModal }) {
                     {svc.tags.map((tag, tIdx) => (
                       <span key={tIdx} style={{
                         fontSize: '9.5px',
-                        background: 'rgba(94,92,230,0.05)',
-                        border: '1px solid rgba(94,92,230,0.12)',
+                        background: 'rgba(27, 98, 71,0.05)',
+                        border: '1px solid rgba(27, 98, 71,0.12)',
                         color: 'var(--accent-periwinkle)',
                         padding: '3px 9px',
                         borderRadius: '50px',
@@ -515,7 +515,7 @@ export default function ITPage({ onOpenModal }) {
       <section className="it-sec it-sec-alt" style={{ padding: '80px 8%', background: 'var(--bg-primary)' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1.1fr 0.9fr', gap: '60px', alignItems: 'center' }} className="grid-responsive-process">
           <div>
-            <div className="it-overline" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', fontFamily: 'var(--font-mono)', fontSize: '10px', fontWeight: 800, letterSpacing: '2.5px', textTransform: 'uppercase', color: '#2DB84B', marginBottom: '16px' }}>Why BillsPay24X7</div>
+            <div className="it-overline" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', fontFamily: 'var(--font-mono)', fontSize: '10px', fontWeight: 800, letterSpacing: '2.5px', textTransform: 'uppercase', color: '#1E6849', marginBottom: '16px' }}>Why BillsPay24X7</div>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '32px', fontWeight: 900, marginBottom: '16px' }}>We Deliver Outcomes, Not Just Code.</h2>
             <p style={{ fontSize: '14.5px', color: 'var(--text-secondary)', marginBottom: '36px', lineHeight: 1.6 }}>Other agencies ship features. We ship outcomes — on time, on spec, with a team that stays accountable after go-live.</p>
 
@@ -527,7 +527,7 @@ export default function ITPage({ onOpenModal }) {
                 { t: 'Zero vendor lock-in, ever', d: 'You own the code, the IP, the infrastructure. Full Git repo handover, complete documentation at project close.' }
               ].map((item, idx) => (
                 <div key={idx} style={{ display: 'flex', gap: '14px' }}>
-                  <div style={{ marginTop: '2px' }}><CheckCircle size={16} color="#2DB84B" className="pulse-glow" style={{ borderRadius: '50%' }} /></div>
+                  <div style={{ marginTop: '2px' }}><CheckCircle size={16} color="#1E6849" className="pulse-glow" style={{ borderRadius: '50%' }} /></div>
                   <div>
                     <h4 style={{ fontWeight: 800, fontSize: '15px', color: 'var(--text-primary)' }}>{item.t}</h4>
                     <p style={{ fontSize: '13px', color: 'var(--text-secondary)', marginTop: '4px', lineHeight: '1.5' }}>{item.d}</p>
@@ -546,31 +546,31 @@ export default function ITPage({ onOpenModal }) {
                 padding: '36px',
                 width: '100%',
                 height: '100%',
-                boxShadow: '0 10px 40px rgba(27,42,107,0.04)'
+                boxShadow: '0 10px 40px rgba(15, 58, 43,0.04)'
               }}>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '28px' }}>
-                  <div style={{ background: 'rgba(94, 92, 230, 0.04)', border: '1px solid rgba(94, 92, 230, 0.1)', borderRadius: '16px', padding: '20px', textAlign: 'center' }}>
+                  <div style={{ background: 'rgba(27, 98, 71, 0.04)', border: '1px solid rgba(27, 98, 71, 0.1)', borderRadius: '16px', padding: '20px', textAlign: 'center' }}>
                     <div style={{ fontSize: '28px', fontWeight: 900, color: 'var(--accent-periwinkle)', fontFamily: 'var(--font-mono)' }}>120+</div>
                     <div style={{ fontSize: '10px', fontWeight: 700, color: 'var(--text-secondary)', marginTop: '4px' }}>Projects Shipped</div>
                   </div>
-                  <div style={{ background: 'rgba(45, 184, 75, 0.04)', border: '1px solid rgba(45, 184, 75, 0.1)', borderRadius: '16px', padding: '20px', textAlign: 'center' }}>
-                    <div style={{ fontSize: '28px', fontWeight: 900, color: '#1E9438', fontFamily: 'var(--font-mono)' }}>50+</div>
+                  <div style={{ background: 'rgba(30, 104, 73, 0.04)', border: '1px solid rgba(30, 104, 73, 0.1)', borderRadius: '16px', padding: '20px', textAlign: 'center' }}>
+                    <div style={{ fontSize: '28px', fontWeight: 900, color: '#155440', fontFamily: 'var(--font-mono)' }}>50+</div>
                     <div style={{ fontSize: '10px', fontWeight: 700, color: 'var(--text-secondary)', marginTop: '4px' }}>Happy Clients</div>
                   </div>
-                  <div style={{ background: 'rgba(94, 92, 230, 0.04)', border: '1px solid rgba(94, 92, 230, 0.1)', borderRadius: '16px', padding: '20px', textAlign: 'center' }}>
+                  <div style={{ background: 'rgba(27, 98, 71, 0.04)', border: '1px solid rgba(27, 98, 71, 0.1)', borderRadius: '16px', padding: '20px', textAlign: 'center' }}>
                     <div style={{ fontSize: '28px', fontWeight: 900, color: 'var(--accent-periwinkle)', fontFamily: 'var(--font-mono)' }}>6 Wk</div>
                     <div style={{ fontSize: '10px', fontWeight: 700, color: 'var(--text-secondary)', marginTop: '4px' }}>Avg Time to Live</div>
                   </div>
-                  <div style={{ background: 'rgba(45, 184, 75, 0.04)', border: '1px solid rgba(45, 184, 75, 0.1)', borderRadius: '16px', padding: '20px', textAlign: 'center' }}>
-                    <div style={{ fontSize: '28px', fontWeight: 900, color: '#1E9438', fontFamily: 'var(--font-mono)' }}>99%</div>
+                  <div style={{ background: 'rgba(30, 104, 73, 0.04)', border: '1px solid rgba(30, 104, 73, 0.1)', borderRadius: '16px', padding: '20px', textAlign: 'center' }}>
+                    <div style={{ fontSize: '28px', fontWeight: 900, color: '#155440', fontFamily: 'var(--font-mono)' }}>99%</div>
                     <div style={{ fontSize: '10px', fontWeight: 700, color: 'var(--text-secondary)', marginTop: '4px' }}>Client Retention</div>
                   </div>
                 </div>
                 
                 <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '24px' }}>
-                  <span style={{ fontSize: '10px', fontWeight: 800, padding: '5px 12px', background: 'rgba(94,92,230,0.06)', color: 'var(--accent-periwinkle)', border: '1px solid rgba(94,92,230,0.12)', borderRadius: '50px' }}>✓ PCI-DSS L1</span>
-                  <span style={{ fontSize: '10px', fontWeight: 800, padding: '5px 12px', background: 'rgba(45,184,75,0.06)', color: '#1E9438', border: '1px solid rgba(45,184,75,0.12)', borderRadius: '50px' }}>✓ RBI Compliant</span>
-                  <span style={{ fontSize: '10px', fontWeight: 800, padding: '5px 12px', background: 'rgba(94,92,230,0.06)', color: 'var(--accent-periwinkle)', border: '1px solid rgba(94,92,230,0.12)', borderRadius: '50px' }}>✓ ISO 27001</span>
+                  <span style={{ fontSize: '10px', fontWeight: 800, padding: '5px 12px', background: 'rgba(27, 98, 71,0.06)', color: 'var(--accent-periwinkle)', border: '1px solid rgba(27, 98, 71,0.12)', borderRadius: '50px' }}>✓ PCI-DSS L1</span>
+                  <span style={{ fontSize: '10px', fontWeight: 800, padding: '5px 12px', background: 'rgba(30, 104, 73,0.06)', color: '#155440', border: '1px solid rgba(30, 104, 73,0.12)', borderRadius: '50px' }}>✓ RBI Compliant</span>
+                  <span style={{ fontSize: '10px', fontWeight: 800, padding: '5px 12px', background: 'rgba(27, 98, 71,0.06)', color: 'var(--accent-periwinkle)', border: '1px solid rgba(27, 98, 71,0.12)', borderRadius: '50px' }}>✓ ISO 27001</span>
                 </div>
 
                 <div style={{ padding: '20px', background: 'var(--surf-1)', borderRadius: '16px', border: '1px solid var(--border-primary)' }}>
@@ -606,7 +606,7 @@ export default function ITPage({ onOpenModal }) {
               left: '10%',
               right: '10%',
               height: '3px',
-              background: 'linear-gradient(90deg, #1B2A6B 0%, var(--accent-periwinkle) 50%, #2DB84B 100%)',
+              background: 'linear-gradient(90deg, #0F3A2B 0%, var(--accent-periwinkle) 50%, #1E6849 100%)',
               zIndex: 0
             }} />
 
@@ -634,7 +634,7 @@ export default function ITPage({ onOpenModal }) {
                     borderRadius: '50%',
                     background: 'var(--white)',
                     border: '3px solid var(--accent-periwinkle)',
-                    boxShadow: '0 8px 24px rgba(94,92,230,0.18)',
+                    boxShadow: '0 8px 24px rgba(27, 98, 71,0.18)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -658,7 +658,7 @@ export default function ITPage({ onOpenModal }) {
                   boxShadow: '0 4px 20px rgba(0,0,0,0.02)',
                   width: '100%'
                 }}>
-                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', fontWeight: 800, color: '#2DB84B', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '6px' }}>{p.step}</div>
+                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', fontWeight: 800, color: '#1E6849', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '6px' }}>{p.step}</div>
                   <h4 style={{ fontWeight: 800, fontSize: '15px', marginBottom: '8px', color: 'var(--text-primary)' }}>{p.t}</h4>
                   <p style={{ fontSize: '12px', color: 'var(--text-secondary)', lineHeight: '1.6' }}>{p.d}</p>
                 </div>
@@ -765,9 +765,9 @@ export default function ITPage({ onOpenModal }) {
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: '24px' }}>
             {[
-              { t: 'BillsPay24X7 Agent Portal', tag: 'FINTECH PLATFORM', p: 'Full-stack fintech portal — AEPS, BBPS, DMT, UPI and payout in one dashboard. Multi-tier agent hierarchy, real-time monitoring, T+1 settlement.', kpis: ['₹50L+ daily volume', '500+ agents'], bg: 'linear-gradient(135deg, #1B2A6B, #0D1638)', img: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=560&h=300&fit=crop&q=80' },
-              { t: 'Grocers24X7 Marketplace', tag: 'RETAIL APP', p: 'Progressive Web App for a hyperlocal grocery delivery platform. Instant search, local store inventory mapping, route-optimized delivery partner dispatch.', kpis: ['10K+ monthly active', '99.98% runtime'], bg: 'linear-gradient(135deg, #2DB84B, #0D3018)', img: 'https://images.unsplash.com/photo-1542838132-92c53300491e?w=560&h=300&fit=crop&q=80' },
-              { t: 'BillsPay24X7 Travel Engine', tag: 'TRAVEL PLATFORM', p: 'Comprehensive travel B2B API gateway. Merges flight, hotel and bus inventories from multiple global suppliers into one search/payout layer.', kpis: ['180ms search avg', '15+ suppliers'], bg: 'linear-gradient(135deg, #3B4E9E, #243080)', img: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=560&h=300&fit=crop&q=80' }
+              { t: 'BillsPay24X7 Agent Portal', tag: 'FINTECH PLATFORM', p: 'Full-stack fintech portal — AEPS, BBPS, DMT, UPI and payout in one dashboard. Multi-tier agent hierarchy, real-time monitoring, T+1 settlement.', kpis: ['₹50L+ daily volume', '500+ agents'], bg: 'linear-gradient(135deg, #0F3A2B, #08221A)', img: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=560&h=300&fit=crop&q=80' },
+              { t: 'Grocers24X7 Marketplace', tag: 'RETAIL APP', p: 'Progressive Web App for a hyperlocal grocery delivery platform. Instant search, local store inventory mapping, route-optimized delivery partner dispatch.', kpis: ['10K+ monthly active', '99.98% runtime'], bg: 'linear-gradient(135deg, #1E6849, #0D3018)', img: 'https://images.unsplash.com/photo-1542838132-92c53300491e?w=560&h=300&fit=crop&q=80' },
+              { t: 'BillsPay24X7 Travel Engine', tag: 'TRAVEL PLATFORM', p: 'Comprehensive travel B2B API gateway. Merges flight, hotel and bus inventories from multiple global suppliers into one search/payout layer.', kpis: ['180ms search avg', '15+ suppliers'], bg: 'linear-gradient(135deg, #3B4E9E, #15503A)', img: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=560&h=300&fit=crop&q=80' }
             ].map((port, idx) => (
               <TiltCard key={idx} style={{ height: '100%' }}>
                 <div style={{
@@ -784,7 +784,7 @@ export default function ITPage({ onOpenModal }) {
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'translateY(-4px)';
-                  e.currentTarget.style.boxShadow = '0 16px 40px rgba(27,42,107,0.06)';
+                  e.currentTarget.style.boxShadow = '0 16px 40px rgba(15, 58, 43,0.06)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = 'translateY(0)';
@@ -794,7 +794,7 @@ export default function ITPage({ onOpenModal }) {
                   <div style={{ height: '180px', overflow: 'hidden', position: 'relative' }}>
                     <img src={port.img} alt={port.t} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                     <div style={{ position: 'absolute', top: '16px', left: '16px', zIndex: 2 }}>
-                      <span style={{ fontSize: '9px', background: 'rgba(27, 42, 107, 0.85)', color: '#fff', padding: '4px 12px', borderRadius: '50px', fontWeight: 800, letterSpacing: '0.05em' }}>{port.tag}</span>
+                      <span style={{ fontSize: '9px', background: 'rgba(15, 58, 43, 0.85)', color: '#fff', padding: '4px 12px', borderRadius: '50px', fontWeight: 800, letterSpacing: '0.05em' }}>{port.tag}</span>
                     </div>
                   </div>
                   <div style={{ padding: '28px', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
@@ -802,8 +802,8 @@ export default function ITPage({ onOpenModal }) {
                     <p style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: '1.6', marginBottom: '20px', flexGrow: 1 }}>{port.p}</p>
                     <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', borderTop: '1px solid var(--border-primary)', paddingTop: '16px' }}>
                       {port.kpis.map((kpi, kIdx) => (
-                        <span key={kIdx} style={{ fontSize: '11px', color: '#1E9438', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
-                          <CheckCircle size={12} color="#1E9438" /> {kpi}
+                        <span key={kIdx} style={{ fontSize: '11px', color: '#155440', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                          <CheckCircle size={12} color="#155440" /> {kpi}
                         </span>
                       ))}
                     </div>
@@ -823,7 +823,7 @@ export default function ITPage({ onOpenModal }) {
             border: '1.5px solid var(--border-primary)',
             borderRadius: '24px',
             padding: '44px',
-            boxShadow: '0 12px 40px rgba(27,42,107,0.04)'
+            boxShadow: '0 12px 40px rgba(15, 58, 43,0.04)'
           }}>
             {!isSuccess ? (
               <form onSubmit={handleSubmit}>
@@ -885,7 +885,7 @@ export default function ITPage({ onOpenModal }) {
               </form>
             ) : (
               <div style={{ textAlign: 'center', padding: '40px 0' }}>
-                <div style={{ width: '70px', height: '70px', borderRadius: '50%', background: 'rgba(45,184,75,0.06)', border: '2.5px solid #2DB84B', display: 'flex', alignItems: 'center', justify: 'center', margin: '0 auto 24px', color: '#2DB84B' }}><Check size={32} /></div>
+                <div style={{ width: '70px', height: '70px', borderRadius: '50%', background: 'rgba(30, 104, 73,0.06)', border: '2.5px solid #1E6849', display: 'flex', alignItems: 'center', justify: 'center', margin: '0 auto 24px', color: '#1E6849' }}><Check size={32} /></div>
                 <h3 style={{ fontSize: '24px', fontWeight: 900, marginBottom: '10px' }}>Project Inquiry Sent!</h3>
                 <p style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>Opening WhatsApp to finalize your B2B proposal details...</p>
               </div>

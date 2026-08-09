@@ -3,6 +3,7 @@ import { motion, useInView, useAnimation, AnimatePresence, useMotionValue, useTr
 import { Shield, Sparkles, Zap, Smartphone, CheckCircle, Send, ArrowRight, ArrowLeftRight, Phone, Mail, MapPin, Globe, Star, Laptop, Plane, Building, DollarSign, Calendar, MessageSquare, Brain, Bot } from 'lucide-react';
 import axios from 'axios';
 import TiltCard from './TiltCard';
+import RailHero from './RailHero';
 
 // ─── Reusable animated section wrapper ───────────────────────────────────────
 function FadeUp({ children, delay = 0, className = '', style = {} }) {
@@ -233,11 +234,11 @@ function FintechXDashboardVisual3D({ compact = false }) {
           rotateY,
           scale,
           transformStyle: 'preserve-3d',
-          background: 'linear-gradient(135deg, rgba(10, 15, 38, 0.96) 0%, rgba(18, 24, 54, 0.94) 100%)',
+          background: 'linear-gradient(135deg, rgba(8, 34, 26, 0.96) 0%, rgba(18, 24, 54, 0.94) 100%)',
           backdropFilter: 'blur(20px)',
-          border: '1.5px solid rgba(94, 92, 230, 0.15)',
+          border: '1.5px solid rgba(27, 98, 71, 0.15)',
           borderRadius: compact ? '24px' : '32px',
-          boxShadow: '0 40px 80px rgba(10, 15, 38, 0.35), inset 0 1px 1px rgba(255,255,255,0.05)',
+          boxShadow: '0 40px 80px rgba(8, 34, 26, 0.35), inset 0 1px 1px rgba(255,255,255,0.05)',
           padding: compact ? '20px' : '28px',
           position: 'relative',
           display: 'flex',
@@ -260,7 +261,7 @@ function FintechXDashboardVisual3D({ compact = false }) {
           width: compact ? '140px' : '200px',
           height: compact ? '140px' : '200px',
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(94,92,230,0.12) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(27, 98, 71,0.12) 0%, transparent 70%)',
           top: '-30px',
           right: '-30px',
           pointerEvents: 'none',
@@ -272,10 +273,10 @@ function FintechXDashboardVisual3D({ compact = false }) {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
             <span style={{ fontSize: '9px', textTransform: 'uppercase', letterSpacing: '2px', color: 'rgba(255,255,255,0.6)', fontWeight: 700, fontFamily: 'var(--font-mono)' }}>LIVE LEDGER</span>
             <span style={{ fontSize: compact ? '17px' : '20px', fontWeight: 800, color: '#ffffff', display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
-              ₹9,84,350.12 <span style={{ fontSize: '10px', color: '#2DB84B', background: 'rgba(45,184,75,0.15)', padding: '1px 5px', borderRadius: '4px', fontWeight: 700 }}>+12.4%</span>
+              ₹9,84,350.12 <span style={{ fontSize: '10px', color: '#1E6849', background: 'rgba(30, 104, 73,0.15)', padding: '1px 5px', borderRadius: '4px', fontWeight: 700 }}>+12.4%</span>
             </span>
           </div>
-          <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#2DB84B', boxShadow: '0 0 8px #2DB84B' }} />
+          <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#1E6849', boxShadow: '0 0 8px #1E6849' }} />
         </div>
 
         {/* Dynamic Charts row - skipped in compact mode */}
@@ -316,7 +317,7 @@ function FintechXDashboardVisual3D({ compact = false }) {
                   transform="rotate(-90 50 50)"
                 />
                 <motion.circle 
-                  cx="50" cy="50" r="40" fill="none" stroke="#2DB84B" strokeWidth="12"
+                  cx="50" cy="50" r="40" fill="none" stroke="#1E6849" strokeWidth="12"
                   strokeDasharray="251.2"
                   initial={{ strokeDashoffset: 251.2 }}
                   animate={{ strokeDashoffset: 251.2 - (251.2 * 0.3) }}
@@ -357,7 +358,7 @@ function FintechXDashboardVisual3D({ compact = false }) {
                 }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#2DB84B' }} />
+                  <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#1E6849' }} />
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '1px' }}>
                     <span style={{ fontWeight: 700, color: '#ffffff' }}>{tx.type}</span>
                     <span style={{ fontSize: '8px', color: 'rgba(255,255,255,0.4)' }}>{tx.time}</span>
@@ -365,7 +366,7 @@ function FintechXDashboardVisual3D({ compact = false }) {
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'end', gap: '1px' }}>
                   <span style={{ fontWeight: 800, color: '#ffffff', fontFamily: 'var(--font-mono)' }}>{tx.amt}</span>
-                  <span style={{ fontSize: '7px', color: '#2DB84B', fontWeight: 700, letterSpacing: '0.5px' }}>{tx.status}</span>
+                  <span style={{ fontSize: '7px', color: '#1E6849', fontWeight: 700, letterSpacing: '0.5px' }}>{tx.status}</span>
                 </div>
               </motion.div>
             ))}
@@ -378,7 +379,7 @@ function FintechXDashboardVisual3D({ compact = false }) {
             position: 'absolute',
             width: compact ? '160px' : '230px',
             height: compact ? '100px' : '140px',
-            background: 'linear-gradient(135deg, rgba(94, 92, 230, 0.35) 0%, rgba(77, 60, 230, 0.2) 100%)',
+            background: 'linear-gradient(135deg, rgba(27, 98, 71, 0.35) 0%, rgba(20, 79, 57, 0.2) 100%)',
             backdropFilter: 'blur(30px)',
             border: '1px solid rgba(255, 255, 255, 0.3)',
             borderRadius: '12px',
@@ -433,8 +434,8 @@ function SolutionCardVisual3D({ tab, type }) {
         <div style={{
           width: '100%',
           height: '110px',
-          background: 'linear-gradient(135deg, rgba(45,184,75,0.06) 0%, rgba(45,184,75,0.02) 100%)',
-          borderBottom: '1px solid rgba(45,184,75,0.1)',
+          background: 'linear-gradient(135deg, rgba(30, 104, 73,0.06) 0%, rgba(30, 104, 73,0.02) 100%)',
+          borderBottom: '1px solid rgba(30, 104, 73,0.1)',
           borderRadius: '12px 12px 0 0',
           display: 'flex',
           alignItems: 'center',
@@ -443,20 +444,20 @@ function SolutionCardVisual3D({ tab, type }) {
           overflow: 'hidden',
           marginBottom: '16px'
         }}>
-          <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at center, rgba(45,184,75,0.15) 0%, transparent 60%)' }} />
+          <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at center, rgba(30, 104, 73,0.15) 0%, transparent 60%)' }} />
           <svg width="120" height="80" viewBox="0 0 120 80" style={{ position: 'relative', zIndex: 1 }}>
-            <rect x="45" y="10" width="30" height="60" rx="4" fill="none" stroke="#2DB84B" strokeWidth="2" />
-            <line x1="55" y1="65" x2="65" y2="65" stroke="#2DB84B" strokeWidth="2" strokeLinecap="round" />
-            <rect x="50" y="16" width="20" height="42" rx="1" fill="rgba(45,184,75,0.1)" />
+            <rect x="45" y="10" width="30" height="60" rx="4" fill="none" stroke="#1E6849" strokeWidth="2" />
+            <line x1="55" y1="65" x2="65" y2="65" stroke="#1E6849" strokeWidth="2" strokeLinecap="round" />
+            <rect x="50" y="16" width="20" height="42" rx="1" fill="rgba(30, 104, 73,0.1)" />
             <motion.g
               animate={{ y: [0, -6, 0], rotate: [0, -3, 0] }}
               transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
             >
-              <rect x="20" y="24" width="45" height="28" rx="3" fill="#1B2A6B" stroke="rgba(255,255,255,0.2)" strokeWidth="1" />
+              <rect x="20" y="24" width="45" height="28" rx="3" fill="#0F3A2B" stroke="rgba(255,255,255,0.2)" strokeWidth="1" />
               <rect x="25" y="29" width="10" height="7" rx="1" fill="#F3CE5E" />
               <line x1="25" y1="44" x2="45" y2="44" stroke="rgba(255,255,255,0.4)" strokeWidth="2" />
             </motion.g>
-            <motion.circle cx="82" cy="22" r="10" fill="#2DB84B"
+            <motion.circle cx="82" cy="22" r="10" fill="#1E6849"
               animate={{ scale: [1, 1.15, 1] }} transition={{ duration: 2, repeat: Infinity, delay: 0.5 }} />
             <path d="M78 22l3 3 5-5" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
           </svg>
@@ -468,8 +469,8 @@ function SolutionCardVisual3D({ tab, type }) {
         <div style={{
           width: '100%',
           height: '110px',
-          background: 'linear-gradient(135deg, rgba(94,92,230,0.06) 0%, rgba(94,92,230,0.02) 100%)',
-          borderBottom: '1px solid rgba(94,92,230,0.1)',
+          background: 'linear-gradient(135deg, rgba(27, 98, 71,0.06) 0%, rgba(27, 98, 71,0.02) 100%)',
+          borderBottom: '1px solid rgba(27, 98, 71,0.1)',
           borderRadius: '12px 12px 0 0',
           display: 'flex',
           alignItems: 'center',
@@ -478,23 +479,23 @@ function SolutionCardVisual3D({ tab, type }) {
           overflow: 'hidden',
           marginBottom: '16px'
         }}>
-          <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at center, rgba(94,92,230,0.15) 0%, transparent 60%)' }} />
+          <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at center, rgba(27, 98, 71,0.15) 0%, transparent 60%)' }} />
           <svg width="120" height="80" viewBox="0 0 120 80" style={{ position: 'relative', zIndex: 1 }}>
             <rect x="42" y="12" width="36" height="36" rx="3" fill="none" stroke="var(--accent-periwinkle)" strokeWidth="2" />
             <rect x="46" y="16" width="10" height="10" fill="var(--accent-periwinkle)" />
             <rect x="64" y="16" width="10" height="10" fill="var(--accent-periwinkle)" />
             <rect x="46" y="34" width="10" height="10" fill="var(--accent-periwinkle)" />
             <rect x="66" y="36" width="6" height="6" fill="var(--accent-periwinkle)" />
-            <motion.line x1="36" y1="12" x2="84" y2="12" stroke="#2DB84B" strokeWidth="2"
+            <motion.line x1="36" y1="12" x2="84" y2="12" stroke="#1E6849" strokeWidth="2"
               animate={{ y: [0, 36, 0] }} transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }} />
-            <motion.rect x="36" y="12" width="48" height="2" fill="rgba(45,184,75,0.4)"
+            <motion.rect x="36" y="12" width="48" height="2" fill="rgba(30, 104, 73,0.4)"
               animate={{ y: [0, 36, 0] }} transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }} />
             <motion.path d="M18 55c5 0 9-4 9-9" stroke="var(--accent-periwinkle)" strokeWidth="2" strokeDasharray="3 3" fill="none" />
             <motion.g
               animate={{ x: [-20, 40], y: [60, 40], opacity: [0, 1, 0] }}
               transition={{ duration: 2.5, repeat: Infinity }}
             >
-              <circle cx="20" cy="55" r="3" fill="#2DB84B" />
+              <circle cx="20" cy="55" r="3" fill="#1E6849" />
             </motion.g>
             <text x="60" y="65" textAnchor="middle" fontSize="9" fontWeight="800" fill="var(--accent-periwinkle)" fontFamily="var(--font-mono)">DYNAMIC QR</text>
           </svg>
@@ -506,8 +507,8 @@ function SolutionCardVisual3D({ tab, type }) {
         <div style={{
           width: '100%',
           height: '110px',
-          background: 'linear-gradient(135deg, rgba(14,165,233,0.06) 0%, rgba(14,165,233,0.02) 100%)',
-          borderBottom: '1px solid rgba(14,165,233,0.1)',
+          background: 'linear-gradient(135deg, rgba(30, 104, 73,0.06) 0%, rgba(30, 104, 73,0.02) 100%)',
+          borderBottom: '1px solid rgba(30, 104, 73,0.1)',
           borderRadius: '12px 12px 0 0',
           display: 'flex',
           alignItems: 'center',
@@ -516,25 +517,28 @@ function SolutionCardVisual3D({ tab, type }) {
           overflow: 'hidden',
           marginBottom: '16px'
         }}>
-          <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at center, rgba(14,165,233,0.15) 0%, transparent 60%)' }} />
+          <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at center, rgba(30, 104, 73,0.15) 0%, transparent 60%)' }} />
           <svg width="120" height="80" viewBox="0 0 120 80" style={{ position: 'relative', zIndex: 1 }}>
-            <circle cx="60" cy="35" r="20" fill="none" stroke="#0EA5E9" strokeWidth="2" />
-            <motion.circle cx="60" cy="35" r="14" fill="none" stroke="#0EA5E9" strokeWidth="1" strokeDasharray="4 2"
+            <circle cx="60" cy="35" r="20" fill="none" stroke="#1E6849" strokeWidth="2" />
+            <motion.circle cx="60" cy="35" r="14" fill="none" stroke="#1E6849" strokeWidth="1" strokeDasharray="4 2"
               animate={{ rotate: 360 }} transition={{ duration: 10, repeat: Infinity, ease: 'linear' }} />
-            <circle cx="60" cy="35" r="6" fill="#0EA5E9" />
-            <circle cx="20" cy="20" r="6" fill="rgba(14,165,233,0.2)" stroke="#0EA5E9" strokeWidth="1.5" />
-            <circle cx="20" cy="50" r="6" fill="rgba(14,165,233,0.2)" stroke="#0EA5E9" strokeWidth="1.5" />
-            <circle cx="100" cy="20" r="6" fill="rgba(14,165,233,0.2)" stroke="#0EA5E9" strokeWidth="1.5" />
-            <circle cx="100" cy="50" r="6" fill="rgba(14,165,233,0.2)" stroke="#0EA5E9" strokeWidth="1.5" />
-            <line x1="26" y1="22" x2="42" y2="28" stroke="rgba(14,165,233,0.4)" strokeWidth="1.5" />
-            <line x1="26" y1="48" x2="42" y2="42" stroke="rgba(14,165,233,0.4)" strokeWidth="1.5" />
-            <line x1="94" y1="22" x2="78" y2="28" stroke="rgba(14,165,233,0.4)" strokeWidth="1.5" />
-            <line x1="94" y1="48" x2="78" y2="42" stroke="rgba(14,165,233,0.4)" strokeWidth="1.5" />
-            <motion.circle cx="34" cy="25" r="2" fill="#2DB84B"
-              animate={{ cx: [26, 42], cy: [22, 28] }} transition={{ duration: 2, repeat: Infinity, ease: 'linear' }} />
-            <motion.circle cx="86" cy="45" r="2" fill="#2DB84B"
-              animate={{ cx: [78, 94], cy: [42, 48] }} transition={{ duration: 2, repeat: Infinity, ease: 'linear' }} />
-            <text x="60" y="68" textAnchor="middle" fontSize="9" fontWeight="800" fill="#0EA5E9" fontFamily="var(--font-mono)">AUTO ROUTING</text>
+            <circle cx="60" cy="35" r="6" fill="#1E6849" />
+            <circle cx="20" cy="20" r="6" fill="rgba(30, 104, 73,0.2)" stroke="#1E6849" strokeWidth="1.5" />
+            <circle cx="20" cy="50" r="6" fill="rgba(30, 104, 73,0.2)" stroke="#1E6849" strokeWidth="1.5" />
+            <circle cx="100" cy="20" r="6" fill="rgba(30, 104, 73,0.2)" stroke="#1E6849" strokeWidth="1.5" />
+            <circle cx="100" cy="50" r="6" fill="rgba(30, 104, 73,0.2)" stroke="#1E6849" strokeWidth="1.5" />
+            <line x1="26" y1="22" x2="42" y2="28" stroke="rgba(30, 104, 73,0.4)" strokeWidth="1.5" />
+            <line x1="26" y1="48" x2="42" y2="42" stroke="rgba(30, 104, 73,0.4)" strokeWidth="1.5" />
+            <line x1="94" y1="22" x2="78" y2="28" stroke="rgba(30, 104, 73,0.4)" strokeWidth="1.5" />
+            <line x1="94" y1="48" x2="78" y2="42" stroke="rgba(30, 104, 73,0.4)" strokeWidth="1.5" />
+            {/* Moved with transforms, not by animating cx/cy. Framer Motion
+                writes `undefined` into SVG geometry attributes on the first
+                frame, which drops the element and floods the console. */}
+            <motion.circle cx="34" cy="25" r="2" fill="#1E6849"
+              animate={{ x: [-8, 8], y: [-3, 3] }} transition={{ duration: 2, repeat: Infinity, ease: 'linear' }} />
+            <motion.circle cx="86" cy="45" r="2" fill="#1E6849"
+              animate={{ x: [-8, 8], y: [-3, 3] }} transition={{ duration: 2, repeat: Infinity, ease: 'linear' }} />
+            <text x="60" y="68" textAnchor="middle" fontSize="9" fontWeight="800" fill="#1E6849" fontFamily="var(--font-mono)">AUTO ROUTING</text>
           </svg>
         </div>
       );
@@ -544,8 +548,8 @@ function SolutionCardVisual3D({ tab, type }) {
         <div style={{
           width: '100%',
           height: '110px',
-          background: 'linear-gradient(135deg, rgba(245,158,11,0.06) 0%, rgba(245,158,11,0.02) 100%)',
-          borderBottom: '1px solid rgba(245,158,11,0.1)',
+          background: 'linear-gradient(135deg, rgba(232, 188, 85,0.06) 0%, rgba(232, 188, 85,0.02) 100%)',
+          borderBottom: '1px solid rgba(232, 188, 85,0.1)',
           borderRadius: '12px 12px 0 0',
           display: 'flex',
           alignItems: 'center',
@@ -554,23 +558,23 @@ function SolutionCardVisual3D({ tab, type }) {
           overflow: 'hidden',
           marginBottom: '16px'
         }}>
-          <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at center, rgba(245,158,11,0.15) 0%, transparent 60%)' }} />
+          <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at center, rgba(232, 188, 85,0.15) 0%, transparent 60%)' }} />
           <svg width="120" height="80" viewBox="0 0 120 80" style={{ position: 'relative', zIndex: 1 }}>
-            <rect x="48" y="24" width="24" height="24" rx="4" fill="none" stroke="#F59E0B" strokeWidth="2" />
-            <circle cx="60" cy="36" r="4" fill="#F59E0B" />
+            <rect x="48" y="24" width="24" height="24" rx="4" fill="none" stroke="#E8BC55" strokeWidth="2" />
+            <circle cx="60" cy="36" r="4" fill="#E8BC55" />
             <circle cx="15" cy="36" r="5" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="1.5" />
             <circle cx="60" cy="10" r="5" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="1.5" />
             <circle cx="105" cy="36" r="5" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="1.5" />
-            <line x1="48" y1="36" x2="20" y2="36" stroke="rgba(245,158,11,0.4)" strokeWidth="1.5" />
-            <line x1="60" y1="24" x2="60" y2="15" stroke="rgba(245,158,11,0.4)" strokeWidth="1.5" />
-            <line x1="72" y1="36" x2="100" y2="36" stroke="rgba(245,158,11,0.4)" strokeWidth="1.5" />
-            <motion.circle cx="48" cy="36" r="2.5" fill="#2DB84B"
-              animate={{ cx: [48, 20] }} transition={{ duration: 1.5, repeat: Infinity, ease: 'easeOut' }} />
-            <motion.circle cx="60" cy="24" r="2.5" fill="#2DB84B"
-              animate={{ cy: [24, 15] }} transition={{ duration: 1.5, repeat: Infinity, ease: 'easeOut' }} />
-            <motion.circle cx="72" cy="36" r="2.5" fill="#2DB84B"
-              animate={{ cx: [72, 100] }} transition={{ duration: 1.5, repeat: Infinity, ease: 'easeOut' }} />
-            <text x="60" y="65" textAnchor="middle" fontSize="9" fontWeight="800" fill="#F59E0B" fontFamily="var(--font-mono)">REALTIME 24×7</text>
+            <line x1="48" y1="36" x2="20" y2="36" stroke="rgba(232, 188, 85,0.4)" strokeWidth="1.5" />
+            <line x1="60" y1="24" x2="60" y2="15" stroke="rgba(232, 188, 85,0.4)" strokeWidth="1.5" />
+            <line x1="72" y1="36" x2="100" y2="36" stroke="rgba(232, 188, 85,0.4)" strokeWidth="1.5" />
+            <motion.circle cx="48" cy="36" r="2.5" fill="#1E6849"
+              animate={{ x: [0, -28] }} transition={{ duration: 1.5, repeat: Infinity, ease: 'easeOut' }} />
+            <motion.circle cx="60" cy="24" r="2.5" fill="#1E6849"
+              animate={{ y: [0, -9] }} transition={{ duration: 1.5, repeat: Infinity, ease: 'easeOut' }} />
+            <motion.circle cx="72" cy="36" r="2.5" fill="#1E6849"
+              animate={{ x: [0, 28] }} transition={{ duration: 1.5, repeat: Infinity, ease: 'easeOut' }} />
+            <text x="60" y="65" textAnchor="middle" fontSize="9" fontWeight="800" fill="#E8BC55" fontFamily="var(--font-mono)">REALTIME 24×7</text>
           </svg>
         </div>
       );
@@ -579,12 +583,12 @@ function SolutionCardVisual3D({ tab, type }) {
 
   // BANKING TAB VISUALS
   if (tab === 'banking') {
-    let strokeCol = '#1B2A6B';
-    let grad = 'rgba(27,42,107,0.06)';
-    if (type.includes('BBPS')) { strokeCol = '#2DB84B'; grad = 'rgba(45,184,75,0.06)'; }
-    else if (type.includes('AEPS')) { strokeCol = 'var(--accent-periwinkle)'; grad = 'rgba(94,92,230,0.06)'; }
-    else if (type.includes('DMT')) { strokeCol = '#0EA5E9'; grad = 'rgba(14,165,233,0.06)'; }
-    else { strokeCol = '#F59E0B'; grad = 'rgba(245,158,11,0.06)'; }
+    let strokeCol = '#0F3A2B';
+    let grad = 'rgba(15, 58, 43,0.06)';
+    if (type.includes('BBPS')) { strokeCol = '#1E6849'; grad = 'rgba(30, 104, 73,0.06)'; }
+    else if (type.includes('AEPS')) { strokeCol = 'var(--accent-periwinkle)'; grad = 'rgba(27, 98, 71,0.06)'; }
+    else if (type.includes('DMT')) { strokeCol = '#1E6849'; grad = 'rgba(30, 104, 73,0.06)'; }
+    else { strokeCol = '#E8BC55'; grad = 'rgba(232, 188, 85,0.06)'; }
 
     return (
       <div style={{
@@ -605,9 +609,9 @@ function SolutionCardVisual3D({ tab, type }) {
         <svg width="120" height="80" viewBox="0 0 120 80" style={{ position: 'relative', zIndex: 1 }}>
           {type.includes('BBPS') && (
             <>
-              <circle cx="60" cy="32" r="16" fill="none" stroke="#2DB84B" strokeWidth="2" />
-              <path d="M54 36c0-5 3-8 6-8s6 3 6 8" stroke="#2DB84B" strokeWidth="2" fill="none" />
-              <line x1="58" y1="44" x2="62" y2="44" stroke="#2DB84B" strokeWidth="3" />
+              <circle cx="60" cy="32" r="16" fill="none" stroke="#1E6849" strokeWidth="2" />
+              <path d="M54 36c0-5 3-8 6-8s6 3 6 8" stroke="#1E6849" strokeWidth="2" fill="none" />
+              <line x1="58" y1="44" x2="62" y2="44" stroke="#1E6849" strokeWidth="3" />
               <motion.path
                 d="M30 45 L 42 35"
                 stroke="var(--accent-periwinkle)"
@@ -624,7 +628,7 @@ function SolutionCardVisual3D({ tab, type }) {
                 animate={{ strokeDashoffset: [10, -10] }}
                 transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
               />
-              <text x="60" y="65" textAnchor="middle" fontSize="8" fontWeight="800" fill="#2DB84B" fontFamily="var(--font-mono)">NPCI BBPS</text>
+              <text x="60" y="65" textAnchor="middle" fontSize="8" fontWeight="800" fill="#1E6849" fontFamily="var(--font-mono)">NPCI BBPS</text>
             </>
           )}
 
@@ -634,7 +638,7 @@ function SolutionCardVisual3D({ tab, type }) {
               <path d="M52 24c3-3 5-3 8 0" stroke="var(--accent-periwinkle)" strokeWidth="1.5" fill="none" />
               <path d="M50 28c5-4 9-4 14 0" stroke="var(--accent-periwinkle)" strokeWidth="1.5" fill="none" />
               <path d="M53 33c3-2 5-2 8 0" stroke="var(--accent-periwinkle)" strokeWidth="1.5" fill="none" />
-              <motion.line x1="44" y1="18" x2="76" y2="18" stroke="#2DB84B" strokeWidth="1.5"
+              <motion.line x1="44" y1="18" x2="76" y2="18" stroke="#1E6849" strokeWidth="1.5"
                 animate={{ y: [0, 24, 0] }} transition={{ duration: 2, repeat: Infinity }} />
               <text x="60" y="65" textAnchor="middle" fontSize="8" fontWeight="800" fill="var(--accent-periwinkle)" fontFamily="var(--font-mono)">BIOMETRIC AUTH</text>
             </>
@@ -642,25 +646,25 @@ function SolutionCardVisual3D({ tab, type }) {
 
           {type.includes('DMT') && (
             <>
-              <circle cx="35" cy="35" r="8" fill="none" stroke="#0EA5E9" strokeWidth="2" />
-              <circle cx="85" cy="35" r="8" fill="none" stroke="#0EA5E9" strokeWidth="2" />
-              <path d="M43 35h34" stroke="#0EA5E9" strokeWidth="2" strokeDasharray="4 3" />
-              <motion.circle cx="43" cy="35" r="3" fill="#2DB84B"
-                animate={{ cx: [43, 77] }} transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }} />
-              <text x="35" y="38" textAnchor="middle" fontSize="8" fontWeight="bold" fill="#0EA5E9" fontFamily="var(--font-mono)">₹</text>
-              <text x="85" y="38" textAnchor="middle" fontSize="8" fontWeight="bold" fill="#0EA5E9" fontFamily="var(--font-mono)">✓</text>
-              <text x="60" y="62" textAnchor="middle" fontSize="8" fontWeight="800" fill="#0EA5E9" fontFamily="var(--font-mono)">DIRECT TRANSFER</text>
+              <circle cx="35" cy="35" r="8" fill="none" stroke="#1E6849" strokeWidth="2" />
+              <circle cx="85" cy="35" r="8" fill="none" stroke="#1E6849" strokeWidth="2" />
+              <path d="M43 35h34" stroke="#1E6849" strokeWidth="2" strokeDasharray="4 3" />
+              <motion.circle cx="43" cy="35" r="3" fill="#1E6849"
+                animate={{ x: [0, 34] }} transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }} />
+              <text x="35" y="38" textAnchor="middle" fontSize="8" fontWeight="bold" fill="#1E6849" fontFamily="var(--font-mono)">₹</text>
+              <text x="85" y="38" textAnchor="middle" fontSize="8" fontWeight="bold" fill="#1E6849" fontFamily="var(--font-mono)">✓</text>
+              <text x="60" y="62" textAnchor="middle" fontSize="8" fontWeight="800" fill="#1E6849" fontFamily="var(--font-mono)">DIRECT TRANSFER</text>
             </>
           )}
 
           {type.includes('Recharge') && (
             <>
-              <line x1="60" y1="50" x2="60" y2="20" stroke="#F59E0B" strokeWidth="2.5" />
-              <line x1="50" y1="50" x2="60" y2="20" stroke="#F59E0B" strokeWidth="1.5" />
-              <line x1="70" y1="50" x2="60" y2="20" stroke="#F59E0B" strokeWidth="1.5" />
+              <line x1="60" y1="50" x2="60" y2="20" stroke="#E8BC55" strokeWidth="2.5" />
+              <line x1="50" y1="50" x2="60" y2="20" stroke="#E8BC55" strokeWidth="1.5" />
+              <line x1="70" y1="50" x2="60" y2="20" stroke="#E8BC55" strokeWidth="1.5" />
               <motion.path
                 d="M48 20a16 16 0 0 1 24 0"
-                stroke="#F59E0B"
+                stroke="#E8BC55"
                 strokeWidth="1.5"
                 fill="none"
                 animate={{ opacity: [0.2, 1, 0.2] }}
@@ -668,13 +672,13 @@ function SolutionCardVisual3D({ tab, type }) {
               />
               <motion.path
                 d="M40 14a28 28 0 0 1 40 0"
-                stroke="#F59E0B"
+                stroke="#E8BC55"
                 strokeWidth="1.5"
                 fill="none"
                 animate={{ opacity: [0.1, 0.8, 0.1] }}
                 transition={{ duration: 1.5, repeat: Infinity, delay: 0.3 }}
               />
-              <text x="60" y="65" textAnchor="middle" fontSize="8" fontWeight="800" fill="#F59E0B" fontFamily="var(--font-mono)">ALL OPERATORS</text>
+              <text x="60" y="65" textAnchor="middle" fontSize="8" fontWeight="800" fill="#E8BC55" fontFamily="var(--font-mono)">ALL OPERATORS</text>
             </>
           )}
         </svg>
@@ -685,10 +689,10 @@ function SolutionCardVisual3D({ tab, type }) {
   // TRAVEL TAB VISUALS
   if (tab === 'travel') {
     let strokeCol = 'var(--accent-periwinkle)';
-    let grad = 'rgba(94,92,230,0.06)';
-    if (type.includes('Flight')) { strokeCol = '#0EA5E9'; grad = 'rgba(14,165,233,0.06)'; }
-    else if (type.includes('Hotel')) { strokeCol = '#2DB84B'; grad = 'rgba(45,184,75,0.06)'; }
-    else if (type.includes('Train')) { strokeCol = '#F59E0B'; grad = 'rgba(245,158,11,0.06)'; }
+    let grad = 'rgba(27, 98, 71,0.06)';
+    if (type.includes('Flight')) { strokeCol = '#1E6849'; grad = 'rgba(30, 104, 73,0.06)'; }
+    else if (type.includes('Hotel')) { strokeCol = '#1E6849'; grad = 'rgba(30, 104, 73,0.06)'; }
+    else if (type.includes('Train')) { strokeCol = '#E8BC55'; grad = 'rgba(232, 188, 85,0.06)'; }
 
     return (
       <div style={{
@@ -712,21 +716,21 @@ function SolutionCardVisual3D({ tab, type }) {
               animate={{ y: [0, -4, 0], x: [0, 4, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
             >
-              <path d="M25 45 L 90 25 M 60 34 L 70 12 L 78 12 L 65 32 M 55 35 L 45 52 L 52 52 L 60 34 M 25 45 L 32 38 L 38 41 Z" fill="none" stroke="#0EA5E9" strokeWidth="2" strokeLinejoin="round" />
-              <motion.path d="M20 48c-10 4-15 1-15 1" stroke="rgba(14,165,233,0.3)" strokeWidth="2" strokeDasharray="3 3" />
+              <path d="M25 45 L 90 25 M 60 34 L 70 12 L 78 12 L 65 32 M 55 35 L 45 52 L 52 52 L 60 34 M 25 45 L 32 38 L 38 41 Z" fill="none" stroke="#1E6849" strokeWidth="2" strokeLinejoin="round" />
+              <motion.path d="M20 48c-10 4-15 1-15 1" stroke="rgba(30, 104, 73,0.3)" strokeWidth="2" strokeDasharray="3 3" />
             </motion.g>
           )}
 
           {type.includes('Hotel') && (
             <>
-              <rect x="42" y="14" width="36" height="52" rx="2" fill="none" stroke="#2DB84B" strokeWidth="2" />
-              <rect x="48" y="20" width="6" height="6" rx="1" fill="rgba(45,184,75,0.2)" />
-              <rect x="66" y="20" width="6" height="6" rx="1" fill="rgba(45,184,75,0.2)" />
-              <rect x="48" y="32" width="6" height="6" rx="1" fill="rgba(45,184,75,0.2)" />
-              <rect x="66" y="32" width="6" height="6" rx="1" fill="rgba(45,184,75,0.2)" />
-              <rect x="48" y="44" width="6" height="6" rx="1" fill="rgba(45,184,75,0.2)" />
-              <rect x="66" y="44" width="6" height="6" rx="1" fill="rgba(45,184,75,0.2)" />
-              <path d="M22 66c0-10 6-16 12-16 M20 50c3 3 8 0 8 0" stroke="#1E9438" strokeWidth="1.5" fill="none" />
+              <rect x="42" y="14" width="36" height="52" rx="2" fill="none" stroke="#1E6849" strokeWidth="2" />
+              <rect x="48" y="20" width="6" height="6" rx="1" fill="rgba(30, 104, 73,0.2)" />
+              <rect x="66" y="20" width="6" height="6" rx="1" fill="rgba(30, 104, 73,0.2)" />
+              <rect x="48" y="32" width="6" height="6" rx="1" fill="rgba(30, 104, 73,0.2)" />
+              <rect x="66" y="32" width="6" height="6" rx="1" fill="rgba(30, 104, 73,0.2)" />
+              <rect x="48" y="44" width="6" height="6" rx="1" fill="rgba(30, 104, 73,0.2)" />
+              <rect x="66" y="44" width="6" height="6" rx="1" fill="rgba(30, 104, 73,0.2)" />
+              <path d="M22 66c0-10 6-16 12-16 M20 50c3 3 8 0 8 0" stroke="#155440" strokeWidth="1.5" fill="none" />
               <line x1="28" y1="66" x2="28" y2="50" stroke="#B8901C" strokeWidth="2.5" />
             </>
           )}
@@ -740,9 +744,9 @@ function SolutionCardVisual3D({ tab, type }) {
               <line x1="30" y1="42" x2="90" y2="42" stroke="var(--accent-periwinkle)" strokeWidth="1.5" />
               <circle cx="45" cy="54" r="5" fill="none" stroke="var(--accent-periwinkle)" strokeWidth="2" />
               <circle cx="75" cy="54" r="5" fill="none" stroke="var(--accent-periwinkle)" strokeWidth="2" />
-              <rect x="36" y="26" width="12" height="10" rx="1" fill="rgba(94,92,230,0.15)" />
-              <rect x="54" y="26" width="12" height="10" rx="1" fill="rgba(94,92,230,0.15)" />
-              <rect x="72" y="26" width="12" height="10" rx="1" fill="rgba(94,92,230,0.15)" />
+              <rect x="36" y="26" width="12" height="10" rx="1" fill="rgba(27, 98, 71,0.15)" />
+              <rect x="54" y="26" width="12" height="10" rx="1" fill="rgba(27, 98, 71,0.15)" />
+              <rect x="72" y="26" width="12" height="10" rx="1" fill="rgba(27, 98, 71,0.15)" />
             </motion.g>
           )}
 
@@ -751,13 +755,13 @@ function SolutionCardVisual3D({ tab, type }) {
               animate={{ x: [4, -4, 4] }}
               transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}
             >
-              <path d="M20 42 L 85 42 Q 100 42 100 32 L 85 24 L 20 24 Z" fill="none" stroke="#F59E0B" strokeWidth="2" />
-              <circle cx="35" cy="42" r="3" fill="#F59E0B" />
-              <circle cx="55" cy="42" r="3" fill="#F59E0B" />
-              <circle cx="75" cy="42" r="3" fill="#F59E0B" />
-              <rect x="30" y="28" width="16" height="6" rx="1" fill="rgba(245,158,11,0.15)" />
-              <rect x="52" y="28" width="16" height="6" rx="1" fill="rgba(245,158,11,0.15)" />
-              <rect x="74" y="28" width="16" height="6" rx="1" fill="rgba(245,158,11,0.15)" />
+              <path d="M20 42 L 85 42 Q 100 42 100 32 L 85 24 L 20 24 Z" fill="none" stroke="#E8BC55" strokeWidth="2" />
+              <circle cx="35" cy="42" r="3" fill="#E8BC55" />
+              <circle cx="55" cy="42" r="3" fill="#E8BC55" />
+              <circle cx="75" cy="42" r="3" fill="#E8BC55" />
+              <rect x="30" y="28" width="16" height="6" rx="1" fill="rgba(232, 188, 85,0.15)" />
+              <rect x="52" y="28" width="16" height="6" rx="1" fill="rgba(232, 188, 85,0.15)" />
+              <rect x="74" y="28" width="16" height="6" rx="1" fill="rgba(232, 188, 85,0.15)" />
             </motion.g>
           )}
 
@@ -765,9 +769,9 @@ function SolutionCardVisual3D({ tab, type }) {
             <>
               <rect x="38" y="24" width="44" height="34" rx="4" fill="none" stroke="var(--accent-periwinkle)" strokeWidth="2" />
               <path d="M50 24V16h20v8" fill="none" stroke="var(--accent-periwinkle)" strokeWidth="2" />
-              <line x1="48" y1="24" x2="48" y2="58" stroke="rgba(94,92,230,0.3)" strokeWidth="1.5" />
-              <line x1="72" y1="24" x2="72" y2="58" stroke="rgba(94,92,230,0.3)" strokeWidth="1.5" />
-              <motion.circle cx="95" cy="20" r="8" fill="#F59E0B"
+              <line x1="48" y1="24" x2="48" y2="58" stroke="rgba(27, 98, 71,0.3)" strokeWidth="1.5" />
+              <line x1="72" y1="24" x2="72" y2="58" stroke="rgba(27, 98, 71,0.3)" strokeWidth="1.5" />
+              <motion.circle cx="95" cy="20" r="8" fill="#E8BC55"
                 animate={{ scale: [1, 1.1, 1] }} transition={{ duration: 2.5, repeat: Infinity }} />
             </>
           )}
@@ -775,14 +779,14 @@ function SolutionCardVisual3D({ tab, type }) {
           {type.includes('Portal') && (
             <>
               <circle cx="50" cy="30" r="18" fill="none" stroke="var(--accent-periwinkle)" strokeWidth="1.5" />
-              <path d="M32 30h36 M50 12v36" stroke="rgba(94,92,230,0.4)" strokeWidth="1" />
-              <ellipse cx="50" cy="30" rx="8" ry="18" fill="none" stroke="rgba(94,92,230,0.4)" strokeWidth="1" />
+              <path d="M32 30h36 M50 12v36" stroke="rgba(27, 98, 71,0.4)" strokeWidth="1" />
+              <ellipse cx="50" cy="30" rx="8" ry="18" fill="none" stroke="rgba(27, 98, 71,0.4)" strokeWidth="1" />
               <motion.g
                 animate={{ y: [0, 4, 0], x: [0, 4, 0] }}
                 transition={{ duration: 3, repeat: Infinity }}
               >
-                <circle cx="75" cy="45" r="8" fill="none" stroke="#2DB84B" strokeWidth="2" />
-                <line x1="81" y1="51" x2="92" y2="62" stroke="#2DB84B" strokeWidth="2" />
+                <circle cx="75" cy="45" r="8" fill="none" stroke="#1E6849" strokeWidth="2" />
+                <line x1="81" y1="51" x2="92" y2="62" stroke="#1E6849" strokeWidth="2" />
               </motion.g>
             </>
           )}
@@ -794,10 +798,10 @@ function SolutionCardVisual3D({ tab, type }) {
   // IT TAB VISUALS
   if (tab === 'it') {
     let strokeCol = 'var(--accent-periwinkle)';
-    let grad = 'rgba(94,92,230,0.06)';
-    if (type.includes('Web')) { strokeCol = '#0EA5E9'; grad = 'rgba(14,165,233,0.06)'; }
-    else if (type.includes('Mobile')) { strokeCol = '#2DB84B'; grad = 'rgba(45,184,75,0.06)'; }
-    else if (type.includes('Cloud')) { strokeCol = '#F59E0B'; grad = 'rgba(245,158,11,0.06)'; }
+    let grad = 'rgba(27, 98, 71,0.06)';
+    if (type.includes('Web')) { strokeCol = '#1E6849'; grad = 'rgba(30, 104, 73,0.06)'; }
+    else if (type.includes('Mobile')) { strokeCol = '#1E6849'; grad = 'rgba(30, 104, 73,0.06)'; }
+    else if (type.includes('Cloud')) { strokeCol = '#E8BC55'; grad = 'rgba(232, 188, 85,0.06)'; }
     else if (type.includes('UI')) { strokeCol = '#E11D48'; grad = 'rgba(225,29,72,0.06)'; }
 
     return (
@@ -822,8 +826,8 @@ function SolutionCardVisual3D({ tab, type }) {
               <circle cx="35" cy="30" r="10" fill="none" stroke="var(--accent-periwinkle)" strokeWidth="2" />
               <circle cx="85" cy="30" r="10" fill="none" stroke="var(--accent-periwinkle)" strokeWidth="2" />
               <path d="M45 30h30" stroke="var(--accent-periwinkle)" strokeWidth="2" strokeDasharray="3 3" />
-              <motion.circle cx="45" cy="30" r="3.5" fill="#2DB84B"
-                animate={{ cx: [45, 75] }} transition={{ duration: 2, repeat: Infinity }} />
+              <motion.circle cx="45" cy="30" r="3.5" fill="#1E6849"
+                animate={{ x: [0, 30] }} transition={{ duration: 2, repeat: Infinity }} />
               <text x="35" y="33" textAnchor="middle" fontSize="8" fontWeight="bold" fill="var(--accent-periwinkle)">₹</text>
               <text x="85" y="33" textAnchor="middle" fontSize="8" fontWeight="bold" fill="var(--accent-periwinkle)">🏦</text>
               <text x="60" y="58" textAnchor="middle" fontSize="8" fontWeight="800" fill="var(--accent-periwinkle)" fontFamily="var(--font-mono)">SECURE GATEWAY</text>
@@ -832,21 +836,21 @@ function SolutionCardVisual3D({ tab, type }) {
 
           {type.includes('Web') && (
             <>
-              <rect x="36" y="16" width="48" height="36" rx="3" fill="none" stroke="#0EA5E9" strokeWidth="2" />
-              <line x1="36" y1="26" x2="84" y2="26" stroke="#0EA5E9" strokeWidth="1" />
+              <rect x="36" y="16" width="48" height="36" rx="3" fill="none" stroke="#1E6849" strokeWidth="2" />
+              <line x1="36" y1="26" x2="84" y2="26" stroke="#1E6849" strokeWidth="1" />
               <circle cx="42" cy="21" r="1.5" fill="#EF4444" />
-              <circle cx="47" cy="21" r="1.5" fill="#F59E0B" />
-              <circle cx="52" cy="21" r="1.5" fill="#10B981" />
-              <text x="60" y="44" textAnchor="middle" fontSize="13" fontWeight="900" fill="#0EA5E9" fontFamily="var(--font-mono)">{"{ }"}</text>
+              <circle cx="47" cy="21" r="1.5" fill="#E8BC55" />
+              <circle cx="52" cy="21" r="1.5" fill="#2E9E68" />
+              <text x="60" y="44" textAnchor="middle" fontSize="13" fontWeight="900" fill="#1E6849" fontFamily="var(--font-mono)">{"{ }"}</text>
             </>
           )}
 
           {type.includes('Mobile') && (
             <>
-              <rect x="48" y="12" width="24" height="46" rx="4" fill="none" stroke="#2DB84B" strokeWidth="2" />
-              <circle cx="60" cy="53" r="2" fill="#2DB84B" />
-              <rect x="52" y="18" width="16" height="30" rx="1" fill="rgba(45,184,75,0.1)" />
-              <motion.circle cx="60" cy="33" r="6" fill="#2DB84B"
+              <rect x="48" y="12" width="24" height="46" rx="4" fill="none" stroke="#1E6849" strokeWidth="2" />
+              <circle cx="60" cy="53" r="2" fill="#1E6849" />
+              <rect x="52" y="18" width="16" height="30" rx="1" fill="rgba(30, 104, 73,0.1)" />
+              <motion.circle cx="60" cy="33" r="6" fill="#1E6849"
                 animate={{ scale: [1, 1.15, 1] }} transition={{ duration: 2, repeat: Infinity }} />
               <path d="M57 33l2 2 4-4" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
             </>
@@ -854,22 +858,22 @@ function SolutionCardVisual3D({ tab, type }) {
 
           {type.includes('E-Commerce') && (
             <>
-              <path d="M30 20h10l8 24h24l8-16H46" fill="none" stroke="#F59E0B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              <circle cx="51" cy="52" r="4" fill="none" stroke="#F59E0B" strokeWidth="2" />
-              <circle cx="71" cy="52" r="4" fill="none" stroke="#F59E0B" strokeWidth="2" />
-              <motion.rect x="50" y="24" width="16" height="12" rx="1" fill="rgba(245,158,11,0.2)" stroke="#F59E0B" strokeWidth="1"
+              <path d="M30 20h10l8 24h24l8-16H46" fill="none" stroke="#E8BC55" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              <circle cx="51" cy="52" r="4" fill="none" stroke="#E8BC55" strokeWidth="2" />
+              <circle cx="71" cy="52" r="4" fill="none" stroke="#E8BC55" strokeWidth="2" />
+              <motion.rect x="50" y="24" width="16" height="12" rx="1" fill="rgba(232, 188, 85,0.2)" stroke="#E8BC55" strokeWidth="1"
                 animate={{ y: [0, -3, 0] }} transition={{ duration: 2.8, repeat: Infinity }} />
             </>
           )}
 
           {type.includes('Cloud') && (
             <>
-              <path d="M40 38 L 60 18 L 80 38 L 60 58 Z" fill="none" stroke="#F59E0B" strokeWidth="2" />
-              <circle cx="60" cy="18" r="4" fill="#F59E0B" />
-              <circle cx="40" cy="38" r="4" fill="#F59E0B" />
-              <circle cx="80" cy="38" r="4" fill="#F59E0B" />
-              <circle cx="60" cy="58" r="4" fill="#F59E0B" />
-              <circle cx="60" cy="38" r="6" fill="#1B2A6B" stroke="#F59E0B" strokeWidth="1.5" />
+              <path d="M40 38 L 60 18 L 80 38 L 60 58 Z" fill="none" stroke="#E8BC55" strokeWidth="2" />
+              <circle cx="60" cy="18" r="4" fill="#E8BC55" />
+              <circle cx="40" cy="38" r="4" fill="#E8BC55" />
+              <circle cx="80" cy="38" r="4" fill="#E8BC55" />
+              <circle cx="60" cy="58" r="4" fill="#E8BC55" />
+              <circle cx="60" cy="38" r="6" fill="#0F3A2B" stroke="#E8BC55" strokeWidth="1.5" />
             </>
           )}
 
@@ -908,23 +912,34 @@ function NewsletterVisual3D() {
       position: 'relative',
       overflow: 'hidden'
     }}>
-      <motion.circle
-        cx="160" cy="90" r="40"
-        stroke="rgba(45,184,75,0.2)"
-        strokeWidth="1.5"
-        fill="none"
-        animate={{ scale: [1, 1.6, 1], opacity: [0.3, 0.7, 0.3] }}
-        transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-      />
-      <motion.circle
-        cx="160" cy="90" r="70"
-        stroke="rgba(94,92,230,0.15)"
-        strokeWidth="1"
-        fill="none"
-        animate={{ scale: [1, 1.4, 1], opacity: [0.1, 0.4, 0.1] }}
-        transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-      />
-      
+      {/* Ambient rings. These were bare <motion.circle> elements sitting
+          directly in the div, so React created them in the HTML namespace:
+          they never rendered, and every frame wrote `undefined` into cx/cy.
+          SVG children need an <svg> host. */}
+      <svg
+        viewBox="0 0 320 180"
+        aria-hidden="true"
+        style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}
+      >
+        <motion.circle
+          cx="160" cy="90" r="40"
+          stroke="rgba(30, 104, 73,0.2)"
+          strokeWidth="1.5"
+          fill="none"
+          animate={{ scale: [1, 1.6, 1], opacity: [0.3, 0.7, 0.3] }}
+          transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+        />
+        <motion.circle
+          cx="160" cy="90" r="70"
+          stroke="rgba(27, 98, 71,0.15)"
+          strokeWidth="1"
+          fill="none"
+          animate={{ scale: [1, 1.4, 1], opacity: [0.1, 0.4, 0.1] }}
+          transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+        />
+      </svg>
+
+
       <svg width="240" height="160" viewBox="0 0 240 160" style={{ position: 'relative', zIndex: 1 }}>
         <ellipse cx="120" cy="130" rx="60" ry="12" fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth="1" />
         <line x1="60" y1="130" x2="180" y2="130" stroke="rgba(255,255,255,0.15)" strokeWidth="1" />
@@ -945,12 +960,12 @@ function NewsletterVisual3D() {
 
         <motion.path
           d="M130 30 Q 170 20 200 40"
-          stroke="rgba(45,184,75,0.4)"
+          stroke="rgba(30, 104, 73,0.4)"
           strokeWidth="1.5"
           fill="none"
           strokeDasharray="4 4"
         />
-        <motion.circle cx="200" cy="40" r="3" fill="#2DB84B"
+        <motion.circle cx="200" cy="40" r="3" fill="#1E6849"
           animate={{ scale: [1, 1.5, 1] }} transition={{ duration: 1.5, repeat: Infinity }} />
 
         <motion.circle cx="100" cy="110" r="2" fill="var(--accent-periwinkle)"
@@ -1521,185 +1536,12 @@ export default function Hero({ onOpenAuth, backendUrl }) {
           background: 'linear-gradient(90deg, var(--accent-periwinkle) 0%, var(--accent-green) 100%)',
           transformOrigin: '0%',
           zIndex: 10000,
-          boxShadow: '0 0 8px rgba(94, 92, 230, 0.4)'
+          boxShadow: '0 0 8px rgba(27, 98, 71, 0.4)'
         }}
       />
       
-      {/* 1. HERO SECTION */}
-      <section className="hero-sec" style={{
-        position: 'relative',
-        minHeight: 'calc(100vh - 80px)',
-        display: 'flex',
-        alignItems: 'center',
-        padding: '60px 8% 40px',
-        background: 'radial-gradient(circle at 10% 20%, rgba(94, 92, 230, 0.03) 0%, transparent 60%), radial-gradient(circle at 95% 85%, rgba(0, 122, 255, 0.02) 0%, transparent 60%)',
-        borderBottom: '1px solid rgba(0, 0, 0, 0.04)',
-        boxSizing: 'border-box'
-      }}>
-        {/* Animated ambient blobs */}
-        <motion.div
-          className="glow-overlay-green"
-          style={{ top: '-10%', left: '-5%' }}
-          animate={{ x: [0, 20, 0], y: [0, -15, 0], scale: [1, 1.1, 1] }}
-          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-        />
-        <motion.div
-          className="glow-overlay-blue"
-          style={{ bottom: '5%', right: '5%' }}
-          animate={{ x: [0, -15, 0], y: [0, 10, 0], scale: [1, 1.08, 1] }}
-          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-        />
-
-        <div style={{
-          maxWidth: '1200px',
-          width: '100%',
-          margin: '0 auto',
-          display: 'grid',
-          gridTemplateColumns: '1.1fr 0.9fr',
-          gap: '50px',
-          alignItems: 'center'
-        }} className="grid-responsive-hero">
-          {/* Left Hero Content */}
-          <div>
-            <motion.div
-              initial={{ opacity: 0, y: -12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                border: '1px solid rgba(94, 92, 230, 0.15)',
-                background: 'rgba(94, 92, 230, 0.04)',
-                padding: '6px 16px',
-                borderRadius: '50px',
-                marginBottom: '28px',
-                fontSize: '11px',
-                fontFamily: 'var(--font-display)',
-                fontWeight: 800,
-                letterSpacing: '0.15em',
-                textTransform: 'uppercase',
-                color: 'var(--accent-periwinkle)'
-              }}
-              className="hero-overline"
-            >
-              <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--accent-periwinkle)', display: 'inline-block' }} />
-              India's Complete Fintech · IT · Travel Platform
-            </motion.div>
-
-            <motion.h1
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              style={{
-                fontSize: 'clamp(28px, 6vw, 62px)',
-                lineHeight: '1.1',
-                letterSpacing: '-0.03em',
-                marginBottom: '20px',
-                fontWeight: 900,
-                color: 'var(--text-primary)'
-              }}
-            >
-              Make Payment,<br />
-              <span className="text-gradient-green">Build Growth</span><br />
-              <span style={{ fontSize: 'clamp(18px, 4vw, 42px)', fontWeight: 800, display: 'block', marginTop: '12px' }} className="text-gradient-blue">
-                Fintech · IT Software · Travel
-              </span>
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.65, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
-              style={{
-                fontSize: '15px',
-                color: 'var(--text-secondary)',
-                lineHeight: '1.8',
-                maxWidth: '560px',
-                marginBottom: '24px',
-                fontWeight: 400
-              }}
-            >
-              Payment Gateway · BBPS · AEPS · DMT · UPI · Payout API · Flight · Hotel · Bus · Train · Custom Software · Cloud & DevOps. India's complete business platform with T+1 Settlement and RBI compliance.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-              style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}
-            >
-              <MagneticButton onClick={() => scrollToId('contact')} className="btn-cred-neon">
-                🚀 Free Consultation <ArrowRight size={14} />
-              </MagneticButton>
-              <MagneticButton onClick={() => scrollToId('solutions')} className="btn-cred-outline">
-                Explore All Services ↓
-              </MagneticButton>
-            </motion.div>
-
-            {/* Statistics Row */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.65, ease: [0.16, 1, 0.3, 1] }}
-              style={{
-                marginTop: '36px',
-                display: 'grid',
-                gridTemplateColumns: 'repeat(4, 1fr)',
-                gap: '16px',
-                maxWidth: '560px',
-                borderTop: '1px solid rgba(0, 0, 0, 0.05)',
-                paddingTop: '28px'
-              }} className="grid-responsive-stats"
-            >
-              {[
-                { val: '500+', label: 'Merchants', accent: false },
-                { val: '24×7', label: 'Support', accent: true },
-                { val: '99.9%', label: 'Uptime', accent: false },
-                { val: 'T+1', label: 'Settlement', accent: true }
-              ].map((s, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5, delay: 0.7 + i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-                >
-                  <h3 style={{ fontSize: '24px', color: s.accent ? 'var(--accent-periwinkle)' : 'var(--text-primary)', fontWeight: 800, fontFamily: 'var(--font-mono)' }}>{s.val}</h3>
-                  <p style={{ fontSize: '10px', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em', marginTop: '4px' }}>{s.label}</p>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-
-          {/* Mobile-only Compact Card — shown at ≤968px instead of 3D stack */}
-          <div className="hero-mobile-card">
-            <div className="hero-mobile-card-chip" />
-            <div className="hero-mobile-card-info">
-              <span className="hero-mobile-card-title">BillsPay24X7✓</span>
-              <span className="hero-mobile-card-num">•••• •••• 24X7</span>
-            </div>
-            <div className="hero-mobile-card-badges">
-              <span className="hero-mobile-card-badge">T+1 Payouts</span>
-              <span className="hero-mobile-card-badge">0.17% UPI</span>
-            </div>
-          </div>
-
-          {/* Right Hero Visual: FintechX Interactive Dashboard */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.92, x: 30 }}
-            animate={{ opacity: 1, scale: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-              position: 'relative',
-              width: '100%'
-            }} className="hero-visual-container"
-          >
-            <FintechXDashboardVisual3D />
-          </motion.div>
-        </div>
-      </section>
+      {/* 1. HERO — the payment rail as a prosperity yantra */}
+      <RailHero onOpenAuth={onOpenAuth} />
 
       {/* 2. INFINITE TICKER BAR */}
       <section className="ticker-sec" style={{
@@ -1826,7 +1668,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
                       left: '12%',
                       right: '12%',
                       height: '2px',
-                      background: 'rgba(94, 92, 230, 0.15)',
+                      background: 'rgba(27, 98, 71, 0.15)',
                       borderRadius: '1px',
                       overflow: 'hidden',
                       zIndex: 2
@@ -1880,7 +1722,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
                 alignItems: 'center'
               }} className="grid-responsive-subbanner">
                 <div>
-                  <span className="btn-cred-outline" style={{ pointerEvents: 'none', padding: '4px 14px', fontSize: '11px', marginBottom: '18px', background: 'rgba(94, 92, 230, 0.05)', borderColor: 'rgba(94, 92, 230, 0.2)', color: 'var(--accent-periwinkle)' }}>
+                  <span className="btn-cred-outline" style={{ pointerEvents: 'none', padding: '4px 14px', fontSize: '11px', marginBottom: '18px', background: 'rgba(27, 98, 71, 0.05)', borderColor: 'rgba(27, 98, 71, 0.2)', color: 'var(--accent-periwinkle)' }}>
                     {tabInfo[activeTab].chip}
                   </span>
                   <h3 style={{ fontSize: '26px', fontWeight: 800, marginTop: '8px', marginBottom: '12px' }}>{tabInfo[activeTab].title}</h3>
@@ -2115,7 +1957,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
                       minHeight: 'auto',
                       background: activeStep === idx ? 'rgba(255,255,255,0.95)' : 'var(--bg-card)',
                       borderColor: activeStep === idx ? 'var(--accent-periwinkle)' : 'var(--border-primary)',
-                      boxShadow: activeStep === idx ? '0 10px 30px rgba(94, 92, 230, 0.08)' : '0 4px 12px rgba(0,0,0,0.01)'
+                      boxShadow: activeStep === idx ? '0 10px 30px rgba(27, 98, 71, 0.08)' : '0 4px 12px rgba(0,0,0,0.01)'
                     }}
                     whileHover={{ x: 4, transition: { type: 'spring', stiffness: 400, damping: 30 } }}
                   >
@@ -2160,7 +2002,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
                       fontSize: '72px',
                       fontWeight: 900,
                       fontFamily: 'var(--font-mono)',
-                      color: 'rgba(94, 92, 230, 0.1)',
+                      color: 'rgba(27, 98, 71, 0.1)',
                       lineHeight: '1',
                       marginBottom: '16px'
                     }}>{steps[activeStep].n}</div>
@@ -2321,7 +2163,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
                     width: '40px',
                     height: '40px',
                     borderRadius: '50%',
-                    background: 'linear-gradient(135deg, #7F7DF4 0%, #5E5CE6 100%)',
+                    background: 'linear-gradient(135deg, #7F7DF4 0%, #1B6247 100%)',
                     color: '#FFFFFF',
                     fontWeight: 800,
                     fontSize: '14px',
@@ -2351,7 +2193,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
           <div style={{
             maxWidth: '1000px',
             margin: '0 auto',
-            background: 'linear-gradient(135deg, rgba(94, 92, 230, 0.03) 0%, rgba(0, 122, 255, 0.02) 100%)',
+            background: 'linear-gradient(135deg, rgba(27, 98, 71, 0.03) 0%, rgba(27, 98, 71, 0.02) 100%)',
             border: '1px solid var(--border-secondary)',
             borderRadius: '24px',
             padding: '56px 40px',
@@ -2402,7 +2244,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
               {/* Phone */}
               <div style={{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
-                <div style={{ width: '40px', height: '40px', borderRadius: '10px', background: 'rgba(94, 92, 230, 0.04)', display: 'flex', alignItems: 'center', justify: 'center', flexShrink: 0 }}>
+                <div style={{ width: '40px', height: '40px', borderRadius: '10px', background: 'rgba(27, 98, 71, 0.04)', display: 'flex', alignItems: 'center', justify: 'center', flexShrink: 0 }}>
                   <Phone size={18} color="var(--accent-periwinkle)" />
                 </div>
                 <div>
@@ -2414,7 +2256,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
 
               {/* Email */}
               <div style={{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
-                <div style={{ width: '40px', height: '40px', borderRadius: '10px', background: 'rgba(94, 92, 230, 0.04)', display: 'flex', alignItems: 'center', justify: 'center', flexShrink: 0 }}>
+                <div style={{ width: '40px', height: '40px', borderRadius: '10px', background: 'rgba(27, 98, 71, 0.04)', display: 'flex', alignItems: 'center', justify: 'center', flexShrink: 0 }}>
                   <Mail size={18} color="var(--accent-periwinkle)" />
                 </div>
                 <div>
@@ -2426,7 +2268,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
 
               {/* Address */}
               <div style={{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
-                <div style={{ width: '40px', height: '40px', borderRadius: '10px', background: 'rgba(94, 92, 230, 0.04)', display: 'flex', alignItems: 'center', justify: 'center', flexShrink: 0 }}>
+                <div style={{ width: '40px', height: '40px', borderRadius: '10px', background: 'rgba(27, 98, 71, 0.04)', display: 'flex', alignItems: 'center', justify: 'center', flexShrink: 0 }}>
                   <MapPin size={18} color="var(--accent-periwinkle)" />
                 </div>
                 <div>
@@ -2442,7 +2284,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
               {/* Corporate Identity Box */}
               <div className="card-cred" style={{
                 background: 'linear-gradient(135deg, rgba(27,45,107,0.02) 0%, rgba(27,45,107,0.06) 100%)',
-                borderColor: 'rgba(94,92,230,0.08)',
+                borderColor: 'rgba(27, 98, 71,0.08)',
                 padding: '24px',
                 borderRadius: '16px',
                 minHeight: 'auto'
@@ -2477,7 +2319,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
                     width: '56px',
                     height: '56px',
                     borderRadius: '50%',
-                    background: 'rgba(94, 92, 230, 0.04)',
+                    background: 'rgba(27, 98, 71, 0.04)',
                     border: '1px solid var(--accent-periwinkle)',
                     display: 'flex',
                     alignItems: 'center',
@@ -2648,7 +2490,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
                   <span style={{ fontSize: '10px', fontWeight: 700, color: 'var(--accent-periwinkle)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '8px' }}>{cs.s}</span>
                   <h3 style={{ fontSize: '16px', fontWeight: 800, marginBottom: '8px', color: 'var(--text-primary)' }}>{cs.t}</h3>
                   <p style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: '1.6', flex: 1, marginBottom: '16px' }}>{cs.d}</p>
-                  <div style={{ fontSize: '12px', fontWeight: 700, color: '#2DB84B' }}>{cs.res}</div>
+                  <div style={{ fontSize: '12px', fontWeight: 700, color: '#1E6849' }}>{cs.res}</div>
                 </div>
               </TiltCard>
             ))}
@@ -2668,7 +2510,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
         <div style={{
           maxWidth: '1000px',
           margin: '0 auto',
-          background: 'linear-gradient(135deg, #1B2A6B 0%, #152055 100%)',
+          background: 'linear-gradient(135deg, #0F3A2B 0%, #152055 100%)',
           color: '#fff',
           borderRadius: '24px',
           padding: '48px 48px',
@@ -2681,7 +2523,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
           border: '1.5px solid rgba(255, 255, 255, 0.05)'
         }} className="grid-responsive-newsletter">
           <div>
-            <span style={{ fontSize: '11px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.12em', color: '#2DB84B', display: 'block', marginBottom: '8px' }}>
+            <span style={{ fontSize: '11px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.12em', color: '#1E6849', display: 'block', marginBottom: '8px' }}>
               stay updated
             </span>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '28px', fontWeight: 800, marginBottom: '12px' }}>Subscribe to our Newsletter</h2>
@@ -2762,7 +2604,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            boxShadow: '0 8px 24px rgba(94, 92, 230, 0.3)',
+            boxShadow: '0 8px 24px rgba(27, 98, 71, 0.3)',
             fontSize: '20px'
           }}
           title="Call Sales Hotline"

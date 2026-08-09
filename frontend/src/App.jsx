@@ -120,17 +120,17 @@ export default function App() {
           position: 'fixed',
           inset: 0,
           zIndex: 99999,
-          background: 'linear-gradient(135deg, #1B2A6B 0%, #243080 40%, #2DB84B 100%)',
+          background: 'linear-gradient(135deg, #0F3A2B 0%, #15503A 40%, #1E6849 100%)',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center'
         }}>
           <div style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 800, color: '#fff' }}>
-            BillsPay<span style={{ color: '#5DCB6A' }}>24X7</span>✓
+            BillsPay<span style={{ color: '#3E9C6B' }}>24X7</span>✓
           </div>
           <div style={{ width: '180px', height: '3px', background: 'rgba(255,255,255,0.2)', borderRadius: '2px', marginTop: '20px', overflow: 'hidden' }}>
-            <div style={{ height: '100%', width: '100%', background: '#5DCB6A', animation: 'loadfill 1.5s ease-in-out infinite' }}></div>
+            <div style={{ height: '100%', width: '100%', background: '#3E9C6B', animation: 'loadfill 1.5s ease-in-out infinite' }}></div>
           </div>
           <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.5)', marginTop: '12px', letterSpacing: '2px' }}>SMART PAYMENTS. SECURE GROWTH.</div>
         </div>
@@ -268,10 +268,10 @@ export default function App() {
             width: '48px',
             height: '48px',
             borderRadius: '50%',
-            background: '#2DB84B',
+            background: '#1E6849',
             color: '#fff',
             border: 'none',
-            boxShadow: '0 8px 32px rgba(45,184,75,0.25)',
+            boxShadow: '0 8px 32px rgba(30, 104, 73,0.25)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -301,7 +301,7 @@ export default function App() {
           color: 'var(--text-primary)'
         }}>
           <div style={{
-            background: 'linear-gradient(135deg, #1B2A6B 0%, #2DB84B 100%)',
+            background: 'linear-gradient(135deg, #0F3A2B 0%, #1E6849 100%)',
             color: '#fff',
             padding: '14px 18px',
             display: 'flex',
@@ -314,7 +314,7 @@ export default function App() {
           <div style={{ padding: '14px', height: '240px', overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '8px' }}>
             {chatMessages.map((msg, idx) => (
               <div key={idx} style={{
-                background: msg.isUser ? '#1B2A6B' : 'var(--surf-2)',
+                background: msg.isUser ? '#0F3A2B' : 'var(--surf-2)',
                 color: msg.isUser ? '#fff' : 'var(--text-primary)',
                 padding: '10px 14px',
                 borderRadius: '12px',
@@ -336,7 +336,7 @@ export default function App() {
               placeholder="Type a message..." 
               style={{ flex: 1, padding: '8px 12px', border: '1px solid var(--border-primary)', borderRadius: '8px', fontSize: '12.5px', outline: 'none' }} 
             />
-            <button onClick={() => handleSendChat()} style={{ background: '#1B2A6B', color: '#fff', border: 'none', padding: '8px 12px', borderRadius: '8px', cursor: 'pointer', fontSize: '11px', fontWeight: 'bold' }}>Send</button>
+            <button onClick={() => handleSendChat()} style={{ background: '#0F3A2B', color: '#fff', border: 'none', padding: '8px 12px', borderRadius: '8px', cursor: 'pointer', fontSize: '11px', fontWeight: 'bold' }}>Send</button>
           </div>
         </div>
       )}

@@ -67,9 +67,9 @@ export default function Navbar({ user, onOpenAuth, onLogout, onNavigate, activeT
           fontWeight: 800,
           fontSize: '19px',
           letterSpacing: '-0.02em',
-          color: '#1B2D6B'
+          color: '#0F3A2B'
         }}>
-          BillsPay<span style={{ color: '#22C55E' }}>24X7</span>✓
+          BillsPay<span style={{ color: '#2E9E68' }}>24X7</span>✓
         </span>
       </div>
 
@@ -81,12 +81,12 @@ export default function Navbar({ user, onOpenAuth, onLogout, onNavigate, activeT
       }}>
         {activeTab !== 'dashboard' && (
           <>
-            <a onClick={() => handleLinkClick('home')} style={{ fontSize: '11px', fontWeight: 700, color: activeTab === 'home' ? '#1B2D6B' : 'var(--text-secondary)', transition: 'color 0.2s', letterSpacing: '0.05em', textTransform: 'uppercase', cursor: 'pointer' }}>Home</a>
-            <a onClick={() => handleLinkClick('travel')} style={{ fontSize: '11px', fontWeight: 700, color: activeTab === 'travel' ? '#1B2D6B' : 'var(--text-secondary)', transition: 'color 0.2s', letterSpacing: '0.05em', textTransform: 'uppercase', cursor: 'pointer' }}>✈️ Travel</a>
-            <a onClick={() => handleLinkClick('it')} style={{ fontSize: '11px', fontWeight: 700, color: activeTab === 'it' ? '#1B2D6B' : 'var(--text-secondary)', transition: 'color 0.2s', letterSpacing: '0.05em', textTransform: 'uppercase', cursor: 'pointer' }}>💻 IT Software</a>
-            <a onClick={() => handleLinkClick('about')} style={{ fontSize: '11px', fontWeight: 700, color: activeTab === 'about' ? '#1B2D6B' : 'var(--text-secondary)', transition: 'color 0.2s', letterSpacing: '0.05em', textTransform: 'uppercase', cursor: 'pointer' }}>About</a>
-            <a onClick={() => handleLinkClick('pricing')} style={{ fontSize: '11px', fontWeight: 700, color: activeTab === 'pricing' ? '#1B2D6B' : 'var(--text-secondary)', transition: 'color 0.2s', letterSpacing: '0.05em', textTransform: 'uppercase', cursor: 'pointer' }}>Pricing</a>
-            <a onClick={() => handleLinkClick('blog')} style={{ fontSize: '11px', fontWeight: 700, color: activeTab === 'blog' ? '#1B2D6B' : 'var(--text-secondary)', transition: 'color 0.2s', letterSpacing: '0.05em', textTransform: 'uppercase', cursor: 'pointer' }}>Blog</a>
+            <a onClick={() => handleLinkClick('home')} style={{ fontSize: '11px', fontWeight: 700, color: activeTab === 'home' ? '#0F3A2B' : 'var(--text-secondary)', transition: 'color 0.2s', letterSpacing: '0.05em', textTransform: 'uppercase', cursor: 'pointer' }}>Home</a>
+            <a onClick={() => handleLinkClick('travel')} style={{ fontSize: '11px', fontWeight: 700, color: activeTab === 'travel' ? '#0F3A2B' : 'var(--text-secondary)', transition: 'color 0.2s', letterSpacing: '0.05em', textTransform: 'uppercase', cursor: 'pointer' }}>✈️ Travel</a>
+            <a onClick={() => handleLinkClick('it')} style={{ fontSize: '11px', fontWeight: 700, color: activeTab === 'it' ? '#0F3A2B' : 'var(--text-secondary)', transition: 'color 0.2s', letterSpacing: '0.05em', textTransform: 'uppercase', cursor: 'pointer' }}>💻 IT Software</a>
+            <a onClick={() => handleLinkClick('about')} style={{ fontSize: '11px', fontWeight: 700, color: activeTab === 'about' ? '#0F3A2B' : 'var(--text-secondary)', transition: 'color 0.2s', letterSpacing: '0.05em', textTransform: 'uppercase', cursor: 'pointer' }}>About</a>
+            <a onClick={() => handleLinkClick('pricing')} style={{ fontSize: '11px', fontWeight: 700, color: activeTab === 'pricing' ? '#0F3A2B' : 'var(--text-secondary)', transition: 'color 0.2s', letterSpacing: '0.05em', textTransform: 'uppercase', cursor: 'pointer' }}>Pricing</a>
+            <a onClick={() => handleLinkClick('blog')} style={{ fontSize: '11px', fontWeight: 700, color: activeTab === 'blog' ? '#0F3A2B' : 'var(--text-secondary)', transition: 'color 0.2s', letterSpacing: '0.05em', textTransform: 'uppercase', cursor: 'pointer' }}>Blog</a>
             <a onClick={openEnquire} style={{ fontSize: '11px', fontWeight: 700, color: 'var(--text-secondary)', transition: 'color 0.2s', letterSpacing: '0.05em', textTransform: 'uppercase', cursor: 'pointer' }}>Enquire</a>
           </>
         )}

@@ -326,11 +326,11 @@ export default function BillsPayAIAdvisor({ backendUrl, isOpen, onToggle, isChat
               width: '260px',
               padding: '12px 16px',
               textAlign: 'left',
-              background: 'linear-gradient(135deg, rgba(18, 24, 54, 0.98) 0%, rgba(10, 15, 38, 0.96) 100%)',
+              background: 'linear-gradient(135deg, rgba(18, 24, 54, 0.98) 0%, rgba(8, 34, 26, 0.96) 100%)',
               backdropFilter: 'blur(15px)',
-              border: '1.5px solid rgba(94, 92, 230, 0.35)',
+              border: '1.5px solid rgba(27, 98, 71, 0.35)',
               borderRadius: '16px 16px 4px 16px',
-              boxShadow: '0 12px 36px rgba(10, 15, 38, 0.6), inset 0 1px 0 rgba(255,255,255,0.1)',
+              boxShadow: '0 12px 36px rgba(8, 34, 26, 0.6), inset 0 1px 0 rgba(255,255,255,0.1)',
               cursor: 'pointer',
               color: '#ffffff',
               fontSize: '11px',
@@ -354,8 +354,8 @@ export default function BillsPayAIAdvisor({ backendUrl, isOpen, onToggle, isChat
                   width: '6px',
                   height: '6px',
                   borderRadius: '50%',
-                  background: '#22C55E',
-                  boxShadow: '0 0 6px #22C55E',
+                  background: '#2E9E68',
+                  boxShadow: '0 0 6px #2E9E68',
                 }}
               />
               Aria · BillsPay Advisor
@@ -370,7 +370,7 @@ export default function BillsPayAIAdvisor({ backendUrl, isOpen, onToggle, isChat
                 height: 0,
                 borderLeft: '6px solid transparent',
                 borderRight: '6px solid transparent',
-                borderTop: '6px solid rgba(10, 15, 38, 0.98)',
+                borderTop: '6px solid rgba(8, 34, 26, 0.98)',
               }}
             />
           </motion.button>
@@ -389,9 +389,9 @@ export default function BillsPayAIAdvisor({ backendUrl, isOpen, onToggle, isChat
           width: '56px',
           height: '56px',
           borderRadius: '50%',
-          background: 'linear-gradient(135deg, var(--accent-periwinkle) 0%, #4D3CE6 100%)',
+          background: 'linear-gradient(135deg, var(--accent-periwinkle) 0%, #144F39 100%)',
           border: 'none',
-          boxShadow: '0 8px 30px rgba(94, 92, 230, 0.4), inset 0 1px 0 rgba(255,255,255,0.3)',
+          boxShadow: '0 8px 30px rgba(27, 98, 71, 0.4), inset 0 1px 0 rgba(255,255,255,0.3)',
           cursor: 'pointer',
           display: 'flex',
           alignItems: 'center',
@@ -411,9 +411,9 @@ export default function BillsPayAIAdvisor({ backendUrl, isOpen, onToggle, isChat
             width: '12px',
             height: '12px',
             borderRadius: '50%',
-            background: '#2DB84B',
+            background: '#1E6849',
             border: '2px solid #fff',
-            boxShadow: '0 0 8px #2DB84B',
+            boxShadow: '0 0 8px #1E6849',
           }}
         />
       </motion.button>
@@ -435,11 +435,11 @@ export default function BillsPayAIAdvisor({ backendUrl, isOpen, onToggle, isChat
               // Grow on desktop, but never overflow a phone screen.
               width: 'min(360px, calc(100vw - 40px))',
               height: 'min(520px, calc(100vh - 200px))',
-              background: 'linear-gradient(135deg, rgba(10, 15, 38, 0.97) 0%, rgba(18, 24, 54, 0.95) 100%)',
+              background: 'linear-gradient(135deg, rgba(8, 34, 26, 0.97) 0%, rgba(18, 24, 54, 0.95) 100%)',
               backdropFilter: 'blur(25px)',
-              border: '1.5px solid rgba(94, 92, 230, 0.25)',
+              border: '1.5px solid rgba(27, 98, 71, 0.25)',
               borderRadius: '20px',
-              boxShadow: '0 12px 40px rgba(10, 15, 38, 0.6), inset 0 1px 1px rgba(255,255,255,0.05)',
+              boxShadow: '0 12px 40px rgba(8, 34, 26, 0.6), inset 0 1px 1px rgba(255,255,255,0.05)',
               overflow: 'hidden',
               display: 'flex',
               flexDirection: 'column',
@@ -465,7 +465,7 @@ export default function BillsPayAIAdvisor({ backendUrl, isOpen, onToggle, isChat
                       width: '30px',
                       height: '30px',
                       borderRadius: '50%',
-                      background: 'linear-gradient(135deg, var(--accent-periwinkle) 0%, #4D3CE6 100%)',
+                      background: 'linear-gradient(135deg, var(--accent-periwinkle) 0%, #144F39 100%)',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
@@ -482,8 +482,8 @@ export default function BillsPayAIAdvisor({ backendUrl, isOpen, onToggle, isChat
                       width: '8px',
                       height: '8px',
                       borderRadius: '50%',
-                      background: '#22C55E',
-                      border: '1.5px solid #0A0F26',
+                      background: '#2E9E68',
+                      border: '1.5px solid #08221A',
                     }}
                   />
                 </div>
@@ -491,7 +491,7 @@ export default function BillsPayAIAdvisor({ backendUrl, isOpen, onToggle, isChat
                   <span style={{ fontSize: '11.5px', fontWeight: 800, color: '#fff', letterSpacing: '0.3px' }}>
                     Aria · BillsPay Advisor
                   </span>
-                  <span style={{ fontSize: '8.5px', color: '#22C55E', fontWeight: 600 }}>Online · Replies instantly</span>
+                  <span style={{ fontSize: '8.5px', color: '#2E9E68', fontWeight: 600 }}>Online · Replies instantly</span>
                 </div>
               </div>
 
@@ -567,8 +567,8 @@ export default function BillsPayAIAdvisor({ backendUrl, isOpen, onToggle, isChat
                     gap: '5px',
                     padding: '6px',
                     borderRadius: '7px',
-                    background: 'rgba(94,92,230,0.10)',
-                    border: '1px solid rgba(94,92,230,0.25)',
+                    background: 'rgba(27, 98, 71,0.10)',
+                    border: '1px solid rgba(27, 98, 71,0.25)',
                     color: 'rgba(255,255,255,0.8)',
                     fontSize: '9.5px',
                     fontWeight: 700,
@@ -605,8 +605,8 @@ export default function BillsPayAIAdvisor({ backendUrl, isOpen, onToggle, isChat
                               height: '24px',
                               flexShrink: 0,
                               borderRadius: '50%',
-                              background: 'rgba(94, 92, 230, 0.15)',
-                              border: '1px solid rgba(94, 92, 230, 0.25)',
+                              background: 'rgba(27, 98, 71, 0.15)',
+                              border: '1px solid rgba(27, 98, 71, 0.25)',
                               display: 'flex',
                               alignItems: 'center',
                               justifyContent: 'center',
@@ -659,8 +659,8 @@ export default function BillsPayAIAdvisor({ backendUrl, isOpen, onToggle, isChat
                                   style={{
                                     padding: '5px 11px',
                                     borderRadius: '20px',
-                                    background: 'rgba(94,92,230,0.12)',
-                                    border: '1px solid rgba(94,92,230,0.35)',
+                                    background: 'rgba(27, 98, 71,0.12)',
+                                    border: '1px solid rgba(27, 98, 71,0.35)',
                                     color: 'rgba(255,255,255,0.85)',
                                     fontSize: '10px',
                                     cursor: 'pointer',
@@ -669,11 +669,11 @@ export default function BillsPayAIAdvisor({ backendUrl, isOpen, onToggle, isChat
                                     transition: 'all 0.15s ease',
                                   }}
                                   onMouseEnter={(e) => {
-                                    e.currentTarget.style.background = 'rgba(94,92,230,0.3)';
+                                    e.currentTarget.style.background = 'rgba(27, 98, 71,0.3)';
                                     e.currentTarget.style.color = '#fff';
                                   }}
                                   onMouseLeave={(e) => {
-                                    e.currentTarget.style.background = 'rgba(94,92,230,0.12)';
+                                    e.currentTarget.style.background = 'rgba(27, 98, 71,0.12)';
                                     e.currentTarget.style.color = 'rgba(255,255,255,0.85)';
                                   }}
                                 >
@@ -694,7 +694,7 @@ export default function BillsPayAIAdvisor({ backendUrl, isOpen, onToggle, isChat
                           width: '24px',
                           height: '24px',
                           borderRadius: '50%',
-                          background: 'rgba(94, 92, 230, 0.15)',
+                          background: 'rgba(27, 98, 71, 0.15)',
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',
@@ -738,7 +738,7 @@ export default function BillsPayAIAdvisor({ backendUrl, isOpen, onToggle, isChat
                     style={{
                       position: 'absolute',
                       inset: 0,
-                      background: 'rgba(10, 15, 38, 0.97)',
+                      background: 'rgba(8, 34, 26, 0.97)',
                       padding: '20px',
                       display: 'flex',
                       flexDirection: 'column',
@@ -754,7 +754,7 @@ export default function BillsPayAIAdvisor({ backendUrl, isOpen, onToggle, isChat
                     </span>
 
                     {leadStatus.error && <span style={{ fontSize: '9.5px', color: '#ff6b6b' }}>{leadStatus.error}</span>}
-                    {leadStatus.success && <span style={{ fontSize: '9.5px', color: '#22C55E' }}>✓ Request received — talk soon!</span>}
+                    {leadStatus.success && <span style={{ fontSize: '9.5px', color: '#2E9E68' }}>✓ Request received — talk soon!</span>}
 
                     {[
                       { key: 'firstName', placeholder: 'First Name *', type: 'text', autoComplete: 'given-name' },

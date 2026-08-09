@@ -83,7 +83,7 @@ export default function Modals({ activeModal, onClose }) {
     <div style={{
       position: 'fixed',
       inset: 0,
-      background: 'rgba(13, 22, 56, 0.45)',
+      background: 'rgba(11, 42, 32, 0.45)',
       backdropFilter: 'blur(8px)',
       WebkitBackdropFilter: 'blur(8px)',
       zIndex: 9999,
@@ -171,7 +171,7 @@ export default function Modals({ activeModal, onClose }) {
               </form>
             ) : (
               <div style={{ textAlign: 'center', padding: '20px 0' }}>
-                <div style={{ width: '56px', height: '56px', borderRadius: '50%', background: '#F0FFF4', border: '2px solid #2DB84B', display: 'flex', alignItems: 'center', justify: 'center', margin: '0 auto 16px', color: '#2DB84B' }}><Check size={24} /></div>
+                <div style={{ width: '56px', height: '56px', borderRadius: '50%', background: '#F1F5EC', border: '2px solid #1E6849', display: 'flex', alignItems: 'center', justify: 'center', margin: '0 auto 16px', color: '#1E6849' }}><Check size={24} /></div>
                 <h4 style={{ fontWeight: 800, fontSize: '18px', marginBottom: '8px' }}>Enquiry Sent!</h4>
                 <p style={{ fontSize: '12.5px', color: 'var(--text-secondary)' }}>Opening WhatsApp... We will respond within 24 hours.</p>
               </div>
@@ -219,14 +219,14 @@ export default function Modals({ activeModal, onClose }) {
                   </div>
                 </div>
                 <div style={{ display: 'flex', gap: '8px', alignItems: 'center', marginBottom: '20px', fontSize: '11px' }}>
-                  <input type="checkbox" id="su-ag" checked={suAg} onChange={(e) => setSuAg(e.target.checked)} style={{ accentColor: '#1B2A6B' }} />
+                  <input type="checkbox" id="su-ag" checked={suAg} onChange={(e) => setSuAg(e.target.checked)} style={{ accentColor: '#0F3A2B' }} />
                   <label htmlFor="su-ag">I agree to BillsPay24X7✓ Terms of Service and Privacy Policy</label>
                 </div>
                 <button type="submit" className="btn-cred-neon" style={{ width: '100%', padding: '12px' }}>Create Account →</button>
               </form>
             ) : (
               <div style={{ textAlign: 'center', padding: '20px 0' }}>
-                <div style={{ width: '56px', height: '56px', borderRadius: '50%', background: '#F0FFF4', border: '2px solid #2DB84B', display: 'flex', alignItems: 'center', justify: 'center', margin: '0 auto 16px', color: '#2DB84B' }}><Check size={24} /></div>
+                <div style={{ width: '56px', height: '56px', borderRadius: '50%', background: '#F1F5EC', border: '2px solid #1E6849', display: 'flex', alignItems: 'center', justify: 'center', margin: '0 auto 16px', color: '#1E6849' }}><Check size={24} /></div>
                 <h4 style={{ fontWeight: 800, fontSize: '18px', marginBottom: '8px' }}>Account Created!</h4>
                 <p style={{ fontSize: '12.5px', color: 'var(--text-secondary)' }}>Welcome to BillsPay24X7✓! Opening WhatsApp...</p>
               </div>
@@ -277,7 +277,7 @@ export default function Modals({ activeModal, onClose }) {
               </form>
             ) : (
               <div style={{ textAlign: 'center', padding: '20px 0' }}>
-                <div style={{ width: '56px', height: '56px', borderRadius: '50%', background: '#F0FFF4', border: '2px solid #2DB84B', display: 'flex', alignItems: 'center', justify: 'center', margin: '0 auto 16px', color: '#2DB84B' }}><Check size={24} /></div>
+                <div style={{ width: '56px', height: '56px', borderRadius: '50%', background: '#F1F5EC', border: '2px solid #1E6849', display: 'flex', alignItems: 'center', justify: 'center', margin: '0 auto 16px', color: '#1E6849' }}><Check size={24} /></div>
                 <h4 style={{ fontWeight: 800, fontSize: '18px', marginBottom: '8px' }}>Booking Request Sent!</h4>
                 <p style={{ fontSize: '12.5px', color: 'var(--text-secondary)' }}>Opening WhatsApp... Our travel expert confirms within 30 minutes.</p>
               </div>

@@ -115,7 +115,7 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess, backendUrl }
     <div style={{
       position: 'fixed',
       inset: 0,
-      background: 'rgba(94, 92, 230, 0.08)',
+      background: 'rgba(27, 98, 71, 0.08)',
       backdropFilter: 'blur(16px)',
       WebkitBackdropFilter: 'blur(16px)',
       zIndex: 200,
@@ -130,7 +130,7 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess, backendUrl }
         position: 'relative',
         border: '1px solid var(--border-primary)',
         background: 'rgba(255, 255, 255, 0.85)',
-        boxShadow: '0 30px 60px rgba(94, 92, 230, 0.12)',
+        boxShadow: '0 30px 60px rgba(27, 98, 71, 0.12)',
         padding: '32px'
       }}>
         {/* Close Button */}
@@ -164,8 +164,8 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess, backendUrl }
             width: '40px',
             height: '40px',
             borderRadius: '10px',
-            background: 'rgba(94, 92, 230, 0.05)',
-            border: '1px solid rgba(94, 92, 230, 0.15)',
+            background: 'rgba(27, 98, 71, 0.05)',
+            border: '1px solid rgba(27, 98, 71, 0.15)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -208,8 +208,8 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess, backendUrl }
         )}
         {message && (
           <div style={{
-            background: 'rgba(36, 178, 99, 0.04)',
-            border: '1px solid rgba(36, 178, 99, 0.12)',
+            background: 'rgba(30, 104, 73, 0.04)',
+            border: '1px solid rgba(30, 104, 73, 0.12)',
             borderRadius: '8px',
             color: 'var(--accent-green)',
             fontSize: '13px',

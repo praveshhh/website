@@ -147,7 +147,7 @@ export default function Dashboard({ user, masterPassword, backendUrl }) {
       justifyContent: 'flex-start',
       padding: '12px 18px',
       gap: '12px',
-      background: isActive ? 'rgba(94, 92, 230, 0.05)' : 'transparent',
+      background: isActive ? 'rgba(27, 98, 71, 0.05)' : 'transparent',
       color: isActive ? 'var(--accent-periwinkle)' : 'var(--text-secondary)',
       border: 'none',
       borderLeft: isActive ? '3px solid var(--accent-periwinkle)' : '3px solid transparent',
@@ -197,7 +197,7 @@ export default function Dashboard({ user, masterPassword, backendUrl }) {
           border: '1px solid rgba(0, 0, 0, 0.05)',
           padding: '8px 16px',
           borderRadius: '50px',
-          boxShadow: '0 4px 12px rgba(94, 92, 230, 0.03)'
+          boxShadow: '0 4px 12px rgba(27, 98, 71, 0.03)'
         }}>
           <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--accent-periwinkle)', boxShadow: '0 0 10px var(--accent-periwinkle)' }} />
           <span style={{ fontSize: '11.5px', color: 'var(--text-primary)', fontWeight: 700 }}>E2EE Session Active</span>
@@ -240,7 +240,7 @@ export default function Dashboard({ user, masterPassword, backendUrl }) {
             </div>
           )}
           {success && (
-            <div style={{ background: 'rgba(36,178,99,0.04)', border: '1px solid rgba(36,178,99,0.12)', padding: '12px 16px', borderRadius: '8px', color: 'var(--accent-green)', fontSize: '13px', marginBottom: '24px' }}>
+            <div style={{ background: 'rgba(30, 104, 73,0.04)', border: '1px solid rgba(30, 104, 73,0.12)', padding: '12px 16px', borderRadius: '8px', color: 'var(--accent-green)', fontSize: '13px', marginBottom: '24px' }}>
               {success}
             </div>
           )}
@@ -257,8 +257,8 @@ export default function Dashboard({ user, masterPassword, backendUrl }) {
 
               {/* Add New Item Form */}
               <form onSubmit={handleSaveItem} style={{
-                background: 'rgba(94, 92, 230, 0.01)',
-                border: '1px solid rgba(94, 92, 230, 0.08)',
+                background: 'rgba(27, 98, 71, 0.01)',
+                border: '1px solid rgba(27, 98, 71, 0.08)',
                 padding: '24px',
                 borderRadius: '12px',
                 marginBottom: '32px'
@@ -345,7 +345,7 @@ export default function Dashboard({ user, masterPassword, backendUrl }) {
                       background: '#FFFFFF',
                       transition: 'background-color 0.2s'
                     }}
-                    onMouseOver={(e) => e.currentTarget.style.backgroundColor = 'rgba(94, 92, 230, 0.01)'}
+                    onMouseOver={(e) => e.currentTarget.style.backgroundColor = 'rgba(27, 98, 71, 0.01)'}
                     onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#FFFFFF'}
                     >
                       <div style={{ fontWeight: 700, fontSize: '13px', color: 'var(--text-primary)' }}>
@@ -423,8 +423,8 @@ export default function Dashboard({ user, masterPassword, backendUrl }) {
 
               {/* Simulator Form */}
               <form onSubmit={handleCreateMockPayout} style={{
-                background: 'rgba(94, 92, 230, 0.01)',
-                border: '1px solid rgba(94, 92, 230, 0.08)',
+                background: 'rgba(27, 98, 71, 0.01)',
+                border: '1px solid rgba(27, 98, 71, 0.08)',
                 padding: '24px',
                 borderRadius: '12px',
                 marginBottom: '32px'
@@ -508,8 +508,8 @@ export default function Dashboard({ user, masterPassword, backendUrl }) {
                         fontSize: '9px',
                         fontWeight: 700,
                         color: 'var(--accent-green)',
-                        background: 'rgba(36, 178, 99, 0.05)',
-                        border: '1px solid rgba(36, 178, 99, 0.15)',
+                        background: 'rgba(30, 104, 73, 0.05)',
+                        border: '1px solid rgba(30, 104, 73, 0.15)',
                         padding: '2px 8px',
                         borderRadius: '4px'
                       }}>

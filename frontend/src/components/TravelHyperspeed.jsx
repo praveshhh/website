@@ -8,10 +8,11 @@ import React, { Suspense, lazy, useEffect, useState } from 'react';
  * dynamic import: Vite emits it as a separate chunk that only downloads when
  * someone actually opens Travel. The home page never pays for it.
  *
- * It is also gated off below 900px and under prefers-reduced-motion. A big
- * share of the audience is on budget Android hardware, and a WebGL tunnel is
- * the wrong thing to hand them; they get the static gradient instead, which
- * looks deliberate rather than broken.
+ * It runs at every width, phones included. That is a deliberate call: the
+ * chunk is a real cost on mobile data and a real load on budget Android, but
+ * the effect is wanted on every device. prefers-reduced-motion still skips it
+ * entirely and falls back to the static gradient, which is drawn from the same
+ * colours so the fallback looks intended rather than broken.
  */
 
 const Hyperspeed = lazy(() => import('./Hyperspeed'));
@@ -66,16 +67,11 @@ export default function TravelHyperspeed() {
   const [enabled, setEnabled] = useState(false);
 
   useEffect(() => {
-    const big = window.matchMedia('(min-width: 900px)');
     const calm = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const sync = () => setEnabled(big.matches && !calm.matches);
+    const sync = () => setEnabled(!calm.matches);
     sync();
-    big.addEventListener('change', sync);
     calm.addEventListener('change', sync);
-    return () => {
-      big.removeEventListener('change', sync);
-      calm.removeEventListener('change', sync);
-    };
+    return () => calm.removeEventListener('change', sync);
   }, []);
 
   return (

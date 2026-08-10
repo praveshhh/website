@@ -1,0 +1,41 @@
+/*
+ * ParticleText styles — vendored from React Bits.
+ * MIT + Commons Clause License Condition v1.0, Copyright (c) 2026 David Haz.
+ * See ParticleText.jsx for the full notice.
+ *
+ * Local changes:
+ *   - root is a <span> with display:block, so it can sit inside an <h1>.
+ *     <h1> only accepts phrasing content, and the upstream <div> is invalid there.
+ *   - min-height dropped: each instance is sized by its caller to match the
+ *     line of type it replaces.
+ */
+
+.particle-text {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  touch-action: none;
+  isolation: isolate;
+}
+
+.particle-text__canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.particle-text__sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

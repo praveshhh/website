@@ -5,6 +5,7 @@ import axios from 'axios';
 import TiltCard from './TiltCard';
 import HeroAmbient from './HeroAmbient';
 import CapabilityCards from './CapabilityCards';
+import HeroParticleHeadline from './HeroParticleHeadline';
 
 // ─── Reusable animated section wrapper ───────────────────────────────────────
 function FadeUp({ children, delay = 0, className = '', style = {} }) {
@@ -1611,14 +1612,14 @@ export default function Hero({ onOpenAuth, backendUrl }) {
                 letterSpacing: '-0.03em',
                 marginBottom: '20px',
                 fontWeight: 900,
-                color: 'var(--text-primary)'
+                color: 'var(--text-primary)',
+                // The headline is a flex item on mobile. Its children are now
+                // percentage-width particle canvases with no intrinsic width,
+                // so without this it shrink-to-fits to zero and nothing draws.
+                width: '100%'
               }}
             >
-              Make Payment,<br />
-              <span className="text-gradient-green">Build Growth</span><br />
-              <span style={{ fontSize: 'clamp(18px, 4vw, 42px)', fontWeight: 800, display: 'block', marginTop: '12px' }} className="text-gradient-blue">
-                Fintech · IT Software · Travel
-              </span>
+              <HeroParticleHeadline />
             </motion.h1>
 
             <motion.p

@@ -332,7 +332,7 @@ export default function Modals({ activeModal, onClose }) {
             <div style={{ fontSize: '13px', lineHeight: '1.6', display: 'flex', flexDirection: 'column', gap: '14px', maxHeight: '50vh', overflowY: 'auto' }}>
               <p><strong>1. Fintech Services</strong><br />Failed transactions are automatically reversed within T+1 to T+3 working days depending on the payment mode.</p>
               <p><strong>2. Travel Bookings</strong><br />Cancellation and refund policies vary by airline, hotel, bus operator and train class. Flight cancellations incur airline fees plus a ₹250 service charge per passenger.</p>
-              <p><strong>3. IT Software Services</strong><br />If a custom project has not commenced, 100% refund of advance minus a 5% administrative fee. If work has begun, refund is calculated based on completed milestones.</p>
+              <p><strong>3. IT Software Services</strong><br />If a custom project has not commenced, 100% refund of advance minus a 5% administrative fee. If work has begun, refund is calculated based on completed milestones. Approved refunds are processed within 90 days.</p>
             </div>
           </div>
         )}

@@ -457,8 +457,6 @@ export const TOPICS = [
       `Our banking integrations and payouts run on **NPCI-approved protocols** and comply with **RBI guidelines**.`,
     bullets: [
       '🔒 256-bit SSL encryption and 2FA',
-      '🇮🇳 NPCI-certified for UPI and BBPS',
-      '📜 ISO 27001 certified',
       '📋 Compliant fund segregation and reporting',
     ],
     chips: ['🤝 Our Partners', '💳 Payment Gateway', '📞 Request Callback'],
@@ -522,7 +520,7 @@ export const TOPICS = [
       `**BBPS** — the Bharat Bill Payment System — lets you collect payments for electricity, gas, water, broadband, insurance, DTH and loan EMIs in one click, with instant confirmation.`,
     bullets: [
       `🧾 **${STATS.bbpsBillers}** across every major category`,
-      '✅ NPCI-certified, instant confirmation',
+      '✅ Instant confirmation',
       '💰 Earn commission on every bill payment',
       '🕐 24×7 processing',
     ],
@@ -545,7 +543,7 @@ export const TOPICS = [
       '👆 Biometric cash withdrawal and balance enquiry',
       '💵 ₹10K daily AEPS limit per customer',
       '🏪 Enables genuine last-mile banking in rural India',
-      '✅ NPCI-certified, 24×7 processing',
+      '✅ 24×7 processing',
     ],
     chips: ['🧾 BBPS', '💸 DMT', '📞 Request Callback'],
     related: ['bbps', 'dmt', 'agent-network'],

@@ -302,11 +302,11 @@ export default function Modals({ activeModal, onClose }) {
         {activeModal === 'privacy' && (
           <div>
             <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '20px', fontWeight: 800, marginBottom: '2px' }}>Privacy Policy</h3>
-            <div style={{ fontSize: '10.5px', color: 'var(--text-secondary)', marginBottom: '18px' }}>Last updated: 17 September 2026</div>
+            <div style={{ fontSize: '10.5px', color: 'var(--text-secondary)', marginBottom: '18px' }}>Last updated: 18 September 2026</div>
             <div style={{ fontSize: '13px', lineHeight: '1.6', display: 'flex', flexDirection: 'column', gap: '14px', maxHeight: '50vh', overflowY: 'auto' }}>
               <p><strong>1. Introduction</strong><br />BILLSPAY TECHNOLOGIES PRIVATE LIMITED respects your privacy and is committed to protecting your personal data. This Privacy Policy describes how we collect, use, store and share information when you use our website, services, APIs and mobile applications.</p>
               <p><strong>2. Information We Collect</strong><br />We collect: personal identification data (name, email, phone, business address), KYC documents as required by RBI, financial transaction data for settlements, and browser logs.</p>
-              <p><strong>3. Data Security</strong><br />We implement ISO 27001 and RBI-compliant security measures. All data is encrypted in transit and at rest.</p>
+              <p><strong>3. Data Security</strong><br />We implement RBI-compliant security measures. All data is encrypted in transit and at rest.</p>
             </div>
           </div>
         )}

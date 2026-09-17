@@ -1166,7 +1166,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
       desc: 'BBPS (220+ billers), AEPS (Aadhaar banking), DMT (money transfer), and Mobile Recharge provide complete last-mile banking for India\'s 1.4 billion people.',
       stats: [
         { label: 'BBPS Billers', val: '220+' },
-        { label: 'Certified', val: 'NPCI' },
+        { label: 'Uptime', val: '99.9%' },
         { label: 'AEPS Daily', val: '₹10K' },
         { label: 'Processing', val: '24×7' }
       ],
@@ -1729,16 +1729,10 @@ export default function Hero({ onOpenAuth, backendUrl }) {
       }}>
         <div className="ticker-wrap">
           <div className="ticker-content">
-            {[1, 2].map((groupIndex) => (
+            {[1, 2, 3, 4].map((groupIndex) => (
               <div key={groupIndex} style={{ display: 'inline-flex', gap: '48px', alignItems: 'center', paddingRight: '48px' }}>
                 <span style={{ fontSize: '11px', color: 'var(--text-secondary)', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '6px', letterSpacing: '0.03em' }}>
-                  <CheckCircle size={13} color="var(--accent-periwinkle)" /> NPCI Certified: BBPS & AEPS
-                </span>
-                <span style={{ fontSize: '11px', color: 'var(--text-secondary)', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '6px', letterSpacing: '0.03em' }}>
                   <CheckCircle size={13} color="var(--accent-periwinkle)" /> T+1 Settlement Cycle
-                </span>
-                <span style={{ fontSize: '11px', color: 'var(--text-secondary)', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '6px', letterSpacing: '0.03em' }}>
-                  <CheckCircle size={13} color="var(--accent-periwinkle)" /> ISO 27001 Certified
                 </span>
                 <span style={{ fontSize: '11px', color: 'var(--text-secondary)', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '6px', letterSpacing: '0.03em' }}>
                   <CheckCircle size={13} color="var(--accent-periwinkle)" /> 500+ Active Merchants
@@ -2010,7 +2004,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
                         { icon: '🤖', name: 'AI & Data Analytics', sub: 'Fraud detection, BI dashboards, recommendation engines, ML models' },
                         { icon: '📈', name: 'Digital Marketing & SEO', sub: 'Google Ads, Meta Ads, SEO audits, content strategy, live analytics' },
                         { icon: '🔗', name: 'API Development & Integration', sub: 'REST, GraphQL, payment gateways, government APIs, microservices' },
-                        { icon: '🔐', name: 'Cybersecurity & Compliance', sub: 'VAPT audits, OWASP hardening, ISO 27001, RBI compliance review' }
+                        { icon: '🔐', name: 'Cybersecurity & Compliance', sub: 'VAPT audits, OWASP hardening, RBI compliance review' }
                       ].map((svc, idx) => (
                         <StaggerCard key={idx} className="card-cred" style={{ padding: '20px', display: 'flex', gap: '14px', alignItems: 'flex-start', minHeight: 'auto' }}>
                           <span style={{ fontSize: '24px' }}>{svc.icon}</span>
@@ -2624,13 +2618,13 @@ export default function Hero({ onOpenAuth, backendUrl }) {
       {/* 8. CLIENT LOGOS MARQUEE */}
       <section style={{ padding: '40px 0', background: 'rgba(255,255,255,0.4)', borderTop: '1px solid var(--border-primary)', borderBottom: '1px solid var(--border-primary)', overflow: 'hidden' }}>
         <div style={{ display: 'flex', width: '200%', gap: '48px', animation: 'marquee 25s linear infinite' }} className="ticker-content">
-          {['State Bank of India', 'ICICI Bank', 'NPCI Certified', 'RBI Regulated', 'AWS Cloud Partner', 'IRCTC Rail Booking', 'MakeMyTrip API', 'Visa Card Net', 'MasterCard Net', 'Jio Payments'].map((logo, idx) => (
+          {['State Bank of India', 'ICICI Bank', 'RBI Regulated', 'AWS Cloud Partner', 'IRCTC Rail Booking', 'MakeMyTrip API', 'Visa Card Net', 'MasterCard Net', 'Jio Payments'].map((logo, idx) => (
             <div key={idx} style={{ flex: 1, textAlign: 'center', fontSize: '15px', fontWeight: 800, color: 'var(--text-muted)', opacity: 0.6, minWidth: '150px', whiteSpace: 'nowrap' }}>
               {logo}
             </div>
           ))}
           {/* Duplicate for infinite effect */}
-          {['State Bank of India', 'ICICI Bank', 'NPCI Certified', 'RBI Regulated', 'AWS Cloud Partner', 'IRCTC Rail Booking', 'MakeMyTrip API', 'Visa Card Net', 'MasterCard Net', 'Jio Payments'].map((logo, idx) => (
+          {['State Bank of India', 'ICICI Bank', 'RBI Regulated', 'AWS Cloud Partner', 'IRCTC Rail Booking', 'MakeMyTrip API', 'Visa Card Net', 'MasterCard Net', 'Jio Payments'].map((logo, idx) => (
             <div key={idx + '-dup'} style={{ flex: 1, textAlign: 'center', fontSize: '15px', fontWeight: 800, color: 'var(--text-muted)', opacity: 0.6, minWidth: '150px', whiteSpace: 'nowrap' }}>
               {logo}
             </div>

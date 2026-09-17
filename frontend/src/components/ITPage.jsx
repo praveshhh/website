@@ -522,7 +522,7 @@ export default function ITPage({ onOpenModal }) {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
               {[
                 { t: '6-week average delivery', d: 'Signed contract to production in 6 weeks. Tight sprints, daily standups, weekly demos. No scope creep, no deadline slips.' },
-                { t: 'Compliance-first architecture', d: 'RBI, OWASP, ISO 27001. Security is architected in from day one — not audited in after launch.' },
+                { t: 'Compliance-first architecture', d: 'RBI, OWASP. Security is architected in from day one — not audited in after launch.' },
                 { t: 'Full in-house team in Lucknow', d: '15+ developers, designers, DevOps and QA. No outsourcing. You talk to the people actually building your product every day.' },
                 { t: 'Zero vendor lock-in, ever', d: 'You own the code, the IP, the infrastructure. Full Git repo handover, complete documentation at project close.' }
               ].map((item, idx) => (
@@ -569,7 +569,6 @@ export default function ITPage({ onOpenModal }) {
                 
                 <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '24px' }}>
                   <span style={{ fontSize: '10px', fontWeight: 800, padding: '5px 12px', background: 'rgba(45,184,75,0.06)', color: '#1E9438', border: '1px solid rgba(45,184,75,0.12)', borderRadius: '50px' }}>✓ RBI Compliant</span>
-                  <span style={{ fontSize: '10px', fontWeight: 800, padding: '5px 12px', background: 'rgba(94,92,230,0.06)', color: 'var(--accent-periwinkle)', border: '1px solid rgba(94,92,230,0.12)', borderRadius: '50px' }}>✓ ISO 27001</span>
                 </div>
 
                 <div style={{ padding: '20px', background: 'var(--surf-1)', borderRadius: '16px', border: '1px solid var(--border-primary)' }}>

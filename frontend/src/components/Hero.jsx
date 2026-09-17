@@ -1330,11 +1330,11 @@ export default function Hero({ onOpenAuth, backendUrl }) {
         {
           title: 'Fintech & Payment Portals',
           tag: 'RBI Compliant',
-          desc: 'AEPS dashboards, BBPS portals, DMT panels, payout systems and agent networks built RBI-compliant and PCI-DSS secure.',
+          desc: 'AEPS dashboards, BBPS portals, DMT panels, payout systems and agent networks built secure and RBI-compliant.',
           feats: [
             'BBPS API, AEPS, DMT & UPI integration',
             'Multi-tier agent hierarchy dashboard',
-            'PCI-DSS & RBI compliant architecture',
+            'RBI compliant architecture',
             'Real-time transaction monitoring',
             'T+1 settlement engine',
             'Portals processing Rs 50L+ daily'
@@ -1458,7 +1458,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
   // Why Us cards
   const whyUs = [
     { icon: '⚡', title: 'T+1 Settlement', desc: 'Next-day settlements powered by Jio Payment & Cashfree. Your cash flow accelerated every business day.' },
-    { icon: '🔐', title: 'Bank-Grade Security', desc: 'PCI-DSS Level 1, 256-bit SSL encryption, 2FA & full RBI-compliant infrastructure always active.' },
+    { icon: '🔐', title: 'Bank-Grade Security', desc: '256-bit SSL encryption, 2FA & full RBI-compliant infrastructure always active.' },
     { icon: '🛠️', title: 'Full-Stack IT', desc: 'Payment APIs, mobile apps, cloud DevOps, and travel engines. BillsPay24X7✓ delivers it all.' },
     { icon: '📊', title: 'Real-Time Analytics', desc: 'Live dashboards with transaction insights, reconciliation tools & business intelligence reports.' },
     { icon: '🤝', title: '24×7 Dedicated Support', desc: 'WhatsApp, phone & email support. Your dedicated account manager always reachable, always accountable.' },
@@ -1735,12 +1735,6 @@ export default function Hero({ onOpenAuth, backendUrl }) {
                   <CheckCircle size={13} color="var(--accent-periwinkle)" /> NPCI Certified: BBPS & AEPS
                 </span>
                 <span style={{ fontSize: '11px', color: 'var(--text-secondary)', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '6px', letterSpacing: '0.03em' }}>
-                  <CheckCircle size={13} color="var(--accent-periwinkle)" /> RBI Registered Entity
-                </span>
-                <span style={{ fontSize: '11px', color: 'var(--text-secondary)', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '6px', letterSpacing: '0.03em' }}>
-                  <CheckCircle size={13} color="var(--accent-periwinkle)" /> PCI-DSS Level 1 Compliant
-                </span>
-                <span style={{ fontSize: '11px', color: 'var(--text-secondary)', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '6px', letterSpacing: '0.03em' }}>
                   <CheckCircle size={13} color="var(--accent-periwinkle)" /> T+1 Settlement Cycle
                 </span>
                 <span style={{ fontSize: '11px', color: 'var(--text-secondary)', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '6px', letterSpacing: '0.03em' }}>
@@ -2005,7 +1999,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
                       gap: '16px'
                     }}>
                       {[
-                        { icon: '💳', name: 'Fintech & Payment Portals', sub: 'AEPS, BBPS, DMT, UPI, payout systems, agent networks, PCI-DSS & RBI compliant' },
+                        { icon: '💳', name: 'Fintech & Payment Portals', sub: 'AEPS, BBPS, DMT, UPI, payout systems, agent networks, RBI compliant' },
                         { icon: '⚙️', name: 'Web Development', sub: 'React, Next.js, Node.js portals, SaaS platforms, progressive web apps' },
                         { icon: '📱', name: 'Mobile App Development', sub: 'Flutter & React Native, iOS & Android, fintech & travel apps, offline sync' },
                         { icon: '🛒', name: 'E-Commerce Solutions', sub: 'B2B & B2C stores, payment gateway, GST billing, logistics APIs, analytics' },
@@ -2468,7 +2462,6 @@ export default function Hero({ onOpenAuth, backendUrl }) {
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', fontSize: '12px' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between' }}><strong>CIN:</strong> <span style={{ fontFamily: 'var(--font-mono)' }}>U63999UP2026PTC245490</span></div>
                   <div style={{ display: 'flex', justifyContent: 'space-between' }}><strong>Brand:</strong> <span>BillsPay24X7✓</span></div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between' }}><strong>Status:</strong> <span style={{ color: 'var(--accent-green)', fontWeight: 700 }}>RBI Registered Entity</span></div>
                   <div style={{ display: 'flex', justifyContent: 'space-between' }}><strong>Hours:</strong> <span>Mon–Sat 9AM–7PM IST · 24×7 Support</span></div>
                 </div>
               </div>

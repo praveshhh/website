@@ -27,7 +27,6 @@ import { COMPANY, PILLARS, TOPICS, TOPIC_BY_ID, CHIPS } from './billspayKnowledg
  * label" and "whitelabel" score identically.
  */
 const PHRASE_COMPOUNDS = [
-  ['pci dss', 'pcidss'],
   ['qr code', 'qrcode'],
   ['white label', 'whitelabel'],
   ['ci cd', 'cicd'],

@@ -56,7 +56,7 @@ function IsometricArchitecture() {
           </div>
           <div>
             <div style={{ fontSize: '10px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.12em', color: '#0D1438' }}>Security Gate</div>
-            <div style={{ fontSize: '9px', color: '#2DB84B', fontWeight: 700 }}>✓ PCI-DSS & RBI Shield</div>
+            <div style={{ fontSize: '9px', color: '#2DB84B', fontWeight: 700 }}>✓ RBI Compliant</div>
           </div>
         </motion.div>
 
@@ -441,7 +441,7 @@ export default function ITPage({ onOpenModal }) {
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: '24px' }}>
             {[
-              { t: 'Fintech & Payment Portals', d: 'AEPS dashboards, BBPS portals, DMT panels, payout systems and agent networks — built RBI-compliant and PCI-DSS secure. We have shipped portals processing Rs 50L+ in daily transactions.', tags: ['BBPS API', 'AEPS', 'DMT', 'UPI', 'PCI-DSS', 'RBI'], icon: <Server size={22} />, glow: 'rgba(45,184,75,0.18)' },
+              { t: 'Fintech & Payment Portals', d: 'AEPS dashboards, BBPS portals, DMT panels, payout systems and agent networks — built secure and RBI-compliant. We have shipped portals processing Rs 50L+ in daily transactions.', tags: ['BBPS API', 'AEPS', 'DMT', 'UPI', 'RBI'], icon: <Server size={22} />, glow: 'rgba(45,184,75,0.18)' },
               { t: 'Web Development', d: 'React, Next.js, Node.js — high-performance portals, SaaS platforms and progressive web apps. From a 3-page landing site to a system handling 10,000 concurrent users.', tags: ['React', 'Next.js', 'Node.js', 'PostgreSQL'], icon: <Code size={22} />, glow: 'rgba(94,92,230,0.18)' },
               { t: 'Mobile App Dev', d: 'Flutter and React Native for iOS & Android. Cross-platform fintech, travel and retail apps with biometric auth, push notifications and offline mode.', tags: ['Flutter', 'React Native', 'Swift', 'Kotlin'], icon: <Tablet size={22} />, glow: 'rgba(14,165,233,0.18)' },
               { t: 'UI/UX Design', d: 'Figma-driven design systems, interactive prototypes, usability testing and conversion-optimized interfaces for web and mobile.', tags: ['Figma', 'Design System', 'User Testing'], icon: <Cpu size={22} />, glow: 'rgba(236,72,153,0.18)' },
@@ -522,7 +522,7 @@ export default function ITPage({ onOpenModal }) {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
               {[
                 { t: '6-week average delivery', d: 'Signed contract to production in 6 weeks. Tight sprints, daily standups, weekly demos. No scope creep, no deadline slips.' },
-                { t: 'Compliance-first architecture', d: 'RBI, PCI-DSS, OWASP, ISO 27001. Security is architected in from day one — not audited in after launch.' },
+                { t: 'Compliance-first architecture', d: 'RBI, OWASP, ISO 27001. Security is architected in from day one — not audited in after launch.' },
                 { t: 'Full in-house team in Lucknow', d: '15+ developers, designers, DevOps and QA. No outsourcing. You talk to the people actually building your product every day.' },
                 { t: 'Zero vendor lock-in, ever', d: 'You own the code, the IP, the infrastructure. Full Git repo handover, complete documentation at project close.' }
               ].map((item, idx) => (
@@ -568,7 +568,6 @@ export default function ITPage({ onOpenModal }) {
                 </div>
                 
                 <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '24px' }}>
-                  <span style={{ fontSize: '10px', fontWeight: 800, padding: '5px 12px', background: 'rgba(94,92,230,0.06)', color: 'var(--accent-periwinkle)', border: '1px solid rgba(94,92,230,0.12)', borderRadius: '50px' }}>✓ PCI-DSS L1</span>
                   <span style={{ fontSize: '10px', fontWeight: 800, padding: '5px 12px', background: 'rgba(45,184,75,0.06)', color: '#1E9438', border: '1px solid rgba(45,184,75,0.12)', borderRadius: '50px' }}>✓ RBI Compliant</span>
                   <span style={{ fontSize: '10px', fontWeight: 800, padding: '5px 12px', background: 'rgba(94,92,230,0.06)', color: 'var(--accent-periwinkle)', border: '1px solid rgba(94,92,230,0.12)', borderRadius: '50px' }}>✓ ISO 27001</span>
                 </div>

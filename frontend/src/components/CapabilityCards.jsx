@@ -141,7 +141,7 @@ const CARDS = [
   { key: 'bank',  label: 'Connected Banking', meta: '80+ partners',    Icon: IconConnectedBanking, pos: { left: '0%',  top: '4%'  }, drift: -11, dur: 6.4, delay: 0 },
   { key: 'kyc',   label: 'KYC Verified',      meta: 'Live in 48 hrs',  Icon: IconVerified,         pos: { right: '0%', top: '0%'  }, drift: -9,  dur: 7.2, delay: 0.7 },
   { key: 'pay',   label: 'Payments',          meta: '0.17% UPI MDR',   Icon: IconPayments,         pos: { left: '2%',  top: '62%' }, drift: -10, dur: 6.8, delay: 1.3 },
-  { key: 'secure',label: 'Secure Encryption', meta: 'PCI-DSS Level 1', Icon: IconSecure,           pos: { right: '1%', top: '57%' }, drift: -8,  dur: 7.8, delay: 0.35 },
+  { key: 'secure',label: 'Secure Encryption', meta: '256-bit SSL',     Icon: IconSecure,           pos: { right: '1%', top: '57%' }, drift: -8,  dur: 7.8, delay: 0.35 },
 ];
 
 // Connector geometry, drawn between the card centres in the same 100x100

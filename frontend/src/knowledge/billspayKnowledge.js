@@ -268,7 +268,7 @@ export const TOPICS = [
     answer: `Six reasons merchants pick us:`,
     bullets: [
       `⚡ **T+1 Settlement** — next-day settlement powered by Jio Payment & Cashfree`,
-      `🔐 **Bank-Grade Security** — PCI-DSS Level 1, 256-bit SSL, 2FA, RBI-compliant`,
+      `🔐 **Bank-Grade Security** — 256-bit SSL, 2FA, RBI-compliant`,
       `🛠️ **Full-Stack** — payments, banking, travel APIs and custom software from one vendor`,
       `📊 **Real-Time Analytics** — live dashboards, reconciliation and BI reports`,
       `🤝 **24×7 Support** — WhatsApp, phone, email plus a dedicated account manager`,
@@ -358,7 +358,7 @@ export const TOPICS = [
       `⚡ **${STATS.settlement}** straight to your registered bank account`,
       `📈 **${STATS.uptime}** with ${STATS.bankPartners}`,
       `🎨 White-label checkout + SDK and REST API`,
-      `🔐 PCI-DSS Level 1 and RBI-compliant infrastructure`,
+      `🔐 256-bit SSL and RBI-compliant infrastructure`,
     ],
     chips: ['💰 Pricing & MDR', '🔌 API & Integration', '📞 Request Callback'],
     related: ['pricing', 'integration', 'settlement', 'onboarding'],
@@ -445,22 +445,21 @@ export const TOPICS = [
   },
   {
     id: 'compliance',
-    strong: ['rbi', 'npci', 'pcidss'],
+    strong: ['rbi', 'npci'],
     pillar: 'fintech',
     title: 'Security & compliance',
     aliases: [
       'are you rbi approved', 'rbi compliant', 'is it safe', 'is it secure', 'security',
-      'pci dss', 'data protection', 'are you regulated', 'npci approved', 'licence', 'license',
+      'data protection', 'are you regulated', 'npci approved', 'licence', 'license',
     ],
-    keywords: ['security', 'secure', 'safe', 'safety', 'compliance', 'compliant', 'regulated', 'rbi', 'npci', 'pcidss', 'encryption', 'ssl', 'audit'],
+    keywords: ['security', 'secure', 'safe', 'safety', 'compliance', 'compliant', 'regulated', 'rbi', 'npci', 'encryption', 'ssl', 'audit'],
     answer:
-      `Yes — our banking integrations and payouts run on **NPCI-approved protocols** and comply with **RBI guidelines**.`,
+      `Our banking integrations and payouts run on **NPCI-approved protocols** and comply with **RBI guidelines**.`,
     bullets: [
-      '🔐 PCI-DSS Level 1 certified infrastructure',
       '🔒 256-bit SSL encryption and 2FA',
       '🇮🇳 NPCI-certified for UPI and BBPS',
       '📜 ISO 27001 certified',
-      '📋 RBI-registered entity, with compliant fund segregation and reporting',
+      '📋 Compliant fund segregation and reporting',
     ],
     chips: ['🤝 Our Partners', '💳 Payment Gateway', '📞 Request Callback'],
     related: ['partners', 'payment-gateway', 'legal'],
@@ -777,7 +776,7 @@ export const TOPICS = [
     ],
     keywords: ['fintechportal', 'dashboard', 'panel', 'admin', 'hierarchy'],
     answer:
-      `We build **fintech and payment portals** — AEPS dashboards, BBPS portals, DMT panels, payout systems and agent networks — RBI-compliant and PCI-DSS secure.\n\n` +
+      `We build **fintech and payment portals** — AEPS dashboards, BBPS portals, DMT panels, payout systems and agent networks — secure and RBI-compliant.\n\n` +
       `Our own agent portal runs ₹50L+ daily volume across 500+ agents, so this is a platform we operate ourselves, not just build.`,
     chips: ['🏪 Agent Network', '💳 Payments', '📞 Request Callback'],
     related: ['agent-network', 'it-overview'],

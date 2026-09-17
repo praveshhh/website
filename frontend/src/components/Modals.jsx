@@ -328,11 +328,12 @@ export default function Modals({ activeModal, onClose }) {
         {activeModal === 'refund' && (
           <div>
             <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '20px', fontWeight: 800, marginBottom: '2px' }}>Refund & Cancellation Policy</h3>
-            <div style={{ fontSize: '10.5px', color: 'var(--text-secondary)', marginBottom: '18px' }}>Last updated: 01 January 2026</div>
+            <div style={{ fontSize: '10.5px', color: 'var(--text-secondary)', marginBottom: '18px' }}>Last updated: 17 September 2026</div>
             <div style={{ fontSize: '13px', lineHeight: '1.6', display: 'flex', flexDirection: 'column', gap: '14px', maxHeight: '50vh', overflowY: 'auto' }}>
               <p><strong>1. Fintech Services</strong><br />Failed transactions are automatically reversed within T+1 to T+3 working days depending on the payment mode.</p>
               <p><strong>2. Travel Bookings</strong><br />Cancellation and refund policies vary by airline, hotel, bus operator and train class. Flight cancellations incur airline fees plus a ₹250 service charge per passenger.</p>
-              <p><strong>3. IT Software Services</strong><br />If a custom project has not commenced, 100% refund of advance minus a 5% administrative fee. If work has begun, refund is calculated based on completed milestones. Approved refunds are processed within 90 days.</p>
+              <p><strong>3. IT Software Services</strong><br />If a custom project has not commenced, 100% refund of advance minus a 5% administrative fee. If work has begun, refund is calculated based on completed milestones.</p>
+              <p><strong>4. Refund Timeline</strong><br />All eligible refunds will be credited to the original mode of payment within 90 (ninety) days from the date of cancellation or receipt of the refund request, or within any shorter period stated in this Policy or required under applicable law, whichever is earlier. If you have not received your refund within this period, please write to us at <a href="mailto:support@billspay24x7.com">support@billspay24x7.com</a> with your transaction or booking reference.</p>
             </div>
           </div>
         )}

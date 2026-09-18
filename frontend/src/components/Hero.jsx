@@ -2395,7 +2395,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
                 </div>
                 <div>
                   <h4 style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--text-muted)', marginBottom: '4px' }}>Email</h4>
-                  <a href="mailto:support@billspay24x7.com" style={{ fontSize: '16px', fontWeight: 800, color: 'var(--text-primary)', display: 'block' }}>support@billspay24x7.com</a>
+                  <a href="mailto:info@billspay24x7.com" style={{ fontSize: '16px', fontWeight: 800, color: 'var(--text-primary)', display: 'block' }}>info@billspay24x7.com</a>
                   <span style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>Response within 2 hours</span>
                 </div>
               </div>

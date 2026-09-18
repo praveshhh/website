@@ -23,7 +23,7 @@ export const COMPANY = {
   phone: '+91 92784 03522',
   phoneRaw: '+919278403522',
   whatsapp: 'https://wa.me/919278403522',
-  email: 'support@billspay24x7.com',
+  email: 'info@billspay24x7.com',
   hours: 'Mon–Sat 9AM–7PM IST, with 24×7 support',
   responseTime: 'within 2 hours during business hours',
   tagline: 'Smart Payments. Secure Growth.',

@@ -292,7 +292,7 @@ export default function Modals({ activeModal, onClose }) {
             <div style={{ fontSize: '13px', lineHeight: '1.6', display: 'flex', flexDirection: 'column', gap: '14px', maxHeight: '50vh', overflowY: 'auto' }}>
               <p><strong>Our Story</strong><br />BillsPay24X7✓ was founded in 2026 with a single mission: to build India's most complete fintech, travel and IT infrastructure platform. We are a team of engineers, designers and operators based in Lucknow, Uttar Pradesh, working with businesses across India.</p>
               <p><strong>What We Do</strong><br />We provide Payment Gateway, BBPS, AEPS, UPI, Payout API, Travel Booking (Flights, Hotels, Buses, Trains, Holidays) and Custom IT Software development — all under one roof. Our clients range from early-stage fintech startups to enterprise banks and travel companies.</p>
-              <p><strong>Company Details</strong><br />Name: BILLSPAY TECHNOLOGIES PRIVATE LIMITED<br />CIN: U63999UP2026PTC245490<br />Registered Office: PLOT NO-02 KHASRA NO-122 GRAM FARIDIPUR DUBAGGA, Lucknow Chowk, Lucknow, Uttar Pradesh 226003, India<br />Phone: +91 92784 03522<br />Email: support@billspay24x7.com</p>
+              <p><strong>Company Details</strong><br />Name: BILLSPAY TECHNOLOGIES PRIVATE LIMITED<br />CIN: U63999UP2026PTC245490<br />Registered Office: PLOT NO-02 KHASRA NO-122 GRAM FARIDIPUR DUBAGGA, Lucknow Chowk, Lucknow, Uttar Pradesh 226003, India<br />Phone: +91 92784 03522<br />Email: info@billspay24x7.com</p>
             </div>
           </div>
         )}
@@ -327,12 +327,12 @@ export default function Modals({ activeModal, onClose }) {
         {activeModal === 'refund' && (
           <div>
             <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '20px', fontWeight: 800, marginBottom: '2px' }}>Refund & Cancellation Policy</h3>
-            <div style={{ fontSize: '10.5px', color: 'var(--text-secondary)', marginBottom: '18px' }}>Last updated: 17 September 2026</div>
+            <div style={{ fontSize: '10.5px', color: 'var(--text-secondary)', marginBottom: '18px' }}>Last updated: 18 September 2026</div>
             <div style={{ fontSize: '13px', lineHeight: '1.6', display: 'flex', flexDirection: 'column', gap: '14px', maxHeight: '50vh', overflowY: 'auto' }}>
               <p><strong>1. Fintech Services</strong><br />Failed transactions are automatically reversed within T+1 to T+3 working days depending on the payment mode.</p>
               <p><strong>2. Travel Bookings</strong><br />Cancellation and refund policies vary by airline, hotel, bus operator and train class. Flight cancellations incur airline fees plus a ₹250 service charge per passenger.</p>
               <p><strong>3. IT Software Services</strong><br />If a custom project has not commenced, 100% refund of advance minus a 5% administrative fee. If work has begun, refund is calculated based on completed milestones.</p>
-              <p><strong>4. Refund Timeline</strong><br />All eligible refunds will be credited to the original mode of payment within 90 (ninety) days from the date of cancellation or receipt of the refund request, or within any shorter period stated in this Policy or required under applicable law, whichever is earlier. If you have not received your refund within this period, please write to us at <a href="mailto:support@billspay24x7.com">support@billspay24x7.com</a> with your transaction or booking reference.</p>
+              <p><strong>4. Refund Timeline</strong><br />All eligible refunds will be credited to the original mode of payment within 90 (ninety) days from the date of cancellation or receipt of the refund request, or within any shorter period stated in this Policy or required under applicable law, whichever is earlier. If you have not received your refund within this period, please write to us at <a href="mailto:info@billspay24x7.com">info@billspay24x7.com</a> with your transaction or booking reference.</p>
             </div>
           </div>
         )}
@@ -357,7 +357,7 @@ export default function Modals({ activeModal, onClose }) {
               </p>
               <p>
                 <strong>How to Apply</strong><br />
-                Send your resume and a short note to <a href="mailto:support@billspay24x7.com">support@billspay24x7.com</a> with the subject "Careers".
+                Send your resume and a short note to <a href="mailto:info@billspay24x7.com">info@billspay24x7.com</a> with the subject "Careers".
               </p>
             </div>
           </div>

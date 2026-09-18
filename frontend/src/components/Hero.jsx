@@ -586,7 +586,6 @@ function SolutionCardVisual3D({ tab, type }) {
     let grad = 'rgba(27,42,107,0.06)';
     if (type.includes('BBPS')) { strokeCol = '#2DB84B'; grad = 'rgba(45,184,75,0.06)'; }
     else if (type.includes('AEPS')) { strokeCol = 'var(--accent-periwinkle)'; grad = 'rgba(94,92,230,0.06)'; }
-    else if (type.includes('DMT')) { strokeCol = '#0EA5E9'; grad = 'rgba(14,165,233,0.06)'; }
     else { strokeCol = '#F59E0B'; grad = 'rgba(245,158,11,0.06)'; }
 
     return (
@@ -640,19 +639,6 @@ function SolutionCardVisual3D({ tab, type }) {
               <motion.line x1="44" y1="18" x2="76" y2="18" stroke="#2DB84B" strokeWidth="1.5"
                 animate={{ y: [0, 24, 0] }} transition={{ duration: 2, repeat: Infinity }} />
               <text x="60" y="65" textAnchor="middle" fontSize="8" fontWeight="800" fill="var(--accent-periwinkle)" fontFamily="var(--font-mono)">BIOMETRIC AUTH</text>
-            </>
-          )}
-
-          {type.includes('DMT') && (
-            <>
-              <circle cx="35" cy="35" r="8" fill="none" stroke="#0EA5E9" strokeWidth="2" />
-              <circle cx="85" cy="35" r="8" fill="none" stroke="#0EA5E9" strokeWidth="2" />
-              <path d="M43 35h34" stroke="#0EA5E9" strokeWidth="2" strokeDasharray="4 3" />
-              <motion.circle cx="43" cy="35" r="3" fill="#2DB84B"
-                animate={{ cx: [43, 77] }} transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }} />
-              <text x="35" y="38" textAnchor="middle" fontSize="8" fontWeight="bold" fill="#0EA5E9" fontFamily="var(--font-mono)">₹</text>
-              <text x="85" y="38" textAnchor="middle" fontSize="8" fontWeight="bold" fill="#0EA5E9" fontFamily="var(--font-mono)">✓</text>
-              <text x="60" y="62" textAnchor="middle" fontSize="8" fontWeight="800" fill="#0EA5E9" fontFamily="var(--font-mono)">DIRECT TRANSFER</text>
             </>
           )}
 
@@ -1163,7 +1149,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
     banking: {
       title: 'BillsPay24X7✓: Financial Inclusion Services',
       chip: '🏦 Banking & Financial Inclusion',
-      desc: 'BBPS (220+ billers), AEPS (Aadhaar banking), DMT (money transfer), and Mobile Recharge provide complete last-mile banking for India\'s 1.4 billion people.',
+      desc: 'BBPS (220+ billers), AEPS (Aadhaar banking), and Mobile Recharge provide complete last-mile banking for India\'s 1.4 billion people.',
       stats: [
         { label: 'BBPS Billers', val: '220+' },
         { label: 'Uptime', val: '99.9%' },
@@ -1195,19 +1181,6 @@ export default function Hero({ onOpenAuth, backendUrl }) {
             'Aadhaar to Aadhaar fund transfer',
             'Biometric devices: Morpho, Mantra, Startek',
             'Commission per transaction for CSP agents'
-          ]
-        },
-        {
-          title: 'DMT: Money Transfer',
-          tag: 'Instant Transfer',
-          desc: 'Domestic Money Transfer for migrant workers & rural customers. Cash-in at any BillsPay24X7✓ agent, instant IMPS credit to any bank account across India 24×7.',
-          feats: [
-            'Send up to ₹25,000/transaction · ₹1L/month',
-            'Sender KYC via Aadhaar OTP verification',
-            'Beneficiary management: save & reuse',
-            'IMPS real-time credit 24×7 all year',
-            'RBI-compliant transaction limits',
-            'Distributor → Retailer hierarchy & commission'
           ]
         },
         {
@@ -1330,9 +1303,9 @@ export default function Hero({ onOpenAuth, backendUrl }) {
         {
           title: 'Fintech & Payment Portals',
           tag: 'RBI Compliant',
-          desc: 'AEPS dashboards, BBPS portals, DMT panels, payout systems and agent networks built secure and RBI-compliant.',
+          desc: 'AEPS dashboards, BBPS portals, payout systems and agent networks built secure and RBI-compliant.',
           feats: [
-            'BBPS API, AEPS, DMT & UPI integration',
+            'BBPS API, AEPS & UPI integration',
             'Multi-tier agent hierarchy dashboard',
             'RBI compliant architecture',
             'Real-time transaction monitoring',
@@ -1467,7 +1440,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
 
   // Business Models
   const businessModels = [
-    { icon: '🏪', title: 'Retail & Kirana', desc: 'AEPS, BBPS, DMT & recharge for neighbourhood payment outlets across India.' },
+    { icon: '🏪', title: 'Retail & Kirana', desc: 'AEPS, BBPS & recharge for neighbourhood payment outlets across India.' },
     { icon: '🏢', title: 'B2B Aggregators', desc: 'White-label platforms with multi-level retailer & distributor hierarchy.' },
     { icon: '🛒', title: 'E-commerce', desc: 'Payment gateway + payout + GST invoicing for online retail businesses.' },
     { icon: '✈️', title: 'Travel Agencies', desc: 'Complete travel booking, offering flight, hotel, bus, and train services with B2B markup.' },
@@ -1635,7 +1608,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
                 fontWeight: 400
               }}
             >
-              Payment Gateway · BBPS · AEPS · DMT · UPI · Payout API · Flight · Hotel · Bus · Train · Custom Software · Cloud & DevOps. India's complete business platform with T+1 Settlement and RBI compliance.
+              Payment Gateway · BBPS · AEPS · UPI · Payout API · Flight · Hotel · Bus · Train · Custom Software · Cloud & DevOps. India's complete business platform with T+1 Settlement and RBI compliance.
             </motion.p>
 
             <motion.div
@@ -1993,7 +1966,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
                       gap: '16px'
                     }}>
                       {[
-                        { icon: '💳', name: 'Fintech & Payment Portals', sub: 'AEPS, BBPS, DMT, UPI, payout systems, agent networks, RBI compliant' },
+                        { icon: '💳', name: 'Fintech & Payment Portals', sub: 'AEPS, BBPS, UPI, payout systems, agent networks, RBI compliant' },
                         { icon: '⚙️', name: 'Web Development', sub: 'React, Next.js, Node.js portals, SaaS platforms, progressive web apps' },
                         { icon: '📱', name: 'Mobile App Development', sub: 'Flutter & React Native, iOS & Android, fintech & travel apps, offline sync' },
                         { icon: '🛒', name: 'E-Commerce Solutions', sub: 'B2B & B2C stores, payment gateway, GST billing, logistics APIs, analytics' },
@@ -2022,7 +1995,7 @@ export default function Hero({ onOpenAuth, backendUrl }) {
               {/* Solutions Grid */}
               <StaggerGrid style={{
                 display: 'grid',
-                gridTemplateColumns: (activeTab === 'fintech' || activeTab === 'banking') 
+                gridTemplateColumns: activeTab === 'fintech' 
                   ? 'repeat(auto-fill, minmax(min(100%, 450px), 1fr))' 
                   : 'repeat(auto-fill, minmax(min(100%, 320px), 1fr))',
                 gap: '24px'

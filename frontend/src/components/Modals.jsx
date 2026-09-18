@@ -159,7 +159,6 @@ export default function Modals({ activeModal, onClose }) {
                     <option>Payment Gateway</option>
                     <option>BBPS / Bill Payments</option>
                     <option>AEPS</option>
-                    <option>DMT Remittance</option>
                     <option>Payout API</option>
                     <option>Travel Solutions</option>
                     <option>IT Software</option>
@@ -292,7 +291,7 @@ export default function Modals({ activeModal, onClose }) {
             <div style={{ fontSize: '10px', fontFamily: 'var(--font-mono)', color: 'var(--text-secondary)', marginBottom: '18px' }}>BILLSPAY TECHNOLOGIES PRIVATE LIMITED</div>
             <div style={{ fontSize: '13px', lineHeight: '1.6', display: 'flex', flexDirection: 'column', gap: '14px', maxHeight: '50vh', overflowY: 'auto' }}>
               <p><strong>Our Story</strong><br />BillsPay24X7✓ was founded in 2026 with a single mission: to build India's most complete fintech, travel and IT infrastructure platform. We are a team of engineers, designers and operators based in Lucknow, Uttar Pradesh, working with businesses across India.</p>
-              <p><strong>What We Do</strong><br />We provide Payment Gateway, BBPS, AEPS, DMT, UPI, Payout API, Travel Booking (Flights, Hotels, Buses, Trains, Holidays) and Custom IT Software development — all under one roof. Our clients range from early-stage fintech startups to enterprise banks and travel companies.</p>
+              <p><strong>What We Do</strong><br />We provide Payment Gateway, BBPS, AEPS, UPI, Payout API, Travel Booking (Flights, Hotels, Buses, Trains, Holidays) and Custom IT Software development — all under one roof. Our clients range from early-stage fintech startups to enterprise banks and travel companies.</p>
               <p><strong>Company Details</strong><br />Name: BILLSPAY TECHNOLOGIES PRIVATE LIMITED<br />CIN: U63999UP2026PTC245490<br />Registered Office: PLOT NO-02 KHASRA NO-122 GRAM FARIDIPUR DUBAGGA, Lucknow Chowk, Lucknow, Uttar Pradesh 226003, India<br />Phone: +91 92784 03522<br />Email: support@billspay24x7.com</p>
             </div>
           </div>

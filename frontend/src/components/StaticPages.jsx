@@ -279,7 +279,7 @@ export function PricingPage() {
             <div style={{ fontSize: '32px', fontWeight: 900, margin: '14px 0', color: '#1B2A6B' }}>₹2,999 <span style={{ fontSize: '12px', fontWeight: 500, color: 'var(--text-secondary)' }}>/ month</span></div>
             <ul style={{ listStyle: 'none', padding: 0, margin: '20px 0', flex: 1, textAlign: 'left', display: 'flex', flexDirection: 'column', gap: '10px' }}>
               <li style={{ fontSize: '13px', color: 'var(--text-secondary)' }}>✓ Everything in Starter</li>
-              <li style={{ fontSize: '13px', color: 'var(--text-secondary)' }}>✓ AEPS & DMT Services</li>
+              <li style={{ fontSize: '13px', color: 'var(--text-secondary)' }}>✓ AEPS Services</li>
               <li style={{ fontSize: '13px', color: 'var(--text-secondary)' }}>✓ Payout API Integration</li>
               <li style={{ fontSize: '13px', color: 'var(--text-secondary)' }}>✓ Travel API Access</li>
               <li style={{ fontSize: '13px', color: 'var(--text-secondary)' }}>✓ Priority Phone Support</li>

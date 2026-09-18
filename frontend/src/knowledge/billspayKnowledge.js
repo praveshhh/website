@@ -71,8 +71,8 @@ export const PILLARS = {
     label: 'Banking Services',
     nodeLabel: 'Banking & AEPS',
     color: '#F59E0B',
-    tagline: 'BBPS · AEPS · DMT · Recharge — full financial inclusion stack',
-    desc: 'Last-mile retail banking: BBPS bill payments, AEPS Aadhaar banking, domestic money transfer and recharges.',
+    tagline: 'BBPS · AEPS · Recharge — full financial inclusion stack',
+    desc: 'Last-mile retail banking: BBPS bill payments, AEPS Aadhaar banking and recharges.',
   },
   travel: {
     id: 'travel',
@@ -133,7 +133,7 @@ export const TOPICS = [
       `We started with one mission: make digital financial services accessible to every business in India. From our head office in ${COMPANY.city}, we now serve merchants, agents and enterprises across the country.`,
     bullets: [
       '💳 Payments — gateway, UPI, virtual accounts, payouts',
-      '🏦 Banking — BBPS, AEPS, DMT, recharges',
+      '🏦 Banking — BBPS, AEPS, recharges',
       '✈️ Travel — flights, hotels, buses, trains, packages',
       '🛠️ IT Software — custom portals, apps, cloud',
     ],
@@ -288,7 +288,7 @@ export const TOPICS = [
     keywords: ['industry', 'industries', 'sector', 'clients', 'customers', 'retail', 'kirana', 'ecommerce', 'healthcare', 'education', 'saas', 'enterprise', 'agency'],
     answer: `We serve eight core segments — odds are yours is one of them:`,
     bullets: [
-      '🏪 **Retail & Kirana** — AEPS, BBPS, DMT & recharge for neighbourhood outlets',
+      '🏪 **Retail & Kirana** — AEPS, BBPS & recharge for neighbourhood outlets',
       '🏢 **B2B Aggregators** — white-label platforms with distributor hierarchy',
       '🛒 **E-commerce** — gateway + payouts + GST invoicing',
       '✈️ **Travel Agencies** — flight, hotel, bus, train booking with B2B markup',
@@ -496,7 +496,7 @@ export const TOPICS = [
       `Everything we ship is **REST API first**, with SDKs and webhooks.\n\n` +
       `You get full sandbox access before a single real rupee moves — we test pay-in, payouts, BBPS, recharge, travel booking and verification flows end to end, then flip you to production.`,
     bullets: [
-      '🔌 REST APIs + SDKs for gateway, payouts, BBPS, AEPS, DMT and travel',
+      '🔌 REST APIs + SDKs for gateway, payouts, BBPS, AEPS and travel',
       '🪝 Webhooks for real-time transaction events',
       '🧪 Full sandbox environment before go-live',
       `🚀 ${STATS.goLive}`,
@@ -524,8 +524,8 @@ export const TOPICS = [
       '💰 Earn commission on every bill payment',
       '🕐 24×7 processing',
     ],
-    chips: ['🏦 AEPS Services', '💸 DMT', '📞 Request Callback'],
-    related: ['aeps', 'dmt', 'agent-network'],
+    chips: ['🏦 AEPS Services', '🏪 Agent Network', '📞 Request Callback'],
+    related: ['aeps', 'agent-network'],
   },
   {
     id: 'aeps',
@@ -545,29 +545,8 @@ export const TOPICS = [
       '🏪 Enables genuine last-mile banking in rural India',
       '✅ 24×7 processing',
     ],
-    chips: ['🧾 BBPS', '💸 DMT', '📞 Request Callback'],
-    related: ['bbps', 'dmt', 'agent-network'],
-  },
-  {
-    id: 'dmt',
-    strong: ['dmt'],
-    pillar: 'banking',
-    title: 'DMT — Domestic Money Transfer',
-    aliases: [
-      'dmt', 'domestic money transfer', 'money transfer', 'send money to bank', 'remittance',
-      'cash to bank', 'imps transfer',
-    ],
-    keywords: ['dmt', 'remittance', 'remit', 'transfer', 'migrant', 'cashin'],
-    answer:
-      `**DMT** (Domestic Money Transfer) is built for migrant workers and rural customers — cash in at any ${COMPANY.brand} agent, and it lands instantly via IMPS in any bank account in India.`,
-    bullets: [
-      '💵 Cash-in at any agent outlet',
-      '⚡ Instant IMPS credit to any Indian bank account',
-      '🕐 Real-time, 24×7, all year',
-      '💰 Agent earns commission per transfer',
-    ],
-    chips: ['🏦 AEPS Services', '🧾 BBPS', '📞 Request Callback'],
-    related: ['aeps', 'bbps', 'agent-network'],
+    chips: ['🧾 BBPS', '🏪 Agent Network', '📞 Request Callback'],
+    related: ['bbps', 'agent-network'],
   },
   {
     id: 'recharge',
@@ -597,7 +576,7 @@ export const TOPICS = [
     keywords: ['agent', 'agents', 'retailer', 'retailers', 'distributor', 'hierarchy', 'commission', 'franchise', 'network', 'portal'],
     answer:
       `Yes — we run a full **agent / retailer network** with multi-level distributor hierarchy.\n\n` +
-      `You get one dashboard covering AEPS, BBPS, DMT, UPI and payouts, real-time monitoring and T+1 settlement. Our Lucknow agent-network client scaled to 250+ active agents and ₹15L daily volume on this platform.`,
+      `You get one dashboard covering AEPS, BBPS, UPI and payouts, real-time monitoring and T+1 settlement. Our Lucknow agent-network client scaled to 250+ active agents and ₹15L daily volume on this platform.`,
     bullets: [
       '🏪 Multi-tier agent, retailer and distributor hierarchy',
       '📊 Real-time monitoring dashboard',
@@ -605,7 +584,7 @@ export const TOPICS = [
       '🎨 Available fully white-labelled under your brand',
     ],
     chips: ['🏦 AEPS Services', '💰 Pricing', '📞 Request Callback'],
-    related: ['aeps', 'bbps', 'dmt', 'pricing'],
+    related: ['aeps', 'bbps', 'pricing'],
   },
 
   // ── Travel ────────────────────────────────────────────────────────────────
@@ -769,12 +748,12 @@ export const TOPICS = [
     pillar: 'it',
     title: 'Fintech & payment portals',
     aliases: [
-      'fintech portal', 'aeps dashboard', 'bbps portal', 'dmt panel', 'payout system',
+      'fintech portal', 'aeps dashboard', 'bbps portal', 'payout system',
       'agent portal software', 'build a fintech platform',
     ],
     keywords: ['fintechportal', 'dashboard', 'panel', 'admin', 'hierarchy'],
     answer:
-      `We build **fintech and payment portals** — AEPS dashboards, BBPS portals, DMT panels, payout systems and agent networks — secure and RBI-compliant.\n\n` +
+      `We build **fintech and payment portals** — AEPS dashboards, BBPS portals, payout systems and agent networks — secure and RBI-compliant.\n\n` +
       `Our own agent portal runs ₹50L+ daily volume across 500+ agents, so this is a platform we operate ourselves, not just build.`,
     chips: ['🏪 Agent Network', '💳 Payments', '📞 Request Callback'],
     related: ['agent-network', 'it-overview'],
@@ -829,7 +808,7 @@ export const TOPICS = [
     answer:
       `Simple, transparent pricing — no hidden fees.\n\n` +
       `**Starter — ₹0/month**\nBasic payment gateway, BBPS bill payments, UPI QR collections, email support, up to ₹50K daily volume.\n\n` +
-      `**Business — ₹2,999/month** ⭐ *most popular*\nEverything in Starter, plus AEPS & DMT, Payout API, Travel API access, priority phone support, up to ₹5L daily volume.\n\n` +
+      `**Business — ₹2,999/month** ⭐ *most popular*\nEverything in Starter, plus AEPS, Payout API, Travel API access, priority phone support, up to ₹5L daily volume.\n\n` +
       `**Enterprise — custom**\nEverything in Business, plus custom IT solutions, dedicated account manager, white-label options, 24/7 priority support, unlimited volume.\n\n` +
       `On transactions, UPI MDR is **${STATS.mdr}**. Custom software is quoted fixed-price per project, with support from ₹9,999/month.`,
     chips: ['📞 Request Callback', '💬 WhatsApp Us', '💳 Payment Gateway'],

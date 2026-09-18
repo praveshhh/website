@@ -418,7 +418,7 @@ export default function Dashboard({ user, masterPassword, backendUrl }) {
             <div>
               <h3 style={{ fontSize: '20px', color: 'var(--text-primary)', marginBottom: '6px', fontWeight: 800 }}>Payout Simulator Node</h3>
               <p style={{ fontSize: '13.5px', color: 'var(--text-secondary)', marginBottom: '28px' }}>
-                Simulate bulk money transfers and payment gateway checkouts using our virtual IMPS routing engine.
+                Simulate bulk payouts and payment gateway checkouts using our virtual IMPS routing engine.
               </p>
 
               {/* Simulator Form */}

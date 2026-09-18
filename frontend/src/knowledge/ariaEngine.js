@@ -304,7 +304,6 @@ const CHIP_LABEL_TO_TOPIC = {
   '💸 Payout API': 'payouts',
   '🏦 Virtual Accounts': 'virtual-accounts',
   '🧾 BBPS': 'bbps',
-  '💸 DMT': 'dmt',
   '🏪 Agent Network': 'agent-network',
   '✈️ Flights': 'flights',
   '🏨 Hotels': 'hotels',
@@ -345,7 +344,7 @@ function topicResponse(topic, extra = {}) {
 const CAPABILITY_ANSWER =
   `I'm **Aria**, the ${COMPANY.brand} advisor. I know this company inside out and I can walk you through any of it:\n\n` +
   `💳 **Payments** — gateway, UPI, virtual accounts, payouts, MDR, settlement\n` +
-  `🏦 **Banking** — BBPS, AEPS, DMT, recharge, agent networks\n` +
+  `🏦 **Banking** — BBPS, AEPS, recharge, agent networks\n` +
   `✈️ **Travel** — flights, hotels, buses, IRCTC trains, white-label portals\n` +
   `🛠️ **IT Software** — web, mobile, cloud, e-commerce, custom platforms\n` +
   `🏢 **The company** — who we are, pricing, partners, compliance, careers, contact\n\n` +
